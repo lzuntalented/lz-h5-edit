@@ -1,0 +1,73 @@
+.edit-item {
+  position: absolute;
+  border: 1px dashed transparent;
+
+  &.edit-item-not-active {
+    &:hover {
+      border-color: gray;
+    }
+  }
+
+  & > .ctrl-container {
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none;
+    .line {
+      position: absolute;
+      z-index: 1;
+      background-color: #44cb83;
+      height: 1px;
+      width: 1px;
+      &.l {
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+      &.t {
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      &.r {
+        top: 0;
+        right: 0;
+        height: 100%;
+      }
+      &.b {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+    }
+    .point {
+      position: absolute;
+      z-index: 1;
+      background-color: #FFFFFF;
+      border-radius: 50%;
+      border: 1px solid #44cb83;
+      width: 12px;
+      height: 12px;
+
+      &.lc {
+        left: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.rc {
+        right: -6px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.tc {
+        left: 50%;
+        top: -6px;
+        transform: translateX(-50%);
+      }
+      &.bc {
+        left: 50%;
+        bottom: -6px;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

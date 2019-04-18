@@ -1,0 +1,24 @@
+@import '../../style/style.scss';
+
+.shuang-container {
+  margin-top: 20px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  .ball {
+    width: 33px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: toREM(20);
+    border-radius: 50%;
+    color: #fff;
+    display: inline-block;
+    margin-right: 10px;
+    &-red {
+      background-color: #e70014;
+    }
+    &-blue {
+      background-color: #559fde;
+    }
+  }
+}
