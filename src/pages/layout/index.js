@@ -41,30 +41,7 @@ class LayoutFrame extends React.Component {
     const { children } = this.props;
     return (
       <Layout className="layout">
-        <Header className="layout-header-container">
-          <div className="menu-container">
-            <div className="logo" />
-            <Menu
-              mode="horizontal"
-              theme="light"
-              defaultSelectedKeys={[defaultName]}
-            >
-              {
-                menus.map((it, index) => (
-                  <Menu.Item key={it.name}>
-                    <a
-                      href={it.link}
-                      onClick={() => this.setState({ tag: index })}
-                      className={index === tag ? 'active' : ''}
-                    >
-                      {it.name}
-                    </a>
-                  </Menu.Item>
-                ))
-              }
-            </Menu>
-          </div>
-        </Header>
+        <Header className="layout-header-container" />
         <Content className="layout-content-container">
           {
             children

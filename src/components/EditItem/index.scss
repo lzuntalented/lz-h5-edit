@@ -8,6 +8,15 @@
     }
   }
 
+  .content-hide-container {
+    overflow: auto;
+    height: 100%;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
   & > .ctrl-container {
     margin: 0 0;
     padding: 0 0;

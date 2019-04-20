@@ -24,7 +24,7 @@ export default function (Component) {
   class Layout extends React.Component {
     static propTypes = {
       dispatch: PropTypes.func.isRequired,
-      activeEditKey: PropTypes.string.isRequired,
+      activeEditKey: PropTypes.string,
     }
 
     constructor(props) {
@@ -49,9 +49,10 @@ export default function (Component) {
       }
     }
 
-    onScale = flag => () => {
+    onScale = flag => (e) => {
       const { dispatch, activeEditKey } = this.props;
       if (activeEditKey !== uniqueId) {
+        e.preventDefault();
         dispatch(changeActiveEditKey(uniqueId));
         return;
       }
@@ -121,11 +122,13 @@ export default function (Component) {
               </ul>
             )
           }
-          <div
-            className="content-container"
-            ref={this.setMagicRefs(refNames.content)}
-          >
-            <Component resetHeight={this.resetHeight} setAttrs={this.setAttrs} {...attrs} />
+          <div className="content-hide-container">
+            <div
+              className="content-container"
+              ref={this.setMagicRefs(refNames.content)}
+            >
+              <Component resetHeight={this.resetHeight} setAttrs={this.setAttrs} {...attrs} />
+            </div>
           </div>
         </div>
       );
