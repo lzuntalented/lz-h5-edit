@@ -21,6 +21,7 @@
     "query-string": "^4.3.4",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-draggable": "^3.3.0",
     "react-redux": "^7.0.1",
     "react-router": "^3.0.0",
     "redux": "^4.0.1"

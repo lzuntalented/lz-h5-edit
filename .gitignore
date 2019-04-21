@@ -18,3 +18,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# build file
+.dist
+.build

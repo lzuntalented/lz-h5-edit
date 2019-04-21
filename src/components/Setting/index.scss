@@ -1,0 +1,14 @@
+.component-setting-container {
+    width: 260px;
+    background-color: #fafafa;
+    .header {
+        cursor: move;
+        height: 48px;
+        line-height: 48px;
+        background-color: #f7f7f7;
+        padding: 0 16px;
+    }
+    .tabs-content {
+        padding: 0 16px;
+    }
+}

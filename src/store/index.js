@@ -6,19 +6,21 @@ import reduces from '../reduce';
 /**
  * 创建每个编辑组件所需默认参数
  */
-export function createEditItem() {
+export function createEditItem(type) {
   return {
     current: {
       top: 0,
       left: 0,
       width: 320,
       height: 0,
+      type,
     },
     before: {
       top: 0,
       left: 0,
       width: 320,
       height: 0,
+      type,
     },
   };
 }

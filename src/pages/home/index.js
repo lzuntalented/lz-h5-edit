@@ -1,12 +1,10 @@
 import React from 'react';
-import EditItem from '../../components/Text';
 import Input from '../../components/Input';
 import Picture from '../../components/Picture';
+import Setting from '../../components/Setting';
 
-import { isUndefined } from '../../utils/Tools';
-
-import './index.scss';
 // 引入样式文件
+import './index.scss';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,10 +18,13 @@ class Home extends React.Component {
         <div className="phone-container">
           <div className="header" />
           <div className="content">
-            <Input />
             <Picture />
+            <Input />
           </div>
           <div className="footer" />
+        </div>
+        <div className="style-setting-container">
+          <Setting />
         </div>
       </div>
     );

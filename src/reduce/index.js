@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import {
   POINT_LEFT_CENTER, MOVE_START, MOVE_END, MOVE_CHANGE,
   CREATE_ITEM_STORE, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER,
-  ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR,
+  ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE,
 } from '../components/EditItem/constants';
 import { createEditItem } from '../store';
 
@@ -65,7 +65,9 @@ function create(store, action) {
   const obj = store.toJS();
   if (type === CREATE_ITEM_STORE) {
     const { editList } = obj;
-    editList[value] = createEditItem();
+    // { 唯一标识, 组件类型 }
+    const { uniqueId, type: componentType } = value;
+    editList[uniqueId] = createEditItem(componentType);
     return fromJS(obj);
   }
   return null;
@@ -125,6 +127,20 @@ function changeAttrs(store, action) {
   return null;
 }
 
+function changeBaseStyle(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === CHANGE_ITEM_BASE_STYLE) {
+    const { style, key } = value;
+    const { editList } = obj;
+    const { before, current } = editList[key];
+    Object.assign(before, style);
+    Object.assign(current, style);
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -134,4 +150,5 @@ export default [
   changeActiveEditKey,
   addAttrs,
   changeAttrs,
+  changeBaseStyle,
 ];

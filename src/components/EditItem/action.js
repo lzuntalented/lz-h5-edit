@@ -1,6 +1,6 @@
 import {
   MOVE_START, MOVE_END, MOVE_CHANGE, CREATE_ITEM_STORE,
-  RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR,
+  RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE,
 } from './constants';
 
 export function startMove(value) {
@@ -42,4 +42,8 @@ export function addAttrs(attrs, key) {
 
 export function changeAttrs(attrs, key) {
   return { type: CHANGE_ITEM_ATTR, value: { attrs, key } };
+}
+
+export function changeBaseStyle(style, key) {
+  return { type: CHANGE_ITEM_BASE_STYLE, value: { style, key } };
 }

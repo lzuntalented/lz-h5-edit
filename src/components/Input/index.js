@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
 import Layout from '../EditItem';
+import { COMPONENT_TYPE_TEXT } from '../EditItem/constants';
 
 // function Text() {
 //   return <Input placeholder="请输入" />;
@@ -25,6 +26,7 @@ class Text extends React.Component {
     super(props);
     props.setAttrs({
       color: 'red',
+      fontSize: 12,
     });
   }
 
@@ -58,7 +60,7 @@ class Text extends React.Component {
 
   render() {
     const { editable } = this.state;
-    const { color, resetHeight } = this.props;
+    const { color, resetHeight, fontSize } = this.props;
     return (
       <div
         style={{
@@ -66,6 +68,7 @@ class Text extends React.Component {
           minHeight: '40px',
           padding: 10,
           color,
+          fontSize,
         }}
         contentEditable={editable}
         onDoubleClick={this.onDoubleClick}
@@ -79,4 +82,4 @@ class Text extends React.Component {
   }
 }
 
-export default Layout(Text);
+export default Layout(Text, COMPONENT_TYPE_TEXT);

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
 import Layout from '../EditItem';
+import { COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
 
 // function Text() {
 //   return <Input placeholder="请输入" />;
@@ -59,4 +60,4 @@ class Picture extends React.Component {
   }
 }
 
-export default Layout(Picture);
+export default Layout(Picture, COMPONENT_TYPE_PICTURE);

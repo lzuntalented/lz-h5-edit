@@ -18,7 +18,7 @@ const refNames = {
   content: 'content',
 };
 
-export default function (Component) {
+export default function (Component, type) {
   // 唯一id
   const uniqueId = createId();
   class Layout extends React.Component {
@@ -32,7 +32,7 @@ export default function (Component) {
       const { dispatch } = props;
       this.magicRefs = {};
       this.childDownFlag = false;
-      dispatch(createItemStore(uniqueId));
+      dispatch(createItemStore({ uniqueId, type }));
     }
 
     componentDidMount() {
