@@ -24,10 +24,14 @@ class Text extends React.Component {
 
   constructor(props) {
     super(props);
-    props.setAttrs({
-      color: 'red',
-      fontSize: 12,
-    });
+    const { color } = props;
+    if (!color) {
+      props.setAttrs({
+        color: 'red',
+        fontSize: 12,
+      });
+    }
+    // console.log(props, 'props input');
   }
 
   onDoubleClick = () => {
