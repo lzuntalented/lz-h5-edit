@@ -20,7 +20,7 @@ const refNames = {
 
 export default function (Component, type) {
   // 唯一id
-  const uniqueId = createId();
+  // const uniqueId = createId();
   class Layout extends React.Component {
     static propTypes = {
       dispatch: PropTypes.func.isRequired,
@@ -32,7 +32,7 @@ export default function (Component, type) {
       const { dispatch } = props;
       this.magicRefs = {};
       this.childDownFlag = false;
-      dispatch(createItemStore({ uniqueId, type }));
+      // dispatch(createItemStore({ uniqueId, type }));
     }
 
     componentDidMount() {
@@ -41,7 +41,7 @@ export default function (Component, type) {
 
     // 重置高度
     resetHeight = () => {
-      const { dispatch } = this.props;
+      const { dispatch, uniqueId } = this.props;
       const elem = this.magicRefs[refNames.content];
       if (elem) {
         const height = elem.clientHeight;
@@ -50,7 +50,7 @@ export default function (Component, type) {
     }
 
     onScale = flag => (e) => {
-      const { dispatch, activeEditKey } = this.props;
+      const { dispatch, activeEditKey, uniqueId } = this.props;
       if (activeEditKey !== uniqueId) {
         e.preventDefault();
         dispatch(changeActiveEditKey(uniqueId));
@@ -71,14 +71,17 @@ export default function (Component, type) {
     }
 
     setAttrs = (attrs) => {
-      const { dispatch } = this.props;
+      const { dispatch, uniqueId } = this.props;
       dispatch(addAttrs(attrs, uniqueId));
     }
 
     render() {
       const {
-        width, left, top, height, activeEditKey, attrs,
+        activeEditKey, uniqueId, editList,
       } = this.props;
+      const {
+        width, left, top, height, attrs,
+      } = editList[uniqueId].current;
       const cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
       return (
         <div
@@ -138,9 +141,9 @@ export default function (Component, type) {
   const mapStateToProps = (store) => {
     const state = store.toJS();
     const { editList, activeEditKey } = state;
-    const item = editList[uniqueId];
-    const result = { uniqueId, activeEditKey };
-    if (item) return Object.assign(result, item.current);
+    // const item = editList[uniqueId];
+    const result = { activeEditKey, editList };
+    // if (item) return Object.assign(result, editList);
     return result;
   };
 

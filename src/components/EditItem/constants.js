@@ -39,6 +39,12 @@ export const ADD_ITEM_ATTRS = 'ADD_ITEM_ATTRS';
 export const CHANGE_ITEM_ATTR = 'CHANGE_ITEM_ATTR';
 // 改变基础几何属性
 export const CHANGE_ITEM_BASE_STYLE = 'CHANGE_ITEM_BASE_STYLE';
+// 添加页面
+export const STORE_ADD_PAGE = 'STORE_ADD_PAGE';
+// 切换激活页面
+export const CHANGE_ACTIVE_PAGE = 'CHANGE_ACTIVE_PAGE';
+// 添加页面元素
+export const ADD_PAGE_ITEM = 'ADD_PAGE_ITEM';
 
 // 组件类型
 // 文本

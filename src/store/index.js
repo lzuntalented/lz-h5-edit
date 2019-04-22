@@ -43,6 +43,10 @@ const defaultStore = fromJS({
   editList: {},
   // 当前正在操作的编辑框key
   activeEditKey: null,
+  // 页面列表
+  pages: [[]],
+  // 当前激活的页面
+  activePage: 0,
 });
 
 const store = createStore(reducer, defaultStore,
