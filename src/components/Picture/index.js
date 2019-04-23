@@ -35,7 +35,6 @@ class Picture extends React.Component {
 
   onLoad = () => {
     const { color, resetHeight } = this.props;
-    console.log('onload');
     resetHeight();
   }
 
@@ -44,7 +43,7 @@ class Picture extends React.Component {
 
   render() {
     const { editable } = this.state;
-    const { color, resetHeight } = this.props;
+    const { color } = this.props;
     return (
       <div
         style={{

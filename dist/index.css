@@ -162,24 +162,40 @@ html {
 .text-center {
   text-align: center; }
 
-.shuang-container {
+.home-container {
   margin-top: 20px;
-  background-color: #fff;
-  margin-bottom: 20px; }
-  .shuang-container .ball {
-    width: 33px;
-    height: 33px;
-    line-height: 33px;
-    text-align: center;
-    font-size: 1.66rem;
-    border-radius: 50%;
-    color: #fff;
-    display: inline-block;
-    margin-right: 10px; }
-    .shuang-container .ball-red {
-      background-color: #e70014; }
-    .shuang-container .ball-blue {
-      background-color: #559fde; }
+  position: relative; }
+  .home-container .phone-container {
+    width: 330px; }
+    .home-container .phone-container > .header {
+      height: 50px;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      background-color: #e0e0e0; }
+    .home-container .phone-container > .content {
+      height: 480px;
+      position: relative;
+      border-left: 5px solid #e0e0e0;
+      border-right: 5px solid #e0e0e0; }
+      .home-container .phone-container > .content .ant-carousel .slick-slide {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        overflow: hidden; }
+    .home-container .phone-container > .footer {
+      height: 30px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      background-color: #e0e0e0; }
+  .home-container .style-setting-container {
+    position: absolute;
+    right: 0;
+    top: 0; }
+  .home-container .page-manage-container {
+    position: absolute;
+    right: 300px;
+    top: 0; }
 
 .layout .layout-header-container {
   margin: 0 auto;

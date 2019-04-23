@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button } from 'antd';
 import Carousel from 're-carousel';
 import Text from '../../components/Input/render';
-import Picture from '../../components/Picture';
+import Picture from '../../components/Picture/render';
 import Setting from '../../components/Setting';
 import PageManage from '../../components/PageManage';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../components/EditItem/constants';
