@@ -29,6 +29,7 @@ class Text extends React.Component {
       props.setAttrs({
         color: 'red',
         fontSize: 12,
+        text: '',
       });
     }
     // console.log(props, 'props input');
@@ -59,12 +60,19 @@ class Text extends React.Component {
     this.setState({ editable: false });
   }
 
+  onInput = (e) => {
+    const { resetHeight, setAttribute } = this.props;
+    // console.log(e.target.textContent);
+    resetHeight();
+    setAttribute({ text: e.target.innerText });
+  }
+
   // 设置魔术引用
   setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
   render() {
     const { editable } = this.state;
-    const { color, resetHeight, fontSize } = this.props;
+    const { color, fontSize } = this.props;
     return (
       <div
         style={{
@@ -78,7 +86,7 @@ class Text extends React.Component {
         onDoubleClick={this.onDoubleClick}
         onBlur={this.onBlur}
         ref={this.setMagicRefs(refNames.editDom)}
-        onInput={() => { resetHeight(); }}
+        onInput={this.onInput}
       >
         双击编辑文本
       </div>

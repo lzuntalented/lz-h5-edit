@@ -54,6 +54,7 @@ class Home extends React.Component {
         <div className="page-manage-container">
           <PageManage />
         </div>
+        <a href="/#/preview">preview</a>
       </div>
     );
   }

@@ -75,6 +75,11 @@ export default function (Component, type) {
       dispatch(addAttrs(attrs, uniqueId));
     }
 
+    setAttribute = (attrs) => {
+      const { dispatch, uniqueId } = this.props;
+      dispatch(changeAttrs(attrs, uniqueId));
+    }
+
     render() {
       const {
         activeEditKey, uniqueId, editList,
@@ -130,7 +135,7 @@ export default function (Component, type) {
               className="content-container"
               ref={this.setMagicRefs(refNames.content)}
             >
-              <Component resetHeight={this.resetHeight} setAttrs={this.setAttrs} {...attrs} />
+              <Component resetHeight={this.resetHeight} setAttrs={this.setAttrs} setAttribute={this.setAttribute} {...attrs} />
             </div>
           </div>
         </div>
