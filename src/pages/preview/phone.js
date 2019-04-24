@@ -46,7 +46,7 @@ class Phone extends React.Component {
                   case COMPONENT_TYPE_TEXT:
                     return <Text {...others} key={it} />;
                   case COMPONENT_TYPE_PICTURE:
-                    return <Picture uniqueId={it} key={it} />;
+                    return <Picture {...others} key={it} />;
                   default:
                     break;
                 }

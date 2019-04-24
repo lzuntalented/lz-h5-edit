@@ -14,9 +14,8 @@ function Text(props) {
         color,
         fontSize,
       }}
-    >
-      {text}
-    </div>
+      dangerouslySetInnerHTML={{ __html: text }}
+    />
   );
 }
 export default Layout(Text);
