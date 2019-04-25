@@ -20,5 +20,5 @@ yarn-error.log*
 *.sw*
 
 # build file
-.dist
-.build
+dist
+build

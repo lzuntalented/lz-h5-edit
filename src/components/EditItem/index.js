@@ -86,8 +86,10 @@ export default function (Component, type) {
       } = this.props;
       const {
         width, left, top, height, attrs,
+        animate,
       } = editList[uniqueId].current;
-      const cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
+      let cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
+      cls += ` ${animate || ''}`;
       return (
         <div
           className={cls}

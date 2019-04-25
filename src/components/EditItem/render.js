@@ -9,11 +9,12 @@ import './index.scss';
 export default function (Component) {
   function Layout(props) {
     const {
-      width, left, top, height, attrs,
+      width, left, top, height, attrs, animate,
     } = props;
+    const cls = `edit-item ${animate || ''}`;
     return (
       <div
-        className="edit-item"
+        className={cls}
         style={{
           width,
           left,
