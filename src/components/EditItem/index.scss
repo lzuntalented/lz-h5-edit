@@ -78,6 +78,22 @@
         bottom: -6px;
         transform: translateX(-50%);
       }
+      &.lt {
+        left: -6px;
+        top: -6px;
+      }
+      &.rt {
+        right: -6px;
+        top: -6px;
+      }
+      &.lb {
+        left: -6px;
+        bottom: -6px;
+      }
+      &.rb {
+        right: -6px;
+        bottom: -6px;
+      }
     }
   }
 }

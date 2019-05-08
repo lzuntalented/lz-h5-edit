@@ -1,5 +1,5 @@
 import {
-  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, POINT_LEFT_CENTER, MOVE_CHANGE, MOVE_END, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM, POINT_BOTTOM_CENTER, ALL_ITEM,
+  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, POINT_LEFT_CENTER, MOVE_CHANGE, MOVE_END, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP, POINT_RIGHT_BOTTOM, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM,
 } from './constants';
 import { subscribe, dispatch } from '../../store';
 import { checkQuadrant } from '../../utils/index';
@@ -73,6 +73,35 @@ window.addEventListener('mousemove', (e) => {
         x: coordEnd.x - coordStart.x,
         y: coordEnd.y - coordStart.y,
       }));
+    } else if (flag === POINT_LEFT_TOP) {
+      // distance = Math.sqrt(Math.pow(coordStart.x - coordEnd.x, 2) + Math.pow(coordStart.y - coordEnd.y, 2));
+      distance = Math.min(Math.abs(coordStart.x - coordEnd.x), Math.abs(coordStart.y - coordEnd.y));
+      if (quadrant === QUADRANT_FOUR) {
+        dispatch(change({ distance: -distance }));
+      } else if (quadrant === QUADRANT_SECOND) {
+        dispatch(change({ distance }));
+      }
+    } else if (flag === POINT_RIGHT_BOTTOM) {
+      distance = Math.min(Math.abs(coordStart.x - coordEnd.x), Math.abs(coordStart.y - coordEnd.y));
+      if (quadrant === QUADRANT_FOUR) {
+        dispatch(change({ distance }));
+      } else if (quadrant === QUADRANT_SECOND) {
+        dispatch(change({ distance: -distance }));
+      }
+    } else if (flag === POINT_RIGHT_TOP) {
+      distance = Math.min(Math.abs(coordStart.x - coordEnd.x), Math.abs(coordStart.y - coordEnd.y));
+      if (quadrant === QUADRANT_FIRST) {
+        dispatch(change({ distance }));
+      } else if (quadrant === QUADRANT_THREE) {
+        dispatch(change({ distance: -distance }));
+      }
+    } else if (flag === POINT_LEFT_BOTTOM) {
+      distance = Math.min(Math.abs(coordStart.x - coordEnd.x), Math.abs(coordStart.y - coordEnd.y));
+      if (quadrant === QUADRANT_FIRST) {
+        dispatch(change({ distance: -distance }));
+      } else if (quadrant === QUADRANT_THREE) {
+        dispatch(change({ distance }));
+      }
     }
   }
 });

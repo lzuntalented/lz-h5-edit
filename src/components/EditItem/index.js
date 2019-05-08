@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  POINT_LEFT_CENTER, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM,
+  POINT_LEFT_CENTER, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_RIGHT_BOTTOM,
 } from './constants';
 import './event';
 
@@ -56,11 +56,10 @@ export default function (Component, type) {
         dispatch(changeActiveEditKey(uniqueId));
         return;
       }
-      if (flag === ALL_ITEM && this.childDownFlag) {
-        return;
-      }
-      if (flag !== ALL_ITEM) this.childDownFlag = true;
-      dispatch(startMove(flag));
+      const elem = e.target;
+      const key = elem.getAttribute('data-key');
+      if (key) dispatch(startMove(key));
+      else dispatch(startMove(flag));
     }
 
     // 设置魔术引用
@@ -111,23 +110,35 @@ export default function (Component, type) {
                 <li className="line b" />
                 <li
                   className="point lc"
-                  onMouseDown={this.onScale(POINT_LEFT_CENTER)}
-                  onMouseUp={this.setChildDownFLag}
+                  data-key={POINT_LEFT_CENTER}
                 />
                 <li
                   className="point rc"
-                  onMouseDown={this.onScale(POINT_RIGHT_CENTER)}
-                  onMouseUp={this.setChildDownFLag}
+                  data-key={POINT_RIGHT_CENTER}
                 />
                 <li
                   className="point tc"
-                  onMouseDown={this.onScale(POINT_TOP_CENTER)}
-                  onMouseUp={this.setChildDownFLag}
+                  data-key={POINT_TOP_CENTER}
                 />
                 <li
                   className="point bc"
-                  onMouseDown={this.onScale(POINT_BOTTOM_CENTER)}
-                  onMouseUp={this.setChildDownFLag}
+                  data-key={POINT_BOTTOM_CENTER}
+                />
+                <li
+                  className="point lt"
+                  data-key={POINT_LEFT_TOP}
+                />
+                <li
+                  className="point rt"
+                  data-key={POINT_RIGHT_TOP}
+                />
+                <li
+                  className="point lb"
+                  data-key={POINT_LEFT_BOTTOM}
+                />
+                <li
+                  className="point rb"
+                  data-key={POINT_RIGHT_BOTTOM}
                 />
               </ul>
             )

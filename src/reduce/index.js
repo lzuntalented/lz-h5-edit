@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import {
   POINT_LEFT_CENTER, MOVE_START, MOVE_END, MOVE_CHANGE,
   CREATE_ITEM_STORE, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER,
-  ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM,
+  ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP, POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP,
 } from '../components/EditItem/constants';
 import { createEditItem } from '../store';
 import { createId } from '../utils/IDManage';
@@ -51,6 +51,12 @@ function change(store, action) {
       if (flag === POINT_TOP_CENTER) {
         current.top = before.top - distance;
       }
+    } else if (flag === POINT_LEFT_TOP || flag === POINT_RIGHT_BOTTOM
+       || flag === POINT_LEFT_BOTTOM || flag === POINT_RIGHT_TOP) {
+      current.height = before.height + distance * 2;
+      current.width = before.width + distance * 2;
+      current.top = before.top - distance;
+      current.left = before.left - distance;
     } else if (flag === ALL_ITEM) {
       const { x, y } = value;
       current.top = before.top + y;
