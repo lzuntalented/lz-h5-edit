@@ -5,7 +5,9 @@ import { Button } from 'antd';
 
 import './index.scss';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
-import { addPage, addPageItem, changeActivePage } from '../EditItem/action';
+import {
+ addPage, addPageItem, changeActivePage, removeItem 
+} from '../EditItem/action';
 
 class PageManage extends React.Component {
   onAddPage = () => {
@@ -28,6 +30,11 @@ class PageManage extends React.Component {
     dispatch(changeActivePage(pageIndex));
   }
 
+  onRemove = () => {
+    const { dispatch } = this.props;
+    dispatch(removeItem());
+  }
+
   render() {
     const { pages, activePage } = this.props;
     return (
@@ -48,6 +55,7 @@ class PageManage extends React.Component {
             <Button onClick={this.onAddText}>新增Text</Button>
             <Button onClick={this.onAddPicture}>新增Picture</Button>
             <Button onClick={this.onAddPage}>新增页面</Button>
+            <Button onClick={this.onRemove}>删除元素</Button>
             {
               pages.map((it, index) => (
                 <div

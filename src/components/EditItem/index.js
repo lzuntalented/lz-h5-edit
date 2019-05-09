@@ -4,14 +4,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  POINT_LEFT_CENTER, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_RIGHT_BOTTOM,
+  POINT_LEFT_CENTER, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_RIGHT_BOTTOM, POINT_ROTATE,
 } from './constants';
 import './event';
 
 import './index.scss';
 import { createId } from '../../utils/IDManage';
 import {
-  createItemStore, startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs,
+  createItemStore, startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, saveMoveTagBoundingClientRect,
 } from './action';
 
 const refNames = {
@@ -58,8 +58,14 @@ export default function (Component, type) {
       }
       const elem = e.target;
       const key = elem.getAttribute('data-key');
-      if (key) dispatch(startMove(key));
-      else dispatch(startMove(flag));
+      if (key) {
+        if (key === POINT_ROTATE) {
+          dispatch(saveMoveTagBoundingClientRect(e.currentTarget.getBoundingClientRect()));
+        }
+        dispatch(startMove(key));
+      } else {
+        dispatch(startMove(flag));
+      }
     }
 
     // 设置魔术引用
@@ -84,7 +90,7 @@ export default function (Component, type) {
         activeEditKey, uniqueId, editList,
       } = this.props;
       const {
-        width, left, top, height, attrs,
+        width, left, top, height, rotate, attrs,
         animate,
       } = editList[uniqueId].current;
       let cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
@@ -98,6 +104,7 @@ export default function (Component, type) {
             left,
             top,
             height,
+            transform: `rotate(${rotate}deg)`,
           }}
         >
           {
@@ -108,6 +115,7 @@ export default function (Component, type) {
                 <li className="line r" />
                 <li className="line t" />
                 <li className="line b" />
+                <li className="line link-rotate" />
                 <li
                   className="point lc"
                   data-key={POINT_LEFT_CENTER}
@@ -140,6 +148,10 @@ export default function (Component, type) {
                   className="point rb"
                   data-key={POINT_RIGHT_BOTTOM}
                 />
+                <li
+                  className="point rotate"
+                  data-key={POINT_ROTATE}
+                />
               </ul>
             )
           }
@@ -148,7 +160,12 @@ export default function (Component, type) {
               className="content-container"
               ref={this.setMagicRefs(refNames.content)}
             >
-              <Component resetHeight={this.resetHeight} setAttrs={this.setAttrs} setAttribute={this.setAttribute} {...attrs} />
+              <Component
+                resetHeight={this.resetHeight}
+                setAttrs={this.setAttrs}
+                setAttribute={this.setAttribute}
+                {...attrs}
+              />
             </div>
           </div>
         </div>

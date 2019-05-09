@@ -13,6 +13,7 @@ export function createEditItem(type) {
       left: 0,
       width: 320,
       height: 0,
+      rotate: 0,
       type,
     },
     before: {
@@ -20,6 +21,7 @@ export function createEditItem(type) {
       left: 0,
       width: 320,
       height: 0,
+      rotate: 0,
       type,
     },
   };
@@ -47,6 +49,7 @@ const defaultStore = fromJS({
   pages: [[]],
   // 当前激活的页面
   activePage: 0,
+  moveBoundRect: {},
 });
 
 const store = createStore(reducer, defaultStore,

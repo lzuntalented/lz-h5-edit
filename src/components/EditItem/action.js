@@ -1,6 +1,6 @@
 import {
   MOVE_START, MOVE_END, MOVE_CHANGE, CREATE_ITEM_STORE,
-  RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM,
+  RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, REMOVE_ITEM, SAVE_MOVE_START_RECT,
 } from './constants';
 
 export function startMove(value) {
@@ -59,4 +59,12 @@ export function changeActivePage(value) {
 
 export function addPageItem(value) {
   return { type: ADD_PAGE_ITEM, value };
+}
+
+export function removeItem() {
+  return { type: REMOVE_ITEM };
+}
+
+export function saveMoveTagBoundingClientRect(value) {
+  return { type: SAVE_MOVE_START_RECT, value };
 }

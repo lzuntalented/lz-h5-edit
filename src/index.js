@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import router from './router';
-import 'antd/dist/antd.less';
+// import 'antd/dist/antd.less';
 // import './style/a.less';
 import './style';
 

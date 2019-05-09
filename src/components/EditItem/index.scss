@@ -48,6 +48,14 @@
         left: 0;
         width: 100%;
       }
+      &.link-rotate {
+        width: 1px;
+        height: 18px;
+        left: 50%;
+        top: -24px;
+        transform: translateX(-50%);
+        background-color: #ff5448;
+      }
     }
     .point {
       position: absolute;
@@ -93,6 +101,12 @@
       &.rb {
         right: -6px;
         bottom: -6px;
+      }
+      &.rotate {
+        left: 50%;
+        top: -30px;
+        transform: translateX(-50%);
+        border-color: #ff5448;
       }
     }
   }

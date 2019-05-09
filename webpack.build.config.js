@@ -30,7 +30,7 @@ module.exports = {
         // loader: 'babel-loader!react-loader'
       },
       {
-        test: /\.(css|less)$/,
+        test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -38,11 +38,18 @@ module.exports = {
         ],
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
         ],
       },
       //   {

@@ -21,6 +21,7 @@ export const POINT_LEFT_TOP = 'lt';
 export const POINT_RIGHT_TOP = 'rt';
 export const POINT_LEFT_BOTTOM = 'lb';
 export const POINT_RIGHT_BOTTOM = 'rb';
+export const POINT_ROTATE = 'rotate';
 
 // action type
 // 移动整个框
@@ -49,6 +50,12 @@ export const STORE_ADD_PAGE = 'STORE_ADD_PAGE';
 export const CHANGE_ACTIVE_PAGE = 'CHANGE_ACTIVE_PAGE';
 // 添加页面元素
 export const ADD_PAGE_ITEM = 'ADD_PAGE_ITEM';
+// 移除页面元素
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+// 修改元素旋转角度
+export const CHANGE_ITEM_ROTATE = 'CHANGE_ITEM_ROTATE';
+// 修改元素旋转角度
+export const SAVE_MOVE_START_RECT = 'SAVE_MOVE_START_RECT';
 
 // 组件类型
 // 文本

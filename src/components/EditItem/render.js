@@ -9,7 +9,7 @@ import './index.scss';
 export default function (Component) {
   function Layout(props) {
     const {
-      width, left, top, height, attrs, animate,
+      width, left, top, height, attrs, animate, rotate,
     } = props;
     const cls = `edit-item ${animate || ''}`;
     return (
@@ -20,6 +20,7 @@ export default function (Component) {
           left,
           top,
           height,
+          transform: `rotate(${rotate}deg)`,
         }}
       >
         <div className="content-hide-container">

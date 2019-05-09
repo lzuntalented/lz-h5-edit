@@ -2,7 +2,10 @@ import { fromJS } from 'immutable';
 import {
   POINT_LEFT_CENTER, MOVE_START, MOVE_END, MOVE_CHANGE,
   CREATE_ITEM_STORE, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER,
-  ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP, POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP,
+  ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR,
+  CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
+  POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
+  POINT_ROTATE, SAVE_MOVE_START_RECT,
 } from '../components/EditItem/constants';
 import { createEditItem } from '../store';
 import { createId } from '../utils/IDManage';
@@ -61,6 +64,48 @@ function change(store, action) {
       const { x, y } = value;
       current.top = before.top + y;
       current.left = before.left + x;
+    } else if (flag === POINT_ROTATE) {
+      const { moveBoundRect } = obj;
+      const { coordStart, coordEnd } = value;
+      const {
+        x, y, width, height,
+      } = moveBoundRect;
+
+      const ox = x + width / 2;
+      const oy = y + height / 2;
+
+      const ax = ox;
+      const ay = y;
+
+      const oa = {
+        x: ax - ox,
+        y: ay - oy,
+      };
+
+      const ob = {
+        x: coordEnd.x - ox,
+        y: coordEnd.y - oy,
+      };
+
+      const ab = {
+        x: coordEnd.x - ax,
+        y: coordEnd.y - ay,
+      };
+
+      const a = Math.sqrt(Math.pow(oa.x, 2) + Math.pow(oa.y, 2));
+
+      const b = Math.sqrt(Math.pow(ob.x, 2) + Math.pow(ob.y, 2));
+      const c = Math.sqrt(Math.pow(ab.x, 2) + Math.pow(ab.y, 2));
+
+
+      let dis = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
+      dis = Math.acos(dis) * (180 / Math.PI);
+      if (coordEnd.x > ox) {
+        // 小于180°夹角
+      } else {
+        dis = -dis;
+      }
+      current.rotate = dis;
     }
     return fromJS(obj);
   }
@@ -185,6 +230,31 @@ function addPageItem(store, action) {
   return null;
 }
 
+function removeItem(store, action) {
+  const { type } = action;
+  const obj = store.toJS();
+  if (type === REMOVE_ITEM) {
+    const { activeEditKey, activePage, pages } = obj;
+    // { 唯一标识, 组件类型 }
+    const page = pages[activePage];
+    page.forEach((it, index) => {
+      if (it === activeEditKey) page.splice(index);
+    });
+    return fromJS(obj);
+  }
+  return null;
+}
+
+function saveMoveTagBoundingClientRect(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === SAVE_MOVE_START_RECT) {
+    obj.moveBoundRect = value;
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -198,4 +268,6 @@ export default [
   createPage,
   changeActivePage,
   addPageItem,
+  removeItem,
+  saveMoveTagBoundingClientRect,
 ];
