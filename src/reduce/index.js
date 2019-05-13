@@ -105,7 +105,7 @@ function change(store, action) {
       } else {
         dis = -dis;
       }
-      current.rotate = dis;
+      current.rotate = Math.floor(dis);
     }
     return fromJS(obj);
   }
@@ -237,9 +237,11 @@ function removeItem(store, action) {
     const { activeEditKey, activePage, pages } = obj;
     // { 唯一标识, 组件类型 }
     const page = pages[activePage];
+    let delIndex = -1;
     page.forEach((it, index) => {
-      if (it === activeEditKey) page.splice(index);
+      if (it === activeEditKey) delIndex = index;
     });
+    page.splice(delIndex, 1);
     return fromJS(obj);
   }
   return null;

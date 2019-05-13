@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.7.0",
     "antd": "^3.6.6",
     "axios": "^0.16.2",
     "immutable": "^4.0.0-rc.12",

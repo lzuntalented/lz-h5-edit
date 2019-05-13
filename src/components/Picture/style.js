@@ -27,7 +27,11 @@ class TextStyle extends React.Component {
     setBaseStyle = key => (e) => {
       const { dispatch, activeEditKey } = this.props;
       const { target } = e;
-      dispatch(changeBaseStyle({ [key]: +target.value }, activeEditKey));
+      let value = e;
+      if (target) {
+        value = +target.value;
+      }
+      dispatch(changeBaseStyle({ [key]: value }, activeEditKey));
     }
 
     render() {

@@ -68,3 +68,4 @@ export const COMPONENT_STYLE_WIDHT = 'width';
 export const COMPONENT_STYLE_HEIGHT = 'height';
 export const COMPONENT_STYLE_TOP = 'top';
 export const COMPONENT_STYLE_LEFT = 'left';
+export const COMPONENT_STYLE_ROTATE = 'rotate';

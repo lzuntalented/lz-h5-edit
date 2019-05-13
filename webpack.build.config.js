@@ -66,12 +66,16 @@ module.exports = {
       },
     ],
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    'react-router': 'ReactRouter',
-    antd: 'antd',
-  },
+  externals: [
+    {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      'react-router': 'ReactRouter',
+      antd: 'antd',
+      'animate.css': 'window',
+      'antd/dist/antd.less': 'window',
+    },
+  ],
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

@@ -11,7 +11,14 @@ $phone-footer-height: 30;
   position: relative;
   .phone-container {
     width: $phone-width + 10 + px;
+    position: relative;
+
     & > .header {
+      // position: absolute;
+      // top: -$phone-header-height + px;
+      // left: 0;
+      // right: 0;
+      // z-index: 1;
       height: $phone-header-height + px;
       border-top-left-radius: $phone-header-height + px;
       border-top-right-radius: $phone-header-height + px;
@@ -22,8 +29,33 @@ $phone-footer-height: 30;
       position: relative;
       border-left: 5px solid #e0e0e0;
       border-right: 5px solid #e0e0e0;
+      // margin-top: $phone-header-height + px;
+      // margin-bottom: $phone-footer-height + px;
+
+      .border-left {
+        position: absolute;
+        left: -5px;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        background-color: #e0e0e0;
+      }
+
+      .border-right {
+        position: absolute;
+        right: -5px;
+        top: 0;
+        bottom: 0;
+        width: 10px;
+        background-color: #e0e0e0;
+      }
     }
     & > .footer {
+      // position: absolute;
+      // bottom: -$phone-footer-height + px;
+      // left: 0;
+      // right: 0;
+      // z-index: 1;
       height: $phone-footer-height + px;
       border-bottom-left-radius: $phone-footer-height + px;
       border-bottom-right-radius: $phone-footer-height + px;

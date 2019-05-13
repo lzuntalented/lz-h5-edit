@@ -49,6 +49,7 @@ const defaultStore = fromJS({
   pages: [[]],
   // 当前激活的页面
   activePage: 0,
+  // 当前正在活动的元素尺寸和位置
   moveBoundRect: {},
 });
 
