@@ -83,6 +83,7 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    // new webpack.IgnorePlugin(requestRegExp, [contextRegExp])
     // new UglifyJSPlugin(),
     // new webpack.DefinePlugin({
     //   'process.env': {

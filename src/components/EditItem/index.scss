@@ -1,7 +1,6 @@
 .edit-item {
   position: absolute;
   border: 1px dashed transparent;
-  animation-duration: 1s;
 
   &.edit-item-not-active {
     &:hover {
@@ -12,6 +11,7 @@
   .content-hide-container {
     overflow: auto;
     height: 100%;
+    animation-duration: 1s;
 
     &::-webkit-scrollbar {
       display: none;

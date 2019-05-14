@@ -11,10 +11,10 @@ export default function (Component) {
     const {
       width, left, top, height, attrs, animate, rotate,
     } = props;
-    const cls = `edit-item ${animate || ''}`;
+    const cls = `content-hide-container ${animate || ''}`;
     return (
       <div
-        className={cls}
+        className="edit-item"
         style={{
           width,
           left,
@@ -23,7 +23,7 @@ export default function (Component) {
           transform: `rotate(${rotate}deg)`,
         }}
       >
-        <div className="content-hide-container">
+        <div className={cls}>
           <div
             className="content-container"
           >

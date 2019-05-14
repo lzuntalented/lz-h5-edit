@@ -93,8 +93,8 @@ export default function (Component, type) {
         width, left, top, height, rotate, attrs,
         animate,
       } = editList[uniqueId].current;
-      let cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
-      cls += ` ${animate || ''}`;
+      const cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
+      const contentCls = `content-hide-container ${animate || ''}`;
       return (
         <div
           className={cls}
@@ -155,7 +155,7 @@ export default function (Component, type) {
               </ul>
             )
           }
-          <div className="content-hide-container">
+          <div className={contentCls}>
             <div
               className="content-container"
               ref={this.setMagicRefs(refNames.content)}

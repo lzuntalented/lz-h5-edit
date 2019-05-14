@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import router from './router';
-import 'antd/dist/antd.less';
-// import './style/a.less';
 import './style';
+
 import 'animate.css';
+import 'antd/dist/antd.less';
 
 const rootEl = window.document.getElementById('root');
 ReactDOM.render(

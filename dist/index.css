@@ -1,12 +1,12 @@
 .edit-item {
   position: absolute;
-  border: 1px dashed transparent;
-  animation-duration: 1s; }
+  border: 1px dashed transparent; }
   .edit-item.edit-item-not-active:hover {
     border-color: gray; }
   .edit-item .content-hide-container {
     overflow: auto;
-    height: 100%; }
+    height: 100%;
+    animation-duration: 1s; }
     .edit-item .content-hide-container::-webkit-scrollbar {
       display: none; }
   .edit-item > .ctrl-container {
