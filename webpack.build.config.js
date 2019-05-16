@@ -26,8 +26,12 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        // loader: 'babel-loader!react-loader'
+        use: {
+          loader: 'babel-loader',
+          options: {
+            envName: 'production'
+          }
+        }
       },
       {
         test: /\.less$/,
@@ -72,8 +76,8 @@ module.exports = {
       'react-dom': 'ReactDOM',
       'react-router': 'ReactRouter',
       antd: 'antd',
-      'animate.css': 'window',
-      'antd/dist/antd.less': 'window',
+      // 'animate.css': 'window',
+      // 'antd/dist/antd.less': 'window',
     },
   ],
   plugins: [
