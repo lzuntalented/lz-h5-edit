@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
-import { Tabs, Select } from 'antd';
+import { Tabs, Select, Button } from 'antd';
 
 import TextStyle from '../Input/style';
 import PictureStyle from '../Picture/style';
 
 import './index.scss';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
-import { changeBaseStyle } from '../EditItem/action';
+import { changeBaseStyle, removeItem } from '../EditItem/action';
 import Animate from './components/animate';
 
 const { TabPane } = Tabs;
@@ -20,6 +20,11 @@ class Setting extends React.Component {
     dispatch(changeBaseStyle({
       animate: e,
     }, activeEditKey));
+  }
+  
+  onRemove = () => {
+    const { dispatch } = this.props;
+    dispatch(removeItem());
   }
 
   renderComponent() {
@@ -58,6 +63,9 @@ class Setting extends React.Component {
               {
                   this.renderComponent()
               }
+              <div className="text-center m-t-12 m-b-12">
+                <Button onClick={this.onRemove} type="danger">删除元素</Button>
+              </div>
             </TabPane>
             <TabPane tab="动画" key="2">
               <Animate />

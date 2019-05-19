@@ -85,6 +85,12 @@ export default function (Component, type) {
       dispatch(changeAttrs(attrs, uniqueId));
     }
 
+    onKeyUp = () => {
+      console.log('onkey up');
+      const { dispatch } = this.props;
+      dispatch(removeItem());
+    }
+
     render() {
       const {
         activeEditKey, uniqueId, editList,

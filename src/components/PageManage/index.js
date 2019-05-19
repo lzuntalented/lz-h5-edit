@@ -4,9 +4,8 @@ import Draggable from 'react-draggable'; // The default
 import { Button } from 'antd';
 
 import './index.scss';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
 import {
- addPage, addPageItem, changeActivePage, removeItem 
+ addPage, changeActivePage, removeItem 
 } from '../EditItem/action';
 
 class PageManage extends React.Component {
@@ -15,24 +14,9 @@ class PageManage extends React.Component {
     dispatch(addPage());
   }
 
-  onAddText = () => {
-    const { dispatch } = this.props;
-    dispatch(addPageItem(COMPONENT_TYPE_TEXT));
-  }
-
-  onAddPicture = () => {
-    const { dispatch } = this.props;
-    dispatch(addPageItem(COMPONENT_TYPE_PICTURE));
-  }
-
   changePage = pageIndex => () => {
     const { dispatch } = this.props;
     dispatch(changeActivePage(pageIndex));
-  }
-
-  onRemove = () => {
-    const { dispatch } = this.props;
-    dispatch(removeItem());
   }
 
   render() {
@@ -52,10 +36,6 @@ class PageManage extends React.Component {
         <section className="component-page-manage-container">
           <header className="header">页面管理</header>
           <div className="content">
-            <Button onClick={this.onAddText}>新增Text</Button>
-            <Button onClick={this.onAddPicture}>新增Picture</Button>
-            <Button onClick={this.onAddPage}>新增页面</Button>
-            <Button onClick={this.onRemove}>删除元素</Button>
             {
               pages.map((it, index) => (
                 <div
@@ -68,6 +48,9 @@ class PageManage extends React.Component {
                 </div>
               ))
             }
+            <div className="text-center m-t-8">
+              <Button onClick={this.onAddPage} type="primary">新增页面</Button>
+            </div>
           </div>
         </section>
       </Draggable>

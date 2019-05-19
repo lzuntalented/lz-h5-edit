@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Layout,
-  Menu,
 } from 'antd';
-
-import getMenuItems from './config';
+import NavHeader from '../Header';
 
 import './index.scss';
 
@@ -22,18 +20,9 @@ class LayoutFrame extends React.Component {
 
   constructor(props) {
     super(props);
-    const hash = props.children.props.history.getCurrentLocation().pathname;
-    const menus = getMenuItems();
     this.state = {
-      menus,
       tag: 0,
     };
-    menus.forEach((it, index) => {
-      if (it.link === `#${hash}`) {
-        this.state.tag = index;
-        this.state.defaultName = it.name;
-      }
-    });
   }
 
   render() {
@@ -41,7 +30,9 @@ class LayoutFrame extends React.Component {
     const { children } = this.props;
     return (
       <Layout className="layout">
-        <Header className="layout-header-container" />
+        <Header className="layout-header-container">
+          <NavHeader />
+        </Header>
         <Content className="layout-content-container">
           {
             children

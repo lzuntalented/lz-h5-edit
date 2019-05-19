@@ -3,7 +3,7 @@ import {
 } from './constants';
 import { subscribe, dispatch } from '../../store';
 import { checkQuadrant } from '../../utils/index';
-import { change, endMove } from './action';
+import { change, endMove, removeItem } from './action';
 
 // 正在移动标识
 let moveTag = false;
@@ -123,6 +123,14 @@ window.addEventListener('mousecancel', () => {
     const key = moveTag;
     moveTag = false;
     dispatch(endMove(key));
+  }
+});
+
+window.addEventListener('keyup', (e) => {
+  const { keyCode } = e;
+  // 删除键
+  if (keyCode === 8) {
+    dispatch(removeItem());
   }
 });
 

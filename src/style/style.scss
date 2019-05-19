@@ -10,10 +10,27 @@
   margin-bottom: 5px;
 }
 
+.m-t-8 {
+  margin-top: 8px;
+}
+
+.m-t-12 {
+  margin-top: 12px;
+}
+
+.m-b-12 {
+  margin-bottom: 12px;
+}
+
 html {
   font-size: 12px;
 }
 
 .text-center {
   text-align: center;
+}
+
+section {
+  margin: 0 0;
+  padding: 0 0;
 }

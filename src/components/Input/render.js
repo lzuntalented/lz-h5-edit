@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Layout from '../EditItem/render';
 
 function Text(props) {
-  const { color, fontSize, text } = props;
+  const { color, fontSize, text, bgColor, lineHeight } = props;
   return (
     <div
       style={{
@@ -13,6 +13,8 @@ function Text(props) {
         padding: 10,
         color,
         fontSize,
+        background: bgColor,
+        lineHeight: fontSize * lineHeight
       }}
       dangerouslySetInnerHTML={{ __html: text }}
     />

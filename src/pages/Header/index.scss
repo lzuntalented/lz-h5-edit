@@ -1,0 +1,36 @@
+.page-header-container{
+    display: flex;
+    justify-content: center;
+    line-height: initial;
+
+    ul {
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+        li {
+            margin: 0 0;
+            padding: 0 0;
+            list-style: none;
+            display: inline-block;
+            width: 60px;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #1593ff;
+                color: #fff;
+            }
+
+            .icon {
+                font-size: 24px;
+            }
+
+            .txt {
+                font-size: 12px;
+                height: 24px;
+                line-height: 24px;
+                text-align: center;
+            }
+        }
+    }
+}

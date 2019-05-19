@@ -41,7 +41,7 @@
         left: 50%;
         top: -24px;
         transform: translateX(-50%);
-        background-color: #ff5448; }
+        background-color: #44cb83; }
     .edit-item > .ctrl-container .point {
       position: absolute;
       z-index: 1;
@@ -82,10 +82,13 @@
         left: 50%;
         top: -30px;
         transform: translateX(-50%);
-        border-color: #ff5448; }
+        border-color: #44cb83;
+        background-color: #44cb83; }
 
 .component-text-style-container {
   background-color: #fafafa; }
+  .component-text-style-container .ant-row-flex {
+    margin: 8px 0; }
 
 .component-setting-container {
   width: 260px;
@@ -109,7 +112,8 @@
     background-color: #f7f7f7;
     padding: 0 16px; }
   .component-page-manage-container .content {
-    padding: 0 16px; }
+    padding: 0 16px;
+    padding-bottom: 16px; }
     .component-page-manage-container .content .page-item {
       display: flex;
       align-items: center; }
@@ -140,11 +144,24 @@
 .m-b-5 {
   margin-bottom: 5px; }
 
+.m-t-8 {
+  margin-top: 8px; }
+
+.m-t-12 {
+  margin-top: 12px; }
+
+.m-b-12 {
+  margin-bottom: 12px; }
+
 html {
   font-size: 12px; }
 
 .text-center {
   text-align: center; }
+
+section {
+  margin: 0 0;
+  padding: 0 0; }
 
 .home-container {
   margin-top: 20px;
@@ -196,11 +213,24 @@ html {
 .m-b-5 {
   margin-bottom: 5px; }
 
+.m-t-8 {
+  margin-top: 8px; }
+
+.m-t-12 {
+  margin-top: 12px; }
+
+.m-b-12 {
+  margin-bottom: 12px; }
+
 html {
   font-size: 12px; }
 
 .text-center {
   text-align: center; }
+
+section {
+  margin: 0 0;
+  padding: 0 0; }
 
 .home-container {
   margin-top: 20px;
@@ -236,6 +266,33 @@ html {
     position: absolute;
     right: 300px;
     top: 0; }
+
+.page-header-container {
+  display: flex;
+  justify-content: center;
+  line-height: initial; }
+  .page-header-container ul {
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none; }
+    .page-header-container ul li {
+      margin: 0 0;
+      padding: 0 0;
+      list-style: none;
+      display: inline-block;
+      width: 60px;
+      text-align: center;
+      cursor: pointer; }
+      .page-header-container ul li:hover {
+        background-color: #1593ff;
+        color: #fff; }
+      .page-header-container ul li .icon {
+        font-size: 24px; }
+      .page-header-container ul li .txt {
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center; }
 
 .layout .layout-header-container {
   margin: 0 auto;
@@ -275,9 +332,22 @@ html {
 .m-b-5 {
   margin-bottom: 5px; }
 
+.m-t-8 {
+  margin-top: 8px; }
+
+.m-t-12 {
+  margin-top: 12px; }
+
+.m-b-12 {
+  margin-bottom: 12px; }
+
 html {
   font-size: 12px; }
 
 .text-center {
   text-align: center; }
+
+section {
+  margin: 0 0;
+  padding: 0 0; }
 

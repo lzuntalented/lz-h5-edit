@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  Select, Row, Col,
+  Select, Row, Col, Slider, Input
 } from 'antd';
 import { changeAttrs, changeBaseStyle } from '../EditItem/action';
 import SettingPosition from '../SettingPosition';
+import ColorPicker from '../ColorPicker';
 
 import './style.scss';
 
@@ -22,8 +23,13 @@ class TextStyle extends React.Component {
     }
 
     onChangeAttr = key => (e) => {
+      const { target } = e;
+      let value = e;
+      if (target) {
+        value = +target.value;
+      }
       const { dispatch, activeEditKey } = this.props;
-      dispatch(changeAttrs({ [key]: e }, activeEditKey));
+      dispatch(changeAttrs({ [key]: value }, activeEditKey));
     }
 
     setBaseStyle = key => (e) => {
@@ -40,11 +46,12 @@ class TextStyle extends React.Component {
       const { activeEditKey } = this.props;
       if (!activeEditKey) return <div>no style</div>;
       const {
-        width, height, top, left,
+        width, height, top, left, attrs,
       } = this.props;
+      const { lineHeight } = attrs;
       return (
         <div className="component-text-style-container">
-          <Row align="middle" type="flex">
+          <Row align="middle" type="flex" gutter={8}>
             <Col span={8}>字号</Col>
             <Col span={16}>
               <Select defaultValue={12} onChange={this.onChange}>
@@ -54,14 +61,31 @@ class TextStyle extends React.Component {
               </Select>
             </Col>
           </Row>
-          <Row align="middle" type="flex">
-            <Col span={8}>颜色</Col>
+          <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>文字颜色</Col>
             <Col span={16}>
-              <Select defaultValue="red" onChange={this.onChangeColor}>
-                <Select.Option key="red">red</Select.Option>
-                <Select.Option key="blue">blue</Select.Option>
-                <Select.Option key="yellow">yellow</Select.Option>
-              </Select>
+              <ColorPicker color={attrs.color} onChange={this.onChangeColor} />
+            </Col>
+          </Row>
+          <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>背景颜色</Col>
+            <Col span={16}>
+              <ColorPicker color={attrs.bgColor} onChange={this.onChangeAttr('bgColor')} />
+            </Col>
+          </Row>
+          <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>行高</Col>
+            <Col span={8}>
+              <Slider
+                min={0}
+                max={3}
+                step={0.1}
+                onChange={this.onChangeAttr('lineHeight')}
+                value={lineHeight}
+              />
+            </Col>
+            <Col span={8}>
+              <Input value={lineHeight} onChange={this.onChangeAttr('lineHeight')} />
             </Col>
           </Row>
           <SettingPosition {...this.props} setBaseStyle={this.setBaseStyle} />
@@ -69,7 +93,6 @@ class TextStyle extends React.Component {
       );
     }
 }
-
 
 const mapStateToProps = (store) => {
   const state = store.toJS();
