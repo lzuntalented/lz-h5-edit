@@ -5,12 +5,17 @@ import Layout from '../EditItem';
 import { COMPONENT_TYPE_TEXT } from '../EditItem/constants';
 // 组件默认属性
 const defaultAttrs = {
+  // 字体颜色
   color: 'red',
+  // 字体大小
   fontSize: 12,
+  // 内容
   text: '',
+  // 背景颜色
   bgColor: '',
-  lineHeight: 1.5
-}
+  // 行高
+  lineHeight: 1.5,
+};
 
 const refNames = {
   editDom: 'editDom',
@@ -36,6 +41,27 @@ class Text extends React.Component {
     }
     this.focusAble = false;
     // console.log(props, 'props input');
+  }
+
+  componentDidUpdate() {
+    const { text } = this.props;
+    if (this.focusAble) {
+      const elem = this.magicRefs.editDom;
+      // 获取选定对象
+      const selection = window.getSelection();
+      // 创建新的光标对象
+      const range = selection.getRangeAt(0);
+      // 获取光标对象的范围界定对象，一般就是textNode对象
+      const textNode = elem;
+      // 光标位置定位在表情节点的最大长度
+      range.setStart(textNode, elem.childNodes.length);
+      // 使光标开始和光标结束重叠
+      range.collapse(true);
+      // 清除选定对象的所有光标对象
+      selection.removeAllRanges();
+      // 插入新的光标对象
+      selection.addRange(range);
+    }
   }
 
   onDoubleClick = () => {
@@ -64,30 +90,11 @@ class Text extends React.Component {
   // 设置魔术引用
   setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
-  componentDidUpdate() {
-    const { text } = this.props;
-    if (this.focusAble) {
-      const elem = this.magicRefs.editDom;
-      // 获取选定对象
-      const selection = window.getSelection();
-      // 创建新的光标对象
-      const range = selection.getRangeAt(0);
-      // 获取光标对象的范围界定对象，一般就是textNode对象
-      const textNode = elem;
-      // 光标位置定位在表情节点的最大长度
-      range.setStart(textNode, elem.childNodes.length);
-      // 使光标开始和光标结束重叠
-      range.collapse(true);
-      // 清除选定对象的所有光标对象
-      selection.removeAllRanges();
-      // 插入新的光标对象
-      selection.addRange(range);
-    }
-  }
-
   render() {
     const { editable } = this.state;
-    const { setAttrs, resetHeight, setAttribute, text, bgColor, ...others } = this.props;
+    const {
+      setAttrs, resetHeight, setAttribute, text, bgColor, ...others
+    } = this.props;
     const style = Object.assign({
       width: '100%',
       minHeight: '40px',

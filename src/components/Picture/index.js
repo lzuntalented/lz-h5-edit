@@ -4,12 +4,16 @@ import PropTypes from 'prop-types';
 import Layout from '../EditItem';
 import { COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
 
-// function Text() {
-//   return <Input placeholder="请输入" />;
-// }
+// 组件默认属性
+const defaultAttrs = {
+  // 图片地址
+  imgSrc: 'http://www.lzuntalented.cn/lzphp-show/data/img/1.jpg',
+};
+
 const refNames = {
   editDom: 'editDom',
 };
+
 class Picture extends React.Component {
   static propTypes = {
     setAttrs: PropTypes.func.isRequired,
@@ -20,9 +24,7 @@ class Picture extends React.Component {
 
   constructor(props) {
     super(props);
-    props.setAttrs({
-      imgSrc: 'http://www.lzuntalented.cn/lzphp-show/data/img/1.jpg',
-    });
+    props.setAttrs(defaultAttrs);
   }
 
   onDoubleClick = () => {
