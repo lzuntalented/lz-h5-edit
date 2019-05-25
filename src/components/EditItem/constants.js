@@ -56,6 +56,8 @@ export const REMOVE_ITEM = 'REMOVE_ITEM';
 export const CHANGE_ITEM_ROTATE = 'CHANGE_ITEM_ROTATE';
 // 修改元素旋转角度
 export const SAVE_MOVE_START_RECT = 'SAVE_MOVE_START_RECT';
+// 页面元素重新排序
+export const PAGE_ITEM_RESORT = 'PAGE_ITEM_RESORT';
 
 // 组件类型
 // 文本

@@ -1,3 +1,5 @@
+import { COMPONENT_TYPE_PICTURE } from '../components/EditItem/constants';
+
 function isType(type) {
   return obj => Object.prototype.toString.call(obj) === `[object ${type}]`;
 }
@@ -16,3 +18,15 @@ const isObject = isType('Object');
 export {
   isFunction, isUndefined, isArray, isObject,
 };
+
+/**
+ * 获取指定类型组件的文本描述
+ * @param {string} type
+ */
+export function getNameWithItemType(type) {
+  let result = '文本';
+  if (type === COMPONENT_TYPE_PICTURE) {
+    result = '图片';
+  }
+  return result;
+}

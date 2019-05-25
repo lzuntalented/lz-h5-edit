@@ -34,3 +34,16 @@ section {
   margin: 0 0;
   padding: 0 0;
 }
+
+ul, li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none;
+}
+
+body > li {
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  padding: 0 8px;
+  line-height: 32px;
+}

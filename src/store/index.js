@@ -6,8 +6,9 @@ import reduces from '../reduce';
 /**
  * 创建每个编辑组件所需默认参数
  */
-export function createEditItem(type) {
+export function createEditItem(type, name) {
   return {
+    name,
     current: {
       top: 0,
       left: 0,

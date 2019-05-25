@@ -90,6 +90,11 @@
   .component-text-style-container .ant-row-flex {
     margin: 8px 0; }
 
+.component-picture-style-container {
+  background-color: #fafafa; }
+  .component-picture-style-container .ant-row-flex {
+    margin: 8px 0; }
+
 .component-setting-container {
   width: 260px;
   background-color: #fafafa; }
@@ -112,7 +117,6 @@
     background-color: #f7f7f7;
     padding: 0 16px; }
   .component-page-manage-container .content {
-    padding: 0 16px;
     padding-bottom: 16px; }
     .component-page-manage-container .content .page-item {
       display: flex;
@@ -137,6 +141,25 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden; }
+  .component-page-manage-container .tabs-content {
+    padding: 0 16px; }
+
+.component-level-manage-container {
+  margin-bottom: 12px; }
+  .component-level-manage-container ul {
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none;
+    border: 1px solid #cacaca;
+    border-bottom-color: transparent; }
+    .component-level-manage-container ul li {
+      margin: 0 0;
+      padding: 0 8px;
+      list-style: none;
+      line-height: 32px;
+      border-bottom: 1px solid #cacaca; }
+      .component-level-manage-container ul li.active {
+        color: #1593ff; }
 
 .m-l-20 {
   margin-left: 20px; }
@@ -162,6 +185,17 @@ html {
 section {
   margin: 0 0;
   padding: 0 0; }
+
+ul, li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none; }
+
+body > li {
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  padding: 0 8px;
+  line-height: 32px; }
 
 .home-container {
   margin-top: 20px;
@@ -231,6 +265,17 @@ html {
 section {
   margin: 0 0;
   padding: 0 0; }
+
+ul, li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none; }
+
+body > li {
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  padding: 0 8px;
+  line-height: 32px; }
 
 .home-container {
   margin-top: 20px;
@@ -350,4 +395,15 @@ html {
 section {
   margin: 0 0;
   padding: 0 0; }
+
+ul, li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none; }
+
+body > li {
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  padding: 0 8px;
+  line-height: 32px; }
 

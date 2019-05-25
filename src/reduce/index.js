@@ -5,10 +5,11 @@ import {
   ALL_ITEM, RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR,
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
-  POINT_ROTATE, SAVE_MOVE_START_RECT,
+  POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
 } from '../components/EditItem/constants';
 import { createEditItem } from '../store';
 import { createId } from '../utils/IDManage';
+import { getNameWithItemType } from '../utils/Tools';
 
 function startMove(store, action) {
   const { type, value } = action;
@@ -223,13 +224,19 @@ function addPageItem(store, action) {
     const { editList, activePage, pages } = obj;
     // { 唯一标识, 组件类型 }
     const uniqueId = createId();
-    editList[uniqueId] = createEditItem(value);
-    pages[activePage].push(uniqueId);
+    const page = pages[activePage];
+    // 给组件命名
+    const name = `${getNameWithItemType(value)} ${page.length + 1}`;
+    editList[uniqueId] = createEditItem(value, name);
+    page.push(uniqueId);
+    // 设置当前添加的元素为激活项
+    obj.activeEditKey = uniqueId;
     return fromJS(obj);
   }
   return null;
 }
 
+// 移除元素
 function removeItem(store, action) {
   const { type } = action;
   const obj = store.toJS();
@@ -257,6 +264,17 @@ function saveMoveTagBoundingClientRect(store, action) {
   return null;
 }
 
+function resortPageItem(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === PAGE_ITEM_RESORT) {
+    const { activePage, pages } = obj;
+    pages[activePage] = value;
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -272,4 +290,5 @@ export default [
   addPageItem,
   removeItem,
   saveMoveTagBoundingClientRect,
+  resortPageItem,
 ];

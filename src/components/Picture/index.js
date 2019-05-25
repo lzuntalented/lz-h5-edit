@@ -16,16 +16,12 @@ class Picture extends React.Component {
     resetHeight: PropTypes.func.isRequired,
   }
 
-  state = {
-    editable: false,
-  }
-
   magicRefs = {}
 
   constructor(props) {
     super(props);
     props.setAttrs({
-      color: 'red',
+      imgSrc: 'http://www.lzuntalented.cn/lzphp-show/data/img/1.jpg',
     });
   }
 
@@ -34,7 +30,7 @@ class Picture extends React.Component {
   }
 
   onLoad = () => {
-    const { color, resetHeight } = this.props;
+    const { resetHeight } = this.props;
     resetHeight();
   }
 
@@ -42,18 +38,16 @@ class Picture extends React.Component {
   setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
   render() {
-    const { editable } = this.state;
-    const { color } = this.props;
+    const { imgSrc } = this.props;
     return (
       <div
         style={{
           width: '100%',
           minHeight: '40px',
-          color,
         }}
         ref={this.setMagicRefs(refNames.editDom)}
       >
-        <img src="http://www.lzuntalented.cn/lzphp-show/data/img/1.jpg" alt="" onLoad={this.onLoad} width="100%" />
+        <img src={imgSrc} alt="" onLoad={this.onLoad} width="100%" />
       </div>
     );
   }

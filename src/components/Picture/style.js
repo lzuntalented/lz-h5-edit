@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {
-  Select, Row, Col, Input,
+  Row, Col, Input,
 } from 'antd';
 import { changeAttrs, changeBaseStyle } from '../EditItem/action';
 import SettingPosition from '../SettingPosition';
+
+import './index.scss';
 
 class TextStyle extends React.Component {
     state = {}
@@ -21,7 +23,12 @@ class TextStyle extends React.Component {
 
     onChangeAttr = key => (e) => {
       const { dispatch, activeEditKey } = this.props;
-      dispatch(changeAttrs({ [key]: e }, activeEditKey));
+      const { target } = e;
+      let value = e;
+      if (target) {
+        value = target.value;
+      }
+      dispatch(changeAttrs({ [key]: value }, activeEditKey));
     }
 
     setBaseStyle = key => (e) => {
@@ -38,10 +45,16 @@ class TextStyle extends React.Component {
       const { activeEditKey } = this.props;
       if (!activeEditKey) return <div>no style</div>;
       const {
-        width, height, top, left,
+        width, height, top, left, attrs,
       } = this.props;
       return (
-        <div>
+        <div className="component-picture-style-container">
+          <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>图片地址</Col>
+            <Col span={16}>
+              <Input value={attrs.imgSrc} onChange={this.onChangeAttr('imgSrc')} />
+            </Col>
+          </Row>
           <SettingPosition {...this.props} setBaseStyle={this.setBaseStyle} />
         </div>
       );
