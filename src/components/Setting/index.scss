@@ -11,4 +11,12 @@
     .tabs-content {
         padding: 0 16px;
     }
+
+    .animate-container {
+        padding: 0 0 12px 0;
+        
+        .ant-row-flex {
+            margin: 8px 0;
+        }
+    }
 }

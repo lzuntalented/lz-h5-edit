@@ -1,6 +1,6 @@
 .page-header-container{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     line-height: initial;
 
     ul {
@@ -32,5 +32,17 @@
                 text-align: center;
             }
         }
+    }
+
+    .example-container {
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+    }
+
+    .publish-container {
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
     }
 }

@@ -126,12 +126,12 @@ window.addEventListener('mousecancel', () => {
   }
 });
 
-window.addEventListener('keyup', (e) => {
-  const { keyCode } = e;
-  // 删除键
-  if (keyCode === 8) {
-    dispatch(removeItem());
-  }
-});
+// window.addEventListener('keyup', (e) => {
+//   const { keyCode } = e;
+//   // 删除键
+//   if (keyCode === 8) {
+//     dispatch(removeItem());
+//   }
+// });
 
 subscribe('moveTag', (tag) => { moveTag = tag; });

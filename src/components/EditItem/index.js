@@ -88,7 +88,7 @@ export default function (Component, type) {
     onKeyUp = () => {
       console.log('onkey up');
       const { dispatch } = this.props;
-      dispatch(removeItem());
+      // dispatch(removeItem());
     }
 
     render() {
@@ -97,10 +97,18 @@ export default function (Component, type) {
       } = this.props;
       const {
         width, left, top, height, rotate, attrs,
-        animate,
+        animate, animateName, animateDuration, animateDelay, animateRepeat,
       } = editList[uniqueId].current;
+      // 整个编辑框外观样式
       const cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
+      // 内容区样式
       const contentCls = `content-hide-container ${animate || ''}`;
+      const animateStyle = {
+        // 'animation-name': animateName,
+        animationDuration: `${animateDuration}s`,
+        animationDelay: `${animateDelay}s`,
+        animationIterationCount: animateRepeat,
+      };
       return (
         <div
           className={cls}
@@ -161,7 +169,7 @@ export default function (Component, type) {
               </ul>
             )
           }
-          <div className={contentCls}>
+          <div className={contentCls} style={animateStyle}>
             <div
               className="content-container"
               ref={this.setMagicRefs(refNames.content)}

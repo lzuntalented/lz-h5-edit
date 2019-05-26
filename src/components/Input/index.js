@@ -81,10 +81,20 @@ class Text extends React.Component {
   }
 
   onInput = (e) => {
+    if (this.compostionStartFlag) return;
     const { resetHeight, setAttribute } = this.props;
     // console.log(e.target.textContent);
     resetHeight();
     setAttribute({ text: e.target.innerHTML });
+  }
+
+  onCompositionStart = () => {
+    this.compostionStartFlag = true;
+  }
+
+  onCompositionEnd = (e) => {
+    this.compostionStartFlag = false;
+    this.onInput(e);
   }
 
   // 设置魔术引用
@@ -106,6 +116,8 @@ class Text extends React.Component {
         style={style}
         contentEditable={editable}
         onDoubleClick={this.onDoubleClick}
+        onCompositionStart={this.onCompositionStart}
+        onCompositionEnd={this.onCompositionEnd}
         onBlur={this.onBlur}
         ref={this.setMagicRefs(refNames.editDom)}
         onInput={this.onInput}

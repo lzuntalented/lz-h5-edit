@@ -71,3 +71,7 @@ export const COMPONENT_STYLE_HEIGHT = 'height';
 export const COMPONENT_STYLE_TOP = 'top';
 export const COMPONENT_STYLE_LEFT = 'left';
 export const COMPONENT_STYLE_ROTATE = 'rotate';
+
+/* 动画相关 */
+export const ANIMATE_REPEAT_INFINITE = 'infinite';
+export const ANIMATE_REPEAT_NORMAL = 1;

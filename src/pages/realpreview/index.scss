@@ -1,0 +1,48 @@
+@import '../../style/style.scss';
+@import '../../style/base.scss';
+
+$phone-width: 320;
+$phone-height: 480;
+$phone-header-height: 50;
+$phone-footer-height: 30;
+
+.realperview-container {
+  margin-top: 20px;
+  position: relative;
+  display: flex;
+  .phone-container {
+    width: $phone-width + 10 + px;
+    & > .header {
+      height: $phone-header-height + px;
+      border-top-left-radius: $phone-header-height + px;
+      border-top-right-radius: $phone-header-height + px;
+      background-color: #e0e0e0;
+    }
+    & > .content {
+      height: $phone-height + px;
+      position: relative;
+      border-left: 5px solid #e0e0e0;
+      border-right: 5px solid #e0e0e0;
+      
+      .ant-carousel .slick-slide {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        overflow: hidden;
+      }
+    }
+    & > .footer {
+      height: $phone-footer-height + px;
+      border-bottom-left-radius: $phone-footer-height + px;
+      border-bottom-right-radius: $phone-footer-height + px;
+      background-color: #e0e0e0;
+    }
+  }
+  .toggle-page {
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

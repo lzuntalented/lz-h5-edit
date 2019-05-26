@@ -7,24 +7,29 @@ import reduces from '../reduce';
  * 创建每个编辑组件所需默认参数
  */
 export function createEditItem(type, name) {
+  const defaultBaseStyle = {
+    // 组件类型
+    type,
+    top: 0,
+    left: 0,
+    width: 320,
+    height: 0,
+    // 旋转角度 deg
+    rotate: 0,
+    // 动画名称
+    animateName: '',
+    // 动画执行时间 单位(s)
+    animateDuration: 1,
+    // 动画延时执行 单位(s)
+    animateDelay: 0,
+    // 动画重复次数
+    animateRepeat: 1,
+  };
   return {
+    // 组件名称
     name,
-    current: {
-      top: 0,
-      left: 0,
-      width: 320,
-      height: 0,
-      rotate: 0,
-      type,
-    },
-    before: {
-      top: 0,
-      left: 0,
-      width: 320,
-      height: 0,
-      rotate: 0,
-      type,
-    },
+    current: Object.assign({}, defaultBaseStyle),
+    before: Object.assign({}, defaultBaseStyle),
   };
 }
 

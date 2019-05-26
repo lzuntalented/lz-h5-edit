@@ -24,11 +24,10 @@ class Picture extends React.Component {
 
   constructor(props) {
     super(props);
-    props.setAttrs(defaultAttrs);
-  }
-
-  onDoubleClick = () => {
-    const elem = this.magicRefs.editDom;
+    const { imgSrc } = props;
+    if (!imgSrc) {
+      props.setAttrs(defaultAttrs);
+    }
   }
 
   onLoad = () => {

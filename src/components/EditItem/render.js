@@ -10,8 +10,15 @@ export default function (Component) {
   function Layout(props) {
     const {
       width, left, top, height, attrs, animate, rotate,
+      animateDuration, animateDelay, animateRepeat,
     } = props;
     const cls = `content-hide-container ${animate || ''}`;
+    const animateStyle = {
+      // 'animation-name': animateName,
+      animationDuration: `${animateDuration}s`,
+      animationDelay: `${animateDelay}s`,
+      animationIterationCount: animateRepeat,
+    };
     return (
       <div
         className="edit-item"
@@ -23,7 +30,7 @@ export default function (Component) {
           transform: `rotate(${rotate}deg)`,
         }}
       >
-        <div className={cls}>
+        <div className={cls} style={animateStyle}>
           <div
             className="content-container"
           >

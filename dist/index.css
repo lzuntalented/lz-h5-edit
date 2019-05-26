@@ -5,8 +5,7 @@
     border-color: gray; }
   .edit-item .content-hide-container {
     overflow: auto;
-    height: 100%;
-    animation-duration: 1s; }
+    height: 100%; }
     .edit-item .content-hide-container::-webkit-scrollbar {
       display: none; }
   .edit-item > .ctrl-container {
@@ -106,6 +105,10 @@
     padding: 0 16px; }
   .component-setting-container .tabs-content {
     padding: 0 16px; }
+  .component-setting-container .animate-container {
+    padding: 0 0 12px 0; }
+    .component-setting-container .animate-container .ant-row-flex {
+      margin: 8px 0; }
 
 .component-page-manage-container {
   width: 260px;
@@ -312,9 +315,78 @@ body > li {
     right: 300px;
     top: 0; }
 
+.m-l-20 {
+  margin-left: 20px; }
+
+.m-b-5 {
+  margin-bottom: 5px; }
+
+.m-t-8 {
+  margin-top: 8px; }
+
+.m-t-12 {
+  margin-top: 12px; }
+
+.m-b-12 {
+  margin-bottom: 12px; }
+
+html {
+  font-size: 12px; }
+
+.text-center {
+  text-align: center; }
+
+section {
+  margin: 0 0;
+  padding: 0 0; }
+
+ul, li {
+  margin: 0 0;
+  padding: 0 0;
+  list-style: none; }
+
+body > li {
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #cacaca;
+  padding: 0 8px;
+  line-height: 32px; }
+
+.realperview-container {
+  margin-top: 20px;
+  position: relative;
+  display: flex; }
+  .realperview-container .phone-container {
+    width: 330px; }
+    .realperview-container .phone-container > .header {
+      height: 50px;
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      background-color: #e0e0e0; }
+    .realperview-container .phone-container > .content {
+      height: 480px;
+      position: relative;
+      border-left: 5px solid #e0e0e0;
+      border-right: 5px solid #e0e0e0; }
+      .realperview-container .phone-container > .content .ant-carousel .slick-slide {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        overflow: hidden; }
+    .realperview-container .phone-container > .footer {
+      height: 30px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      background-color: #e0e0e0; }
+  .realperview-container .toggle-page {
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
 .page-header-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   line-height: initial; }
   .page-header-container ul {
     margin: 0 0;
@@ -338,6 +410,14 @@ body > li {
         height: 24px;
         line-height: 24px;
         text-align: center; }
+  .page-header-container .example-container {
+    display: flex;
+    align-items: center;
+    padding: 0 12px; }
+  .page-header-container .publish-container {
+    padding: 0 12px;
+    display: flex;
+    align-items: center; }
 
 .layout .layout-header-container {
   margin: 0 auto;
