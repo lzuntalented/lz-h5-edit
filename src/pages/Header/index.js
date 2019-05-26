@@ -42,7 +42,7 @@ class Header extends React.Component {
       result.push(arr);
     });
     this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, JSON.stringify(result));
-    window.open(`/#/preview/${EXAMPLE_DATA_PREVIEW}`, '_blank');
+    window.open(`#/preview/${EXAMPLE_DATA_PREVIEW}`, '_blank');
   }
 
   render() {
@@ -51,7 +51,7 @@ class Header extends React.Component {
         className="page-header-container"
       >
         <div className="example-container">
-          <a href={`/#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="blank">
+          <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="blank">
             <Button type="primary">示例1</Button>
           </a>
         </div>
