@@ -102,12 +102,18 @@ export default function (Component, type) {
       // 整个编辑框外观样式
       const cls = activeEditKey === uniqueId ? 'edit-item' : 'edit-item edit-item-not-active';
       // 内容区样式
-      const contentCls = `content-hide-container ${animate || ''}`;
+      // const contentCls = `content-hide-container ${animate || ''}`;
+      const contentCls = 'content-hide-container';
       const animateStyle = {
         // 'animation-name': animateName,
-        animationDuration: `${animateDuration}s`,
-        animationDelay: `${animateDelay}s`,
-        animationIterationCount: animateRepeat,
+        // animationDuration: `${animateDuration}s`,
+        // animationDelay: `${animateDelay}s`,
+        // animationIterationCount: animateRepeat,
+        // animationFillMode: 'both',
+        // animationTimingFunction: 'ease',
+        // animationPlayState: 'running',
+        // animationDirection: 'normal',
+        animation: `${animateDuration}s ease ${animateDelay}s ${animateRepeat} normal both running ${animate}`,
       };
       return (
         <div

@@ -202,7 +202,8 @@ body > li {
 
 .home-container {
   margin-top: 20px;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .home-container .phone-container {
     width: 330px;
     position: relative; }

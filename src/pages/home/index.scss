@@ -9,6 +9,7 @@ $phone-footer-height: 30;
 .home-container {
   margin-top: 20px;
   position: relative;
+  overflow: hidden;
   .phone-container {
     width: $phone-width + 10 + px;
     position: relative;

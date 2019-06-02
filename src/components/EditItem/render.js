@@ -15,9 +15,10 @@ export default function (Component) {
     const cls = `content-hide-container ${animate || ''}`;
     const animateStyle = {
       // 'animation-name': animateName,
-      animationDuration: `${animateDuration}s`,
-      animationDelay: `${animateDelay}s`,
-      animationIterationCount: animateRepeat,
+      // animationDuration: `${animateDuration}s`,
+      // animationDelay: `${animateDelay}s`,
+      // animationIterationCount: animateRepeat,
+      animation: `${animateDuration}s ease ${animateDelay}s ${animateRepeat} normal both running ${animate}`,
     };
     return (
       <div
