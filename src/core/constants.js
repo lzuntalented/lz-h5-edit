@@ -5,6 +5,8 @@ export const LOCALSTORAGE_PREVIEW_NAMESPACE = 'lz-h5-edit';
 export const LOCALSTORAGE_PREVIEW_CHACHE = 'cache';
 
 /* 示例数据路由标识 */
+// 儿童节展示
+export const EXAMPLE_DATA_CHILDREN_FESTIVAL = 'children';
 // 端午节展示
 export const EXAMPLE_DATA_DRAGON_FESTIVAL = 'dragon';
 // 使用缓存数据标识

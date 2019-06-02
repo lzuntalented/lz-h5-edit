@@ -5,8 +5,10 @@ import LzLocalStorage from '../../utils/LocalStorage';
 
 // 引入样式文件
 import './index.scss';
-import { getDragonFestivalData } from './config';
-import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_PREVIEW } from '../../core/constants';
+import { getDragonFestivalData, getChildrenFestivalData } from './config';
+import {
+  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_CHILDREN_FESTIVAL,
+} from '../../core/constants';
 
 const refNames = {
   content: 'content',
@@ -21,6 +23,9 @@ class Perview extends React.Component {
     if (params && params.source === EXAMPLE_DATA_PREVIEW) {
       const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '[]');
       this.data = JSON.parse(data);
+    }
+    if (params && params.source === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
+      this.data = getChildrenFestivalData();
     }
     this.state = {};
     this.magicRefs = {};

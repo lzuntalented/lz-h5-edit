@@ -266,3 +266,64 @@ export function getData() {
   return [
   ];
 }
+
+
+export function getChildrenFestivalData() {
+  return [[{
+    animate: 'zoomIn', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-circle.png' }, animateDelay: 0, width: 320, left: -13, height: 304, animateName: '', top: 53, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'fadeInDown', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-top.png' }, animateDelay: 0, width: 333, left: -7, height: 185, animateName: '', top: -68, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 1, animateRepeat: 1,
+  }, {
+    animate: 'fadeInUp', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bottom.png' }, animateDelay: 0, width: 265, left: 8, height: 156, animateName: '', top: 391, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: -15, animateRepeat: 1,
+  }, {
+    animate: 'fadeInUp', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bottom.png' }, animateDelay: 0, width: 346, left: -3, height: 212, animateName: '', top: 366, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 1, animateRepeat: 1,
+  }, {
+    animate: 'fadeInDown', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-top.png' }, animateDelay: 0, width: 383, left: -43, height: 212, animateName: '', top: -104, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'jackInTheBox', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-children.png' }, animateDelay: 0.5, width: 219, left: 57, height: 86, animateName: '', top: 146, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'zoomIn',
+    attrs: {
+      color: '#fe8b9d', fontSize: 14, text: 'create by lz', bgColor: '', lineHeight: 1.5,
+    },
+    animateDelay: 1.5,
+    width: 95,
+    left: 111,
+    height: 41,
+    animateName: '',
+    top: 230,
+    animateDuration: 1,
+    type: 'COMPONENT_TYPE_TEXT',
+    rotate: 0,
+    animateRepeat: 1,
+  }, {
+    animate: 'fadeInLeft', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bl.png' }, animateDelay: 2, width: 39, left: 76, height: 40, animateName: '', top: 239, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'fadeInRight', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bl.png' }, animateDelay: 2, width: 39, left: 200, height: 40, animateName: '', top: 240, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'fadeInLeft', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-left.png' }, animateDelay: 2.5, width: 73, left: -9, height: 202, animateName: '', top: 115, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'fadeInUp', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-right.png' }, animateDelay: 2.5, width: 57, left: 237, height: 116, animateName: '', top: 306, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }], [{
+    animate: 'zoomIn', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/2-bg.png' }, animateDelay: 0, width: 289, left: 16, height: 450, animateName: '', top: 15, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'fadeInLeft', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/2-top.png' }, animateDelay: 0, width: 93, left: 36, height: 84, animateName: '', top: 20, animateDuration: 1.5, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'fadeIn', attrs: { imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/2-bottom-l.png' }, animateDelay: 0, width: 132, left: 37, height: 78, animateName: '', top: 382, animateDuration: 1, type: 'COMPONENT_TYPE_PICTURE', rotate: 0, animateRepeat: 1,
+  }, {
+    animate: 'lightSpeedIn',
+    attrs: {
+      color: '#faa8d4', fontSize: 16, text: '儿童节快乐', bgColor: '', lineHeight: 1.5,
+    },
+    animateDelay: 1.5,
+    width: 121,
+    left: 103,
+    height: 66,
+    animateName: '',
+    top: 189,
+    animateDuration: 1,
+    type: 'COMPONENT_TYPE_TEXT',
+    rotate: 0,
+    animateRepeat: 1,
+  }]];
+}

@@ -8,7 +8,7 @@ import { addPageItem } from '../../components/EditItem/action';
 import LzLocalStorage from '../../utils/LocalStorage';
 import {
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
-  EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
+  EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL, EXAMPLE_DATA_CHILDREN_FESTIVAL,
 } from '../../core/constants';
 
 class Header extends React.Component {
@@ -52,7 +52,10 @@ class Header extends React.Component {
       >
         <div className="example-container">
           <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="blank">
-            <Button type="primary">示例1</Button>
+            <Button type="primary">示例-端午节</Button>
+          </a>
+          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_CHILDREN_FESTIVAL}`} target="blank">
+            <Button type="primary">示例-儿童节</Button>
           </a>
         </div>
         <ul>
