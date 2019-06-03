@@ -43,7 +43,7 @@ class RealPreview extends React.Component {
   renderComponent() {
     const { data } = this.props;
     const { activePageIndex } = this.state;
-    return data.map((item, index) => {
+    return data.list.map((item, index) => {
       const style = { position: 'relative', height: '100%', display: 'none' };
       if (activePageIndex === index) style.display = 'block';
       return (
@@ -68,12 +68,21 @@ class RealPreview extends React.Component {
   }
 
   render() {
+    const { data } = this.props;
+    const style = {
+      backgroundImage: `url(${data.backGroundImage})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    };
     return (
-      <Carousel onTransitionEnd={this.onTransitionEnd} axis="y" ref={this.setMagicRefs(refNames.content)}>
-        {
-          this.renderComponent()
-        }
-      </Carousel>
+      <div className="content" style={style}>
+        <Carousel onTransitionEnd={this.onTransitionEnd} axis="y" ref={this.setMagicRefs(refNames.content)}>
+          {
+            this.renderComponent()
+          }
+        </Carousel>
+      </div>
     );
   }
 }

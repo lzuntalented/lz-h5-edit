@@ -43,9 +43,7 @@ class Home extends React.Component {
       <div className="home-container">
         <div className="phone-container">
           <div className="header" />
-          <div className="content">
-            <Phone />
-          </div>
+          <Phone />
           <div className="footer" />
         </div>
         <div className="style-setting-container">

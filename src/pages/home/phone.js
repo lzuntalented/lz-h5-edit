@@ -36,14 +36,30 @@ class Phone extends React.Component {
   }
 
   render() {
-    return this.renderComponent();
+    const { backGroundImage } = this.props;
+    const style = {
+      backgroundImage: `url(${backGroundImage})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    };
+    return (
+      <div className="content" style={style}>
+        {this.renderComponent()}
+      </div>
+    );
+    // return this.renderComponent();
   }
 }
 
 const mapStateToProps = (store) => {
   const state = store.toJS();
-  const { pages, activePage, editList } = state;
-  const result = { pages, activePage, editList };
+  const {
+    pages, activePage, editList, backGroundImage,
+  } = state;
+  const result = {
+    pages, activePage, editList, backGroundImage,
+  };
   return result;
 };
 

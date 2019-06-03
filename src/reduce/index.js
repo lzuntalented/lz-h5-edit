@@ -10,6 +10,7 @@ import {
 import { createEditItem } from '../store';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
+import { CHANGE_ALL_PAGE_BACKGROUND } from '../core/constants';
 
 function startMove(store, action) {
   const { type, value } = action;
@@ -275,6 +276,16 @@ function resortPageItem(store, action) {
   return null;
 }
 
+function changeBackGround(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === CHANGE_ALL_PAGE_BACKGROUND) {
+    obj.backGroundImage = value;
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -291,4 +302,5 @@ export default [
   removeItem,
   saveMoveTagBoundingClientRect,
   resortPageItem,
+  changeBackGround,
 ];

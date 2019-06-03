@@ -5,9 +5,9 @@ import LzLocalStorage from '../../utils/LocalStorage';
 
 // 引入样式文件
 import './index.scss';
-import { getDragonFestivalData, getChildrenFestivalData } from './config';
+import { getDragonFestivalData, getChildrenFestivalData, getGKData } from './config';
 import {
-  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_CHILDREN_FESTIVAL,
+  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
 } from '../../core/constants';
 
 const refNames = {
@@ -26,6 +26,9 @@ class Perview extends React.Component {
     }
     if (params && params.source === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
       this.data = getChildrenFestivalData();
+    }
+    if (params && params.source === EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION) {
+      this.data = getGKData();
     }
     this.state = {};
     this.magicRefs = {};
@@ -52,9 +55,7 @@ class Perview extends React.Component {
       <div className="realperview-container">
         <div className="phone-container">
           <div className="header" />
-          <div className="content">
-            <Phone data={this.data} ref={this.setMagicRefs(refNames.content)} />
-          </div>
+          <Phone data={this.data} ref={this.setMagicRefs(refNames.content)} />
           <div className="footer" />
         </div>
         <div className="toggle-page">

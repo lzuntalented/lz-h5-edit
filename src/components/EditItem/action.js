@@ -2,6 +2,7 @@ import {
   MOVE_START, MOVE_END, MOVE_CHANGE, CREATE_ITEM_STORE,
   RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, REMOVE_ITEM, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
 } from './constants';
+import { CHANGE_ALL_PAGE_BACKGROUND } from '../../core/constants';
 
 export function startMove(value) {
   return {
@@ -71,4 +72,8 @@ export function saveMoveTagBoundingClientRect(value) {
 
 export function resortPageItem(value) {
   return { type: PAGE_ITEM_RESORT, value };
+}
+
+export function changeBackGround(value) {
+  return { type: CHANGE_ALL_PAGE_BACKGROUND, value };
 }

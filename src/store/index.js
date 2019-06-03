@@ -57,6 +57,8 @@ const defaultStore = fromJS({
   activePage: 0,
   // 当前正在活动的元素尺寸和位置
   moveBoundRect: {},
+  // 背景图片
+  backGroundImage: '',
 });
 
 const store = createStore(reducer, defaultStore,
