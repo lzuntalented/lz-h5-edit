@@ -10,7 +10,7 @@ const defaultAttrs = {
   // 字体大小
   fontSize: 12,
   // 内容
-  text: '',
+  text: '双击编辑文本',
   // 背景颜色
   bgColor: '',
   // 行高
@@ -25,6 +25,7 @@ class Text extends React.Component {
   static propTypes = {
     setAttrs: PropTypes.func.isRequired,
     resetHeight: PropTypes.func.isRequired,
+    setAttribute: PropTypes.func.isRequired,
   }
 
   state = {
@@ -44,23 +45,15 @@ class Text extends React.Component {
   }
 
   componentDidUpdate() {
+    const handler = this.magicRefs[refNames.editDom];
     const { text } = this.props;
-    if (this.focusAble) {
-      const elem = this.magicRefs.editDom;
-      // 获取选定对象
-      const selection = window.getSelection();
-      // 创建新的光标对象
-      const range = selection.getRangeAt(0);
-      // 获取光标对象的范围界定对象，一般就是textNode对象
-      const textNode = elem;
-      // 光标位置定位在表情节点的最大长度
-      range.setStart(textNode, elem.childNodes.length);
-      // 使光标开始和光标结束重叠
-      range.collapse(true);
-      // 清除选定对象的所有光标对象
-      selection.removeAllRanges();
-      // 插入新的光标对象
-      selection.addRange(range);
+    // 此处做法有待研究，不完美
+    if (handler) {
+      // 如果文本内容为空，取已设置的内容填充
+      const currentText = handler.innerHTML;
+      if (currentText.trim() === '') {
+        handler.innerHTML = text;
+      }
     }
   }
 
@@ -103,7 +96,8 @@ class Text extends React.Component {
   render() {
     const { editable } = this.state;
     const {
-      setAttrs, resetHeight, setAttribute, text, bgColor, ...others
+      setAttrs, resetHeight,
+      setAttribute, text, bgColor, ...others
     } = this.props;
     const style = Object.assign({
       width: '100%',
@@ -122,7 +116,6 @@ class Text extends React.Component {
         ref={this.setMagicRefs(refNames.editDom)}
         onInput={this.onInput}
         onFocus={this.onFocus}
-        dangerouslySetInnerHTML={{ __html: text || '双击编辑文本' }}
       />
     );
   }

@@ -22,3 +22,4 @@ yarn-error.log*
 # build file
 dist
 build
+dist/bound.js

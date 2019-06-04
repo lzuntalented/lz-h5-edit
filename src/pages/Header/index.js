@@ -64,13 +64,13 @@ class Header extends React.Component {
         className="page-header-container"
       >
         <div className="example-container">
-          <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="blank">
+          <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
             <Button type="primary">示例-端午节</Button>
           </a>
-          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_CHILDREN_FESTIVAL}`} target="blank">
+          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_CHILDREN_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
             <Button type="primary">示例-儿童节</Button>
           </a>
-          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION}`} target="blank">
+          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION}`} target="_blank" rel="noopener noreferrer">
             <Button type="primary">示例-高考加油</Button>
           </a>
         </div>
