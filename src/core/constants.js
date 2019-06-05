@@ -14,5 +14,8 @@ export const EXAMPLE_DATA_DRAGON_FESTIVAL = 'dragon';
 // 使用缓存数据标识
 export const EXAMPLE_DATA_PREVIEW = 'cache';
 
+/* action type */
 // 修改背景图片
 export const CHANGE_ALL_PAGE_BACKGROUND = 'CHANGE_ALL_PAGE_BACKGROUND';
+// 重置store以供编辑
+export const STORE_RESET_TO_EDIT = 'STORE_RESET_TO_EDIT';

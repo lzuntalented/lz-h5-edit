@@ -10,7 +10,7 @@ import {
 import { createEditItem } from '../store';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
-import { CHANGE_ALL_PAGE_BACKGROUND } from '../core/constants';
+import { CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT } from '../core/constants';
 
 function startMove(store, action) {
   const { type, value } = action;
@@ -286,6 +286,43 @@ function changeBackGround(store, action) {
   return null;
 }
 
+function resetStore(store, action) {
+  const { type: actionType, value } = action;
+  // const obj = store.toJS();
+  if (actionType === STORE_RESET_TO_EDIT) {
+    const { list, backGroundImage } = value;
+    const pages = [];
+    const editList = {};
+    list.forEach((it) => {
+      const page = [];
+      it.forEach((item, i) => {
+        const {
+          type,
+        } = item;
+        const uniqueId = createId();
+        page.push(uniqueId);
+        editList[uniqueId] = {
+          name: `${getNameWithItemType(type)}${i}`,
+          current: JSON.parse(JSON.stringify(item)),
+          before: JSON.parse(JSON.stringify(item)),
+        };
+      });
+      pages.push(page);
+    });
+    const ob = {
+      moveTag: false,
+      editList,
+      activeEditKey: null,
+      pages,
+      activePage: 0,
+      moveBoundRect: {},
+      backGroundImage,
+    };
+    return fromJS(ob);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -303,4 +340,5 @@ export default [
   saveMoveTagBoundingClientRect,
   resortPageItem,
   changeBackGround,
+  resetStore,
 ];

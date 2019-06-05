@@ -4,13 +4,15 @@ import { Icon, Button } from 'antd';
 
 import './index.scss';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../components/EditItem/constants';
-import { addPageItem } from '../../components/EditItem/action';
+import { addPageItem, resetStore } from '../../components/EditItem/action';
 import LzLocalStorage from '../../utils/LocalStorage';
 import {
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
-  EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL, EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
+  EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
+  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
 } from '../../core/constants';
 import ImageClip from './components/ImageClip';
+import { getGKData, getDragonFestivalData, getChildrenFestivalData } from '../realpreview/config';
 
 class Header extends React.Component {
   constructor(props) {
@@ -56,6 +58,17 @@ class Header extends React.Component {
     this.setState({ modelImageClipVisible: flag });
   }
 
+  onEdit = key => () => {
+    let data = getGKData();
+    if (key === EXAMPLE_DATA_DRAGON_FESTIVAL) {
+      data = getDragonFestivalData();
+    } else if (key === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
+      data = getChildrenFestivalData();
+    }
+    const { dispatch } = this.props;
+    dispatch(resetStore(data));
+  }
+
   render() {
     const { dispatch } = this.props;
     const { modelImageClipVisible } = this.state;
@@ -65,13 +78,13 @@ class Header extends React.Component {
       >
         <div className="example-container">
           <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary">示例-端午节</Button>
+            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_DRAGON_FESTIVAL)}>示例-端午节</Button>
           </a>
           <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_CHILDREN_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary">示例-儿童节</Button>
+            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_CHILDREN_FESTIVAL)}>示例-儿童节</Button>
           </a>
           <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary">示例-高考加油</Button>
+            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION)}>示例-高考加油</Button>
           </a>
         </div>
         <ul>
