@@ -59,6 +59,8 @@ const defaultStore = fromJS({
   moveBoundRect: {},
   // 背景图片
   backGroundImage: '',
+  // 背景音效地址
+  backMusicUrl: '',
 });
 
 const store = createStore(reducer, defaultStore,

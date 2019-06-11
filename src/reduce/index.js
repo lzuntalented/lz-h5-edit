@@ -10,7 +10,7 @@ import {
 import { createEditItem } from '../store';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
-import { CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT } from '../core/constants';
+import { CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL } from '../core/constants';
 
 function startMove(store, action) {
   const { type, value } = action;
@@ -323,6 +323,16 @@ function resetStore(store, action) {
   return null;
 }
 
+function changeBackMusicUrl(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === STORE_CHANGE_BACK_MUSIC_URL) {
+    obj.backMusicUrl = value;
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -341,4 +351,5 @@ export default [
   resortPageItem,
   changeBackGround,
   resetStore,
+  changeBackMusicUrl,
 ];

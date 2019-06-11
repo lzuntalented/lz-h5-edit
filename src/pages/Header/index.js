@@ -12,6 +12,7 @@ import {
   EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
 } from '../../core/constants';
 import ImageClip from './components/ImageClip';
+import Music from './components/Music';
 import { getGKData, getDragonFestivalData, getChildrenFestivalData } from '../realpreview/config';
 
 class Header extends React.Component {
@@ -20,6 +21,7 @@ class Header extends React.Component {
     this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
     this.state = {
       modelImageClipVisible: false,
+      modalMusicVisible: false,
     };
   }
 
@@ -34,7 +36,9 @@ class Header extends React.Component {
   }
 
   onPreview = () => {
-    const { pages, editList, backGroundImage } = this.props;
+    const {
+      pages, editList, backGroundImage, backMusicUrl,
+    } = this.props;
     const result = [];
     pages.forEach((it) => {
       const arr = [];
@@ -48,6 +52,7 @@ class Header extends React.Component {
       result.push(arr);
     });
     this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, JSON.stringify({
+      backMusicUrl,
       backGroundImage,
       list: result,
     }));
@@ -56,6 +61,10 @@ class Header extends React.Component {
 
   onChangeVisible = flag => () => {
     this.setState({ modelImageClipVisible: flag });
+  }
+
+  onChangeModalMusicVisible = flag => () => {
+    this.setState({ modalMusicVisible: flag });
   }
 
   onEdit = key => () => {
@@ -71,7 +80,7 @@ class Header extends React.Component {
 
   render() {
     const { dispatch } = this.props;
-    const { modelImageClipVisible } = this.state;
+    const { modelImageClipVisible, modalMusicVisible } = this.state;
     return (
       <section
         className="page-header-container"
@@ -100,9 +109,18 @@ class Header extends React.Component {
             <Icon type="qrcode" className="icon" />
             <div className="txt">背景</div>
           </li>
+          <li className="item" onClick={this.onChangeModalMusicVisible(true)}>
+            <Icon type="customer-service" className="icon" />
+            <div className="txt">音效</div>
+          </li>
           <ImageClip
             visible={modelImageClipVisible}
             changeVisible={this.onChangeVisible(false)}
+            dispatch={dispatch}
+          />
+          <Music
+            visible={modalMusicVisible}
+            changeVisible={this.onChangeModalMusicVisible(false)}
             dispatch={dispatch}
           />
         </ul>
@@ -116,8 +134,12 @@ class Header extends React.Component {
 
 const mapStateToProps = (store) => {
   const state = store.toJS();
-  const { pages, editList, backGroundImage } = state;
-  const result = { pages, editList, backGroundImage };
+  const {
+    pages, editList, backGroundImage, backMusicUrl,
+  } = state;
+  const result = {
+    pages, editList, backGroundImage, backMusicUrl,
+  };
   return result;
 };
 

@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Input from '../../components/Input';
 import Picture from '../../components/Picture';
-import Setting from '../../components/Setting';
-import PageManage from '../../components/PageManage';
+import Music from '../../components/Music';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../components/EditItem/constants';
 
 // 引入样式文件
@@ -36,7 +35,7 @@ class Phone extends React.Component {
   }
 
   render() {
-    const { backGroundImage } = this.props;
+    const { backGroundImage, backMusicUrl } = this.props;
     const style = {
       backgroundImage: `url(${backGroundImage})`,
       backgroundRepeat: 'no-repeat',
@@ -48,17 +47,16 @@ class Phone extends React.Component {
         {this.renderComponent()}
       </div>
     );
-    // return this.renderComponent();
   }
 }
 
 const mapStateToProps = (store) => {
   const state = store.toJS();
   const {
-    pages, activePage, editList, backGroundImage,
+    pages, activePage, editList, backGroundImage, backMusicUrl,
   } = state;
   const result = {
-    pages, activePage, editList, backGroundImage,
+    pages, activePage, editList, backGroundImage, backMusicUrl,
   };
   return result;
 };

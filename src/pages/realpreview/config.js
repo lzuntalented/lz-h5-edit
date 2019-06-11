@@ -336,6 +336,7 @@ export function getChildrenFestivalData() {
 
 export function getGKData() {
   return {
+    backMusicUrl: 'http://www.lzuntalented.cn/invite/merryseven/music/music1.mp3',
     backGroundImage: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/bg.png',
     list: [[{
       attrs: {

@@ -2,7 +2,7 @@ import {
   MOVE_START, MOVE_END, MOVE_CHANGE, CREATE_ITEM_STORE,
   RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR, CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, REMOVE_ITEM, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
 } from './constants';
-import { CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT } from '../../core/constants';
+import { CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL } from '../../core/constants';
 
 export function startMove(value) {
   return {
@@ -80,4 +80,8 @@ export function changeBackGround(value) {
 
 export function resetStore(value) {
   return { type: STORE_RESET_TO_EDIT, value };
+}
+
+export function changeBackMusicUrl(value) {
+  return { type: STORE_CHANGE_BACK_MUSIC_URL, value };
 }

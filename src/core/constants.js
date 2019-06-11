@@ -17,5 +17,7 @@ export const EXAMPLE_DATA_PREVIEW = 'cache';
 /* action type */
 // 修改背景图片
 export const CHANGE_ALL_PAGE_BACKGROUND = 'CHANGE_ALL_PAGE_BACKGROUND';
+// 修改背景音效
+export const STORE_CHANGE_BACK_MUSIC_URL = 'STORE_CHANGE_BACK_MUSIC_URL';
 // 重置store以供编辑
 export const STORE_RESET_TO_EDIT = 'STORE_RESET_TO_EDIT';

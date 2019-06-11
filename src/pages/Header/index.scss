@@ -1,12 +1,13 @@
 .page-header-container{
     display: flex;
-    justify-content: space-between;
     line-height: initial;
 
     ul {
         margin: 0 0;
         padding: 0 0;
         list-style: none;
+        flex: 1;
+        text-align: center;
         li {
             margin: 0 0;
             padding: 0 0;
@@ -38,11 +39,14 @@
         display: flex;
         align-items: center;
         padding: 0 12px;
+        flex: 1;
     }
 
     .publish-container {
         padding: 0 12px;
         display: flex;
         align-items: center;
+        flex: 1;
+        flex-direction: row-reverse;
     }
 }
