@@ -1,6 +1,6 @@
 import {
   QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR,
-} from '../components/EditItem/constants';
+} from '../core/constants';
 
 function lzlog(...params) {
   const args = Array.prototype.slice.call(params);
@@ -40,6 +40,36 @@ export function createRandom(len = 6) {
     result += pool[Math.floor(Math.random() * poolSize)];
   }
   return result;
+}
+
+
+/**
+ * 创建每个编辑组件所需默认参数
+ */
+export function createEditItem(type, name) {
+  return {
+    // 组件名称
+    name,
+    type,
+    rect: {
+      top: 0,
+      left: 0,
+      width: 320,
+      height: 0,
+      rotate: 0,
+    },
+    animate: {
+      // 动画名称
+      name: '',
+      // 动画执行时间 单位(s)
+      duration: 1,
+      // 动画延时执行 单位(s)
+      delay: 0,
+      // 动画重复次数
+      repeat: 1,
+    },
+    attrs: {},
+  };
 }
 
 export default lzlog;

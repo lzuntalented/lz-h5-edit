@@ -2,10 +2,8 @@
   position: absolute;
   border: 1px dashed transparent;
 
-  &.edit-item-not-active {
-    &:hover {
-      border-color: gray;
-    }
+  &:hover {
+    border-color: gray;
   }
 
   .content-hide-container {
@@ -15,100 +13,6 @@
 
     &::-webkit-scrollbar {
       display: none;
-    }
-  }
-
-  & > .ctrl-container {
-    margin: 0 0;
-    padding: 0 0;
-    list-style: none;
-    .line {
-      position: absolute;
-      z-index: 1;
-      background-color: #44cb83;
-      height: 1px;
-      width: 1px;
-      &.l {
-        top: 0;
-        left: 0;
-        height: 100%;
-      }
-      &.t {
-        top: 0;
-        left: 0;
-        width: 100%;
-      }
-      &.r {
-        top: 0;
-        right: 0;
-        height: 100%;
-      }
-      &.b {
-        bottom: 0;
-        left: 0;
-        width: 100%;
-      }
-      &.link-rotate {
-        width: 1px;
-        height: 18px;
-        left: 50%;
-        top: -24px;
-        transform: translateX(-50%);
-        background-color: #44cb83;
-      }
-    }
-    .point {
-      position: absolute;
-      z-index: 1;
-      background-color: #FFFFFF;
-      border-radius: 50%;
-      border: 1px solid #44cb83;
-      width: 12px;
-      height: 12px;
-
-      &.lc {
-        left: -6px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      &.rc {
-        right: -6px;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-      &.tc {
-        left: 50%;
-        top: -6px;
-        transform: translateX(-50%);
-      }
-      &.bc {
-        left: 50%;
-        bottom: -6px;
-        transform: translateX(-50%);
-      }
-      &.lt {
-        left: -6px;
-        top: -6px;
-      }
-      &.rt {
-        right: -6px;
-        top: -6px;
-      }
-      &.lb {
-        left: -6px;
-        bottom: -6px;
-      }
-      &.rb {
-        right: -6px;
-        bottom: -6px;
-      }
-      &.rotate {
-        left: 50%;
-        top: -30px;
-        transform: translateX(-50%);
-        border-color: #44cb83;
-        background-color: #44cb83;
-      }
     }
   }
 }

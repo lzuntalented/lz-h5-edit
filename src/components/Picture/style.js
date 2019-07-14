@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import {
   Row, Col, Input,
 } from 'antd';
-import { changeAttrs, changeBaseStyle } from '../EditItem/action';
+import { changeAttrs, changeBaseStyle } from '../../store/action';
 import SettingPosition from '../SettingPosition';
 
 import './index.scss';
@@ -67,7 +67,7 @@ const mapStateToProps = (store) => {
   const result = { activeEditKey };
   if (activeEditKey) {
     const item = editList[activeEditKey];
-    if (item) return Object.assign(result, item.current);
+    if (item) return Object.assign(result, item);
   }
   return result;
 };

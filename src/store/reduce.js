@@ -6,11 +6,11 @@ import {
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-} from '../components/EditItem/constants';
-import { createEditItem } from '../store';
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS,
+} from '../core/constants';
+import { createEditItem } from '../utils';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
-import { CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL } from '../core/constants';
 
 function startMove(store, action) {
   const { type, value } = action;
@@ -27,13 +27,8 @@ function endMove(store, action) {
   const { type } = action;
   const obj = store.toJS();
   if (type === MOVE_END) {
-    const { editList, activeEditKey } = obj;
-    const { current, before } = editList[activeEditKey];
-    // 当前编辑属性变更为之前
-    Object.assign(before, current);
-    return fromJS(Object.assign(obj, {
-      moveTag: false,
-    }));
+    obj.moveTag = false;
+    return fromJS(obj);
   }
   return null;
 }
@@ -44,30 +39,32 @@ function change(store, action) {
   if (type === MOVE_CHANGE) {
     const { editList, moveTag, activeEditKey } = obj;
     const { distance } = value;
-    const { current, before } = editList[activeEditKey];
-    const flag = moveTag;
+    const { rect } = editList[activeEditKey];
+    const { key: flag, rect: originRect } = moveTag;
     if (flag === POINT_LEFT_CENTER || flag === POINT_RIGHT_CENTER) {
-      current.width = before.width + distance;
+      rect.width = originRect.width + distance;
       if (flag === POINT_LEFT_CENTER) {
-        current.left = before.left - distance;
+        rect.left = originRect.left - distance;
       }
     } else if (flag === POINT_TOP_CENTER || flag === POINT_BOTTOM_CENTER) {
-      current.height = before.height + distance;
+      rect.height = originRect.height + distance;
       if (flag === POINT_TOP_CENTER) {
-        current.top = before.top - distance;
+        rect.top = originRect.top - distance;
       }
     } else if (flag === POINT_LEFT_TOP || flag === POINT_RIGHT_BOTTOM
        || flag === POINT_LEFT_BOTTOM || flag === POINT_RIGHT_TOP) {
-      current.height = before.height + distance * 2;
-      current.width = before.width + distance * 2;
-      current.top = before.top - distance;
-      current.left = before.left - distance;
+      rect.height = originRect.height + distance * 2;
+      rect.width = originRect.width + distance * 2;
+      rect.top = originRect.top - distance;
+      rect.left = originRect.left - distance;
     } else if (flag === ALL_ITEM) {
+      // 移动整个编辑框
       const { x, y } = value;
-      current.top = before.top + y;
-      current.left = before.left + x;
+      rect.top = originRect.top + y;
+      rect.left = originRect.left + x;
     } else if (flag === POINT_ROTATE) {
-      const { moveBoundRect } = obj;
+      // const { moveBoundRect } = obj;
+      const moveBoundRect = obj.moveTag.boundRect;
       const { coordStart, coordEnd } = value;
       const {
         x, y, width, height,
@@ -107,7 +104,7 @@ function change(store, action) {
       } else {
         dis = -dis;
       }
-      current.rotate = Math.floor(dis);
+      rect.rotate = Math.floor(dis);
     }
     return fromJS(obj);
   }
@@ -134,10 +131,9 @@ function resetContentHeight(store, action) {
   if (type === RESET_CONTENT_HEIGHT) {
     const { editList } = obj;
     const { height, key } = value;
-    const { current, before } = editList[key];
-    if (current.height < height) {
-      current.height = height;
-      before.height = height;
+    const { rect } = editList[key];
+    if (rect.height < height) {
+      rect.height = height;
     }
     return fromJS(obj);
   }
@@ -148,7 +144,7 @@ function changeActiveEditKey(store, action) {
   const { type, value } = action;
   const obj = store.toJS();
   if (type === CHANGE_ACTIVE_EDIT_KEY) {
-    obj.activeEditKey = value;
+    obj.activeEditKey = [value];
     return fromJS(obj);
   }
   return null;
@@ -160,9 +156,7 @@ function addAttrs(store, action) {
   if (type === ADD_ITEM_ATTRS) {
     const { attrs, key } = value;
     const { editList } = obj;
-    const { before, current } = editList[key];
-    before.attrs = attrs;
-    current.attrs = attrs;
+    editList[key].attrs = attrs;
     return fromJS(obj);
   }
   return null;
@@ -174,9 +168,7 @@ function changeAttrs(store, action) {
   if (type === CHANGE_ITEM_ATTR) {
     const { attrs, key } = value;
     const { editList } = obj;
-    const { before, current } = editList[key];
-    Object.assign(before.attrs, attrs);
-    Object.assign(current.attrs, attrs);
+    Object.assign(editList[key].attrs, attrs);
     return fromJS(obj);
   }
   return null;
@@ -231,7 +223,7 @@ function addPageItem(store, action) {
     editList[uniqueId] = createEditItem(value, name);
     page.push(uniqueId);
     // 设置当前添加的元素为激活项
-    obj.activeEditKey = uniqueId;
+    obj.activeEditKey = [uniqueId];
     return fromJS(obj);
   }
   return null;
@@ -333,6 +325,34 @@ function changeBackMusicUrl(store, action) {
   return null;
 }
 
+function addActiveEditKey(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === ADD_ACTIVE_EDIT_KEY) {
+    if (obj.activeEditKey.indexOf(value) === -1) {
+      obj.activeEditKey.push(value);
+    }
+    return fromJS(obj);
+  }
+  return null;
+}
+
+function groupActiveEditKeys(store, action) {
+  const { type } = action;
+  const obj = store.toJS();
+  if (type === STORE_GROUP_ACTIVE_EDIT_KEYS) {
+    const { activeEditKey } = obj;
+    if (activeEditKey && activeEditKey.length > 1) {
+      const uniqueId = createId();
+      obj.groupList[uniqueId] = activeEditKey;
+      obj.activeEditKey = [uniqueId];
+    }
+    return fromJS(obj);
+  }
+  return null;
+}
+groupActiveEditKeys;
+
 export default [
   startMove,
   endMove,
@@ -352,4 +372,6 @@ export default [
   changeBackGround,
   resetStore,
   changeBackMusicUrl,
+  addActiveEditKey,
+  groupActiveEditKeys,
 ];

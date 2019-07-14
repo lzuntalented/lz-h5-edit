@@ -5,8 +5,8 @@ import { Button, Tabs } from 'antd';
 
 import './index.scss';
 import {
- addPage, changeActivePage, removeItem 
-} from '../EditItem/action';
+  addPage, changeActivePage, removeItem,
+} from '../../store/action';
 import LevelManage from '../LevelManage';
 
 const { TabPane } = Tabs;
@@ -59,10 +59,10 @@ class PageManage extends React.Component {
               </div>
             </TabPane>
             <TabPane tab="图层" key="2">
-                <LevelManage />
+              <LevelManage />
             </TabPane>
           </Tabs>
-          
+
         </section>
       </Draggable>
     );

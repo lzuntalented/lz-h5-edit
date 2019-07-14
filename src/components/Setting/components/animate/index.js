@@ -4,8 +4,8 @@ import {
 } from 'antd';
 import { connect } from 'react-redux';
 import getSelectOptions from './config';
-import { changeBaseStyle } from '../../../EditItem/action';
-import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../EditItem/constants';
+import { changeBaseStyle } from '../../../../store/action';
+import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../core/constants';
 
 const opts = getSelectOptions();
 const { Option, OptGroup } = Select;

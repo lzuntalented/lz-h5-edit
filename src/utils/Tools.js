@@ -1,4 +1,4 @@
-import { COMPONENT_TYPE_PICTURE } from '../components/EditItem/constants';
+import { COMPONENT_TYPE_PICTURE } from '../core/constants';
 
 function isType(type) {
   return obj => Object.prototype.toString.call(obj) === `[object ${type}]`;

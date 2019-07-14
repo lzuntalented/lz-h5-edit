@@ -1,17 +1,11 @@
 const path = require('path');
-// var Page = require('./plugins/page');
+const chalk = require('chalk');
 
-// const webpack = require('webpack');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const getThemeConfig = require('./src/style/theme.js');
 
-let cfgPath = './src/style/theme.js';
-// relative path
-if (cfgPath.charAt(0) === '.') {
-  cfgPath = path.resolve(process.cwd(), cfgPath);
-}
-const getThemeConfig = require(cfgPath);
 const theme = getThemeConfig;
+
+console.log(chalk.green('http://localhost:9901'));
 
 module.exports = {
   entry: {

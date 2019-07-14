@@ -29,9 +29,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            envName: 'production'
-          }
-        }
+            envName: 'production',
+          },
+        },
       },
       {
         test: /\.less$/,

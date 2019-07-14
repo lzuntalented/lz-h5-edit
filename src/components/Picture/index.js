@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
 import Layout from '../EditItem';
-import { COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
+import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
 
 // 组件默认属性
 const defaultAttrs = {
@@ -16,7 +16,7 @@ const refNames = {
 
 class Picture extends React.Component {
   static propTypes = {
-    setAttrs: PropTypes.func.isRequired,
+    registerAttrs: PropTypes.func.isRequired,
     resetHeight: PropTypes.func.isRequired,
   }
 
@@ -24,10 +24,7 @@ class Picture extends React.Component {
 
   constructor(props) {
     super(props);
-    const { imgSrc } = props;
-    if (!imgSrc) {
-      props.setAttrs(defaultAttrs);
-    }
+    props.registerAttrs(defaultAttrs);
   }
 
   onLoad = () => {

@@ -8,11 +8,6 @@ import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constant
 // 引入样式文件
 import './index.scss';
 
-const componentMap = {
-  COMPONENT_TYPE_TEXT: Input,
-  COMPONENT_TYPE_PICTURE: Picture,
-};
-
 class Phone extends React.Component {
   constructor(props) {
     super(props);
@@ -35,18 +30,6 @@ class Phone extends React.Component {
           default:
             break;
         }
-      } else if (groupList[it]) {
-        return (
-          <div className="group-item">
-            {
-              groupList[it].map((item) => {
-                const { type, ...others } = editList[item];
-                const Comp = componentMap[type];
-                return <Comp uniqueId={it} key={it} data={others} />;
-              })
-            }
-          </div>
-        );
       }
       return <div />;
     });

@@ -1,15 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
-  Select, Row, Col, Slider, Input
+  Select, Row, Col, Slider, Input,
 } from 'antd';
-import { changeAttrs, changeBaseStyle } from '../EditItem/action';
+import { changeAttrs, changeBaseStyle } from '../../store/action';
 import SettingPosition from '../SettingPosition';
 import ColorPicker from '../ColorPicker';
 
 import './style.scss';
 
 class TextStyle extends React.Component {
+    static propTypes = {
+      dispatch: PropTypes.func.isRequired,
+    }
+
     state = {}
 
     onChange = (e) => {
@@ -100,7 +105,7 @@ const mapStateToProps = (store) => {
   const result = { activeEditKey };
   if (activeEditKey) {
     const item = editList[activeEditKey];
-    if (item) return Object.assign(result, item.current);
+    if (item) return Object.assign(result, item);
   }
   return result;
 };

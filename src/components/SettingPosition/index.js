@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import {
   COMPONENT_STYLE_WIDHT, COMPONENT_STYLE_HEIGHT, COMPONENT_STYLE_LEFT, COMPONENT_STYLE_TOP, COMPONENT_STYLE_ROTATE,
-} from '../EditItem/constants';
+} from '../../core/constants';
 
 export default function (props) {
   const {

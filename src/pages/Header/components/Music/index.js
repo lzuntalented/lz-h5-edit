@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.min.css';
-import { changeBackGround, changeBackMusicUrl } from '../../../../components/EditItem/action';
+import { changeBackGround, changeBackMusicUrl } from '../../../../store/action';
 
 class ImageClip extends React.Component {
   constructor(props) {

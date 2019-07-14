@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
 import Layout from '../EditItem';
-import { COMPONENT_TYPE_TEXT } from '../EditItem/constants';
+import { COMPONENT_TYPE_TEXT } from '../../core/constants';
 // 组件默认属性
 const defaultAttrs = {
   // 字体颜色
@@ -23,9 +23,16 @@ const refNames = {
 
 class Text extends React.Component {
   static propTypes = {
-    setAttrs: PropTypes.func.isRequired,
+    registerAttrs: PropTypes.func.isRequired,
     resetHeight: PropTypes.func.isRequired,
     setAttribute: PropTypes.func.isRequired,
+    text: PropTypes.string,
+    bgColor: PropTypes.string,
+  }
+
+  static defaultProps = {
+    text: '',
+    bgColor: '',
   }
 
   state = {
@@ -36,12 +43,8 @@ class Text extends React.Component {
 
   constructor(props) {
     super(props);
-    const { color } = props;
-    if (!color) {
-      props.setAttrs(defaultAttrs);
-    }
+    props.registerAttrs(defaultAttrs);
     this.focusAble = false;
-    // console.log(props, 'props input');
   }
 
   componentDidUpdate() {
@@ -96,14 +99,15 @@ class Text extends React.Component {
   render() {
     const { editable } = this.state;
     const {
-      setAttrs, resetHeight,
-      setAttribute, text, bgColor, ...others
+      resetHeight, setAttribute,
+      text, bgColor, ...others
     } = this.props;
     const style = Object.assign({
       width: '100%',
       minHeight: '40px',
       padding: 10,
       background: bgColor,
+      outerColor: 'transport',
     }, defaultAttrs, others);
     return (
       <div

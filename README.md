@@ -14,7 +14,7 @@ cnpm run build
 ## 演示地址
 [http://www.lzuntalented.cn/tool/h5edit/index.html](http://www.lzuntalented.cn/tool/h5edit/index.html)
 
-## 待添加功能
-- [x] 示例-高考加油
-- [x] 添加背景
-- [x] 添加音效
+## 待变事项
+- [ ] 重构代码
+- [ ] 添加组合
+- [ ] 二维码移动端预览

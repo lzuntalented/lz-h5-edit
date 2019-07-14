@@ -4,7 +4,7 @@ import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 
 import './index.scss';
-import { changeActiveEditKey, resortPageItem } from '../EditItem/action';
+import { changeActiveEditKey, resortPageItem, groupActiveEditKeys } from '../../store/action';
 
 const SortableItem = SortableElement(({ value }) => {
   const { name, key, active } = value;
@@ -34,10 +34,16 @@ class LevelManage extends React.Component {
     dispatch(changeActiveEditKey(key));
   }
 
+  onGroup = () => {
+    const { dispatch } = this.props;
+    dispatch(groupActiveEditKeys());
+  }
+
   render() {
     const { list } = this.props;
     return (
       <div className="component-level-manage-container">
+        <div onClick={this.onGroup}>分组</div>
         <SortableList
           items={list}
           onSortStart={this.onItemClick}
@@ -56,7 +62,7 @@ const mapStateToProps = (store) => {
   const list = pages[activePage].map((it, index) => ({
     name: editList[it].name,
     key: it,
-    active: it === activeEditKey,
+    active: activeEditKey.indexOf(it) > -1,
   }));
   const result = { list };
   return result;

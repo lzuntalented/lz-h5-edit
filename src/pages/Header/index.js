@@ -1,26 +1,43 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Icon, Button } from 'antd';
 
 import './index.scss';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../components/EditItem/constants';
-import { addPageItem, resetStore } from '../../components/EditItem/action';
-import LzLocalStorage from '../../utils/LocalStorage';
 import {
+  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
   EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
 } from '../../core/constants';
+import { addPageItem, resetStore } from '../../store/action';
+import LzLocalStorage from '../../utils/LocalStorage';
+
 import ImageClip from './components/ImageClip';
 import Music from './components/Music';
 import { getGKData, getDragonFestivalData, getChildrenFestivalData } from '../realpreview/config';
 
 class Header extends React.Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    pages: PropTypes.array.isRequired,
+    editList: PropTypes.object.isRequired,
+    backGroundImage: PropTypes.string,
+    backMusicUrl: PropTypes.string,
+  }
+
+  static defaultProps = {
+    backGroundImage: '',
+    backMusicUrl: '',
+  }
+
   constructor(props) {
     super(props);
     this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
     this.state = {
+      // 背景图片裁剪
       modelImageClipVisible: false,
+      // 音乐选择
       modalMusicVisible: false,
     };
   }

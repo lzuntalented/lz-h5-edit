@@ -1,37 +1,7 @@
 import { createStore } from 'redux';
 import { fromJS } from 'immutable';
 
-import reduces from '../reduce';
-
-/**
- * 创建每个编辑组件所需默认参数
- */
-export function createEditItem(type, name) {
-  const defaultBaseStyle = {
-    // 组件类型
-    type,
-    top: 0,
-    left: 0,
-    width: 320,
-    height: 0,
-    // 旋转角度 deg
-    rotate: 0,
-    // 动画名称
-    animateName: '',
-    // 动画执行时间 单位(s)
-    animateDuration: 1,
-    // 动画延时执行 单位(s)
-    animateDelay: 0,
-    // 动画重复次数
-    animateRepeat: 1,
-  };
-  return {
-    // 组件名称
-    name,
-    current: Object.assign({}, defaultBaseStyle),
-    before: Object.assign({}, defaultBaseStyle),
-  };
-}
+import reduces from './reduce';
 
 // 合并多个reducer
 const reducer = (store, action) => {
@@ -45,12 +15,12 @@ const reducer = (store, action) => {
 
 // 默认全局状态树
 const defaultStore = fromJS({
-  // 移动标识 { key, flag }
-  moveTag: false,
   // 编辑组件列表
   editList: {},
   // 当前正在操作的编辑框key
-  activeEditKey: null,
+  activeEditKey: [],
+  // 组合列表
+  groupList: {},
   // 页面列表
   pages: [[]],
   // 当前激活的页面
@@ -61,10 +31,11 @@ const defaultStore = fromJS({
   backGroundImage: '',
   // 背景音效地址
   backMusicUrl: '',
+  // 移动标识
+  moveInfo: null,
 });
-
-const store = createStore(reducer, defaultStore,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+/* eslint-disabled no-underscore-dangle */
+const store = createStore(reducer, defaultStore, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
 
 // 设置监听器

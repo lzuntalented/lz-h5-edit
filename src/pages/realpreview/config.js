@@ -1,4 +1,4 @@
-import { COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_TEXT } from '../../components/EditItem/constants';
+import { COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_TEXT } from '../../core/constants';
 
 export function getDragonFestivalData() {
   return {

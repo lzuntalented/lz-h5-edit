@@ -7,8 +7,8 @@ import TextStyle from '../Input/style';
 import PictureStyle from '../Picture/style';
 
 import './index.scss';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../EditItem/constants';
-import { changeBaseStyle, removeItem } from '../EditItem/action';
+import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
+import { changeBaseStyle, removeItem } from '../../store/action';
 import Animate from './components/animate';
 
 const { TabPane } = Tabs;
@@ -21,7 +21,7 @@ class Setting extends React.Component {
       animate: e,
     }, activeEditKey));
   }
-  
+
   onRemove = () => {
     const { dispatch } = this.props;
     dispatch(removeItem());
@@ -84,7 +84,7 @@ const mapStateToProps = (store) => {
   const result = { activeEditKey };
   if (activeEditKey) {
     const item = editList[activeEditKey];
-    if (item) return Object.assign(result, { componentType: item.current.type });
+    if (item) return Object.assign(result, { componentType: item.type });
   }
   return result;
 };
