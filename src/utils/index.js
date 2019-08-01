@@ -72,5 +72,37 @@ export function createEditItem(type, name) {
   };
 }
 
+export function getAroundRect(group, editList) {
+  const rect = {};
+  let left = 0;
+  let top = 0;
+  let right = 0;
+  let bottom = 0;
+  group.forEach((uniqueId, index) => {
+    const item = editList[uniqueId];
+    const itemRect = item.rect;
+    if (index === 0) {
+      /* eslint-disable-next-line prefer-destructuring */
+      left = itemRect.left;
+      /* eslint-disable-next-line prefer-destructuring */
+      top = itemRect.top;
+      /* eslint-disable-next-line prefer-destructuring */
+      right = itemRect.width + left;
+      /* eslint-disable-next-line prefer-destructuring */
+      bottom = itemRect.height + top;
+    } else {
+      left = Math.min(left, itemRect.left);
+      top = Math.min(top, itemRect.top);
+      right = Math.max(right, itemRect.width + itemRect.left);
+      bottom = Math.max(bottom, itemRect.height + itemRect.top);
+    }
+  });
+  rect.left = left;
+  rect.top = top;
+  rect.width = right - left;
+  rect.height = bottom - top;
+  return rect;
+}
+
 export default lzlog;
 // export testType;

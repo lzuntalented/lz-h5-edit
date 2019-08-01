@@ -5,15 +5,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import hotkeys from 'hotkeys-js';
 import {
-  POINT_LEFT_CENTER, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER,
-  ALL_ITEM, POINT_LEFT_TOP, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_RIGHT_BOTTOM, POINT_ROTATE,
+  ALL_ITEM,
 } from '../../core/constants';
+import {
+  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, addActiveEditKey,
+} from '../../store/action';
 
 import './index.scss';
-import { createId } from '../../utils/IDManage';
-import {
-  createItemStore, startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, saveMoveTagBoundingClientRect, addActiveEditKey,
-} from '../../store/action';
 
 const refNames = {
   content: 'content',
@@ -49,7 +47,8 @@ export default function (Component) {
       this.resetHeight();
     }
 
-    onClikItem = () => {
+    onClikItem = (e) => {
+      e.stopPropagation();
       const { dispatch, uniqueId } = this.props;
       if (shiftDown) {
         dispatch(addActiveEditKey(uniqueId));
@@ -58,7 +57,8 @@ export default function (Component) {
       }
     }
 
-    onStartMove = () => {
+    onStartMove = (e) => {
+      e.stopPropagation();
       const { dispatch, data } = this.props;
       // dispatch(changeActiveEditKey(uniqueId));
       dispatch(startMove({ key: ALL_ITEM, rect: data.rect }));

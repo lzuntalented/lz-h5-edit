@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Input from '../../components/Input';
 import Picture from '../../components/Picture';
 import Music from '../../components/Music';
+import GroupItem from '../../components/GroupItem';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
 
 // 引入样式文件
@@ -36,17 +37,7 @@ class Phone extends React.Component {
             break;
         }
       } else if (groupList[it]) {
-        return (
-          <div className="group-item">
-            {
-              groupList[it].map((item) => {
-                const { type, ...others } = editList[item];
-                const Comp = componentMap[type];
-                return <Comp uniqueId={it} key={it} data={others} />;
-              })
-            }
-          </div>
-        );
+        return <GroupItem uniqueId={it} list={groupList[it]} editList={editList} />;
       }
       return <div />;
     });

@@ -16,13 +16,71 @@ const reducer = (store, action) => {
 // 默认全局状态树
 const defaultStore = fromJS({
   // 编辑组件列表
-  editList: {},
+  editList: {
+    ftpdy8: {
+      name: '文本 1',
+      type: 'COMPONENT_TYPE_TEXT',
+      rect: {
+        top: 0,
+        left: 0,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      animate: {
+        name: '',
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      },
+      attrs: {
+        color: 'red',
+        fontSize: 12,
+        text: '双击编辑文本',
+        bgColor: '',
+        lineHeight: 1.5,
+      },
+    },
+    upivzn: {
+      name: '文本 2',
+      type: 'COMPONENT_TYPE_TEXT',
+      rect: {
+        top: 72,
+        left: 20,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      animate: {
+        name: '',
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      },
+      attrs: {
+        color: 'red',
+        fontSize: 12,
+        text: '双击编辑文本',
+        bgColor: '',
+        lineHeight: 1.5,
+      },
+    },
+  },
   // 当前正在操作的编辑框key
-  activeEditKey: [],
+  activeEditKey: ['p0q24p'],
   // 组合列表
-  groupList: {},
+  groupList: {
+    p0q24p: [
+      'ftpdy8',
+      'upivzn',
+    ],
+  },
   // 页面列表
-  pages: [[]],
+  pages: [
+    [
+      'p0q24p',
+    ],
+  ],
   // 当前激活的页面
   activePage: 0,
   // 当前正在活动的元素尺寸和位置

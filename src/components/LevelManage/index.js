@@ -57,13 +57,24 @@ class LevelManage extends React.Component {
 const mapStateToProps = (store) => {
   const state = store.toJS();
   const {
-    pages, activePage, editList, activeEditKey,
+    pages, activePage, editList, activeEditKey, groupList,
   } = state;
-  const list = pages[activePage].map((it, index) => ({
-    name: editList[it].name,
-    key: it,
-    active: activeEditKey.indexOf(it) > -1,
-  }));
+  const list = [];
+  pages[activePage].forEach((it, index) => {
+    if (groupList[it]) {
+      list.push(groupList[it].map(item => ({
+        name: editList[it].name,
+        key: item,
+        active: activeEditKey.indexOf(item) > -1,
+      })));
+    } else {
+      list.push({
+        name: editList[it].name,
+        key: it,
+        active: activeEditKey.indexOf(it) > -1,
+      });
+    }
+  });
   const result = { list };
   return result;
 };

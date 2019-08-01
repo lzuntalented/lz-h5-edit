@@ -11,6 +11,7 @@ import './event';
 
 // 引入样式文件
 import './index.scss';
+import { getAroundRect } from '../../utils';
 
 class Phone extends React.Component {
     static propTypes = {
@@ -103,8 +104,8 @@ class Phone extends React.Component {
         } else {
           left = Math.min(left, itemRect.left);
           top = Math.min(top, itemRect.top);
-          width = Math.max(width + left, itemRect.width);
-          height = Math.max(height + top, itemRect.height);
+          width = Math.max(width + left, itemRect.width + itemRect.left);
+          height = Math.max(height + top, itemRect.height + itemRect.top);
         }
       });
       rect.left = left;
@@ -124,7 +125,7 @@ class Phone extends React.Component {
             {
               group: true,
               uniqueId: it,
-              data: { rect: this.getGroupRect(group) },
+              data: { rect: getAroundRect(group, editList) },
             },
           );
         } else {

@@ -33,79 +33,96 @@ function endMove(store, action) {
   return null;
 }
 
+function resetRect(itemObj, flag, originRect, distance, value, obj) {
+  const { rect } = itemObj;
+  if (flag === POINT_LEFT_CENTER || flag === POINT_RIGHT_CENTER) {
+    rect.width = originRect.width + distance;
+    if (flag === POINT_LEFT_CENTER) {
+      rect.left = originRect.left - distance;
+    }
+  } else if (flag === POINT_TOP_CENTER || flag === POINT_BOTTOM_CENTER) {
+    rect.height = originRect.height + distance;
+    if (flag === POINT_TOP_CENTER) {
+      rect.top = originRect.top - distance;
+    }
+  } else if (flag === POINT_LEFT_TOP || flag === POINT_RIGHT_BOTTOM
+     || flag === POINT_LEFT_BOTTOM || flag === POINT_RIGHT_TOP) {
+    rect.height = originRect.height + distance * 2;
+    rect.width = originRect.width + distance * 2;
+    rect.top = originRect.top - distance;
+    rect.left = originRect.left - distance;
+  } else if (flag === ALL_ITEM) {
+    // 移动整个编辑框
+    const { x, y } = value;
+    rect.top = originRect.top + y;
+    rect.left = originRect.left + x;
+  } else if (flag === POINT_ROTATE) {
+    // const { moveBoundRect } = obj;
+    const moveBoundRect = obj.moveTag.boundRect;
+    const { coordStart, coordEnd } = value;
+    const {
+      x, y, width, height,
+    } = moveBoundRect;
+
+    const ox = x + width / 2;
+    const oy = y + height / 2;
+
+    const ax = ox;
+    const ay = y;
+
+    const oa = {
+      x: ax - ox,
+      y: ay - oy,
+    };
+
+    const ob = {
+      x: coordEnd.x - ox,
+      y: coordEnd.y - oy,
+    };
+
+    const ab = {
+      x: coordEnd.x - ax,
+      y: coordEnd.y - ay,
+    };
+
+    const a = Math.sqrt(Math.pow(oa.x, 2) + Math.pow(oa.y, 2));
+
+    const b = Math.sqrt(Math.pow(ob.x, 2) + Math.pow(ob.y, 2));
+    const c = Math.sqrt(Math.pow(ab.x, 2) + Math.pow(ab.y, 2));
+
+
+    let dis = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
+    dis = Math.acos(dis) * (180 / Math.PI);
+    if (coordEnd.x > ox) {
+      // 小于180°夹角
+    } else {
+      dis = -dis;
+    }
+    rect.rotate = Math.floor(dis);
+  }
+}
+
 function change(store, action) {
   const { type, value } = action;
   const obj = store.toJS();
   if (type === MOVE_CHANGE) {
-    const { editList, moveTag, activeEditKey } = obj;
+    const {
+      editList, moveTag, activeEditKey, groupList,
+    } = obj;
     const { distance } = value;
-    const { rect } = editList[activeEditKey];
-    const { key: flag, rect: originRect } = moveTag;
-    if (flag === POINT_LEFT_CENTER || flag === POINT_RIGHT_CENTER) {
-      rect.width = originRect.width + distance;
-      if (flag === POINT_LEFT_CENTER) {
-        rect.left = originRect.left - distance;
-      }
-    } else if (flag === POINT_TOP_CENTER || flag === POINT_BOTTOM_CENTER) {
-      rect.height = originRect.height + distance;
-      if (flag === POINT_TOP_CENTER) {
-        rect.top = originRect.top - distance;
-      }
-    } else if (flag === POINT_LEFT_TOP || flag === POINT_RIGHT_BOTTOM
-       || flag === POINT_LEFT_BOTTOM || flag === POINT_RIGHT_TOP) {
-      rect.height = originRect.height + distance * 2;
-      rect.width = originRect.width + distance * 2;
-      rect.top = originRect.top - distance;
-      rect.left = originRect.left - distance;
-    } else if (flag === ALL_ITEM) {
-      // 移动整个编辑框
-      const { x, y } = value;
-      rect.top = originRect.top + y;
-      rect.left = originRect.left + x;
-    } else if (flag === POINT_ROTATE) {
-      // const { moveBoundRect } = obj;
-      const moveBoundRect = obj.moveTag.boundRect;
-      const { coordStart, coordEnd } = value;
-      const {
-        x, y, width, height,
-      } = moveBoundRect;
+    // const { rect } = editList[activeEditKey];
+    const { key: flag, rect: originRect, rectMap } = moveTag;
 
-      const ox = x + width / 2;
-      const oy = y + height / 2;
-
-      const ax = ox;
-      const ay = y;
-
-      const oa = {
-        x: ax - ox,
-        y: ay - oy,
-      };
-
-      const ob = {
-        x: coordEnd.x - ox,
-        y: coordEnd.y - oy,
-      };
-
-      const ab = {
-        x: coordEnd.x - ax,
-        y: coordEnd.y - ay,
-      };
-
-      const a = Math.sqrt(Math.pow(oa.x, 2) + Math.pow(oa.y, 2));
-
-      const b = Math.sqrt(Math.pow(ob.x, 2) + Math.pow(ob.y, 2));
-      const c = Math.sqrt(Math.pow(ab.x, 2) + Math.pow(ab.y, 2));
-
-
-      let dis = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
-      dis = Math.acos(dis) * (180 / Math.PI);
-      if (coordEnd.x > ox) {
-        // 小于180°夹角
-      } else {
-        dis = -dis;
-      }
-      rect.rotate = Math.floor(dis);
+    const list = [];
+    if (groupList[activeEditKey]) {
+      groupList[activeEditKey].forEach((it) => {
+        resetRect(editList[it], flag, rectMap[it], distance, value, obj);
+      });
+    } else {
+      list.push(editList[activeEditKey]);
+      list.forEach(it => resetRect(it, flag, originRect, distance, value, obj));
     }
+
     return fromJS(obj);
   }
   return null;
