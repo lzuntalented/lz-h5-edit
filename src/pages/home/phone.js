@@ -4,7 +4,9 @@ import Input from '../../components/Input';
 import Picture from '../../components/Picture';
 import Music from '../../components/Music';
 import GroupItem from '../../components/GroupItem';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
+import {
+ COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP 
+} from '../../core/constants';
 
 // 引入样式文件
 import './index.scss';
@@ -26,7 +28,8 @@ class Phone extends React.Component {
     } = this.props;
     const list = pages[activePage];
     return list.map((it) => {
-      if (editList[it]) {
+      const { nodeType } = editList[it];
+      if (nodeType === ITEM_TYPE_SINGLE) {
         const { type, ...others } = editList[it];
         switch (type) {
           case COMPONENT_TYPE_TEXT:
@@ -36,10 +39,10 @@ class Phone extends React.Component {
           default:
             break;
         }
-      } else if (groupList[it]) {
-        return <GroupItem uniqueId={it} list={groupList[it]} editList={editList} />;
+      } else if (nodeType === ITEM_TYPE_GROUP) {
+        return <GroupItem key={it} uniqueId={it} list={groupList[it]} editList={editList} />;
       }
-      return <div />;
+      return null;
     });
   }
 

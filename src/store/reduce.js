@@ -8,7 +8,7 @@ import {
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
   CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS,
 } from '../core/constants';
-import { createEditItem } from '../utils';
+import { createEditItem, createNode, getAroundRect } from '../utils';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
 
@@ -113,15 +113,25 @@ function change(store, action) {
     // const { rect } = editList[activeEditKey];
     const { key: flag, rect: originRect, rectMap } = moveTag;
 
-    const list = [];
-    if (groupList[activeEditKey]) {
-      groupList[activeEditKey].forEach((it) => {
-        resetRect(editList[it], flag, rectMap[it], distance, value, obj);
-      });
-    } else {
-      list.push(editList[activeEditKey]);
-      list.forEach(it => resetRect(it, flag, originRect, distance, value, obj));
-    }
+    activeEditKey.forEach((it) => {
+      const item = editList[it];
+      resetRect(item, flag, originRect, distance, value, obj);
+      // console.log(item, flag, originRect, distance, value, 'change', item.rect);
+      const { belong } = item;
+      if (belong) {
+        const groupItem = editList[belong];
+        const groupRect = getAroundRect(groupList[belong], editList);
+        groupItem.rect = Object.assign(groupRect, {
+          top: groupItem.rect.top + groupRect.top, left: groupItem.rect.left + groupRect.left,
+        });
+      }
+    });
+
+    // if (groupList[activeEditKey]) {
+    //   groupList[activeEditKey].forEach((it) => {
+    //     resetRect(editList[it], flag, rectMap[it], distance, value, obj);
+    //   });
+    // }
 
     return fromJS(obj);
   }
@@ -237,7 +247,7 @@ function addPageItem(store, action) {
     const page = pages[activePage];
     // 给组件命名
     const name = `${getNameWithItemType(value)} ${page.length + 1}`;
-    editList[uniqueId] = createEditItem(value, name);
+    editList[uniqueId] = createNode(value, name);
     page.push(uniqueId);
     // 设置当前添加的元素为激活项
     obj.activeEditKey = [uniqueId];

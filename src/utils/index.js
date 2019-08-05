@@ -1,5 +1,5 @@
 import {
-  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR,
+  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE,
 } from '../core/constants';
 
 function lzlog(...params) {
@@ -46,11 +46,12 @@ export function createRandom(len = 6) {
 /**
  * 创建每个编辑组件所需默认参数
  */
-export function createEditItem(type, name) {
-  return {
+export function createEditItem(type, name, nodeType, belong) {
+  const result = {
     // 组件名称
     name,
     type,
+    nodeType,
     rect: {
       top: 0,
       left: 0,
@@ -70,8 +71,34 @@ export function createEditItem(type, name) {
     },
     attrs: {},
   };
+  if (belong) result.belong = belong;
+  return result;
 }
 
+/**
+ * 创建单个元素
+ * @param {*} type
+ * @param {*} name
+ * @param {*} belong
+ */
+export function createNode(type, name, belong) {
+  return createEditItem(type, name, ITEM_TYPE_SINGLE, belong);
+}
+
+/**
+ * 创建分组元素
+ * @param {*} type
+ * @param {*} name
+ */
+export function createGroup(type, name) {
+  return createEditItem(type, name, ITEM_TYPE_GROUP);
+}
+
+/**
+ * 获取分组后，最大包围内容的矩形尺寸
+ * @param {*} group
+ * @param {*} editList
+ */
 export function getAroundRect(group, editList) {
   const rect = {};
   let left = 0;

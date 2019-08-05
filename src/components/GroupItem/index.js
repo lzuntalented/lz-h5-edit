@@ -36,9 +36,12 @@ class GroupItem extends React.Component {
     }
 
     onStartMove = (e) => {
-      console.log('this.onStartMove');
-      const { dispatch, list, editList } = this.props;
-      const rect = getAroundRect(list, editList);
+      // 如果资源触发此事件，禁用事件
+      if (e.cancelMove) return;
+      const {
+        dispatch, list, editList, uniqueId,
+      } = this.props;
+      const { rect } = editList[uniqueId];
       const rectMap = {};
       list.forEach((it) => { rectMap[it] = Object.assign({}, editList[it].rect); });
       dispatch(startMove({ key: ALL_ITEM, rect, rectMap }));
@@ -48,8 +51,8 @@ class GroupItem extends React.Component {
     setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
     render() {
-      const { list, editList } = this.props;
-      const rect = getAroundRect(list, editList);
+      const { list, editList, uniqueId } = this.props;
+      const { rect } = editList[uniqueId];
       const {
         height, width, left, top,
       } = rect;

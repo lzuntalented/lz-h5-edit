@@ -121,17 +121,21 @@ class Phone extends React.Component {
       activeEditKey.forEach((it) => {
         const group = groupList[it];
         if (group) {
-          items.push(
-            {
-              group: true,
-              uniqueId: it,
-              data: { rect: getAroundRect(group, editList) },
-            },
-          );
-        } else {
           items.push({
             uniqueId: it,
             data: editList[it],
+          });
+        } else {
+          const { rect, belong } = editList[it];
+          const rectData = Object.assign({}, rect);
+          if (belong) {
+            const { rect: groupRect } = editList[belong];
+            rectData.left += groupRect.left;
+            rectData.top += groupRect.top;
+          }
+          items.push({
+            uniqueId: it,
+            data: { rect: rectData },
           });
         }
       });
@@ -162,41 +166,41 @@ class Phone extends React.Component {
                   }}
                 >
                   <li className="line t">
-                    <li
+                    <span
                       className="point tc"
                       data-key={POINT_TOP_CENTER}
                     />
                   </li>
                   <li className="line b" style={{ top: height - 2 }}>
-                    <li
+                    <span
                       className="point bc"
                       data-key={POINT_BOTTOM_CENTER}
                     />
                   </li>
                   <li className="line l" style={{ height }}>
-                    <li
+                    <span
                       className="point lc"
                       data-key={POINT_LEFT_CENTER}
                     />
-                    <li
+                    <span
                       className="point lt"
                       data-key={POINT_LEFT_TOP}
                     />
-                    <li
+                    <span
                       className="point lb"
                       data-key={POINT_LEFT_BOTTOM}
                     />
                   </li>
                   <li className="line r" style={{ height }}>
-                    <li
+                    <span
                       className="point rc"
                       data-key={POINT_RIGHT_CENTER}
                     />
-                    <li
+                    <span
                       className="point rt"
                       data-key={POINT_RIGHT_TOP}
                     />
-                    <li
+                    <span
                       className="point rb"
                       data-key={POINT_RIGHT_BOTTOM}
                     />

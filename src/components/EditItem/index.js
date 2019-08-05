@@ -58,8 +58,10 @@ export default function (Component) {
     }
 
     onStartMove = (e) => {
-      e.stopPropagation();
-      const { dispatch, data } = this.props;
+      e.cancelMove = true;
+      const { dispatch, data, cancelMove } = this.props;
+      // cancelMove();
+      console.log('onStartMove', data.rect);
       // dispatch(changeActiveEditKey(uniqueId));
       dispatch(startMove({ key: ALL_ITEM, rect: data.rect }));
     }

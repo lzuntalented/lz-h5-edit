@@ -30,10 +30,10 @@ window.addEventListener('mousedown', (e) => {
 }, false);
 
 window.addEventListener('mousemove', (e) => {
+  e.preventDefault();
   if (moveTag) {
     const { key: flag } = moveTag;
     // e.stopPropagation();
-    e.preventDefault();
 
     coordEnd.x = e.pageX;
     coordEnd.y = e.pageY;

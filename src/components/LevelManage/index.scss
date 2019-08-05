@@ -1,21 +1,39 @@
 .component-level-manage-container {
     margin-bottom: 12px;
-    ul {
-        margin: 0 0;
-        padding: 0 0;
-        list-style: none;
-        border: 1px solid #cacaca;
-        border-bottom-color: transparent;
-        li {
-            margin: 0 0;
-            padding: 0 8px;
-            list-style: none;
-            line-height: 32px;
-            border-bottom: 1px solid #cacaca;
 
-            &.active {
-                color: #1593ff;
-            }
+    .group-names {
+        & > .sort-container {
+            padding-left: 40px;
         }
+    }
+
+    .item {
+        line-height: 32px;
+        background: #fff;
+        font-size: 12px;
+        color: #000;
+        border-bottom: 1px solid #ccd5db;
+
+        &:last-child {
+            border-bottom-width: 0;
+        }
+    }
+}
+
+.group-names {
+    & > .sort-container {
+        padding-left: 40px;
+    }
+}
+
+.item {
+    line-height: 32px;
+    background: #fff;
+    font-size: 12px;
+    color: #000;
+    border-bottom: 1px solid #ccd5db;
+
+    &:last-child {
+        border-bottom-width: 0;
     }
 }

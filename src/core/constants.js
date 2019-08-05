@@ -75,6 +75,12 @@ export const COMPONENT_TYPE_TEXT = 'COMPONENT_TYPE_TEXT';
 // 图片
 export const COMPONENT_TYPE_PICTURE = 'COMPONENT_TYPE_PICTURE';
 
+/* 节点类型 */
+// 单一节点
+export const ITEM_TYPE_SINGLE = 'ITEM_TYPE_SINGLE';
+// 组节点
+export const ITEM_TYPE_GROUP = 'ITEM_TYPE_GROUP';
+
 // 组件设置
 export const COMPONENT_STYLE_WIDHT = 'width';
 export const COMPONENT_STYLE_HEIGHT = 'height';

@@ -20,6 +20,8 @@ const defaultStore = fromJS({
     ftpdy8: {
       name: '文本 1',
       type: 'COMPONENT_TYPE_TEXT',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'p0q24p',
       rect: {
         top: 0,
         left: 0,
@@ -44,11 +46,113 @@ const defaultStore = fromJS({
     upivzn: {
       name: '文本 2',
       type: 'COMPONENT_TYPE_TEXT',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'p0q24p',
       rect: {
         top: 72,
         left: 20,
         width: 320,
         height: 40,
+        rotate: 0,
+      },
+      animate: {
+        name: '',
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      },
+      attrs: {
+        color: 'red',
+        fontSize: 12,
+        text: '双击编辑文本',
+        bgColor: '',
+        lineHeight: 1.5,
+      },
+    },
+    p0q24p: {
+      name: '组1',
+      nodeType: 'ITEM_TYPE_GROUP',
+      rect: {
+        top: 20,
+        left: 30,
+        width: 340,
+        height: 112,
+        rotate: 0,
+      },
+      animate: {
+        name: '',
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      },
+      attrs: {
+        color: 'red',
+        fontSize: 12,
+        text: '双击编辑文本',
+        bgColor: '',
+        lineHeight: 1.5,
+      },
+    },
+    ftpdy1: {
+      name: '文本 21',
+      type: 'COMPONENT_TYPE_TEXT',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'p0q241',
+      rect: {
+        top: 0,
+        left: 0,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      animate: {
+        name: '',
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      },
+      attrs: {
+        color: 'red',
+        fontSize: 12,
+        text: '双击编辑文本',
+        bgColor: '',
+        lineHeight: 1.5,
+      },
+    },
+    upivz1: {
+      name: '文本 22',
+      type: 'COMPONENT_TYPE_TEXT',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'p0q241',
+      rect: {
+        top: 72,
+        left: 20,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      animate: {
+        name: '',
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      },
+      attrs: {
+        color: 'red',
+        fontSize: 12,
+        text: '双击编辑文本',
+        bgColor: '',
+        lineHeight: 1.5,
+      },
+    },
+    p0q241: {
+      name: '组2',
+      nodeType: 'ITEM_TYPE_GROUP',
+      rect: {
+        top: 120,
+        left: 70,
+        width: 340,
+        height: 112,
         rotate: 0,
       },
       animate: {
@@ -74,11 +178,16 @@ const defaultStore = fromJS({
       'ftpdy8',
       'upivzn',
     ],
+    p0q241: [
+      'ftpdy1',
+      'upivz1',
+    ],
   },
   // 页面列表
   pages: [
     [
       'p0q24p',
+      'p0q241',
     ],
   ],
   // 当前激活的页面
@@ -92,8 +201,10 @@ const defaultStore = fromJS({
   // 移动标识
   moveInfo: null,
 });
-/* eslint-disabled no-underscore-dangle */
-const store = createStore(reducer, defaultStore, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+const store = createStore(reducer, defaultStore,
+  /* eslint-disable-next-line no-underscore-dangle */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 export default store;
 
 // 设置监听器
