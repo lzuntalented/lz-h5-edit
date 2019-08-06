@@ -132,6 +132,11 @@ class Phone extends React.Component {
             const { rect: groupRect } = editList[belong];
             rectData.left += groupRect.left;
             rectData.top += groupRect.top;
+            items.push({
+              uniqueId: belong,
+              data: editList[belong],
+              type: 'no-event',
+            });
           }
           items.push({
             uniqueId: it,
@@ -143,7 +148,9 @@ class Phone extends React.Component {
         <div className="home-control-container">
           {
             items.map((it) => {
-              const { uniqueId, data, group } = it;
+              const {
+                uniqueId, data, group, type,
+              } = it;
               const { rect } = data;
               const {
                 top,
@@ -152,6 +159,27 @@ class Phone extends React.Component {
                 height,
                 rotate,
               } = rect;
+              if (type === 'no-event') {
+                return (
+                  <ul
+                    className="ctrl-container"
+                    key={uniqueId}
+                    onMouseDown={this.onScale(ALL_ITEM, uniqueId, group)}
+                    style={{
+                      position: 'absolute',
+                      width,
+                      left,
+                      top,
+                      transform: `rotate(${rotate}deg)`,
+                    }}
+                  >
+                    <li className="line t" />
+                    <li className="line b" style={{ top: height - 2 }} />
+                    <li className="line l" style={{ height }} />
+                    <li className="line r" style={{ height }} />
+                  </ul>
+                );
+              }
               return (
                 <ul
                   className="ctrl-container"

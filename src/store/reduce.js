@@ -120,10 +120,41 @@ function change(store, action) {
       const { belong } = item;
       if (belong) {
         const groupItem = editList[belong];
-        const groupRect = getAroundRect(groupList[belong], editList);
-        groupItem.rect = Object.assign(groupRect, {
-          top: groupItem.rect.top + groupRect.top, left: groupItem.rect.left + groupRect.left,
+        const groupItemRect = groupItem.rect;
+        const list = {};
+        let minLeft = 0;
+        let minTop = 0;
+        groupList[belong].forEach((that, index) => {
+          const thatItemRect = editList[that].rect;
+          if (index === 0) {
+            minLeft = thatItemRect.left;
+            minTop = thatItemRect.top;
+          } else {
+            minLeft = Math.min(minLeft, thatItemRect.left);
+            minTop = Math.min(minTop, thatItemRect.top);
+          }
         });
+        groupList[belong].forEach((that) => {
+          const thatItemRect = editList[that].rect;
+          thatItemRect.left -= minLeft;
+          thatItemRect.top -= minTop;
+        });
+        console.log(minLeft, minTop, 'minLeft, minTop, ');
+        groupItemRect.left += minLeft;
+        groupItemRect.top += minTop;
+        // const groupRect = getAroundRect(groupList[belong], editList);
+        // // groupList[belong].forEach((item) => {
+        // //   if (item !== it) {
+        // //     editList[item].rect = Object.assign({}, editList[item].rect, {
+        // //       top: groupItem.rect.top + groupRect.top,
+        // //       left: groupItem.rect.left + groupRect.left,
+        // //     });
+        // //   }
+        // // });
+        // groupItem.rect = Object.assign(groupRect, {
+        //   top: groupItem.rect.top + groupRect.top,
+        //   left: groupItem.rect.left + groupRect.left,
+        // });
       }
     });
 

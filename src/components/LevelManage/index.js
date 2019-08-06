@@ -7,24 +7,24 @@ import classnames from 'classnames';
 import './index.scss';
 import { changeActiveEditKey, resortPageItem, groupActiveEditKeys } from '../../store/action';
 
-const SortableItem = SortableElement(({ value }) => {
+const SortableItem = SortableElement(({ value, onItemClick }) => {
   const { name, key, active } = value;
   const cls = active ? 'active' : '';
-  return <div className={classnames('item', cls)}>{name}</div>;
+  return <div className={classnames('item', cls)} onClick={onItemClick(key)}>{name}</div>;
 });
 
-const SortableItemGroup = SortableElement(({ value }) => {
+const SortableItemGroup = SortableElement(({ value, onItemClick }) => {
   const { name, children, active } = value;
   const cls = active ? 'active' : '';
   return (
     <div className={classnames('item group-names', cls)}>
       <div className="name">{name}</div>
-      <SortableList items={children} />
+      <SortableList items={children} onItemClick={onItemClick} />
     </div>
   );
 });
 
-const SortableList = SortableContainer(({ items }) => (
+const SortableList = SortableContainer(({ items, onItemClick }) => (
   <div className="sort-container">
     {
       items.map((value, index) => {
@@ -33,11 +33,11 @@ const SortableList = SortableContainer(({ items }) => (
           const { name, key, active } = value;
           const cls = active ? 'active' : '';
           return (
-            <SortableItemGroup key={`item-${index}`} index={index} value={value} />
+            <SortableItemGroup key={`item-${index}`} index={index} value={value} onItemClick={onItemClick} />
           );
         }
         return (
-          <SortableItem key={`item-${index}`} index={index} value={value} />
+          <SortableItem key={`item-${index}`} index={index} value={value} onItemClick={onItemClick} />
         );
       })
     }
@@ -51,10 +51,8 @@ class LevelManage extends React.Component {
     dispatch(resortPageItem(pages));
   }
 
-  onItemClick = (e) => {
-    const { index } = e;
-    const { dispatch, list } = this.props;
-    const key = list[index].key;
+  onItemClick = key => () => {
+    const { dispatch } = this.props;
     dispatch(changeActiveEditKey(key));
   }
 
@@ -70,8 +68,7 @@ class LevelManage extends React.Component {
         <div onClick={this.onGroup}>分组</div>
         <SortableList
           items={list}
-          onSortStart={this.onItemClick}
-          onSortEnd={this.onSortEnd}
+          onItemClick={this.onItemClick}
         />
       </div>
     );

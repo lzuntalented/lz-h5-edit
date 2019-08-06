@@ -178,16 +178,11 @@ const defaultStore = fromJS({
       'ftpdy8',
       'upivzn',
     ],
-    p0q241: [
-      'ftpdy1',
-      'upivz1',
-    ],
   },
   // 页面列表
   pages: [
     [
       'p0q24p',
-      'p0q241',
     ],
   ],
   // 当前激活的页面
