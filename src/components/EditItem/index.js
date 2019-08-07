@@ -58,11 +58,9 @@ export default function (Component) {
     }
 
     onStartMove = (e) => {
+      const { dispatch, data, activeEditKey } = this.props;
+      if (activeEditKey.length === 0) return;
       e.cancelMove = true;
-      const { dispatch, data, cancelMove } = this.props;
-      // cancelMove();
-      console.log('onStartMove', data.rect);
-      // dispatch(changeActiveEditKey(uniqueId));
       dispatch(startMove({ key: ALL_ITEM, rect: data.rect }));
     }
 
@@ -156,7 +154,11 @@ export default function (Component) {
     }
   }
 
-  const mapStateToProps = () => ({});
+  const mapStateToProps = (store) => {
+    const state = store.toJS();
+    const { activeEditKey } = state;
+    return { activeEditKey };
+  };
   const mapDispatchToProps = dispatch => ({ dispatch });
   return connect(mapStateToProps, mapDispatchToProps)(Layout);
 }

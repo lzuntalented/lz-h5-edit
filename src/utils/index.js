@@ -131,5 +131,19 @@ export function getAroundRect(group, editList) {
   return rect;
 }
 
+export function debounce(fn, delay = 0) {
+  let timer;
+  return (...args) => {
+    const th = this;
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(th, args);
+    }, delay);
+  };
+}
+
 export default lzlog;
 // export testType;

@@ -37,7 +37,10 @@ class GroupItem extends React.Component {
 
     onStartMove = (e) => {
       // 如果资源触发此事件，禁用事件
-      if (e.cancelMove) return;
+      if (e.cancelMove) {
+        delete e.cancelMove;
+        return;
+      }
       const {
         dispatch, list, editList, uniqueId,
       } = this.props;

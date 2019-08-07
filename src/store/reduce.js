@@ -16,6 +16,25 @@ function startMove(store, action) {
   const { type, value } = action;
   const obj = store.toJS();
   if (type === MOVE_START) {
+    const { activeEditKey, groupList, editList } = obj;
+    // if (activeEditKey)
+    const rectMap = {};
+    activeEditKey.forEach((it) => {
+      const { belong } = editList[it];
+      if (belong) {
+        rectMap[belong] = Object.assign({}, editList[belong].rect);
+        groupList[belong].forEach((item) => {
+          const { rect } = editList[item];
+          rectMap[item] = Object.assign({}, rect);
+        });
+      }
+    });
+    if (value.rectMap) {
+      Object.assign(rectMap, value.rectMap);
+    } else {
+      value.rectMap = rectMap;
+    }
+
     return fromJS(Object.assign(obj, {
       moveTag: value,
     }));
@@ -121,28 +140,36 @@ function change(store, action) {
       if (belong) {
         const groupItem = editList[belong];
         const groupItemRect = groupItem.rect;
-        const list = {};
-        let minLeft = 0;
-        let minTop = 0;
-        groupList[belong].forEach((that, index) => {
+
+        // 计算组内 左上最小坐标
+        let minLeft = item.rect.left;
+        let minTop = item.rect.top;
+        groupList[belong].forEach((that) => {
+          // 当前元素使用移动后坐标
+          if (that === it) return;
           const thatItemRect = editList[that].rect;
-          if (index === 0) {
-            minLeft = thatItemRect.left;
-            minTop = thatItemRect.top;
-          } else {
-            minLeft = Math.min(minLeft, thatItemRect.left);
-            minTop = Math.min(minTop, thatItemRect.top);
-          }
+          minLeft = Math.min(minLeft, thatItemRect.left);
+          minTop = Math.min(minTop, thatItemRect.top);
         });
+        // 重置组内元素坐标
         groupList[belong].forEach((that) => {
           const thatItemRect = editList[that].rect;
-          thatItemRect.left -= minLeft;
-          thatItemRect.top -= minTop;
+          // 当前元素
+          if (that === it) {
+            thatItemRect.left -= minLeft;
+            thatItemRect.top -= minTop;
+          } else {
+            // 其余元素，使用点击时坐标计算
+            thatItemRect.left = rectMap[that].left - minLeft;
+            thatItemRect.top = rectMap[that].top - minTop;
+          }
         });
-        console.log(minLeft, minTop, 'minLeft, minTop, ');
-        groupItemRect.left += minLeft;
-        groupItemRect.top += minTop;
-        // const groupRect = getAroundRect(groupList[belong], editList);
+        // console.log(minLeft, minTop, 'minLeft, minTop, ');
+        groupItemRect.left = rectMap[belong].left + minLeft;
+        groupItemRect.top = rectMap[belong].top + minTop;
+        const groupRect = getAroundRect(groupList[belong], editList);
+        groupItemRect.width = groupRect.width;
+        groupItemRect.height = groupRect.height;
         // // groupList[belong].forEach((item) => {
         // //   if (item !== it) {
         // //     editList[item].rect = Object.assign({}, editList[item].rect, {
@@ -409,7 +436,6 @@ function groupActiveEditKeys(store, action) {
   }
   return null;
 }
-groupActiveEditKeys;
 
 export default [
   startMove,

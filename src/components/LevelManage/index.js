@@ -10,15 +10,17 @@ import { changeActiveEditKey, resortPageItem, groupActiveEditKeys } from '../../
 const SortableItem = SortableElement(({ value, onItemClick }) => {
   const { name, key, active } = value;
   const cls = active ? 'active' : '';
-  return <div className={classnames('item', cls)} onClick={onItemClick(key)}>{name}</div>;
+  return <div className={classnames('item', cls)} onMouseDown={onItemClick(key)}>{name}</div>;
 });
 
 const SortableItemGroup = SortableElement(({ value, onItemClick }) => {
-  const { name, children, active } = value;
+  const {
+    name, children, active, key,
+  } = value;
   const cls = active ? 'active' : '';
   return (
     <div className={classnames('item group-names', cls)}>
-      <div className="name">{name}</div>
+      <div className="name" onMouseDown={onItemClick(key)}>{name}</div>
       <SortableList items={children} onItemClick={onItemClick} />
     </div>
   );

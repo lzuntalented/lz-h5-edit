@@ -20,12 +20,6 @@
     }
 }
 
-.group-names {
-    & > .sort-container {
-        padding-left: 40px;
-    }
-}
-
 .item {
     line-height: 32px;
     background: #fff;
@@ -35,5 +29,22 @@
 
     &:last-child {
         border-bottom-width: 0;
+    }
+
+    &.active {
+        background-color: aquamarine;
+    }
+}
+
+.group-names {
+    & > .sort-container {
+        padding-left: 40px;
+    }
+    &.active {
+        background-color: #fff;
+
+        .name {
+            background-color: aquamarine;
+        }
     }
 }

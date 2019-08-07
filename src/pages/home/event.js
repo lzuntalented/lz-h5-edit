@@ -4,7 +4,7 @@ import {
   POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP, POINT_RIGHT_BOTTOM, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_ROTATE,
 } from '../../core/constants';
 import { subscribe, dispatch } from '../../store';
-import { checkQuadrant } from '../../utils/index';
+import { checkQuadrant, debounce } from '../../utils/index';
 import { change, endMove, removeItem } from '../../store/action';
 
 // 正在移动标识
@@ -29,7 +29,7 @@ window.addEventListener('mousedown', (e) => {
   }
 }, false);
 
-window.addEventListener('mousemove', (e) => {
+window.addEventListener('mousemove', debounce((e) => {
   e.preventDefault();
   if (moveTag) {
     const { key: flag } = moveTag;
@@ -110,7 +110,7 @@ window.addEventListener('mousemove', (e) => {
       }));
     }
   }
-});
+}));
 
 window.addEventListener('mouseup', () => {
   if (moveTag) {
