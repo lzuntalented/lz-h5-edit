@@ -147,7 +147,7 @@ function change(store, action) {
         groupList[belong].forEach((that) => {
           // 当前元素使用移动后坐标
           if (that === it) return;
-          const thatItemRect = editList[that].rect;
+          const thatItemRect = rectMap[that];
           minLeft = Math.min(minLeft, thatItemRect.left);
           minTop = Math.min(minTop, thatItemRect.top);
         });

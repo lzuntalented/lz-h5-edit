@@ -58,8 +58,11 @@ export default function (Component) {
     }
 
     onStartMove = (e) => {
-      const { dispatch, data, activeEditKey } = this.props;
-      if (activeEditKey.length === 0) return;
+      e.preventDefault();
+      const {
+        dispatch, data, activeEditKey, uniqueId,
+      } = this.props;
+      if (activeEditKey.indexOf(uniqueId) === -1) return;
       e.cancelMove = true;
       dispatch(startMove({ key: ALL_ITEM, rect: data.rect }));
     }

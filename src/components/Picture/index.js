@@ -7,7 +7,7 @@ import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
 // 组件默认属性
 const defaultAttrs = {
   // 图片地址
-  imgSrc: 'http://www.lzuntalented.cn/lzphp-show/data/img/1.jpg',
+  imgSrc: 'http://www.lzuntalented.cn/img/1.jpg',
 };
 
 const refNames = {
