@@ -110,7 +110,7 @@ window.addEventListener('mousemove', debounce((e) => {
       }));
     }
   }
-}));
+}, 5));
 
 window.addEventListener('mouseup', () => {
   if (moveTag) {

@@ -19,7 +19,6 @@ const refNames = {
 class GroupItem extends React.Component {
     static propTypes = {
       dispatch: PropTypes.func.isRequired,
-      data: PropTypes.object.isRequired,
       uniqueId: PropTypes.string.isRequired,
     }
 
@@ -42,8 +41,10 @@ class GroupItem extends React.Component {
         return;
       }
       const {
-        dispatch, list, editList, uniqueId,
+        dispatch, list, editList, uniqueId, activeEditKey,
       } = this.props;
+      // 检测激活态是否包含此唯一标识
+      if (activeEditKey.indexOf(uniqueId) === -1) return;
       const { rect } = editList[uniqueId];
       const rectMap = {};
       list.forEach((it) => { rectMap[it] = Object.assign({}, editList[it].rect); });
@@ -84,6 +85,10 @@ class GroupItem extends React.Component {
     }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (store) => {
+  const state = store.toJS();
+  const { activeEditKey } = state;
+  return { activeEditKey };
+};
 const mapDispatchToProps = dispatch => ({ dispatch });
 export default connect(mapStateToProps, mapDispatchToProps)(GroupItem);
