@@ -58,7 +58,7 @@ class GroupItem extends React.Component {
       const { list, editList, uniqueId } = this.props;
       const { rect } = editList[uniqueId];
       const {
-        height, width, left, top,
+        height, width, left, top, rotate,
       } = rect;
       return (
         <div
@@ -71,6 +71,7 @@ class GroupItem extends React.Component {
             left,
             top,
             position: 'absolute',
+            transform: `rotate(${rotate}deg)`,
           }}
         >
           {

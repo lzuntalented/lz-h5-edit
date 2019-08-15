@@ -57,6 +57,7 @@ $phone-footer-height: 30;
           margin: 0 0;
           padding: 0 0;
           list-style: none;
+          pointer-events: none;
 
           .line {
             position: absolute;
@@ -101,6 +102,7 @@ $phone-footer-height: 30;
             border: 1px solid #44cb83;
             width: 12px;
             height: 12px;
+            pointer-events: all;
       
             &.lc {
               left: -6px;

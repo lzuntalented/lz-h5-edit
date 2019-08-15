@@ -80,7 +80,7 @@ function resetRect(itemObj, flag, originRect, distance, value, obj) {
     const moveBoundRect = obj.moveTag.boundRect;
     const { coordStart, coordEnd } = value;
     const {
-      x, y, width, height,
+      x, y, width, bottom: height,
     } = moveBoundRect;
 
     const ox = x + width / 2;

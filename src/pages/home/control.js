@@ -128,20 +128,22 @@ class Phone extends React.Component {
         } else {
           const { rect, belong } = editList[it];
           const rectData = Object.assign({}, rect);
+          const obj = {};
           if (belong) {
             const { rect: groupRect } = editList[belong];
             rectData.left += groupRect.left;
             rectData.top += groupRect.top;
+            rectData.rotate += groupRect.rotate;
             items.push({
               uniqueId: belong,
               data: editList[belong],
               type: 'no-event',
             });
           }
-          items.push({
+          items.push(Object.assign({
             uniqueId: it,
             data: { rect: rectData },
-          });
+          }, obj));
         }
       });
       return (
@@ -150,6 +152,7 @@ class Phone extends React.Component {
             items.map((it) => {
               const {
                 uniqueId, data, group, type,
+                origin = {},
               } = it;
               const { rect } = data;
               const {
@@ -170,13 +173,14 @@ class Phone extends React.Component {
                       width,
                       left,
                       top,
+                      height,
                       transform: `rotate(${rotate}deg)`,
                     }}
                   >
                     <li className="line t" />
-                    <li className="line b" style={{ top: height - 2 }} />
-                    <li className="line l" style={{ height }} />
-                    <li className="line r" style={{ height }} />
+                    <li className="line b" />
+                    <li className="line l" />
+                    <li className="line r" />
                   </ul>
                 );
               }
@@ -190,7 +194,9 @@ class Phone extends React.Component {
                     width,
                     left,
                     top,
+                    height,
                     transform: `rotate(${rotate}deg)`,
+                    transformOrigin: `${origin.x}px ${origin.y}px`,
                   }}
                 >
                   <li className="line t">
@@ -199,13 +205,13 @@ class Phone extends React.Component {
                       data-key={POINT_TOP_CENTER}
                     />
                   </li>
-                  <li className="line b" style={{ top: height - 2 }}>
+                  <li className="line b">
                     <span
                       className="point bc"
                       data-key={POINT_BOTTOM_CENTER}
                     />
                   </li>
-                  <li className="line l" style={{ height }}>
+                  <li className="line l">
                     <span
                       className="point lc"
                       data-key={POINT_LEFT_CENTER}
@@ -219,7 +225,7 @@ class Phone extends React.Component {
                       data-key={POINT_LEFT_BOTTOM}
                     />
                   </li>
-                  <li className="line r" style={{ height }}>
+                  <li className="line r">
                     <span
                       className="point rc"
                       data-key={POINT_RIGHT_CENTER}
