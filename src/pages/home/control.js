@@ -115,9 +115,87 @@ class Phone extends React.Component {
       return rect;
     }
 
+    renderLine(it) {
+      const {
+        uniqueId, data, group, type,
+        origin = {},
+      } = it;
+      const { rect } = data;
+      const {
+        top,
+        left,
+        width,
+        height,
+        rotate,
+      } = rect;
+      return (
+        <ul
+          className="ctrl-container"
+          key={uniqueId}
+          onMouseDown={this.onScale(ALL_ITEM, uniqueId, group)}
+          style={{
+            position: 'absolute',
+            width,
+            left,
+            top,
+            height,
+            transform: `rotate(${rotate}deg)`,
+            transformOrigin: `${origin.x}px ${origin.y}px`,
+          }}
+        >
+          <li className="line t">
+            <span
+              className="point tc"
+              data-key={POINT_TOP_CENTER}
+            />
+          </li>
+          <li className="line b">
+            <span
+              className="point bc"
+              data-key={POINT_BOTTOM_CENTER}
+            />
+          </li>
+          <li className="line l">
+            <span
+              className="point lc"
+              data-key={POINT_LEFT_CENTER}
+            />
+            <span
+              className="point lt"
+              data-key={POINT_LEFT_TOP}
+            />
+            <span
+              className="point lb"
+              data-key={POINT_LEFT_BOTTOM}
+            />
+          </li>
+          <li className="line r">
+            <span
+              className="point rc"
+              data-key={POINT_RIGHT_CENTER}
+            />
+            <span
+              className="point rt"
+              data-key={POINT_RIGHT_TOP}
+            />
+            <span
+              className="point rb"
+              data-key={POINT_RIGHT_BOTTOM}
+            />
+          </li>
+          <li className="line link-rotate" />
+          <li
+            className="point rotate"
+            data-key={POINT_ROTATE}
+          />
+        </ul>
+      );
+    }
+
     render() {
       const { editList, groupList, activeEditKey } = this.props;
       const items = [];
+      const belongs = {};
       activeEditKey.forEach((it) => {
         const group = groupList[it];
         if (group) {
@@ -129,21 +207,36 @@ class Phone extends React.Component {
           const { rect, belong } = editList[it];
           const rectData = Object.assign({}, rect);
           const obj = {};
+          // 当前为组内元素
           if (belong) {
-            const { rect: groupRect } = editList[belong];
-            rectData.left += groupRect.left;
-            rectData.top += groupRect.top;
-            rectData.rotate += groupRect.rotate;
+            // const { rect: groupRect } = editList[belong];
+            // rectData.left += groupRect.left;
+            // rectData.top += groupRect.top;
+            // rectData.rotate += groupRect.rotate;
+            if (!belongs[belong]) {
+              belongs[belong] = [];
+              items.push({
+                uniqueId: belong,
+                data: editList[belong],
+                type: 'no-event',
+              });
+            }
+            belongs[belong].push({
+              uniqueId: it,
+              data: editList[it],
+            });
+          } else {
             items.push({
-              uniqueId: belong,
-              data: editList[belong],
-              type: 'no-event',
+              uniqueId: it,
+              data: editList[it],
             });
           }
-          items.push(Object.assign({
-            uniqueId: it,
-            data: { rect: rectData },
-          }, obj));
+        }
+      });
+      items.forEach((it) => {
+        const item = belongs[it.uniqueId];
+        if (item) {
+          it.children = item;
         }
       });
       return (
@@ -151,8 +244,7 @@ class Phone extends React.Component {
           {
             items.map((it) => {
               const {
-                uniqueId, data, group, type,
-                origin = {},
+                uniqueId, data, group, type, children = [],
               } = it;
               const { rect } = data;
               const {
@@ -181,71 +273,13 @@ class Phone extends React.Component {
                     <li className="line b" />
                     <li className="line l" />
                     <li className="line r" />
+                    {
+                      children.map(that => this.renderLine(that))
+                    }
                   </ul>
                 );
               }
-              return (
-                <ul
-                  className="ctrl-container"
-                  key={uniqueId}
-                  onMouseDown={this.onScale(ALL_ITEM, uniqueId, group)}
-                  style={{
-                    position: 'absolute',
-                    width,
-                    left,
-                    top,
-                    height,
-                    transform: `rotate(${rotate}deg)`,
-                    transformOrigin: `${origin.x}px ${origin.y}px`,
-                  }}
-                >
-                  <li className="line t">
-                    <span
-                      className="point tc"
-                      data-key={POINT_TOP_CENTER}
-                    />
-                  </li>
-                  <li className="line b">
-                    <span
-                      className="point bc"
-                      data-key={POINT_BOTTOM_CENTER}
-                    />
-                  </li>
-                  <li className="line l">
-                    <span
-                      className="point lc"
-                      data-key={POINT_LEFT_CENTER}
-                    />
-                    <span
-                      className="point lt"
-                      data-key={POINT_LEFT_TOP}
-                    />
-                    <span
-                      className="point lb"
-                      data-key={POINT_LEFT_BOTTOM}
-                    />
-                  </li>
-                  <li className="line r">
-                    <span
-                      className="point rc"
-                      data-key={POINT_RIGHT_CENTER}
-                    />
-                    <span
-                      className="point rt"
-                      data-key={POINT_RIGHT_TOP}
-                    />
-                    <span
-                      className="point rb"
-                      data-key={POINT_RIGHT_BOTTOM}
-                    />
-                  </li>
-                  <li className="line link-rotate" />
-                  <li
-                    className="point rotate"
-                    data-key={POINT_ROTATE}
-                  />
-                </ul>
-              );
+              return this.renderLine(it);
             })
         }
         </div>

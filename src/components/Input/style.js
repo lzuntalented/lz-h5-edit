@@ -49,7 +49,7 @@ class TextStyle extends React.Component {
 
     render() {
       const { activeEditKey } = this.props;
-      if (!activeEditKey) return <div>no style</div>;
+      if (!activeEditKey || activeEditKey.length < 0) return <div>no style</div>;
       const {
         width, height, top, left, attrs,
       } = this.props;
@@ -103,8 +103,8 @@ const mapStateToProps = (store) => {
   const state = store.toJS();
   const { editList, activeEditKey } = state;
   const result = { activeEditKey };
-  if (activeEditKey) {
-    const item = editList[activeEditKey];
+  if (activeEditKey && activeEditKey.length === 1) {
+    const item = editList[activeEditKey[0]];
     if (item) return Object.assign(result, item);
   }
   return result;

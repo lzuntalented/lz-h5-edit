@@ -8,9 +8,11 @@ import {
 
 export default function (props) {
   const {
-    width, height, top, left,
-    setBaseStyle, rotate,
+    rect = {}, setBaseStyle,
   } = props;
+  const {
+    width, height, top, left, rotate,
+  } = rect;
   const rotateVlaue = +rotate >= 0 ? rotate : +rotate + 360;
   return (
     <React.Fragment>

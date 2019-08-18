@@ -111,7 +111,7 @@ function resetRect(itemObj, flag, originRect, distance, value, obj) {
 
 
     let dis = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
-    console.log(moveBoundRect, 'change', oa, ob, ab, a, b, c, ab, dis);
+    // console.log(moveBoundRect, 'change', oa, ob, ab, a, b, c, ab, dis);
     dis = Math.acos(dis) * (180 / Math.PI);
     if (coordEnd.x > ox) {
       // 小于180°夹角
