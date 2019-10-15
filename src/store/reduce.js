@@ -171,27 +171,8 @@ function change(store, action) {
         const groupRect = getAroundRect(groupList[belong], editList);
         groupItemRect.width = groupRect.width;
         groupItemRect.height = groupRect.height;
-        // // groupList[belong].forEach((item) => {
-        // //   if (item !== it) {
-        // //     editList[item].rect = Object.assign({}, editList[item].rect, {
-        // //       top: groupItem.rect.top + groupRect.top,
-        // //       left: groupItem.rect.left + groupRect.left,
-        // //     });
-        // //   }
-        // // });
-        // groupItem.rect = Object.assign(groupRect, {
-        //   top: groupItem.rect.top + groupRect.top,
-        //   left: groupItem.rect.left + groupRect.left,
-        // });
       }
     });
-
-    // if (groupList[activeEditKey]) {
-    //   groupList[activeEditKey].forEach((it) => {
-    //     resetRect(editList[it], flag, rectMap[it], distance, value, obj);
-    //   });
-    // }
-
     return fromJS(obj);
   }
   return null;
@@ -266,9 +247,7 @@ function changeBaseStyle(store, action) {
   if (type === CHANGE_ITEM_BASE_STYLE) {
     const { style, key } = value;
     const { editList } = obj;
-    const { before, current } = editList[key];
-    Object.assign(before, style);
-    Object.assign(current, style);
+    Object.assign(editList[key].rect, style);
     return fromJS(obj);
   }
   return null;

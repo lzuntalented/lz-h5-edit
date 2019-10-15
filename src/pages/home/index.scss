@@ -61,23 +61,22 @@ $phone-footer-height: 30;
 
           .line {
             position: absolute;
-            z-index: 4;
             background-color: #44cb83;
             height: 1px;
             width: 1px;
             &.l {
               top: 0;
-              left: 1px;
+              left: 0;
               height: 100%;
             }
             &.t {
-              top: 1px;
+              top: 0;
               left: 0;
               width: 100%;
             }
             &.r {
               top: 0;
-              right: 1px;
+              right: 0;
               height: 100%;
             }
             &.b {
@@ -96,7 +95,6 @@ $phone-footer-height: 30;
           }
           .point {
             position: absolute;
-            z-index: 4;
             background-color: #FFFFFF;
             border-radius: 50%;
             border: 1px solid #44cb83;

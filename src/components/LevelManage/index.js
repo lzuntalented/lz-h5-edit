@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 import classnames from 'classnames';
+import hotkeys from 'hotkeys-js';
 
 import './index.scss';
-import { changeActiveEditKey, resortPageItem, groupActiveEditKeys } from '../../store/action';
+import {
+  changeActiveEditKey, resortPageItem, groupActiveEditKeys, addActiveEditKey,
+} from '../../store/action';
 
 const SortableItem = SortableElement(({ value, onItemClick }) => {
   const { name, key, active } = value;
@@ -46,7 +49,20 @@ const SortableList = SortableContainer(({ items, onItemClick }) => (
   </div>
 ));
 
+let multiple = false;
+
 class LevelManage extends React.Component {
+  componentDidMount() {
+    hotkeys('a', { keyup: true, keydown: true }, (event, handler) => {
+      // Prevent the default refresh event under WINDOWS system
+      if (event.type === 'keydown') {
+        multiple = true;
+      } else {
+        multiple = false;
+      }
+    });
+  }
+
   onSortEnd = ({ oldIndex, newIndex }) => {
     const { list, dispatch } = this.props;
     const pages = arrayMove(list, oldIndex, newIndex).map(it => it.key);
@@ -54,8 +70,12 @@ class LevelManage extends React.Component {
   }
 
   onItemClick = key => () => {
-    const { dispatch } = this.props;
-    dispatch(changeActiveEditKey(key));
+    const { dispatch, activeEditKey } = this.props;
+    if (multiple) {
+      dispatch(addActiveEditKey(key));
+    } else {
+      dispatch(changeActiveEditKey(key));
+    }
   }
 
   onGroup = () => {
@@ -103,7 +123,7 @@ const mapStateToProps = (store) => {
       });
     }
   });
-  const result = { list };
+  const result = { list, activeEditKey };
   return result;
 };
 

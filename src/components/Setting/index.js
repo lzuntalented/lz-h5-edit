@@ -5,6 +5,7 @@ import { Tabs, Select, Button } from 'antd';
 
 import TextStyle from '../Input/style';
 import PictureStyle from '../Picture/style';
+import GroupItemStyle from '../GroupItem/style';
 
 import './index.scss';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
@@ -37,7 +38,7 @@ class Setting extends React.Component {
       default:
         break;
     }
-    return <div />;
+    return <GroupItemStyle />;
   }
 
   render() {
