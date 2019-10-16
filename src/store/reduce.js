@@ -8,7 +8,9 @@ import {
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
   CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS,
 } from '../core/constants';
-import { createEditItem, createNode, getAroundRect } from '../utils';
+import {
+  createEditItem, createNode, getAroundRect, createGroup,
+} from '../utils';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
 
@@ -260,6 +262,7 @@ function createPage(store, action) {
     const { pages } = obj;
     pages.push([]);
     obj.activePage = pages.length - 1;
+    obj.activeEditKey = [];
     return fromJS(obj);
   }
   return null;
@@ -270,6 +273,7 @@ function changeActivePage(store, action) {
   const obj = store.toJS();
   if (type === CHANGE_ACTIVE_PAGE) {
     obj.activePage = value;
+    obj.activeEditKey = [];
     return fromJS(obj);
   }
   return null;
@@ -406,10 +410,14 @@ function groupActiveEditKeys(store, action) {
   const { type } = action;
   const obj = store.toJS();
   if (type === STORE_GROUP_ACTIVE_EDIT_KEYS) {
-    const { activeEditKey } = obj;
+    const { activeEditKey, groupList, editList } = obj;
     if (activeEditKey && activeEditKey.length > 1) {
       const uniqueId = createId();
-      obj.groupList[uniqueId] = activeEditKey;
+      obj.groupList[uniqueId] = [].concat(activeEditKey);
+      obj.editList[uniqueId] = createGroup(`组${Object.keys(obj.groupList).length}`);
+      activeEditKey.forEach((it) => {
+        obj.editList[it].belong = uniqueId;
+      });
       obj.activeEditKey = [uniqueId];
     }
     return fromJS(obj);

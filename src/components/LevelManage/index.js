@@ -13,7 +13,7 @@ import {
 const SortableItem = SortableElement(({ value, onItemClick }) => {
   const { name, key, active } = value;
   const cls = active ? 'active' : '';
-  return <div className={classnames('item', cls)} onMouseDown={onItemClick(key)}>{name}</div>;
+  return <div className={classnames('level-item', cls)} onMouseDown={onItemClick(key)}>{name}</div>;
 });
 
 const SortableItemGroup = SortableElement(({ value, onItemClick }) => {
@@ -22,7 +22,7 @@ const SortableItemGroup = SortableElement(({ value, onItemClick }) => {
   } = value;
   const cls = active ? 'active' : '';
   return (
-    <div className={classnames('item group-names', cls)}>
+    <div className={classnames('level-item group-names', cls)}>
       <div className="name" onMouseDown={onItemClick(key)}>{name}</div>
       <SortableList items={children} onItemClick={onItemClick} />
     </div>
@@ -53,7 +53,7 @@ let multiple = false;
 
 class LevelManage extends React.Component {
   componentDidMount() {
-    hotkeys('a', { keyup: true, keydown: true }, (event, handler) => {
+    hotkeys('m', { keyup: true, keydown: true }, (event, handler) => {
       // Prevent the default refresh event under WINDOWS system
       if (event.type === 'keydown') {
         multiple = true;

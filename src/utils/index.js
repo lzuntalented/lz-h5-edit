@@ -90,8 +90,8 @@ export function createNode(type, name, belong) {
  * @param {*} type
  * @param {*} name
  */
-export function createGroup(type, name) {
-  return createEditItem(type, name, ITEM_TYPE_GROUP);
+export function createGroup(name) {
+  return createEditItem(null, name, ITEM_TYPE_GROUP);
 }
 
 /**
