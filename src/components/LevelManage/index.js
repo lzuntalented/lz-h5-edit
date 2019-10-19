@@ -4,11 +4,13 @@ import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 import classnames from 'classnames';
 import hotkeys from 'hotkeys-js';
+import { Icon } from 'antd';
 
 import './index.scss';
 import {
-  changeActiveEditKey, resortPageItem, groupActiveEditKeys, addActiveEditKey,
+  changeActiveEditKey, resortPageItem, groupActiveEditKeys, addActiveEditKey, splitGroupActiveEditKeys,
 } from '../../store/action';
+import { ITEM_TYPE_GROUP } from '../../core/constants';
 
 const SortableItem = SortableElement(({ value, onItemClick }) => {
   const { name, key, active } = value;
@@ -53,7 +55,7 @@ let multiple = false;
 
 class LevelManage extends React.Component {
   componentDidMount() {
-    hotkeys('m', { keyup: true, keydown: true }, (event, handler) => {
+    hotkeys('a', { keyup: true, keydown: true }, (event, handler) => {
       // Prevent the default refresh event under WINDOWS system
       if (event.type === 'keydown') {
         multiple = true;
@@ -70,7 +72,13 @@ class LevelManage extends React.Component {
   }
 
   onItemClick = key => () => {
-    const { dispatch, activeEditKey } = this.props;
+    const { dispatch, activeEditKey, editList } = this.props;
+    const item = editList[key];
+    const obj = activeEditKey.find(it => editList[it].belong || editList[it].nodeType === ITEM_TYPE_GROUP);
+    if (obj || item.belong || item.nodeType === ITEM_TYPE_GROUP) {
+      dispatch(changeActiveEditKey(key));
+      return;
+    }
     if (multiple) {
       dispatch(addActiveEditKey(key));
     } else {
@@ -83,11 +91,25 @@ class LevelManage extends React.Component {
     dispatch(groupActiveEditKeys());
   }
 
+  onGroupSplit = () => {
+    const { dispatch } = this.props;
+    dispatch(splitGroupActiveEditKeys());
+  }
+
   render() {
     const { list } = this.props;
     return (
       <div className="component-level-manage-container">
-        <div onClick={this.onGroup}>分组</div>
+        <div className="top-op">
+          <span className="op" onClick={this.onGroup}>
+            <Icon className="m-r-4" type="wallet" />
+          组合
+          </span>
+          <span className="m-l-16 op" onClick={this.onGroupSplit}>
+            <Icon className="m-r-4" type="disconnect" />
+          拆分
+          </span>
+        </div>
         <SortableList
           items={list}
           onItemClick={this.onItemClick}
@@ -123,7 +145,7 @@ const mapStateToProps = (store) => {
       });
     }
   });
-  const result = { list, activeEditKey };
+  const result = { list, activeEditKey, editList };
   return result;
 };
 

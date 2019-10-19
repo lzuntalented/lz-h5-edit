@@ -52,7 +52,7 @@ export default function (props) {
         <Col span={8}>旋转</Col>
         <Col span={8}>
           <Slider
-            min={1}
+            min={0}
             max={359}
             onChange={setBaseStyle(COMPONENT_STYLE_ROTATE)}
             value={rotateVlaue}

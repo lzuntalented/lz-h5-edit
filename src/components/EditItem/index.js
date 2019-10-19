@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import hotkeys from 'hotkeys-js';
 import {
-  ALL_ITEM,
+  ALL_ITEM, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, addActiveEditKey,
@@ -17,15 +17,15 @@ const refNames = {
   content: 'content',
 };
 
-let shiftDown = false;
-hotkeys('a', (event) => {
-  const { type } = event;
-  if (type === 'keydown') {
-    shiftDown = true;
-  } else {
-    shiftDown = false;
-  }
-});
+// let shiftDown = false;
+// hotkeys('a', (event) => {
+//   const { type } = event;
+//   if (type === 'keydown') {
+//     shiftDown = true;
+//   } else {
+//     shiftDown = false;
+//   }
+// });
 
 export default function (Component) {
   // 唯一id
@@ -50,21 +50,47 @@ export default function (Component) {
     onClikItem = (e) => {
       e.stopPropagation();
       const { dispatch, uniqueId } = this.props;
-      if (shiftDown) {
-        dispatch(addActiveEditKey(uniqueId));
-      } else {
-        dispatch(changeActiveEditKey(uniqueId));
-      }
+      // 暂不提供多选功能
+      // if (shiftDown) {
+      //   dispatch(addActiveEditKey(uniqueId));
+      // } else {
+      dispatch(changeActiveEditKey(uniqueId));
+      // }
     }
 
     onStartMove = (e) => {
       e.preventDefault();
       const {
-        dispatch, data, activeEditKey, uniqueId,
+        dispatch, data, activeEditKey, uniqueId, editList, groupList,
       } = this.props;
       if (activeEditKey.indexOf(uniqueId) === -1) return;
       e.cancelMove = true;
-      dispatch(startMove({ key: ALL_ITEM, rect: data.rect }));
+
+      const rectMap = {};
+      const groupKeys = {};
+      activeEditKey.forEach((it) => {
+        const item = editList[it];
+        const { rect, belong, nodeType } = item;
+        if (nodeType === ITEM_TYPE_GROUP) {
+          groupKeys[it] = Object.assign({}, rect);
+        } else if (belong) {
+          groupKeys[belong] = Object.assign({}, editList[belong].rect);
+        } else {
+          rectMap[it] = Object.assign({}, rect);
+        }
+      });
+
+      Object.keys(groupKeys).forEach((k) => {
+        const groupItem = editList[k];
+        const itemList = groupList[k];
+        itemList.forEach((itemKey) => {
+          const item = editList[itemKey];
+          const { rect } = item;
+          rectMap[itemKey] = Object.assign({}, rect, { top: groupItem.rect.top + rect.top, left: groupItem.rect.left + rect.left });
+        });
+      });
+
+      dispatch(startMove({ key: ALL_ITEM, rectMap }));
     }
 
     // 重置高度
@@ -159,8 +185,8 @@ export default function (Component) {
 
   const mapStateToProps = (store) => {
     const state = store.toJS();
-    const { activeEditKey } = state;
-    return { activeEditKey };
+    const { activeEditKey, editList, groupList } = state;
+    return { activeEditKey, editList, groupList };
   };
   const mapDispatchToProps = dispatch => ({ dispatch });
   return connect(mapStateToProps, mapDispatchToProps)(Layout);

@@ -3,7 +3,7 @@ import {
   RESET_CONTENT_HEIGHT, CHANGE_ACTIVE_EDIT_KEY, ADD_ITEM_ATTRS, CHANGE_ITEM_ATTR,
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM,
   REMOVE_ITEM, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS,
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
 } from '../core/constants';
 
 export function startMove(value) {
@@ -93,4 +93,12 @@ export function changeBackMusicUrl(value) {
 
 export function groupActiveEditKeys() {
   return { type: STORE_GROUP_ACTIVE_EDIT_KEYS };
+}
+
+export function changeAnimation(style, key) {
+  return { type: CHANGE_ANIMATION, value: { style, key } };
+}
+
+export function splitGroupActiveEditKeys() {
+  return { type: STORE_GROUP_SPLIT };
 }

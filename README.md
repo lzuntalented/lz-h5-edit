@@ -1,20 +1,48 @@
-# react版h5微场景编辑器
+# 随心秀(react版h5微场景编辑器)
+
+## 目标
+> 打造一款现象级微场景编辑器 [演示地址](http://show.lzuntalented.cn)
+
+## 预览
+![](http://www.lzuntalented.cn/img/edit.gif)
 
 ## 使用
 
 ```bash
+npm i
 // 开发
-cnpm start
+npm start
 // 浏览 http://localhost:9901
 
 // 构建
-cnpm run build
+npm run build
 ```
 
-## 演示地址
-[http://www.lzuntalented.cn/tool/h5edit/index.html](http://www.lzuntalented.cn/tool/h5edit/index.html)
+### 功能
 
-## 待变事项
-- [ ] 重构代码
-- [ ] 添加组合
-- [ ] 二维码移动端预览
+* 编辑器功能
+    - [x] 拖拽
+    - [x] 缩放
+    - [x] 旋转
+    - [x] 动画
+    - [x] 组合元素
+    - [x] 页面管理
+    - [x] 层级管理
+
+* 物料
+    - [x] 文本
+    - [x] 图片
+    - [x] 背景
+    - [ ] 艺术字
+    - [ ] 模板
+    - [ ] 音效
+
+* 示例
+    - [x] 示例-端午节
+    - [x] 示例-儿童节
+    - [x] 示例-高考加油
+  
+### 后续规划
+> 集中物料仓库建设
+
+Give a ⭐️ if this project helped you!

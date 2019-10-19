@@ -5,6 +5,7 @@ import {
   POINT_LEFT_CENTER, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER,
   POINT_LEFT_TOP, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_RIGHT_BOTTOM, POINT_ROTATE,
   ALL_ITEM,
+  ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import { changeActiveEditKey, saveMoveTagBoundingClientRect, startMove } from '../../store/action';
 import './event';
@@ -37,48 +38,41 @@ class Phone extends React.Component {
       // }
       const elem = e.target;
       const key = elem.getAttribute('data-key');
-      const rect = {};
-      if (group) {
-        let left = 0;
-        let top = 0;
-        let width = 0;
-        let height = 0;
-        groupList[group].forEach((it, index) => {
-          const item = editList[uniqueId];
-          const itemRect = item.rect;
-          if (index === 0) {
-            /* eslint-disable-next-line prefer-destructuring */
-            left = itemRect.left;
-            /* eslint-disable-next-line prefer-destructuring */
-            top = itemRect.top;
-            /* eslint-disable-next-line prefer-destructuring */
-            width = itemRect.width;
-            /* eslint-disable-next-line prefer-destructuring */
-            height = itemRect.height;
-          } else {
-            left = Math.min(left, itemRect.left);
-            top = Math.min(top, itemRect.top);
-            width = Math.max(width, itemRect.width);
-            height = Math.max(height, itemRect.height);
-          }
+      // const rect = {};
+      const rectMap = {};
+
+      const groupKeys = {};
+      activeEditKey.forEach((it) => {
+        const item = editList[it];
+        const { rect, belong, nodeType } = item;
+        if (nodeType === ITEM_TYPE_GROUP) {
+          groupKeys[it] = Object.assign({}, rect);
+        } else if (belong) {
+          groupKeys[belong] = Object.assign({}, editList[belong].rect);
+        } else {
+          rectMap[it] = Object.assign({}, rect);
+        }
+      });
+
+      Object.keys(groupKeys).forEach((k) => {
+        const groupItem = editList[k];
+        const itemList = groupList[k];
+        itemList.forEach((itemKey) => {
+          const item = editList[itemKey];
+          const { rect } = item;
+          rectMap[itemKey] = Object.assign({}, rect, { top: groupItem.rect.top + rect.top, left: groupItem.rect.left + rect.left });
         });
-        rect.left = left;
-        rect.top = top;
-        rect.width = width;
-        rect.height = height;
-      } else {
-        const item = editList[uniqueId];
-        Object.assign(rect, item.rect);
-      }
+      });
+
       if (key) {
-        const obj = { key, rect };
+        const obj = { key, rectMap };
         if (key === POINT_ROTATE) {
           obj.boundRect = e.currentTarget.getBoundingClientRect();
           // dispatch(saveMoveTagBoundingClientRect(e.currentTarget.getBoundingClientRect()));
         }
         dispatch(startMove(obj));
       } else {
-        dispatch(startMove({ key: flag, rect }));
+        dispatch(startMove({ key: flag, rectMap }));
       }
     }
 

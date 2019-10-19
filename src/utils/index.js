@@ -50,7 +50,6 @@ export function createEditItem(type, name, nodeType, belong) {
   const result = {
     // 组件名称
     name,
-    type,
     nodeType,
     rect: {
       top: 0,
@@ -71,7 +70,10 @@ export function createEditItem(type, name, nodeType, belong) {
     },
     attrs: {},
   };
-  if (belong) result.belong = belong;
+  if (belong) {
+    result.belong = belong;
+  }
+  if (type) result.type = type;
   return result;
 }
 
@@ -147,3 +149,33 @@ export function debounce(fn, delay = 0) {
 
 export default lzlog;
 // export testType;
+
+export function performGroupRect(arr) {
+  const rect = {};
+  let left = 0;
+  let top = 0;
+  let right = 0;
+  let bottom = 0;
+  arr.forEach((itemRect, index) => {
+    if (index === 0) {
+      /* eslint-disable-next-line prefer-destructuring */
+      left = itemRect.left;
+      /* eslint-disable-next-line prefer-destructuring */
+      top = itemRect.top;
+      /* eslint-disable-next-line prefer-destructuring */
+      right = itemRect.width + left;
+      /* eslint-disable-next-line prefer-destructuring */
+      bottom = itemRect.height + top;
+    } else {
+      left = Math.min(left, itemRect.left);
+      top = Math.min(top, itemRect.top);
+      right = Math.max(right, itemRect.width + itemRect.left);
+      bottom = Math.max(bottom, itemRect.height + itemRect.top);
+    }
+  });
+  rect.left = left;
+  rect.top = top;
+  rect.width = right - left;
+  rect.height = bottom - top;
+  return rect;
+}

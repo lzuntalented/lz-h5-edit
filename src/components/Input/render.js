@@ -17,6 +17,7 @@ function Text(props) {
         fontSize,
         background: bgColor,
         lineHeight,
+        fontFamily: 'ry',
       }}
       dangerouslySetInnerHTML={{ __html: text }}
     />

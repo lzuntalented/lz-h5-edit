@@ -68,6 +68,10 @@ export const STORE_CHANGE_BACK_MUSIC_URL = 'STORE_CHANGE_BACK_MUSIC_URL';
 export const STORE_RESET_TO_EDIT = 'STORE_RESET_TO_EDIT';
 // 分组编辑状态下元素
 export const STORE_GROUP_ACTIVE_EDIT_KEYS = 'STORE_GROUP_ACTIVE_EDIT_KEYS';
+// 拆分组合元素
+export const STORE_GROUP_SPLIT = 'STORE_GROUP_SPLIT';
+// 修改动画属性
+export const CHANGE_ANIMATION = 'CHANGE_ANIMATION';
 
 // 组件类型
 // 文本

@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import { connect } from 'react-redux';
 import getSelectOptions from './config';
-import { changeBaseStyle } from '../../../../store/action';
+import { changeBaseStyle, changeAnimation } from '../../../../store/action';
 import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../core/constants';
 
 const opts = getSelectOptions();
@@ -18,7 +18,7 @@ class Animation extends React.Component {
     if (target) {
       value = +target.value;
     }
-    dispatch(changeBaseStyle({ [key]: value }, activeEditKey));
+    dispatch(changeAnimation({ [key]: value }, activeEditKey));
   }
 
   render() {
@@ -32,8 +32,8 @@ class Animation extends React.Component {
           <Col span={16}>
             <Select
               onChange={(e) => {
-                dispatch(changeBaseStyle({
-                  animate: e,
+                dispatch(changeAnimation({
+                  name: e,
                 }, activeEditKey));
               }}
               style={{ width: '100%' }}
@@ -54,13 +54,13 @@ class Animation extends React.Component {
         <Row align="middle" type="flex" gutter={8}>
           <Col span={8}>动画时间</Col>
           <Col span={16}>
-            <Input value={animateDuration} type="number" onChange={this.setBaseStyle('animateDuration')} />
+            <Input value={animateDuration} type="number" onChange={this.setBaseStyle('duration')} />
           </Col>
         </Row>
         <Row align="middle" type="flex" gutter={8}>
           <Col span={8}>动画延时</Col>
           <Col span={16}>
-            <Input value={animateDelay} type="number" onChange={this.setBaseStyle('animateDelay')} />
+            <Input value={animateDelay} type="number" onChange={this.setBaseStyle('delay')} />
           </Col>
         </Row>
         <Row align="middle" type="flex" gutter={8}>

@@ -20,7 +20,7 @@ class ImageClip extends React.Component {
 
   componentDidMount() {
     const handler = this.magicRefs.img;
-    console.log(handler);
+    // console.log(handler);
     if (handler && handler.current) {
       this.mCropper = new Cropper(handler.current);
     }

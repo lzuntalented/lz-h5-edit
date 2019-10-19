@@ -6,6 +6,14 @@
   margin-left: 20px;
 }
 
+.m-r-4{
+  margin-right: 4px;
+}
+
+.m-l-16{
+  margin-left: 16px;
+}
+
 .m-b-5{
   margin-bottom: 5px;
 }
@@ -46,4 +54,9 @@ body > li {
   border-bottom: 1px solid #cacaca;
   padding: 0 8px;
   line-height: 32px;
+}
+
+@font-face{
+  font-family: 'ry'; 
+  src: url('http://www.lzuntalented.cn/assets/fonts/ry.ttf');
 }

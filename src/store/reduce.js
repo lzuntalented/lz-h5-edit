@@ -6,10 +6,10 @@ import {
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS,
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
 } from '../core/constants';
 import {
-  createEditItem, createNode, getAroundRect, createGroup,
+  createEditItem, createNode, getAroundRect, createGroup, performGroupRect,
 } from '../utils';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
@@ -52,6 +52,78 @@ function endMove(store, action) {
     return fromJS(obj);
   }
   return null;
+}
+
+function performRect(flag, startRect, value, moveBoundRect) {
+  const result = {};
+  const { distance } = value;
+  if (flag === POINT_LEFT_CENTER || flag === POINT_RIGHT_CENTER) {
+    result.width = startRect.width + distance;
+    if (flag === POINT_LEFT_CENTER) {
+      result.left = startRect.left - distance;
+    }
+  } else if (flag === POINT_TOP_CENTER || flag === POINT_BOTTOM_CENTER) {
+    result.height = startRect.height + distance;
+    if (flag === POINT_TOP_CENTER) {
+      result.top = startRect.top - distance;
+    }
+  } else if (flag === POINT_LEFT_TOP || flag === POINT_RIGHT_BOTTOM
+     || flag === POINT_LEFT_BOTTOM || flag === POINT_RIGHT_TOP) {
+    result.height = startRect.height + distance * 2;
+    result.width = startRect.width + distance * 2;
+    result.top = startRect.top - distance;
+    result.left = startRect.left - distance;
+  } else if (flag === ALL_ITEM) {
+    // 移动整个编辑框
+    const { x, y } = value;
+    result.top = startRect.top + y;
+    result.left = startRect.left + x;
+  } else if (flag === POINT_ROTATE) {
+    // const { moveBoundRect } = obj;
+    // const moveBoundRect = obj.moveTag.boundRect;
+    const { coordStart, coordEnd } = value;
+    const {
+      x, y, width, bottom: height,
+    } = moveBoundRect;
+
+    const ox = x + width / 2;
+    const oy = y + height / 2;
+
+    const ax = ox;
+    const ay = y;
+
+    const oa = {
+      x: ax - ox,
+      y: ay - oy,
+    };
+
+    const ob = {
+      x: coordEnd.x - ox,
+      y: coordEnd.y - oy,
+    };
+
+    const ab = {
+      x: coordEnd.x - ax,
+      y: coordEnd.y - ay,
+    };
+
+    const a = Math.sqrt(Math.pow(oa.x, 2) + Math.pow(oa.y, 2));
+
+    const b = Math.sqrt(Math.pow(ob.x, 2) + Math.pow(ob.y, 2));
+    const c = Math.sqrt(Math.pow(ab.x, 2) + Math.pow(ab.y, 2));
+
+
+    let dis = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
+    // console.log(moveBoundRect, 'change', oa, ob, ab, a, b, c, ab, dis);
+    dis = Math.acos(dis) * (180 / Math.PI);
+    if (coordEnd.x > ox) {
+      // 小于180°夹角
+    } else {
+      dis = -dis;
+    }
+    result.rotate = Math.floor(dis);
+  }
+  return result;
 }
 
 function resetRect(itemObj, flag, originRect, distance, value, obj) {
@@ -133,48 +205,101 @@ function change(store, action) {
     } = obj;
     const { distance } = value;
     // const { rect } = editList[activeEditKey];
-    const { key: flag, rect: originRect, rectMap } = moveTag;
+    const {
+      boundRect, key: flag, rectMap,
+    } = moveTag;
 
+    const groupKeys = {};
+    const moveItemGroupKeys = {};
     activeEditKey.forEach((it) => {
+      // console.log(it, rectMap[it], rectMap);
       const item = editList[it];
-      resetRect(item, flag, originRect, distance, value, obj);
-      // console.log(item, flag, originRect, distance, value, 'change', item.rect);
-      const { belong } = item;
-      if (belong) {
-        const groupItem = editList[belong];
-        const groupItemRect = groupItem.rect;
-
-        // 计算组内 左上最小坐标
-        let minLeft = item.rect.left;
-        let minTop = item.rect.top;
-        groupList[belong].forEach((that) => {
-          // 当前元素使用移动后坐标
-          if (that === it) return;
-          const thatItemRect = rectMap[that];
-          minLeft = Math.min(minLeft, thatItemRect.left);
-          minTop = Math.min(minTop, thatItemRect.top);
-        });
-        // 重置组内元素坐标
-        groupList[belong].forEach((that) => {
-          const thatItemRect = editList[that].rect;
-          // 当前元素
-          if (that === it) {
-            thatItemRect.left -= minLeft;
-            thatItemRect.top -= minTop;
-          } else {
-            // 其余元素，使用点击时坐标计算
-            thatItemRect.left = rectMap[that].left - minLeft;
-            thatItemRect.top = rectMap[that].top - minTop;
-          }
-        });
-        // console.log(minLeft, minTop, 'minLeft, minTop, ');
-        groupItemRect.left = rectMap[belong].left + minLeft;
-        groupItemRect.top = rectMap[belong].top + minTop;
-        const groupRect = getAroundRect(groupList[belong], editList);
-        groupItemRect.width = groupRect.width;
-        groupItemRect.height = groupRect.height;
+      const { belong, nodeType } = item;
+      if (flag === POINT_ROTATE) {
+        const rect = performRect(flag, rectMap[it], value, boundRect);
+        Object.assign(item.rect, rect);
+        return;
+      }
+      if (nodeType === ITEM_TYPE_GROUP) {
+        groupKeys[it] = true;
+      } else if (belong) {
+        moveItemGroupKeys[belong] = [it];
+      } else {
+        const rect = performRect(flag, rectMap[it], value, boundRect);
+        Object.assign(item.rect, rect);
       }
     });
+
+    Object.keys(groupKeys).forEach((key) => {
+      const itemList = groupList[key];
+      const rectList = itemList.map(it => Object.assign({}, rectMap[it], performRect(flag, rectMap[it], value, boundRect)));
+      Object.assign(editList[key].rect, performGroupRect(rectList));
+      const currentGroupRect = editList[key].rect;
+      itemList.forEach((it, index) => {
+        const r = rectList[index];
+        Object.assign(editList[it].rect, r,
+          { top: r.top - currentGroupRect.top, left: r.left - currentGroupRect.left });
+      });
+    });
+
+    Object.keys(moveItemGroupKeys).forEach((key) => {
+      const itemList = groupList[key];
+      const moveItem = moveItemGroupKeys[key];
+      const rectList = itemList.map((it) => {
+        if (moveItem.indexOf(it) === -1) {
+          return rectMap[it];
+        }
+        return Object.assign({}, rectMap[it], performRect(flag, rectMap[it], value, boundRect));
+      });
+      Object.assign(editList[key].rect, performGroupRect(rectList));
+      const currentGroupRect = editList[key].rect;
+      itemList.forEach((it, index) => {
+        const r = rectList[index];
+        Object.assign(editList[it].rect, r,
+          { top: r.top - currentGroupRect.top, left: r.left - currentGroupRect.left });
+      });
+    });
+
+    // activeEditKey.forEach((it) => {
+    //   const item = editList[it];
+    //   resetRect(item, flag, originRect, distance, value, obj);
+    //   // console.log(item, flag, originRect, distance, value, 'change', item.rect);
+    //   const { belong } = item;
+    //   if (belong) {
+    //     const groupItem = editList[belong];
+    //     const groupItemRect = groupItem.rect;
+
+    //     // 计算组内 左上最小坐标
+    //     let minLeft = item.rect.left;
+    //     let minTop = item.rect.top;
+    //     groupList[belong].forEach((that) => {
+    //       // 当前元素使用移动后坐标
+    //       if (that === it) return;
+    //       const thatItemRect = rectMap[that];
+    //       minLeft = Math.min(minLeft, thatItemRect.left);
+    //       minTop = Math.min(minTop, thatItemRect.top);
+    //     });
+    //     // 重置组内元素坐标
+    //     groupList[belong].forEach((that) => {
+    //       const thatItemRect = editList[that].rect;
+    //       // 当前元素
+    //       if (that === it) {
+    //         thatItemRect.left -= minLeft;
+    //         thatItemRect.top -= minTop;
+    //       } else {
+    //         // 其余元素，使用点击时坐标计算
+    //         thatItemRect.left = rectMap[that].left - minLeft;
+    //         thatItemRect.top = rectMap[that].top - minTop;
+    //       }
+    //     });
+    //     // console.log(minLeft, minTop, 'minLeft, minTop, ');
+    //     groupItemRect.left = rectMap[belong].left + minLeft;
+    //     groupItemRect.top = rectMap[belong].top + minTop;
+    //     const groupRect = getAroundRect(groupList[belong], editList);
+    //     groupItemRect.width = groupRect.width;
+    //     groupItemRect.height = groupRect.height;
+    //   }
+    // });
     return fromJS(obj);
   }
   return null;
@@ -250,6 +375,18 @@ function changeBaseStyle(store, action) {
     const { style, key } = value;
     const { editList } = obj;
     Object.assign(editList[key].rect, style);
+    return fromJS(obj);
+  }
+  return null;
+}
+
+function changeAnimation(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === CHANGE_ANIMATION) {
+    const { style, key } = value;
+    const { editList } = obj;
+    Object.assign(editList[key].animate, style);
     return fromJS(obj);
   }
   return null;
@@ -364,8 +501,7 @@ function resetStore(store, action) {
         page.push(uniqueId);
         editList[uniqueId] = {
           name: `${getNameWithItemType(type)}${i}`,
-          current: JSON.parse(JSON.stringify(item)),
-          before: JSON.parse(JSON.stringify(item)),
+          ...JSON.parse(JSON.stringify(item)),
         };
       });
       pages.push(page);
@@ -373,7 +509,8 @@ function resetStore(store, action) {
     const ob = {
       moveTag: false,
       editList,
-      activeEditKey: null,
+      groupList: {},
+      activeEditKey: [],
       pages,
       activePage: 0,
       moveBoundRect: {},
@@ -410,20 +547,73 @@ function groupActiveEditKeys(store, action) {
   const { type } = action;
   const obj = store.toJS();
   if (type === STORE_GROUP_ACTIVE_EDIT_KEYS) {
-    const { activeEditKey, groupList, editList } = obj;
+    const {
+      activeEditKey, groupList, editList, pages, activePage,
+    } = obj;
     if (activeEditKey && activeEditKey.length > 1) {
       const uniqueId = createId();
-      obj.groupList[uniqueId] = [].concat(activeEditKey);
-      obj.editList[uniqueId] = createGroup(`组${Object.keys(obj.groupList).length}`);
+      groupList[uniqueId] = [].concat(activeEditKey);
+      editList[uniqueId] = createGroup(`组${Object.keys(groupList).length}`);
+      const groupItem = editList[uniqueId];
+      const itemRectList = activeEditKey.map(it => editList[it].rect);
+      Object.assign(groupItem.rect, performGroupRect(itemRectList));
       activeEditKey.forEach((it) => {
-        obj.editList[it].belong = uniqueId;
+        const item = editList[it];
+        item.belong = uniqueId;
+        Object.assign(item.rect, {
+          left: item.rect.left - groupItem.rect.left,
+          top: item.rect.top - groupItem.rect.top,
+        });
+
+        const page = pages[activePage];
+        const index = page.indexOf(it);
+        page.splice(index, 1);
       });
       obj.activeEditKey = [uniqueId];
+      pages[activePage].push(uniqueId);
     }
     return fromJS(obj);
   }
   return null;
 }
+
+function splitGroupActiveEditKeys(store, action) {
+  const { type } = action;
+  const obj = store.toJS();
+  if (type === STORE_GROUP_SPLIT) {
+    const {
+      activeEditKey, groupList, editList, pages, activePage,
+    } = obj;
+    if (activeEditKey && activeEditKey.length === 1) {
+      const editKey = activeEditKey[0];
+      const item = editList[editKey];
+      const groupKey = item.belong || (item.nodeType === ITEM_TYPE_GROUP && editKey);
+      if (groupKey) {
+        // 该元素移除可见元素
+        const page = pages[activePage];
+        const index = page.indexOf(groupKey);
+        page.splice(index, 1);
+
+        const groupItemsList = groupList[groupKey];
+
+        const groupItem = editList[groupKey];
+        groupItemsList.forEach((k) => {
+          const it = editList[k];
+          delete it.belong;
+          Object.assign(it.rect, {
+            left: it.rect.left + groupItem.rect.left,
+            top: it.rect.top + groupItem.rect.top,
+          });
+          page.push(k);
+        });
+        obj.activeEditKey = [];
+      }
+    }
+    return fromJS(obj);
+  }
+  return null;
+}
+
 
 export default [
   startMove,
@@ -446,4 +636,6 @@ export default [
   changeBackMusicUrl,
   addActiveEditKey,
   groupActiveEditKeys,
+  changeAnimation,
+  splitGroupActiveEditKeys,
 ];

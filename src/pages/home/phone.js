@@ -5,11 +5,13 @@ import Picture from '../../components/Picture';
 import Music from '../../components/Music';
 import GroupItem from '../../components/GroupItem';
 import {
- COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP 
+  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 
 // 引入样式文件
 import './index.scss';
+import { getDragonFestivalData } from '../realpreview/config';
+import { resetStore } from '../../store/action';
 
 const componentMap = {
   COMPONENT_TYPE_TEXT: Input,
@@ -20,6 +22,13 @@ class Phone extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  componentDidMount() {
+    // 担心观众老爷等不及，预制一个场景
+    const data = getDragonFestivalData();
+    const { dispatch } = this.props;
+    dispatch(resetStore(data));
   }
 
   renderComponent() {
@@ -53,10 +62,11 @@ class Phone extends React.Component {
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      height: '100%',
     };
     return (
-      <div className="home-edit-item-container">
-        <div style={style}>
+      <div className="home-edit-item-container" style={style}>
+        <div>
           {this.renderComponent()}
         </div>
       </div>

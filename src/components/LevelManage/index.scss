@@ -18,6 +18,18 @@
             border-bottom-width: 0;
         }
     }
+
+    .top-op {
+        padding-bottom: 16px;
+        border-bottom: 1px solid #ccd5db;
+
+        .op {
+            cursor: pointer;
+            &:hover {
+                color: #1593ff;
+            }
+        }
+    }
 }
 
 .level-item {

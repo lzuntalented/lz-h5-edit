@@ -8,7 +8,7 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
+  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import { addPageItem, resetStore } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
@@ -54,20 +54,27 @@ class Header extends React.Component {
 
   onPreview = () => {
     const {
-      pages, editList, backGroundImage, backMusicUrl,
+      pages, editList, backGroundImage, backMusicUrl, groupList,
     } = this.props;
     const result = [];
     pages.forEach((it) => {
       const arr = [];
       it.forEach((item) => {
+        const { nodeType } = editList[item];
+        if (nodeType === ITEM_TYPE_GROUP) {
+          const groupItems = groupList[item];
+          groupItems.forEach(key => arr.push(editList[key]));
+          return;
+        }
         const obj = editList[item];
         if (obj) {
-          const { current } = obj;
-          arr.push(current);
+          // const { current } = obj;
+          arr.push(obj);
         }
       });
       result.push(arr);
     });
+    console.log(result);
     this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, JSON.stringify({
       backMusicUrl,
       backGroundImage,
@@ -152,10 +159,10 @@ class Header extends React.Component {
 const mapStateToProps = (store) => {
   const state = store.toJS();
   const {
-    pages, editList, backGroundImage, backMusicUrl,
+    pages, editList, backGroundImage, backMusicUrl, groupList,
   } = state;
   const result = {
-    pages, editList, backGroundImage, backMusicUrl,
+    pages, editList, backGroundImage, backMusicUrl, groupList,
   };
   return result;
 };

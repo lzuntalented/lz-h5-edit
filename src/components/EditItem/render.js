@@ -8,16 +8,24 @@ import './index.scss';
 export default function (Component) {
   function Layout(props) {
     const {
-      width, left, top, height, attrs, animate, rotate,
-      animateDuration, animateDelay, animateRepeat,
+      rect, attrs, animate,
     } = props;
+    const {
+      width, left, top, height, rotate,
+    } = rect;
+    const {
+      name = '',
+      duration,
+      delay,
+      repeat,
+    } = animate;
     const cls = `content-hide-container ${animate || ''}`;
     const animateStyle = {
       // 'animation-name': animateName,
       // animationDuration: `${animateDuration}s`,
       // animationDelay: `${animateDelay}s`,
       // animationIterationCount: animateRepeat,
-      animation: `${animateDuration}s ease ${animateDelay}s ${animateRepeat} normal both running ${animate}`,
+      animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
     };
     return (
       <div

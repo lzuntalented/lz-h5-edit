@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  ALL_ITEM,
+  ALL_ITEM, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, addActiveEditKey,
@@ -41,14 +41,38 @@ class GroupItem extends React.Component {
         return;
       }
       const {
-        dispatch, list, editList, uniqueId, activeEditKey,
+        dispatch, list, editList, uniqueId, activeEditKey, groupList,
       } = this.props;
       // 检测激活态是否包含此唯一标识
       if (activeEditKey.indexOf(uniqueId) === -1) return;
-      const { rect } = editList[uniqueId];
+      // const { rect } = editList[uniqueId];
       const rectMap = {};
-      list.forEach((it) => { rectMap[it] = Object.assign({}, editList[it].rect); });
-      dispatch(startMove({ key: ALL_ITEM, rect, rectMap }));
+      // list.forEach((it) => { rectMap[it] = Object.assign({}, editList[it].rect); });
+
+      const groupKeys = {};
+      activeEditKey.forEach((it) => {
+        const item = editList[it];
+        const { rect, belong, nodeType } = item;
+        if (nodeType === ITEM_TYPE_GROUP) {
+          groupKeys[it] = Object.assign({}, rect);
+        } else if (belong) {
+          groupKeys[belong] = Object.assign({}, editList[belong].rect);
+        } else {
+          rectMap[it] = Object.assign({}, rect);
+        }
+      });
+
+      Object.keys(groupKeys).forEach((k) => {
+        const groupItem = editList[k];
+        const itemList = groupList[k];
+        itemList.forEach((itemKey) => {
+          const item = editList[itemKey];
+          const { rect } = item;
+          rectMap[itemKey] = Object.assign({}, rect, { top: groupItem.rect.top + rect.top, left: groupItem.rect.left + rect.left });
+        });
+      });
+
+      dispatch(startMove({ key: ALL_ITEM, rectMap }));
     }
 
     // 设置魔术引用
@@ -88,8 +112,8 @@ class GroupItem extends React.Component {
 
 const mapStateToProps = (store) => {
   const state = store.toJS();
-  const { activeEditKey } = state;
-  return { activeEditKey };
+  const { activeEditKey, groupList } = state;
+  return { activeEditKey, groupList };
 };
 const mapDispatchToProps = dispatch => ({ dispatch });
 export default connect(mapStateToProps, mapDispatchToProps)(GroupItem);
