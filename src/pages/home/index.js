@@ -18,28 +18,6 @@ class Home extends React.Component {
     this.state = {};
   }
 
-  renderComponent() {
-    const { pages, activePage, editList } = this.props;
-    if (activePage >= pages.length) {
-      return pages.map((it) => {
-        if (editList[it]) {
-          const { current } = editList[it];
-          const { type } = current;
-          switch (type) {
-            case COMPONENT_TYPE_TEXT:
-              return <Input />;
-            case COMPONENT_TYPE_PICTURE:
-              return <Picture />;
-            default:
-              break;
-          }
-        }
-        return <div />;
-      });
-    }
-    return <div />;
-  }
-
   render() {
     return (
       <div className="home-container">

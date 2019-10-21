@@ -78,6 +78,8 @@ export const CHANGE_ANIMATION = 'CHANGE_ANIMATION';
 export const COMPONENT_TYPE_TEXT = 'COMPONENT_TYPE_TEXT';
 // 图片
 export const COMPONENT_TYPE_PICTURE = 'COMPONENT_TYPE_PICTURE';
+// qq视频通话界面
+export const COMPONENT_TYPE_QQ_VIDEO = 'COMPONENT_TYPE_QQ_VIDEO';
 
 /* 节点类型 */
 // 单一节点

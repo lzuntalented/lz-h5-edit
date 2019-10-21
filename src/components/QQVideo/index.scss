@@ -1,0 +1,39 @@
+.component-qq-video {
+    .nav {
+        padding: 24px;
+        align-items: center;
+
+        .name {
+            color: #fff;
+            font-size: 18px;
+        }
+        .place {
+            font-size: 14px;
+            color: #9b9b9b;
+        }
+        img {
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    .bottom {
+        padding: 48px 24px;
+        right: 0;
+        left: 0;
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+
+        .text-center {
+            text-align: center;
+        }
+
+        .message {
+            .anticon {
+                font-size: 24px;
+            }
+        }
+    }
+}

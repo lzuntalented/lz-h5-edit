@@ -179,3 +179,8 @@ export function performGroupRect(arr) {
   rect.height = bottom - top;
   return rect;
 }
+
+export const winSize = {
+  width: 320,
+  height: 480,
+};

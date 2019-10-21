@@ -12,11 +12,12 @@ import {
 import './index.scss';
 import { getDragonFestivalData } from '../realpreview/config';
 import { resetStore } from '../../store/action';
+import ComponentMap from '../../core/components';
 
-const componentMap = {
-  COMPONENT_TYPE_TEXT: Input,
-  COMPONENT_TYPE_PICTURE: Picture,
-};
+// const componentMap = {
+//   COMPONENT_TYPE_TEXT: Input,
+//   COMPONENT_TYPE_PICTURE: Picture,
+// };
 
 class Phone extends React.Component {
   constructor(props) {
@@ -40,15 +41,9 @@ class Phone extends React.Component {
       const { nodeType } = editList[it];
       if (nodeType === ITEM_TYPE_SINGLE) {
         const { type, ...others } = editList[it];
-        switch (type) {
-          case COMPONENT_TYPE_TEXT:
-            return <Input uniqueId={it} key={it} data={others} />;
-          case COMPONENT_TYPE_PICTURE:
-            return <Picture uniqueId={it} key={it} data={others} />;
-          default:
-            break;
-        }
-      } else if (nodeType === ITEM_TYPE_GROUP) {
+        const Component = ComponentMap[type];
+        return <Component uniqueId={it} key={it} data={others} />;
+      } if (nodeType === ITEM_TYPE_GROUP) {
         return <GroupItem key={it} uniqueId={it} list={groupList[it]} editList={editList} />;
       }
       return null;

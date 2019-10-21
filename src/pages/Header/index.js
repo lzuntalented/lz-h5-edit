@@ -8,7 +8,7 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, ITEM_TYPE_GROUP,
+  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, ITEM_TYPE_GROUP, COMPONENT_TYPE_QQ_VIDEO,
 } from '../../core/constants';
 import { addPageItem, resetStore } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
@@ -50,6 +50,11 @@ class Header extends React.Component {
   onAddPicture = () => {
     const { dispatch } = this.props;
     dispatch(addPageItem(COMPONENT_TYPE_PICTURE));
+  }
+
+  onAddComponent = key => () => {
+    const { dispatch } = this.props;
+    dispatch(addPageItem(key));
   }
 
   onPreview = () => {
@@ -121,6 +126,10 @@ class Header extends React.Component {
           </a>
         </div>
         <ul>
+          <li className="item" onClick={this.onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>
+            <Icon type="border-inner" className="icon" />
+            <div className="txt">QQ通话</div>
+          </li>
           <li className="item" onClick={this.onAddText}>
             <Icon type="border-inner" className="icon" />
             <div className="txt">文本</div>
