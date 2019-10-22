@@ -8,6 +8,7 @@ import Music from '../../utils/music';
 
 // 引入样式文件
 import './index.scss';
+import { getComponentEditMap, getComponentRenderMap } from '../../core/components';
 
 const refNames = {
   content: 'content',
@@ -74,15 +75,8 @@ class RealPreview extends React.Component {
           {
               item.map((it, idx) => {
                 const { type, ...others } = it;
-                switch (type) {
-                  case COMPONENT_TYPE_TEXT:
-                    return <Text {...others} key={idx} />;
-                  case COMPONENT_TYPE_PICTURE:
-                    return <Picture {...others} key={idx} />;
-                  default:
-                    break;
-                }
-                return null;
+                const Component = getComponentRenderMap(type);
+                return <Component {...others} key={idx} />;
               })
             }
         </div>

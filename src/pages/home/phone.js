@@ -1,18 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Input from '../../components/Input';
-import Picture from '../../components/Picture';
-import Music from '../../components/Music';
 import GroupItem from '../../components/GroupItem';
-import {
-  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP,
-} from '../../core/constants';
+import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '../../core/constants';
 
 // 引入样式文件
 import './index.scss';
 import { getDragonFestivalData } from '../realpreview/config';
 import { resetStore } from '../../store/action';
-import ComponentMap from '../../core/components';
+import { getComponentEditMap } from '../../core/components';
 
 // const componentMap = {
 //   COMPONENT_TYPE_TEXT: Input,
@@ -41,7 +36,7 @@ class Phone extends React.Component {
       const { nodeType } = editList[it];
       if (nodeType === ITEM_TYPE_SINGLE) {
         const { type, ...others } = editList[it];
-        const Component = ComponentMap[type];
+        const Component = getComponentEditMap(type);
         return <Component uniqueId={it} key={it} data={others} />;
       } if (nodeType === ITEM_TYPE_GROUP) {
         return <GroupItem key={it} uniqueId={it} list={groupList[it]} editList={editList} />;
