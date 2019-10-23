@@ -444,10 +444,13 @@ function removeItem(store, action) {
     // { 唯一标识, 组件类型 }
     const page = pages[activePage];
     let delIndex = -1;
-    page.forEach((it, index) => {
-      if (it === activeEditKey) delIndex = index;
-    });
-    page.splice(delIndex, 1);
+    if (activeEditKey.length === 1) {
+      page.forEach((it, index) => {
+        if (activeEditKey.indexOf(it) > -1) delIndex = index;
+      });
+      page.splice(delIndex, 1);
+      obj.activeEditKey = [];
+    }
     return fromJS(obj);
   }
   return null;

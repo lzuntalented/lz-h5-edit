@@ -23,6 +23,9 @@ $phone-footer-height: 30;
       border-top-left-radius: $phone-header-height + px;
       border-top-right-radius: $phone-header-height + px;
       background-color: #e0e0e0;
+      position: relative;
+      pointer-events: none;
+      z-index: 1;
     }
     & > .content {
       height: $phone-height + px;
@@ -39,6 +42,8 @@ $phone-footer-height: 30;
         bottom: 0;
         width: 10px;
         background-color: #e0e0e0;
+        z-index: 1000;
+        pointer-events: none;
       }
 
       .border-right {
@@ -48,6 +53,8 @@ $phone-footer-height: 30;
         bottom: 0;
         width: 10px;
         background-color: #e0e0e0;
+        z-index: 1000;
+        pointer-events: none;
       }
       .home-edit-item-container {
 
@@ -159,6 +166,8 @@ $phone-footer-height: 30;
       border-bottom-left-radius: $phone-footer-height + px;
       border-bottom-right-radius: $phone-footer-height + px;
       background-color: #e0e0e0;
+      position: relative;
+      pointer-events: none;
     }
   }
   .style-setting-container{

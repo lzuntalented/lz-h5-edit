@@ -59,7 +59,7 @@ export default function (props) {
           />
         </Col>
         <Col span={8}>
-          <Input value={rotateVlaue} onChange={setBaseStyle(COMPONENT_STYLE_ROTATE)} />
+          <Input value={rotateVlaue || 0} onChange={setBaseStyle(COMPONENT_STYLE_ROTATE)} />
         </Col>
       </Row>
     </React.Fragment>

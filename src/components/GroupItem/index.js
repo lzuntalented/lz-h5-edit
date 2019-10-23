@@ -9,7 +9,7 @@ import {
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, addActiveEditKey,
 } from '../../store/action';
-import ComponentMap from '../../core/components';
+import ComponentMap, { getComponentEditMap } from '../../core/components';
 import { getAroundRect } from '../../utils';
 
 const refNames = {
@@ -101,10 +101,10 @@ class GroupItem extends React.Component {
           {
             list.map((item) => {
               const { type, ...others } = editList[item];
-              const Comp = ComponentMap[type];
+              const Comp = getComponentEditMap(type);
               return <Comp uniqueId={item} key={item} data={others} />;
             })
-            }
+          }
         </div>
       );
     }

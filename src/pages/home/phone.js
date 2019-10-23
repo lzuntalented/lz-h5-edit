@@ -5,7 +5,7 @@ import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '../../core/constants';
 
 // 引入样式文件
 import './index.scss';
-import { getDragonFestivalData } from '../realpreview/config';
+import { getDragonFestivalData, get1024Data } from '../realpreview/config';
 import { resetStore } from '../../store/action';
 import { getComponentEditMap } from '../../core/components';
 
@@ -22,7 +22,7 @@ class Phone extends React.Component {
 
   componentDidMount() {
     // 担心观众老爷等不及，预制一个场景
-    const data = getDragonFestivalData();
+    const data = get1024Data();
     const { dispatch } = this.props;
     dispatch(resetStore(data));
   }

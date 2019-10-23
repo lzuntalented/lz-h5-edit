@@ -44,7 +44,7 @@ class Setting extends React.Component {
   render() {
     const { activeEditKey } = this.props;
     return (
-      activeEditKey
+      activeEditKey && activeEditKey.length > 0
       && (
       <Draggable
         axis="both"
@@ -68,9 +68,14 @@ class Setting extends React.Component {
                 <Button onClick={this.onRemove} type="danger">删除元素</Button>
               </div>
             </TabPane>
-            <TabPane tab="动画" key="2">
-              <Animate />
-            </TabPane>
+            {
+              activeEditKey.length === 1
+              && (
+              <TabPane tab="动画" key="2">
+                <Animate />
+              </TabPane>
+              )
+            }
           </Tabs>
         </section>
       </Draggable>

@@ -111,5 +111,7 @@ export const EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION = 'college';
 export const EXAMPLE_DATA_CHILDREN_FESTIVAL = 'children';
 // 端午节展示
 export const EXAMPLE_DATA_DRAGON_FESTIVAL = 'dragon';
+// 1024程序员节展示
+export const EXAMPLE_DATA_1024 = '1024';
 // 使用缓存数据标识
 export const EXAMPLE_DATA_PREVIEW = 'cache';

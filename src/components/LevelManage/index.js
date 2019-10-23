@@ -113,6 +113,7 @@ class LevelManage extends React.Component {
         <SortableList
           items={list}
           onItemClick={this.onItemClick}
+          onSortEnd={this.onSortEnd}
         />
       </div>
     );

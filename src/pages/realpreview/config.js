@@ -965,3 +965,92 @@ export function getGKData() {
       }]],
   };
 }
+
+export function get1024Data() {
+  return {
+    backMusicUrl: '',
+    backGroundImage: 'http://www.lzuntalented.cn/img/1024/bg.jpg',
+    list: [[{
+      name: '图片 2',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 76, left: 59, width: 200, height: 108, rotate: 0,
+      },
+      animate: {
+        name: 'zoomIn', duration: 1, delay: 0, repeat: 1, animateRepeat: 'infinite',
+      },
+      attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1024.png' },
+      type: 'COMPONENT_TYPE_PICTURE',
+    }, {
+      name: '图片 2',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 220, left: 0, width: 320, height: 227, rotate: 0,
+      },
+      animate: {
+        name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+      },
+      attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.b.png' },
+      type: 'COMPONENT_TYPE_PICTURE',
+    }, {
+      name: '图片 3',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 410, left: -26, width: 356, height: 108, rotate: 0,
+      },
+      animate: {
+        name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+      },
+      attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.cloud.png' },
+      type: 'COMPONENT_TYPE_PICTURE',
+    }, {
+      name: '文本 4',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 444, left: 114, width: 320, height: 40, rotate: 0,
+      },
+      animate: {
+        name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+      },
+      attrs: {
+        color: '#181818', fontSize: 12, text: '科技创造未来', bgColor: '', lineHeight: 1.5,
+      },
+      type: 'COMPONENT_TYPE_TEXT',
+    }], [{
+      name: '文本 1',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 87, left: 32, width: 259, height: 246, rotate: 0,
+      },
+      animate: {
+        name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
+      },
+      attrs: {
+        color: '#ffffff', fontSize: 14, text: '10月24日程序员节，是中国程序员的共同节日。1024是2的十次方，二进制计数的基本计量单位之一。程序员英文Programmer，是从事程序开发、维护的专业人员。程序员就像是一个个 1024，以最低调、踏实、核心的功能模块搭建起这个科技世界。部分互联网机构一直密切关注程序员健康，针对程序员经常周末加班与工作日熬夜的情况，倡议每年的10月24日为1024程序员节，在这一天建议程序员拒绝加班。', bgColor: '', lineHeight: 1.5,
+      },
+      type: 'COMPONENT_TYPE_TEXT',
+    }, {
+      name: '图片 3',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 36, left: 90, width: 132, height: 61, rotate: 0,
+      },
+      animate: {
+        name: 'bounceInDown', duration: 1, delay: 0, repeat: 1,
+      },
+      attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/2.gif' },
+      type: 'COMPONENT_TYPE_PICTURE',
+    }, {
+      name: '图片 3',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      rect: {
+        top: 348, left: 0, width: 320, height: 227, rotate: 0,
+      },
+      animate: {
+        name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+      },
+      attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.b.png' },
+      type: 'COMPONENT_TYPE_PICTURE',
+    }]],
+  };
+}

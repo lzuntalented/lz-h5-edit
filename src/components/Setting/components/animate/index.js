@@ -25,6 +25,9 @@ class Animation extends React.Component {
     const {
       animate, activeEditKey, dispatch, animateDuration, animateDelay, animateRepeat,
     } = this.props;
+    const {
+      name, delay, repeat, duration,
+    } = animate;
     return (
       <div className="animate-container">
         <Row align="middle" type="flex" gutter={8}>
@@ -37,7 +40,7 @@ class Animation extends React.Component {
                 }, activeEditKey));
               }}
               style={{ width: '100%' }}
-              value={animate}
+              value={name}
             >
               {
                 Object.keys(opts).map(item => (
@@ -54,13 +57,13 @@ class Animation extends React.Component {
         <Row align="middle" type="flex" gutter={8}>
           <Col span={8}>动画时间</Col>
           <Col span={16}>
-            <Input value={animateDuration} type="number" onChange={this.setBaseStyle('duration')} />
+            <Input value={duration} type="number" onChange={this.setBaseStyle('duration')} />
           </Col>
         </Row>
         <Row align="middle" type="flex" gutter={8}>
           <Col span={8}>动画延时</Col>
           <Col span={16}>
-            <Input value={animateDelay} type="number" onChange={this.setBaseStyle('delay')} />
+            <Input value={delay} type="number" onChange={this.setBaseStyle('delay')} />
           </Col>
         </Row>
         <Row align="middle" type="flex" gutter={8}>
@@ -69,7 +72,7 @@ class Animation extends React.Component {
             <Select
               onChange={this.setBaseStyle('animateRepeat')}
               style={{ width: '100%' }}
-              value={animateRepeat}
+              value={repeat}
             >
               <Option value={ANIMATE_REPEAT_NORMAL}>默认</Option>
               <Option value={ANIMATE_REPEAT_INFINITE}>无限循环</Option>
@@ -85,9 +88,9 @@ const mapStateToProps = (store) => {
   const state = store.toJS();
   const { editList, activeEditKey } = state;
   const result = { activeEditKey };
-  if (activeEditKey) {
-    const item = editList[activeEditKey];
-    if (item) return Object.assign(result, item.current);
+  if (activeEditKey && activeEditKey.length === 1) {
+    const item = editList[activeEditKey[0]];
+    if (item) return Object.assign(result, item);
   }
   return result;
 };

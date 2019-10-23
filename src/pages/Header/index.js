@@ -8,14 +8,16 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, ITEM_TYPE_GROUP, COMPONENT_TYPE_QQ_VIDEO,
+  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, ITEM_TYPE_GROUP, COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
 } from '../../core/constants';
 import { addPageItem, resetStore } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
 
 import ImageClip from './components/ImageClip';
 import Music from './components/Music';
-import { getGKData, getDragonFestivalData, getChildrenFestivalData } from '../realpreview/config';
+import {
+  getGKData, getDragonFestivalData, getChildrenFestivalData, get1024Data,
+} from '../realpreview/config';
 
 class Header extends React.Component {
   static propTypes = {
@@ -102,6 +104,8 @@ class Header extends React.Component {
       data = getDragonFestivalData();
     } else if (key === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
       data = getChildrenFestivalData();
+    } else if (key === EXAMPLE_DATA_1024) {
+      data = get1024Data();
     }
     const { dispatch } = this.props;
     dispatch(resetStore(data));
@@ -124,10 +128,13 @@ class Header extends React.Component {
           <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION}`} target="_blank" rel="noopener noreferrer">
             <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION)}>示例-高考加油</Button>
           </a>
+          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_1024}`} target="_blank" rel="noopener noreferrer">
+            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_1024)}>示例-1024程序员节</Button>
+          </a>
         </div>
         <ul>
           <li className="item" onClick={this.onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>
-            <Icon type="border-inner" className="icon" />
+            <Icon type="qq" className="icon" />
             <div className="txt">QQ通话</div>
           </li>
           <li className="item" onClick={this.onAddText}>
