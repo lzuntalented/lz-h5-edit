@@ -2,6 +2,7 @@ module.exports = {
   env: {
     development: {
       plugins: [
+        ["@babel/plugin-syntax-dynamic-import"],
         ["@babel/plugin-proposal-class-properties"],
         [
           'import',
@@ -15,6 +16,7 @@ module.exports = {
     },
     production: {
       plugins: [
+        ["@babel/plugin-syntax-dynamic-import"],
         ["@babel/plugin-proposal-class-properties", { loose: false }],
         [
           'import',

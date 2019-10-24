@@ -1,8 +1,8 @@
 import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 
-import home from '../pages/home';
-import realpreview from '../pages/realpreview';
+import home from '../pages/home/Loadable';
+import realpreview from '../pages/realpreview/Loadable';
 
 import Layout from '../pages/layout';
 

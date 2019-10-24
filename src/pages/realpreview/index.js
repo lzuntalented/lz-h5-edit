@@ -22,6 +22,7 @@ class Perview extends React.Component {
     super(props);
     this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
     const { params } = props;
+    console.log(params);
     this.data = getDragonFestivalData();
     if (params && params.source === EXAMPLE_DATA_PREVIEW) {
       const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '[]');
@@ -36,6 +37,7 @@ class Perview extends React.Component {
     if (params && params.source === EXAMPLE_DATA_1024) {
       this.data = get1024Data();
     }
+    this.cacheKey = params && params.source;
     this.state = {};
     this.magicRefs = {};
   }
@@ -71,6 +73,15 @@ class Perview extends React.Component {
             <Button onClick={this.nextPage}>下一页</Button>
           </div>
         </div>
+        {
+          this.cacheKey === EXAMPLE_DATA_1024
+          && (
+          <div>
+            <img src="http://www.lzuntalented.cn/img/eq-1024.png" alt="" />
+            <div className="text-center">手机端二维码预览</div>
+          </div>
+          )
+        }
       </div>
     );
   }

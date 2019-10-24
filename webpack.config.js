@@ -9,11 +9,12 @@ console.log(chalk.green('http://localhost:9901'));
 
 module.exports = {
   entry: {
-    index: './src/index.js',
+    bound: './src/index.js',
+    wap: './src/wap.js',
   },
   devtool: '#source-map',
   output: {
-    filename: 'bound.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
   module: {

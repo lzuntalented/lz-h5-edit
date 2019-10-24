@@ -38,5 +38,6 @@
   .layout-content-container {
     width: $content-width;
     margin: 0 auto;
+    min-height: calc(100vh - 50px);
   }
 }

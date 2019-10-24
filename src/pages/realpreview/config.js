@@ -1020,7 +1020,7 @@ export function get1024Data() {
       name: '文本 1',
       nodeType: 'ITEM_TYPE_SINGLE',
       rect: {
-        top: 87, left: 32, width: 259, height: 246, rotate: 0,
+        top: 87, left: 32, width: 259, height: 266, rotate: 0,
       },
       animate: {
         name: 'zoomIn', duration: 1, delay: 0, repeat: 1,

@@ -27,8 +27,8 @@ class Home extends React.Component {
             <div className="border-left" />
             <div className="border-right" />
             <Phone />
-            <Control />
           </div>
+          <Control />
           <div className="footer" />
         </div>
         <div className="style-setting-container">

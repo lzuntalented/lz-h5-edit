@@ -166,6 +166,14 @@ class Header extends React.Component {
         </ul>
         <ul className="publish-container">
           <Button type="primary" onClick={this.onPreview}>预览</Button>
+          <iframe
+            src="https://ghbtns.com/github-btn.html?user=lzuntalented&repo=lz-h5-edit&type=star&count=true"
+            frameBorder="0"
+            scrolling="0"
+            width="100px"
+            height="30px"
+            className="m-t-12"
+          />
         </ul>
       </section>
     );

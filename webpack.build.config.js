@@ -15,11 +15,13 @@ const theme = getThemeConfig;
 
 module.exports = {
   entry: {
-    index: './src/index.js',
+    bound: './src/index.js',
+    wap: './src/wap.js',
   },
   output: {
-    filename: 'bound.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    chunkFilename: '[name].js',
   },
   module: {
     rules: [
@@ -85,7 +87,7 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: '[name].css',
-      chunkFilename: '[id].css',
+      chunkFilename: '[name].css',
     }),
     // new webpack.IgnorePlugin(requestRegExp, [contextRegExp])
     // new UglifyJSPlugin(),

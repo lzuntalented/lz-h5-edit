@@ -1,0 +1,16 @@
+@import '../../style/style.scss';
+@import '../../style/base.scss';
+
+$phone-width: 320;
+$phone-height: 480;
+$phone-header-height: 50;
+$phone-footer-height: 30;
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#root,.content {
+  height: 100%;
+  width: 100%;
+}

@@ -3,8 +3,8 @@
 
 $phone-width: 320;
 $phone-height: 480;
-$phone-header-height: 50;
-$phone-footer-height: 30;
+$phone-header-height: 5;
+$phone-footer-height: 5;
 
 .home-container {
   margin-top: 20px;
@@ -40,7 +40,7 @@ $phone-footer-height: 30;
         left: -5px;
         top: 0;
         bottom: 0;
-        width: 10px;
+        width: 5px;
         background-color: #e0e0e0;
         z-index: 1000;
         pointer-events: none;
@@ -51,107 +51,113 @@ $phone-footer-height: 30;
         right: -5px;
         top: 0;
         bottom: 0;
-        width: 10px;
+        width: 5px;
         background-color: #e0e0e0;
         z-index: 1000;
         pointer-events: none;
       }
-      .home-edit-item-container {
+    }
+    
+    .home-control-container {
+      pointer-events: none;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      right: 5px;
+      bottom: 5px;
+      z-index: 10001;
 
-      }
-      .home-control-container {
-        .ctrl-container {
-          margin: 0 0;
-          padding: 0 0;
-          list-style: none;
-          pointer-events: none;
+      .ctrl-container {
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+        pointer-events: none;
 
-          .line {
-            position: absolute;
-            background-color: #44cb83;
-            height: 1px;
-            width: 1px;
-            &.l {
-              top: 0;
-              left: 0;
-              height: 100%;
-            }
-            &.t {
-              top: 0;
-              left: 0;
-              width: 100%;
-            }
-            &.r {
-              top: 0;
-              right: 0;
-              height: 100%;
-            }
-            &.b {
-              bottom: 0;
-              left: 0;
-              width: 100%;
-            }
-            &.link-rotate {
-              width: 1px;
-              height: 18px;
-              left: 50%;
-              top: -24px;
-              transform: translateX(-50%);
-              background-color: #44cb83;
-            }
+        .line {
+          position: absolute;
+          background-color: #44cb83;
+          height: 1px;
+          width: 1px;
+          &.l {
+            top: 0;
+            left: 0;
+            height: 100%;
           }
-          .point {
-            position: absolute;
-            background-color: #FFFFFF;
-            border-radius: 50%;
-            border: 1px solid #44cb83;
-            width: 12px;
-            height: 12px;
-            pointer-events: all;
-      
-            &.lc {
-              left: -6px;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-            &.rc {
-              right: -6px;
-              top: 50%;
-              transform: translateY(-50%);
-            }
-            &.tc {
-              left: 50%;
-              top: -6px;
-              transform: translateX(-50%);
-            }
-            &.bc {
-              left: 50%;
-              bottom: -6px;
-              transform: translateX(-50%);
-            }
-            &.lt {
-              left: -6px;
-              top: -6px;
-            }
-            &.rt {
-              right: -6px;
-              top: -6px;
-            }
-            &.lb {
-              left: -6px;
-              bottom: -6px;
-            }
-            &.rb {
-              right: -6px;
-              bottom: -6px;
-            }
-            &.rotate {
-              left: 50%;
-              top: -30px;
-              transform: translateX(-50%);
-              border-color: #44cb83;
-              background-color: #44cb83;
-            }
+          &.t {
+            top: 0;
+            left: 0;
+            width: 100%;
+          }
+          &.r {
+            top: 0;
+            right: 0;
+            height: 100%;
+          }
+          &.b {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+          }
+          &.link-rotate {
+            width: 1px;
+            height: 18px;
+            left: 50%;
+            top: -24px;
+            transform: translateX(-50%);
+            background-color: #44cb83;
+          }
+        }
+        .point {
+          position: absolute;
+          background-color: #FFFFFF;
+          border-radius: 50%;
+          border: 1px solid #44cb83;
+          width: 12px;
+          height: 12px;
+          pointer-events: all;
+    
+          &.lc {
+            left: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &.rc {
+            right: -6px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &.tc {
+            left: 50%;
+            top: -6px;
+            transform: translateX(-50%);
+          }
+          &.bc {
+            left: 50%;
+            bottom: -6px;
+            transform: translateX(-50%);
+          }
+          &.lt {
+            left: -6px;
+            top: -6px;
+          }
+          &.rt {
+            right: -6px;
+            top: -6px;
+          }
+          &.lb {
+            left: -6px;
+            bottom: -6px;
+          }
+          &.rb {
+            right: -6px;
+            bottom: -6px;
+          }
+          &.rotate {
+            left: 50%;
+            top: -30px;
+            transform: translateX(-50%);
+            border-color: #44cb83;
+            background-color: #44cb83;
           }
         }
       }
