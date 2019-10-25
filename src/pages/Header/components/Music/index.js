@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Input, Button, Modal, Row, Col,
 } from 'antd';
-import Cropper from 'cropperjs';
+// import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.min.css';
-import { changeBackGround, changeBackMusicUrl } from '../../../../store/action';
+import { changeBackMusicUrl } from '../../../../store/action';
 
 class ImageClip extends React.Component {
   constructor(props) {

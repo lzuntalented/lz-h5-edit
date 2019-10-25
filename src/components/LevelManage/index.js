@@ -8,7 +8,8 @@ import { Icon } from 'antd';
 
 import './index.scss';
 import {
-  changeActiveEditKey, resortPageItem, groupActiveEditKeys, addActiveEditKey, splitGroupActiveEditKeys,
+  changeActiveEditKey, resortPageItem, groupActiveEditKeys,
+  addActiveEditKey, splitGroupActiveEditKeys,
 } from '../../store/action';
 import { ITEM_TYPE_GROUP } from '../../core/constants';
 

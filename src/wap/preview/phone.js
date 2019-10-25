@@ -14,13 +14,8 @@ class RealPreview extends React.Component {
     super(props);
     this.state = {
       activePageIndex: 0,
-      musicPlay: true,
     };
     this.magicRefs = {};
-  }
-
-  componentDidMount() {
-    const { data } = this.props;
   }
 
   // 设置魔术引用

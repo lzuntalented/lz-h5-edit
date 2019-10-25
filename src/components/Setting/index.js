@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
-import { Tabs, Select, Button } from 'antd';
+import { Tabs, Button } from 'antd';
 
 import TextStyle from '../Input/style';
 import PictureStyle from '../Picture/style';
@@ -13,7 +13,6 @@ import { changeBaseStyle, removeItem } from '../../store/action';
 import Animate from './components/animate';
 
 const { TabPane } = Tabs;
-const { Option, OptGroup } = Select;
 
 class Setting extends React.Component {
   onAnimateChange = (e) => {

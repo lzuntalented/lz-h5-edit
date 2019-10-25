@@ -4,9 +4,7 @@ import Draggable from 'react-draggable'; // The default
 import { Button, Tabs } from 'antd';
 
 import './index.scss';
-import {
-  addPage, changeActivePage, removeItem,
-} from '../../store/action';
+import { addPage, changeActivePage } from '../../store/action';
 import LevelManage from '../LevelManage';
 
 const { TabPane } = Tabs;

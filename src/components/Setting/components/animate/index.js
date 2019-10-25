@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  Select, Row, Col, Input, Switch,
+  Select, Row, Col, Input,
 } from 'antd';
 import { connect } from 'react-redux';
 import getSelectOptions from './config';
-import { changeBaseStyle, changeAnimation } from '../../../../store/action';
+import { changeAnimation } from '../../../../store/action';
 import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../core/constants';
 
 const opts = getSelectOptions();

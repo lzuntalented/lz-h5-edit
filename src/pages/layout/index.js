@@ -21,12 +21,10 @@ class LayoutFrame extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tag: 0,
     };
   }
 
   render() {
-    const { menus, tag, defaultName } = this.state;
     const { children } = this.props;
     return (
       <Layout className="layout">

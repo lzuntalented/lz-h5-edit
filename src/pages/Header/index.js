@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,7 +9,8 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, ITEM_TYPE_GROUP, COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
+  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
+  ITEM_TYPE_GROUP, COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
 } from '../../core/constants';
 import { addPageItem, resetStore } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';

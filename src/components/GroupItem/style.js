@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  Select, Row, Col, Slider, Input,
-} from 'antd';
 import { changeAttrs, changeBaseStyle } from '../../store/action';
 import SettingPosition from '../SettingPosition';
-import ColorPicker from '../ColorPicker';
 
 import './style.scss';
 

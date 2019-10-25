@@ -5,7 +5,7 @@ import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '../../core/constants';
 
 // 引入样式文件
 import './index.scss';
-import { getDragonFestivalData, get1024Data } from '../realpreview/config';
+import { get1024Data } from '../realpreview/config';
 import { resetStore } from '../../store/action';
 import { getComponentEditMap } from '../../core/components';
 

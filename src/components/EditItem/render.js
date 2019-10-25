@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import './index.scss';
 
-export default function (Component) {
+export default function EditItemRender(Component) {
   function Layout(props) {
     const {
       rect, attrs, animate,
@@ -21,10 +21,6 @@ export default function (Component) {
     } = animate;
     const cls = `content-hide-container ${animate || ''}`;
     const animateStyle = {
-      // 'animation-name': animateName,
-      // animationDuration: `${animateDuration}s`,
-      // animationDelay: `${animateDelay}s`,
-      // animationIterationCount: animateRepeat,
       animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
     };
     return (
@@ -48,6 +44,18 @@ export default function (Component) {
       </div>
     );
   }
+
+  Layout.prototype.propTypes = {
+    rect: PropTypes.object,
+    attrs: PropTypes.object,
+    animate: PropTypes.object,
+  };
+
+  Layout.prototype.defaultProps = {
+    rect: {},
+    attrs: {},
+    animate: {},
+  };
 
   return Layout;
 }

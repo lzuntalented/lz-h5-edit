@@ -7,12 +7,11 @@ import {
   ALL_ITEM,
   ITEM_TYPE_GROUP,
 } from '../../core/constants';
-import { changeActiveEditKey, saveMoveTagBoundingClientRect, startMove } from '../../store/action';
+import { startMove } from '../../store/action';
 import './event';
 
 // 引入样式文件
 import './index.scss';
-import { getAroundRect } from '../../utils';
 
 class Phone extends React.Component {
     static propTypes = {

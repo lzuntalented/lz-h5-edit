@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Input from '../../components/Input';
 import Picture from '../../components/Picture';
-import Music from '../../components/Music';
+// import Music from '../../components/Music';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
 
 // 引入样式文件

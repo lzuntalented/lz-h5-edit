@@ -1,14 +1,11 @@
 import React from 'react';
 import { Icon } from 'antd';
 import Carousel from 're-carousel';
-import Text from '../../components/Input/render';
-import Picture from '../../components/Picture/render';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
 import Music from '../../utils/music';
 
 // 引入样式文件
 import './index.scss';
-import { getComponentEditMap, getComponentRenderMap } from '../../core/components';
+import { getComponentRenderMap } from '../../core/components';
 
 const refNames = {
   content: 'content',

@@ -3,12 +3,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import hotkeys from 'hotkeys-js';
+// import hotkeys from 'hotkeys-js';
 import {
   ALL_ITEM, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import {
-  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, addActiveEditKey,
+  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs,
 } from '../../store/action';
 
 import './index.scss';
