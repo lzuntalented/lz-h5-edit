@@ -23,8 +23,8 @@ const coordEnd = {
 };
 
 window.addEventListener('mousedown', (e) => {
-  // e.preventDefault();
   if (moveTag) {
+    e.preventDefault();
     coordStart.x = e.pageX;
     coordStart.y = e.pageY;
   }

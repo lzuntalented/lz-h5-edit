@@ -3,8 +3,11 @@
 ## 目标
 > 打造一款现象级微场景编辑器 [演示地址](http://show.lzuntalented.cn)
 
-## 预览
+### 预览
 ![](http://www.lzuntalented.cn/img/edit.gif)
+
+### 手机扫码预览
+![手机扫描体验](http://www.lzuntalented.cn/img/eq-1024.png)
 
 ## 使用
 
@@ -28,10 +31,12 @@ npm run build
     - [x] 组合元素
     - [x] 页面管理
     - [x] 层级管理
+    - [x] 辅助线显示
 
 * 物料
     - [x] 文本
     - [x] 图片
+    - [x] QQ语言通话
     - [x] 背景
     - [ ] 艺术字
     - [ ] 模板
@@ -41,6 +46,7 @@ npm run build
     - [x] 示例-端午节
     - [x] 示例-儿童节
     - [x] 示例-高考加油
+    - [x] 示例-1024
   
 ### 后续规划
 > 集中物料仓库建设

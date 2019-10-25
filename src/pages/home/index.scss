@@ -58,6 +58,30 @@ $phone-footer-height: 5;
       }
     }
     
+    .home-aideline-container {
+      pointer-events: none;
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      right: 5px;
+      bottom: 5px;
+      z-index: 10000;
+      .aide-left {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: red;
+      }
+      .aide-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: red;
+      }
+    }
+    
     .home-control-container {
       pointer-events: none;
       position: absolute;

@@ -2,7 +2,9 @@ import React from 'react';
 import Setting from '../../components/Setting';
 import PageManage from '../../components/PageManage';
 import Phone from './phone';
-import Control from './control';
+import Control from './components/Control';
+import AideLine from './components/AideLine';
+import './event';
 
 // 引入样式文件
 import './index.scss';
@@ -23,6 +25,7 @@ class Home extends React.Component {
             <div className="border-right" />
             <Phone />
           </div>
+          <AideLine />
           <Control />
           <div className="footer" />
         </div>
