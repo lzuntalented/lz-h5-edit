@@ -1,213 +1,69 @@
-@import '../../style/style.scss';
-@import '../../style/base.scss';
-
-$phone-width: 320;
-$phone-height: 480;
-$phone-header-height: 5;
-$phone-footer-height: 5;
-
-.home-container {
-  margin-top: 20px;
-  position: relative;
-  .phone-container {
-    width: $phone-width + 10 + px;
+.page-home {
+    background: #fff;
+    min-height: calc(100vh - 74px);
     position: relative;
 
-    & > .header {
-      // position: absolute;
-      // top: -$phone-header-height + px;
-      // left: 0;
-      // right: 0;
-      // z-index: 1;
-      height: $phone-header-height + px;
-      border-top-left-radius: $phone-header-height + px;
-      border-top-right-radius: $phone-header-height + px;
-      background-color: #e0e0e0;
-      position: relative;
-      pointer-events: none;
-      z-index: 1;
-    }
-    & > .content {
-      height: $phone-height + px;
-      position: relative;
-      border-left: 5px solid #e0e0e0;
-      border-right: 5px solid #e0e0e0;
-      // margin-top: $phone-header-height + px;
-      // margin-bottom: $phone-footer-height + px;
-
-      .border-left {
-        position: absolute;
-        left: -5px;
-        top: 0;
-        bottom: 0;
-        width: 5px;
-        background-color: #e0e0e0;
-        z-index: 1000;
-        pointer-events: none;
-      }
-
-      .border-right {
-        position: absolute;
-        right: -5px;
-        top: 0;
-        bottom: 0;
-        width: 5px;
-        background-color: #e0e0e0;
-        z-index: 1000;
-        pointer-events: none;
-      }
-    }
+    .banner {
+        z-index: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        padding: 24px 0;
     
-    .home-aideline-container {
-      pointer-events: none;
-      position: absolute;
-      left: 5px;
-      top: 5px;
-      right: 5px;
-      bottom: 5px;
-      z-index: 10000;
-      .aide-left {
+        .title-left {
+            width: 540px;
+        }
+    
+        .site-name {
+            font-weight: 600;
+            font-size: 68px;
+            margin-bottom: 0;
+            text-align: left;
+        }
+    
+        .line {
+            border-bottom: 1px solid #e8e8e8;
+            margin: 8px 0;
+        }
+    
+        .sub-title {
+            color: #314659;
+            font-size: 20px;
+            line-height: 40px;
+            text-align: left;
+        }
+    
+        .btn-container {
+            display: flex;
+            align-items: center;
+            margin: 24px auto;
+        }
+        .m-r-12 {
+            margin-right: 12px;
+        }
+    
+        .home-logo {
+            border: 1px solid #1593ff;
+            border-radius: 5px;
+            height: 480px;
+            width: 320px;
+            // line-height: 480px;
+            margin: 0 24px;
+            background-color: rgba($color: #ecfcff, $alpha: 0.4);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    .bg-container {
         position: absolute;
         top: 0;
-        bottom: 0;
-        width: 1px;
-        background: red;
-      }
-      .aide-top {
-        position: absolute;
         left: 0;
         right: 0;
-        height: 1px;
-        background: red;
-      }
+        bottom: 0;
     }
-    
-    .home-control-container {
-      pointer-events: none;
-      position: absolute;
-      left: 5px;
-      top: 5px;
-      right: 5px;
-      bottom: 5px;
-      z-index: 10001;
-
-      .ctrl-container {
-        margin: 0 0;
-        padding: 0 0;
-        list-style: none;
-        pointer-events: none;
-
-        .line {
-          position: absolute;
-          background-color: #44cb83;
-          height: 1px;
-          width: 1px;
-          &.l {
-            top: 0;
-            left: 0;
-            height: 100%;
-          }
-          &.t {
-            top: 0;
-            left: 0;
-            width: 100%;
-          }
-          &.r {
-            top: 0;
-            right: 0;
-            height: 100%;
-          }
-          &.b {
-            bottom: 0;
-            left: 0;
-            width: 100%;
-          }
-          &.link-rotate {
-            width: 1px;
-            height: 18px;
-            left: 50%;
-            top: -24px;
-            transform: translateX(-50%);
-            background-color: #44cb83;
-          }
-        }
-        .point {
-          position: absolute;
-          background-color: #FFFFFF;
-          border-radius: 50%;
-          border: 1px solid #44cb83;
-          width: 12px;
-          height: 12px;
-          pointer-events: all;
-    
-          &.lc {
-            left: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-          }
-          &.rc {
-            right: -6px;
-            top: 50%;
-            transform: translateY(-50%);
-          }
-          &.tc {
-            left: 50%;
-            top: -6px;
-            transform: translateX(-50%);
-          }
-          &.bc {
-            left: 50%;
-            bottom: -6px;
-            transform: translateX(-50%);
-          }
-          &.lt {
-            left: -6px;
-            top: -6px;
-          }
-          &.rt {
-            right: -6px;
-            top: -6px;
-          }
-          &.lb {
-            left: -6px;
-            bottom: -6px;
-          }
-          &.rb {
-            right: -6px;
-            bottom: -6px;
-          }
-          &.rotate {
-            left: 50%;
-            top: -30px;
-            transform: translateX(-50%);
-            border-color: #44cb83;
-            background-color: #44cb83;
-          }
-        }
-      }
-    }
-    & > .footer {
-      // position: absolute;
-      // bottom: -$phone-footer-height + px;
-      // left: 0;
-      // right: 0;
-      // z-index: 1;
-      height: $phone-footer-height + px;
-      border-bottom-left-radius: $phone-footer-height + px;
-      border-bottom-right-radius: $phone-footer-height + px;
-      background-color: #e0e0e0;
-      position: relative;
-      pointer-events: none;
-    }
-  }
-  .style-setting-container{
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .page-manage-container {
-    position: absolute;
-    right: 300px;
-    top: 0;
-  }
 }

@@ -1,7 +1,6 @@
 const path = require('path');
 // var Page = require('./plugins/page');
 
-const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
@@ -58,14 +57,6 @@ module.exports = {
           'css-loader',
         ],
       },
-      //   {
-      //     test: /\.(less)$/,
-      //     loader: ExtractTextPlugin.extract({
-      //       fallback: 'style-loader',
-      //       use: `css-loader!less-loader?{"javascriptEnabled": true,"modifyVars":${JSON.stringify(theme)}}`,
-      //     }),
-      //     // loader:"style-loader!css-loader!sass-loader"
-      //   },
       {
         test: /\.(png|jpg)$/,
         use: 'url-loader?limit=8192',
@@ -89,13 +80,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[name].css',
     }),
-    // new webpack.IgnorePlugin(requestRegExp, [contextRegExp])
-    // new UglifyJSPlugin(),
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     NODE_ENV: JSON.stringify('production'),
-    //   },
-    // }),
   ],
   devServer: {
     host: '0.0.0.0',

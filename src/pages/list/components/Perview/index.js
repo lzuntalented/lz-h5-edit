@@ -1,11 +1,6 @@
 import React from 'react';
-import { Icon } from 'antd';
-import Carousel from 're-carousel';
-import Music from '../../utils/music';
 
-// 引入样式文件
-import './index.scss';
-import { getComponentRenderMap } from '../../core/components';
+import { getComponentRenderMap } from '../../../../core/components';
 
 const refNames = {
   content: 'content',
@@ -16,23 +11,9 @@ class RealPreview extends React.Component {
     super(props);
     this.state = {
       activePageIndex: 0,
-      musicPlay: true,
     };
     this.magicRefs = {};
-    this.musicHandler = new Music();
   }
-
-  componentDidMount() {
-    const { data } = this.props;
-    // this.musicHandler.setSrc(data.backMusicUrl);
-  }
-
-  // componentWillReceiveProps(nextProps) {
-  //   const { data } = this.props;
-  //   if (data && data.backMusicUrl !== nextProps.data.backMusicUrl) {
-  //     this.musicHandler.setSrc(data.backMusicUrl);
-  //   }
-  // }
 
   // 设置魔术引用
   setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
@@ -51,20 +32,11 @@ class RealPreview extends React.Component {
     this.setState({ activePageIndex: +index });
   }
 
-  onPause = () => {
-    this.musicHandler.pause();
-    this.setState({ musicPlay: false });
-  }
-
-  onPlay = () => {
-    this.musicHandler.play();
-    this.setState({ musicPlay: true });
-  }
-
   renderComponent() {
     const { data } = this.props;
     const { activePageIndex } = this.state;
     return data.list.map((item, index) => {
+      if (index > 0) return null;
       const style = { position: 'relative', height: '100%', display: 'none' };
       if (activePageIndex === index) style.display = 'block';
       return (
@@ -72,6 +44,7 @@ class RealPreview extends React.Component {
           {
               item.map((it, idx) => {
                 const { type, ...others } = it;
+                console.log(type);
                 const Component = getComponentRenderMap(type);
                 return <Component {...others} key={idx} />;
               })
@@ -83,7 +56,6 @@ class RealPreview extends React.Component {
 
   render() {
     const { data } = this.props;
-    const { musicPlay } = this.state;
     const style = {
       backgroundImage: `url(${data.backGroundImage})`,
       backgroundRepeat: 'no-repeat',
@@ -92,19 +64,7 @@ class RealPreview extends React.Component {
     };
     return (
       <div className="content" style={style}>
-        <Carousel onTransitionEnd={this.onTransitionEnd} axis="y" ref={this.setMagicRefs(refNames.content)}>
-          {
-            this.renderComponent()
-          }
-        </Carousel>
-        <div className="music-container" style={{ display: 'none' }}>
-          {
-            !musicPlay && <Icon type="play-circle" onClick={this.onPlay} />
-          }
-          {
-            musicPlay && <Icon type="pause-circle" onClick={this.onPause} />
-          }
-        </div>
+        {this.renderComponent()}
       </div>
     );
   }

@@ -19,7 +19,7 @@ import ImageClip from './components/ImageClip';
 import Music from './components/Music';
 import {
   getGKData, getDragonFestivalData, getChildrenFestivalData, get1024Data,
-} from '../realpreview/config';
+} from '../../pages/realpreview/config';
 
 class Header extends React.Component {
   static propTypes = {
@@ -121,6 +121,7 @@ class Header extends React.Component {
         className="page-header-container"
       >
         <div className="example-container">
+          <img onClick={() => { window.location.hash = '/'; }} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
           <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
             <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_DRAGON_FESTIVAL)}>示例-端午节</Button>
           </a>

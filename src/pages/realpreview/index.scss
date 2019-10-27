@@ -7,9 +7,11 @@ $phone-header-height: 50;
 $phone-footer-height: 30;
 
 .realperview-container {
+  margin: 0 auto;
   margin-top: 20px;
   position: relative;
   display: flex;
+  max-width: 1080px;
   .phone-container {
     width: $phone-width + 10 + px;
     & > .header {

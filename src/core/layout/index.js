@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {
   Layout,
 } from 'antd';
-import NavHeader from '../Header';
 
 import './index.scss';
 
@@ -25,11 +24,13 @@ class LayoutFrame extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, nav } = this.props;
     return (
       <Layout className="layout">
         <Header className="layout-header-container">
-          <NavHeader />
+          {
+            nav
+          }
         </Header>
         <Content className="layout-content-container">
           {

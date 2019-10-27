@@ -1,43 +1,49 @@
+/* eslint-disable jsx-a11y/iframe-has-title */
 import React from 'react';
-import Setting from '../../components/Setting';
-import PageManage from '../../components/PageManage';
-import Phone from './phone';
-import Control from './components/Control';
-import AideLine from './components/AideLine';
-import './event';
+import { Button } from 'antd';
+import JParticles from 'jparticles';
 
-// 引入样式文件
 import './index.scss';
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const bgRef = React.createRef();
 
-  render() {
-    return (
-      <div className="home-container">
-        <div className="phone-container">
-          <div className="header" />
-          <div className="content">
-            <div className="border-left" />
-            <div className="border-right" />
-            <Phone />
+export default () => {
+  React.useEffect(() => {
+    const Ctor = JParticles.particle;
+    const hannder = new Ctor('#bg', {
+      num: 40,
+    });
+    console.log(hannder);
+  }, []);
+  return (
+    <div className="page-home">
+      <div className="banner">
+        <div className="title-left">
+          <h1 className="site-name">随心秀</h1>
+          <div className="sub-title">提供一款开源微场景编辑器解决方案</div>
+          <div className="line" />
+          <div className="btn-container">
+            <a href="/#/list" className="m-r-12">
+              <Button type="primary">开始探索</Button>
+            </a>
+            <a href="/#/create" className="m-r-12">
+              <Button>体验创造</Button>
+            </a>
+            <iframe
+              src="https://ghbtns.com/github-btn.html?user=lzuntalented&repo=lz-h5-edit&type=star&count=true&size=large"
+              frameBorder="0"
+              scrolling="0"
+              width="160px"
+              height="32px"
+            />
           </div>
-          <AideLine />
-          <Control />
-          <div className="footer" />
         </div>
-        <div className="style-setting-container">
-          <Setting />
-        </div>
-        <div className="page-manage-container">
-          <PageManage />
+        <div className="home-logo">
+          <img src="http://www.lzuntalented.cn/img/home-log.png" alt="" width="100%" />
+          <img src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
         </div>
       </div>
-    );
-  }
-}
-
-export default Home;
+      <div ref={bgRef} id="bg" className="bg-container" />
+    </div>
+  );
+};

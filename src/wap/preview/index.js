@@ -1,10 +1,10 @@
 import React from 'react';
+import qs from 'query-string';
 import Phone from './phone';
 
 // 引入样式文件
 import './index.scss';
-import { resetComponentSize } from './config';
-import { get1024Data } from '../../pages/realpreview/config';
+import { resetComponentSize, getComponetData } from './config';
 
 const refNames = {
   content: 'content',
@@ -17,7 +17,10 @@ class Perview extends React.Component {
       width: window.innerWidth,
       height: window.innerHeight,
     };
-    const data = get1024Data();
+    const { search } = window.location;
+    const obj = qs.parse(search);
+
+    const data = getComponetData(obj.id);
     resetComponentSize(size, data.list);
     this.data = data;
     this.state = {

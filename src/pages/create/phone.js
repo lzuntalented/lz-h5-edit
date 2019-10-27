@@ -8,6 +8,7 @@ import './index.scss';
 import { get1024Data } from '../realpreview/config';
 import { resetStore } from '../../store/action';
 import { getComponentEditMap } from '../../core/components';
+import { getComponetData } from './config';
 
 // const componentMap = {
 //   COMPONENT_TYPE_TEXT: Input,
@@ -22,8 +23,9 @@ class Phone extends React.Component {
 
   componentDidMount() {
     // 担心观众老爷等不及，预制一个场景
-    const data = get1024Data();
-    const { dispatch } = this.props;
+    // const data = get1024Data();
+    const { dispatch, id } = this.props;
+    const data = getComponetData(id);
     dispatch(resetStore(data));
   }
 

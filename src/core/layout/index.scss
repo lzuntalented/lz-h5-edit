@@ -7,6 +7,18 @@
     padding: 0;
     background-color: #fff;
     height: 48px;
+    box-shadow: 0 4px 12px rgba(138,166,195,0.45);
+
+    .default-header {
+      max-width: 1080px;
+      margin: 0 auto;
+
+      img {
+        display: block;
+        cursor: pointer;
+      }
+    }
+
     .menu-container {
       width: $content-width;
       margin: 0 auto;
@@ -36,8 +48,8 @@
     }
   }
   .layout-content-container {
-    width: $content-width;
-    margin: 0 auto;
-    min-height: calc(100vh - 50px);
+    width: 100%;
+    margin: 12px auto;
+    min-height: calc(100vh - 74px);
   }
 }
