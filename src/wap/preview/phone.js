@@ -4,10 +4,19 @@ import Carousel from 're-carousel';
 // 引入样式文件
 import './index.scss';
 import { getComponentRenderMap } from '../../core/components';
+import { winSize } from '../../utils';
 
 const refNames = {
   content: 'content',
 };
+
+let marginTop = 0;
+function getTop() {
+  const height = window.innerHeight;
+  if (height > winSize.height) {
+    marginTop = (height - winSize.height) / 2;
+  }
+}
 
 class RealPreview extends React.Component {
   constructor(props) {
@@ -16,6 +25,7 @@ class RealPreview extends React.Component {
       activePageIndex: 0,
     };
     this.magicRefs = {};
+    getTop();
   }
 
   // 设置魔术引用
@@ -39,7 +49,13 @@ class RealPreview extends React.Component {
     const { data } = this.props;
     const { activePageIndex } = this.state;
     return data.list.map((item, index) => {
-      const style = { position: 'relative', height: '100%', display: 'none' };
+      const style = {
+        position: 'relative',
+        height: winSize.height,
+        display: 'none',
+        marginTop,
+        overflow: 'hidden',
+      };
       if (activePageIndex === index) style.display = 'block';
       return (
         <div key={index} data-index={index} style={style}>

@@ -2,10 +2,11 @@ import React from 'react';
 import QRCode from 'qrcode';
 import { Row, Col, Icon } from 'antd';
 import { CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW } from '../../config';
+import Perview from '../Perview';
 
 export default (props) => {
   const { data, defaultType, onClick } = props;
-  const { src, id } = data || {};
+  const { src, id, content } = data || {};
   if (defaultType) {
     return (
       <li className="card card-default">
@@ -15,14 +16,16 @@ export default (props) => {
     );
   }
   const [qcorde, setCorde] = React.useState('');
-  QRCode.toDataURL(`http://show.lzuntalented.cn/wap.html?id=${id}`)
-    .then((url) => {
-      setCorde(url);
-    });
+  React.useEffect(() => {
+    QRCode.toDataURL(`http://show.lzuntalented.cn/wap.html?id=${id}`)
+      .then((url) => {
+        setCorde(url);
+      });
+  }, []);
   return (
     <li className="card">
       <div className="img">
-        <img src={src} alt="" width="100%" />
+        <Perview data={content} />
         <div className="qcorde">
           <img src={qcorde} alt="" width="100%" />
         </div>

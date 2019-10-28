@@ -1,5 +1,5 @@
 .page-list {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 24px 0;
 
@@ -9,7 +9,7 @@
         justify-content: space-around;
 
         .card {
-            width: 248px;
+            width: 370px;
             border-radius: 4px;
             overflow: hidden;
             margin-bottom: 24px;
@@ -37,24 +37,34 @@
             }
 
             .img {
-                height: 300px;
-                background: rgba($color: #1593ff, $alpha: 0.6);
+                height: 482px;
+                overflow: hidden;
+                position: relative;
+                border: 1px solid #e6ebed;
 
-                // .qcorde {
-                //     display: none;
-                // }
+                .qcorde {
+                    display: none;
+                    position: absolute;
+                    justify-content: center;
+                    align-items: center;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: rgba($color: #000000, $alpha: 0.3);
+                }
 
                 &:hover {
                     .qcorde {
-                        display: block;
+                        display: flex;
                     }
                 }
             }
 
             &.card-default {
                 .border {
-                    line-height: 300px;
-                    height: 300px;
+                    line-height: 482px;
+                    height: 482px;
                     border: 1px solid #e6ebed;
                     font-size: 20px;
                     text-align: center;
@@ -66,6 +76,7 @@
                 }
 
                 .bottom {
+                    cursor: pointer;
                     &:hover {
                         border-color: #1593ff;
                     }

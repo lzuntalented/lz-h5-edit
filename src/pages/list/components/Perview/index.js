@@ -44,7 +44,7 @@ class RealPreview extends React.Component {
           {
               item.map((it, idx) => {
                 const { type, ...others } = it;
-                console.log(type);
+                others.animate = {};
                 const Component = getComponentRenderMap(type);
                 return <Component {...others} key={idx} />;
               })
@@ -61,6 +61,7 @@ class RealPreview extends React.Component {
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
+      height: '100%',
     };
     return (
       <div className="content" style={style}>

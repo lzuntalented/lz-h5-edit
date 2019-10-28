@@ -1,7 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
-// import domtoimage from 'dom-to-image-more';
-// import Perview from './components/Perview';
 import {
   get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData,
 } from '../realpreview/config';
@@ -34,16 +31,3 @@ export function getLocalCardList() {
     },
   ];
 }
-
-
-// export function getPerviewImage() {
-//   const div = document.createElement('div');
-//   div.id = 'shawdn';
-//   document.body.appendChild(div);
-//   const data = get1024Data();
-//   ReactDom.render(<Perview data={data} />, div);
-//   domtoimage.toBlob(div)
-//     .then((blob) => {
-//       console.log(blob);
-//     });
-// }
