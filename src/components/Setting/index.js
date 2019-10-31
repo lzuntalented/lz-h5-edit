@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
 import { Tabs, Button } from 'antd';
 
-import TextStyle from '../Input/style';
+import TextStyle from '../Text/style';
 import PictureStyle from '../Picture/style';
 import GroupItemStyle from '../GroupItem/style';
 
@@ -11,6 +11,7 @@ import './index.scss';
 import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
 import { changeBaseStyle, removeItem } from '../../store/action';
 import Animate from './components/animate';
+import { getComponentStyleMap } from '../../core/components';
 
 const { TabPane } = Tabs;
 
@@ -29,13 +30,9 @@ class Setting extends React.Component {
 
   renderComponent() {
     const { componentType } = this.props;
-    switch (componentType) {
-      case COMPONENT_TYPE_TEXT:
-        return <TextStyle />;
-      case COMPONENT_TYPE_PICTURE:
-        return <PictureStyle />;
-      default:
-        break;
+    const StyleComp = getComponentStyleMap(componentType);
+    if (StyleComp) {
+      return <StyleComp />;
     }
     return <GroupItemStyle />;
   }
@@ -87,8 +84,8 @@ const mapStateToProps = (store) => {
   const state = store.toJS();
   const { editList, activeEditKey } = state;
   const result = { activeEditKey };
-  if (activeEditKey) {
-    const item = editList[activeEditKey];
+  if (activeEditKey && activeEditKey.length === 1) {
+    const item = editList[activeEditKey[0]];
     if (item) return Object.assign(result, { componentType: item.type });
   }
   return result;

@@ -1,12 +1,19 @@
-import Input from '../components/Input';
+import Text from '../components/Text';
 import Picture from '../components/Picture';
 import QQVideo from '../components/QQVideo';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO } from './constants';
+import Input from '../components/Input';
+import Button from '../components/Button';
+import {
+  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
+  COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON,
+} from './constants';
 
 const map = {
-  [COMPONENT_TYPE_TEXT]: Input,
+  [COMPONENT_TYPE_TEXT]: Text,
   [COMPONENT_TYPE_PICTURE]: Picture,
   [COMPONENT_TYPE_QQ_VIDEO]: QQVideo,
+  [COMPONENT_TYPE_INPUT]: Input,
+  [COMPONENT_TYPE_BUTTON]: Button,
 };
 
 export function getComponentEditMap(key) {

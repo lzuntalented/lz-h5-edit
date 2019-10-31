@@ -4,6 +4,7 @@ import PageManage from '../../components/PageManage';
 import Phone from './phone';
 import Control from './components/Control';
 import AideLine from './components/AideLine';
+import Resource from './components/Resource';
 import './event';
 
 // 引入样式文件
@@ -37,6 +38,7 @@ class Home extends React.Component {
         <div className="page-manage-container">
           <PageManage />
         </div>
+        <Resource />
       </div>
     );
   }

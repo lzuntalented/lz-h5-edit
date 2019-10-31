@@ -67,6 +67,15 @@ class TextStyle extends React.Component {
             </Col>
           </Row>
           <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>按钮类型</Col>
+            <Col span={16}>
+              <Select value={attrs.type} onChange={this.onChangeAttr('type')}>
+                <Select.Option value="">默认</Select.Option>
+                <Select.Option value="primary">主要</Select.Option>
+              </Select>
+            </Col>
+          </Row>
+          <Row align="middle" type="flex" gutter={8}>
             <Col span={8}>文字颜色</Col>
             <Col span={16}>
               <ColorPicker color={attrs.color} onChange={this.onChangeColor} />

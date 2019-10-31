@@ -27,15 +27,11 @@ class TextStyle extends React.Component {
       dispatch(changeAttrs({ color: e }, activeEditKey));
     }
 
-    onChangeAttr = (key, number = false) => (e) => {
+    onChangeAttr = key => (e) => {
       const { target } = e;
       let value = e;
       if (target) {
-        if (number) {
-          value = +target.value;
-        } else {
-          value = target.value;
-        }
+        value = +target.value;
       }
       const { dispatch, activeEditKey } = this.props;
       dispatch(changeAttrs({ [key]: value }, activeEditKey));
@@ -61,9 +57,13 @@ class TextStyle extends React.Component {
       return (
         <div className="component-text-style-container">
           <Row align="middle" type="flex" gutter={8}>
-            <Col span={8}>文字</Col>
+            <Col span={8}>字号</Col>
             <Col span={16}>
-              <Input value={attrs.text} onChange={this.onChangeAttr('text')} />
+              <Select defaultValue={12} onChange={this.onChange}>
+                <Select.Option key={12}>12</Select.Option>
+                <Select.Option key={14}>14</Select.Option>
+                <Select.Option key={16}>16</Select.Option>
+              </Select>
             </Col>
           </Row>
           <Row align="middle" type="flex" gutter={8}>

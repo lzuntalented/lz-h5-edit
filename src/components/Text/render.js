@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'antd';
+// import { Input } from 'antd';
 import Layout from '../EditItem/render';
 
 function Text(props) {
@@ -8,7 +8,7 @@ function Text(props) {
     color, fontSize, text, bgColor, lineHeight,
   } = props;
   return (
-    <Input
+    <div
       style={{
         width: '100%',
         minHeight: '40px',
@@ -18,7 +18,7 @@ function Text(props) {
         background: bgColor,
         lineHeight,
       }}
-      defaultValue={text}
+      dangerouslySetInnerHTML={{ __html: text }}
     />
   );
 }
