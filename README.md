@@ -7,7 +7,7 @@
 ![](http://www.lzuntalented.cn/img/edit.gif)
 
 ### 手机扫码预览
-![手机扫描体验](http://www.lzuntalented.cn/img/eq-1024.png)
+![手机扫描体验](http://www.lzuntalented.cn/img/eq-11.png)
 
 ## 使用
 
@@ -47,6 +47,7 @@ npm run build
     - [x] 示例-儿童节
     - [x] 示例-高考加油
     - [x] 示例-1024
+    - [x] 示例-双十一
   
 ### 后续规划
 > 集中物料仓库建设
