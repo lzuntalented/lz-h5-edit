@@ -6,10 +6,6 @@ import './index.scss';
 import { getComponentRenderMap } from '../../core/components';
 import { winSize } from '../../utils';
 
-const refNames = {
-  content: 'content',
-};
-
 let marginTop = 0;
 function getTop() {
   const height = window.innerHeight;
@@ -26,17 +22,6 @@ class RealPreview extends React.Component {
     };
     this.magicRefs = {};
     getTop();
-  }
-
-  // 设置魔术引用
-  setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
-
-  prev = () => {
-    this.magicRefs[refNames.content].prev();
-  }
-
-  next = () => {
-    this.magicRefs[refNames.content].next();
   }
 
   onTransitionEnd = (e) => {
@@ -62,7 +47,6 @@ class RealPreview extends React.Component {
           {
               item.map((it, idx) => {
                 const { type, ...others } = it;
-                console.log(type);
                 const Component = getComponentRenderMap(type);
                 return <Component {...others} key={idx} />;
               })
@@ -74,6 +58,7 @@ class RealPreview extends React.Component {
 
   render() {
     const { data } = this.props;
+    if (!data) return null;
     const style = {
       backgroundImage: `url(${data.backGroundImage})`,
       backgroundRepeat: 'no-repeat',
@@ -82,7 +67,7 @@ class RealPreview extends React.Component {
     };
     return (
       <div className="content" style={style}>
-        <Carousel onTransitionEnd={this.onTransitionEnd} axis="y" ref={this.setMagicRefs(refNames.content)}>
+        <Carousel onTransitionEnd={this.onTransitionEnd} axis="y">
           {
             this.renderComponent()
           }

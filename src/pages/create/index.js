@@ -1,4 +1,5 @@
 import React from 'react';
+import { Row, Col } from 'antd';
 import Setting from '../../components/Setting';
 import PageManage from '../../components/PageManage';
 import Phone from './phone';
@@ -21,17 +22,21 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
-        <div className="phone-container">
-          <div className="header" />
-          <div className="content">
-            <div className="border-left" />
-            <div className="border-right" />
-            <Phone id={this.id} />
-          </div>
-          <AideLine />
-          <Control />
-          <div className="footer" />
-        </div>
+        <Row type="flex" justify="center">
+          <Col>
+            <div className="phone-container">
+              <div className="header" />
+              <div className="content">
+                <div className="border-left" />
+                <div className="border-right" />
+                <Phone id={this.id} />
+              </div>
+              <AideLine />
+              <Control />
+              <div className="footer" />
+            </div>
+          </Col>
+        </Row>
         <div className="style-setting-container">
           <Setting />
         </div>

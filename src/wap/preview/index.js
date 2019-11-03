@@ -5,6 +5,8 @@ import Phone from './phone';
 // 引入样式文件
 import './index.scss';
 import { resetComponentSize, getComponetData } from './config';
+import { getDetail } from '../../services/create';
+import { translateShowDataFromStore } from '../../utils';
 
 const refNames = {
   content: 'content',
@@ -13,38 +15,30 @@ const refNames = {
 class Perview extends React.Component {
   constructor(props) {
     super(props);
-    const size = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    };
     const { search } = window.location;
     const obj = qs.parse(search);
 
     const data = getComponetData(obj.id);
-    resetComponentSize(size, data.list);
-    this.data = data;
     this.state = {
+      data,
+      id: obj.id,
     };
-    this.magicRefs = {};
   }
 
   componentDidMount() {
-  }
-
-  // 设置魔术引用
-  setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
-
-  prevPage = () => {
-    this.magicRefs[refNames.content].prev();
-  }
-
-  nextPage = () => {
-    this.magicRefs[refNames.content].next();
+    const { id } = this.state;
+    if (+id > 0) {
+      getDetail({ id }).then((res) => {
+        const data = translateShowDataFromStore(JSON.parse(res));
+        this.setState({ data });
+      });
+    }
   }
 
   render() {
+    const { data } = this.state;
     return (
-      <Phone data={this.data} ref={this.setMagicRefs(refNames.content)} />
+      <Phone data={data} />
     );
   }
 }

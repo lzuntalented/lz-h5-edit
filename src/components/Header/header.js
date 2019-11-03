@@ -20,6 +20,7 @@ import Music from './components/Music';
 import {
   getGKData, getDragonFestivalData, getChildrenFestivalData, get1024Data,
 } from '../../pages/realpreview/config';
+import { save } from '../../services/create';
 
 class Header extends React.Component {
   static propTypes = {
@@ -62,33 +63,10 @@ class Header extends React.Component {
   }
 
   onPreview = () => {
-    const {
-      pages, editList, backGroundImage, backMusicUrl, groupList,
-    } = this.props;
-    const result = [];
-    pages.forEach((it) => {
-      const arr = [];
-      it.forEach((item) => {
-        const { nodeType } = editList[item];
-        if (nodeType === ITEM_TYPE_GROUP) {
-          const groupItems = groupList[item];
-          groupItems.forEach(key => arr.push(editList[key]));
-          return;
-        }
-        const obj = editList[item];
-        if (obj) {
-          // const { current } = obj;
-          arr.push(obj);
-        }
-      });
-      result.push(arr);
-    });
-    console.log(result);
-    this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, JSON.stringify({
-      backMusicUrl,
-      backGroundImage,
-      list: result,
-    }));
+    const { state } = this.props;
+    // 远程存储用户预览模板
+    save({ content: state });
+    this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, state);
     window.open(`#/preview/${EXAMPLE_DATA_PREVIEW}`, '_blank');
   }
 
@@ -189,7 +167,12 @@ const mapStateToProps = (store) => {
     pages, editList, backGroundImage, backMusicUrl, groupList,
   } = state;
   const result = {
-    pages, editList, backGroundImage, backMusicUrl, groupList,
+    state: JSON.stringify(state),
+    pages,
+    editList,
+    backGroundImage,
+    backMusicUrl,
+    groupList,
   };
   return result;
 };

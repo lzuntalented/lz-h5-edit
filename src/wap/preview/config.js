@@ -1,10 +1,11 @@
-import { winSize } from '../../utils';
+import { winSize, translateShowDataFromStore } from '../../utils';
 import {
   EXAMPLE_DATA_1024, EXAMPLE_DATA_DRAGON_FESTIVAL, EXAMPLE_DATA_CHILDREN_FESTIVAL,
   EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
+  EXAMPLE_DATA_DOUBLE_ELEVEN,
 } from '../../core/constants';
 import {
-  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData,
+  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData, getDouble11Data,
 } from '../../pages/realpreview/config';
 
 const { width, height } = winSize;
@@ -25,16 +26,25 @@ export function resetComponentSize(realWinSize, list) {
 }
 
 export function getComponetData(id) {
+  let result = null;
   switch (id) {
     case EXAMPLE_DATA_1024:
-      return get1024Data();
+      result = get1024Data();
+      break;
     case EXAMPLE_DATA_DRAGON_FESTIVAL:
-      return getDragonFestivalData();
+      result = getDragonFestivalData();
+      break;
     case EXAMPLE_DATA_CHILDREN_FESTIVAL:
-      return getChildrenFestivalData();
+      result = getChildrenFestivalData();
+      break;
     case EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION:
-      return getGKData();
+      result = getGKData();
+      break;
+    case EXAMPLE_DATA_DOUBLE_ELEVEN:
+      result = getDouble11Data();
+      break;
     default: break;
   }
-  return get1024Data();
+  if (result) return translateShowDataFromStore(result);
+  return result;
 }

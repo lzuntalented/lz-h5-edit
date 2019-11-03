@@ -7,10 +7,10 @@ $phone-header-height: 5;
 $phone-footer-height: 5;
 
 .home-container {
-  max-width: 1080px;
   margin: 0 auto;
   margin-top: 20px;
   position: relative;
+  height: calc(100vh - 100px);
   .phone-container {
     width: $phone-width + 10 + px;
     position: relative;
@@ -44,7 +44,7 @@ $phone-footer-height: 5;
         bottom: 0;
         width: 5px;
         background-color: #e0e0e0;
-        z-index: 1000;
+        z-index: 10;
         pointer-events: none;
       }
 
@@ -55,7 +55,7 @@ $phone-footer-height: 5;
         bottom: 0;
         width: 5px;
         background-color: #e0e0e0;
-        z-index: 1000;
+        z-index: 10;
         pointer-events: none;
       }
     }
@@ -67,7 +67,7 @@ $phone-footer-height: 5;
       top: 5px;
       right: 5px;
       bottom: 5px;
-      z-index: 10000;
+      z-index: 100;
       .aide-left {
         position: absolute;
         top: 0;
@@ -91,7 +91,7 @@ $phone-footer-height: 5;
       top: 5px;
       right: 5px;
       bottom: 5px;
-      z-index: 10001;
+      z-index: 101;
 
       .ctrl-container {
         margin: 0 0;

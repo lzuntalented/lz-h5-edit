@@ -2,6 +2,8 @@ module.exports = {
   env: {
     development: {
       plugins: [
+        ["@babel/plugin-transform-runtime"],
+        ["@babel/plugin-transform-async-to-generator"],
         ["@babel/plugin-syntax-dynamic-import"],
         ["@babel/plugin-proposal-class-properties"],
         [
@@ -16,6 +18,8 @@ module.exports = {
     },
     production: {
       plugins: [
+        ["@babel/plugin-transform-runtime"],
+        ["@babel/plugin-transform-async-to-generator"],
         ["@babel/plugin-syntax-dynamic-import"],
         ["@babel/plugin-proposal-class-properties", { loose: false }],
         [

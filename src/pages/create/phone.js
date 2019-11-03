@@ -5,8 +5,7 @@ import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '../../core/constants';
 
 // 引入样式文件
 import './index.scss';
-import { get1024Data } from '../realpreview/config';
-import { resetStore } from '../../store/action';
+import { resetStore, initStore } from '../../store/action';
 import { getComponentEditMap } from '../../core/components';
 import { getComponetData } from './config';
 
@@ -26,7 +25,7 @@ class Phone extends React.Component {
     // const data = get1024Data();
     const { dispatch, id } = this.props;
     const data = getComponetData(id);
-    dispatch(resetStore(data));
+    dispatch(initStore(data));
   }
 
   renderComponent() {

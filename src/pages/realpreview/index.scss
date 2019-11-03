@@ -64,4 +64,14 @@ $phone-footer-height: 30;
     justify-content: center;
     align-items: center;
   }
+
+  .eq {
+    margin-left: 48px;
+    display: flex;
+    align-items: center;
+
+    .img {
+      margin-bottom: 12px;
+    }
+  }
 }

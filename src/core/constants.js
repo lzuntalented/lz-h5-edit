@@ -66,6 +66,8 @@ export const CHANGE_ALL_PAGE_BACKGROUND = 'CHANGE_ALL_PAGE_BACKGROUND';
 export const STORE_CHANGE_BACK_MUSIC_URL = 'STORE_CHANGE_BACK_MUSIC_URL';
 // 重置store以供编辑
 export const STORE_RESET_TO_EDIT = 'STORE_RESET_TO_EDIT';
+// 初始化store以供编辑，完全依赖外部数据重置
+export const STORE_INIT_TO_EDIT = 'STORE_INIT_TO_EDIT';
 // 分组编辑状态下元素
 export const STORE_GROUP_ACTIVE_EDIT_KEYS = 'STORE_GROUP_ACTIVE_EDIT_KEYS';
 // 拆分组合元素
@@ -116,6 +118,8 @@ export const EXAMPLE_DATA_CHILDREN_FESTIVAL = 'children';
 // 端午节展示
 export const EXAMPLE_DATA_DRAGON_FESTIVAL = 'dragon';
 // 1024程序员节展示
-export const EXAMPLE_DATA_1024 = '1024';
+export const EXAMPLE_DATA_1024 = 'IT1024';
+// 双十一展示
+export const EXAMPLE_DATA_DOUBLE_ELEVEN = 'double11';
 // 使用缓存数据标识
 export const EXAMPLE_DATA_PREVIEW = 'cache';

@@ -6,7 +6,7 @@ import {
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect,
@@ -617,6 +617,14 @@ function splitGroupActiveEditKeys(store, action) {
   return null;
 }
 
+function initStore(store, action) {
+  const { type, value } = action;
+  if (type === STORE_INIT_TO_EDIT) {
+    return fromJS(value);
+  }
+  return null;
+}
+
 
 export default [
   startMove,
@@ -641,4 +649,5 @@ export default [
   groupActiveEditKeys,
   changeAnimation,
   splitGroupActiveEditKeys,
+  initStore,
 ];

@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './index.scss';
+import './render.scss';
 
 export default function EditItemRender(Component) {
   function Layout(props) {
@@ -25,7 +25,7 @@ export default function EditItemRender(Component) {
     };
     return (
       <div
-        className="edit-item"
+        className="render-item"
         style={{
           width,
           left,

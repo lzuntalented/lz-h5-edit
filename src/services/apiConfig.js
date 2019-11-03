@@ -1,7 +1,7 @@
 export default {
-  home: {
-    getList: '/list/index',
-    index: '/list/home',
-    checkResult: '/list/checkResult',
+  create: {
+    getList: '/index/getList',
+    add: '/index/add',
+    getDetail: '/index/getDetail',
   },
 };
