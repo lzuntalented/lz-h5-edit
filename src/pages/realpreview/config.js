@@ -1,7 +1,6 @@
-import { COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_TEXT } from '../../core/constants';
-
 export function getDragonFestivalData() {
   return {
+    backMusicUrl: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
     moveTag: false,
     editList: {
       bmph4v: {
@@ -313,6 +312,7 @@ export function getDragonFestivalData() {
 
 export function getChildrenFestivalData() {
   return {
+    backMusicUrl: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
     moveTag: false,
     editList: {
       '8cn3iz': {
@@ -670,6 +670,7 @@ export function getChildrenFestivalData() {
 
 export function getGKData() {
   return {
+    backMusicUrl: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
     moveTag: false,
     editList: {
       bl56cy: {
@@ -1149,6 +1150,7 @@ export function getGKData() {
 
 export function get1024Data() {
   return {
+    backMusicUrl: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
     moveTag: false,
     editList: {
       '31g0t9': {
@@ -1343,7 +1345,7 @@ export function getDouble11Data() {
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
         },
         attrs:
-          { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75845ebc.png?x-oss-process=style/w750&t=1' },
+          { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       g06kr4: {
@@ -1355,7 +1357,7 @@ export function getDouble11Data() {
         animate: {
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       ihsie2: {
@@ -1365,10 +1367,10 @@ export function getDouble11Data() {
           top: 243, left: -3, width: 118, height: 179, rotate: 0,
         },
         animate:
-          {
-            name: 'bounceInLeft', duration: 1, delay: 0, repeat: 1,
-          },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820748.png?x-oss-process=style/w750&t=1' },
+        {
+          name: 'bounceInLeft', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820748.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       fqnbim: {
@@ -1378,10 +1380,10 @@ export function getDouble11Data() {
           top: 319, left: 126, width: 70, height: 120, rotate: 0,
         },
         animate:
-          {
-            name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
-          },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
+        {
+          name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       ptq3fd: {
@@ -1391,9 +1393,9 @@ export function getDouble11Data() {
           top: 220, left: 0, width: 320, height: 227, rotate: 0,
         },
         animate:
-          {
-            name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
-          },
+        {
+          name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+        },
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.b.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1432,7 +1434,7 @@ export function getDouble11Data() {
         animate: {
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75845ebc.png?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       jt7tr1: {
@@ -1458,7 +1460,7 @@ export function getDouble11Data() {
         animate: {
           name: '', duration: 1, delay: 0, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820657.png?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820657.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       lnfsqj: {
@@ -1470,7 +1472,7 @@ export function getDouble11Data() {
         animate: {
           name: 'bounceInUp', duration: 1, delay: 0.3, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff758207ee.gif?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       e99kmp: {
@@ -1482,7 +1484,7 @@ export function getDouble11Data() {
         animate: {
           name: 'zoomIn', duration: 1, delay: 0.5, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '00yscr': {
@@ -1501,9 +1503,9 @@ export function getDouble11Data() {
         name: '文本 4',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect:
-          {
-            top: 444, left: 114, width: 320, height: 40, rotate: 0,
-          },
+        {
+          top: 444, left: 114, width: 320, height: 40, rotate: 0,
+        },
         animate: {
           name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
         },
@@ -1523,7 +1525,7 @@ export function getDouble11Data() {
         },
         attrs: {
           imgSrc:
-       'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
+            'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1549,7 +1551,7 @@ export function getDouble11Data() {
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
         },
         attrs:
-         { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff758207ee.gif?x-oss-process=style/w750&t=1' },
+          { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '0c5zwm': {
@@ -1561,7 +1563,7 @@ export function getDouble11Data() {
         animate: {
           name: '', duration: 1, delay: 0, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820657.png?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820657.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '3wbedl': {
@@ -1571,12 +1573,12 @@ export function getDouble11Data() {
           top: 53, left: 52, width: 223, height: 48, rotate: 0,
         },
         animate:
-            {
-              name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
-            },
+        {
+          name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
+        },
         attrs: {
           imgSrc:
-            'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff758207ee.gif?x-oss-process=style/w750&t=1',
+            'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1615,7 +1617,7 @@ export function getDouble11Data() {
           color: '#ffffff',
           fontSize: 12,
           text:
-               '我是品牌内容介绍<div>可随意修改</div><div>我是品牌内容介绍<div>可随意修改</div></div><div>我是品牌内容介绍<div>可随意修改</div></div>',
+            '我是品牌内容介绍<div>可随意修改</div><div>我是品牌内容介绍<div>可随意修改</div></div><div>我是品牌内容介绍<div>可随意修改</div></div>',
           bgColor: '',
           lineHeight: 1.5,
         },
@@ -1628,9 +1630,9 @@ export function getDouble11Data() {
           top: 348, left: 0, width: 320, height: 227, rotate: 0,
         },
         animate:
-      {
-        name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
-      },
+        {
+          name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+        },
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.b.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1648,13 +1650,13 @@ export function getDouble11Data() {
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
         },
         attrs:
-      {
-        color: 'red',
-        fontSize: 12,
-        text: '<span style="color: rgb(255, 255, 255); font- size: 14px; ">我第一重优惠</span>',
-        bgColor: '',
-        lineHeight: 1.5,
-      },
+        {
+          color: 'red',
+          fontSize: 12,
+          text: '<span style="color: rgb(255, 255, 255); font- size: 14px; ">我第一重优惠</span>',
+          bgColor: '',
+          lineHeight: 1.5,
+        },
         type: 'COMPONENT_TYPE_TEXT',
       },
       '2a5tm1': {
@@ -1682,7 +1684,7 @@ export function getDouble11Data() {
         },
         attrs: {
           imgSrc:
-          'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff7582086b.png?x-oss-process=style/w750&t=1',
+            'http://www.lzuntalented.cn/img/double11/5daff7582086b.png?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1697,7 +1699,7 @@ export function getDouble11Data() {
         },
         attrs: {
           imgSrc:
-          'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820748.png?x-oss-process=style/w750&t=1',
+            'http://www.lzuntalented.cn/img/double11/5daff75820748.png?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1729,7 +1731,7 @@ export function getDouble11Data() {
         animate: {
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       v8a00s: {
@@ -1743,27 +1745,27 @@ export function getDouble11Data() {
         },
         attrs: {
           imgSrc:
-          'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
+            'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '5de3vo':
-    {
-      name: '图片 11',
-      nodeType: 'ITEM_TYPE_SINGLE',
-      rect: {
-        top: 399, left: 1, width: 320, height: 89, rotate: 0,
-      },
-      animate:
+      {
+        name: '图片 11',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 399, left: 1, width: 320, height: 89, rotate: 0,
+        },
+        animate:
         {
           name: '', duration: 1, delay: 0, repeat: 1,
         },
-      attrs: {
-        imgSrc:
-            'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820657.png?x-oss-process=style/w750&t=1',
+        attrs: {
+          imgSrc:
+            'http://www.lzuntalented.cn/img/double11/5daff75820657.png?x-oss-process=style/w750&t=1',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
       },
-      type: 'COMPONENT_TYPE_PICTURE',
-    },
       wtv7ia: {
         name: '图片 4',
         nodeType: 'ITEM_TYPE_SINGLE',
@@ -1776,7 +1778,7 @@ export function getDouble11Data() {
           delay: 0.5,
           repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '2t4g46': {
@@ -1790,7 +1792,7 @@ export function getDouble11Data() {
           name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
         },
         attrs:
-        { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.cloud.png' },
+          { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.cloud.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       d52jd3: {
@@ -1816,7 +1818,7 @@ export function getDouble11Data() {
         },
         attrs: {
           imgSrc:
-          'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
+            'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1830,7 +1832,7 @@ export function getDouble11Data() {
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
         },
         attrs: {
-          imgSrc: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
+          imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1853,13 +1855,14 @@ export function getDouble11Data() {
         type: 'COMPONENT_TYPE_TEXT',
       },
     },
-    groupList: { },
+    groupList: {},
     activeEditKey: [],
     pages:
-  [['5de3vo', '276gd2', 'bwvs12', '2a5tm1', 'lnfsqj', 'tg9c2z', 'ihsie2', 'z9lamm', 'fqnbim', 'o5exgh', 'g06kr4'],
-    ['3wbedl', 'nqnh0g', 'r9sww2', 'wtv7ia', 'v8a00s', '7hstuw', 'bp4985'], ['e4x8s0', 'mhhyfy', '0c5zwm', 'e99kmp', 'f4i69i', 'suoar7', 'gwtjrr', 'igw735', 'jt7tr1', 'bvyil9']],
+      [['5de3vo', '276gd2', 'bwvs12', '2a5tm1', 'lnfsqj', 'tg9c2z', 'ihsie2', 'z9lamm', 'fqnbim', 'o5exgh', 'g06kr4'],
+        ['3wbedl', 'nqnh0g', 'r9sww2', 'wtv7ia', 'v8a00s', '7hstuw', 'bp4985'], ['e4x8s0', 'mhhyfy', '0c5zwm', 'e99kmp', 'f4i69i', 'suoar7', 'gwtjrr', 'igw735', 'jt7tr1', 'bvyil9']],
     activePage: 0,
-    moveBoundRect: { },
-    backGroundImage: 'https://cdnoss.zhizuoh5.com/mkfiles/pic/5daff758204db.gif?x-oss-process=style/w750&t=1',
+    moveBoundRect: {},
+    backGroundImage: 'http://www.lzuntalented.cn/img/double11/5daff758204db.gif?x-oss-process=style/w750&t=1',
+    backMusicUrl: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
   };
 }

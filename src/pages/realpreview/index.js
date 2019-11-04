@@ -71,7 +71,6 @@ class Perview extends React.Component {
 
   render() {
     const { wapPreviewUrl } = this.state;
-    console.log(this.data);
     return (
       <div className="realperview-container">
         <div className="phone-container">

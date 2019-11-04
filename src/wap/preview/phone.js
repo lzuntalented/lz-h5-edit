@@ -5,6 +5,7 @@ import Carousel from 're-carousel';
 import './index.scss';
 import { getComponentRenderMap } from '../../core/components';
 import { winSize } from '../../utils';
+import Music from '../../utils/music';
 
 let marginTop = 0;
 function getTop() {
@@ -14,20 +15,65 @@ function getTop() {
   }
 }
 
+// 解决音乐不自动播放问题
+// function addEventListen(cb) {
+//   window.document.addEventListener('touchstart', () => {
+//     cb();
+//   });
+// }
+
 class RealPreview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       activePageIndex: 0,
+      musicPlay: true,
+      lastData: null,
     };
+    this.musicHandler = new Music();
     this.magicRefs = {};
     getTop();
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    const { lastData } = state;
+    if (lastData !== props.data) {
+      return Object.assign(state, { lastData: props.data });
+    }
+    return null;
+  }
+
+  componentDidMount() {
+    this.startMusic();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.data !== this.props.data) {
+      this.startMusic();
+    }
+  }
+
+  onPlay = () => {
+    const { musicPlay } = this.state;
+    if (musicPlay) {
+      this.musicHandler.pause();
+    } else {
+      this.musicHandler.play();
+    }
+    this.setState({ musicPlay: !musicPlay });
   }
 
   onTransitionEnd = (e) => {
     const { current } = e;
     const index = current.firstElementChild.getAttribute('data-index');
     this.setState({ activePageIndex: +index });
+  }
+
+  startMusic() {
+    const { data } = this.props;
+    if (data && data.backMusicUrl) {
+      this.musicHandler.setSrc(data.backMusicUrl);
+    }
   }
 
   renderComponent() {
@@ -57,6 +103,7 @@ class RealPreview extends React.Component {
   }
 
   render() {
+    const { musicPlay } = this.state;
     const { data } = this.props;
     if (!data) return null;
     const style = {
@@ -72,6 +119,11 @@ class RealPreview extends React.Component {
             this.renderComponent()
           }
         </Carousel>
+        {
+          data.backMusicUrl && (
+          <div style={{ animationPlayState: musicPlay ? 'running' : 'paused' }} className="music-container" onClick={this.onPlay} />
+          )
+        }
       </div>
     );
   }

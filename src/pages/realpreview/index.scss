@@ -37,18 +37,13 @@ $phone-footer-height: 30;
       .music-container {
         position: absolute;
         top: 10px;
-        right: 0;
+        right: 10px;
         width: 30px;
-        height: 24px;
-        border-top-left-radius: 12px;
-        border-bottom-left-radius: 12px;
-        background-color: #44cb83;
-        z-index: 2000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-size: 16px;
+        height: 30px;
+        z-index: 100;
+        background: url('//www.lzuntalented.cn/img/music.svg') no-repeat;
+        background-size: contain;
+        animation: rotating 1.2s linear infinite;
       }
     }
     & > .footer {
@@ -73,5 +68,14 @@ $phone-footer-height: 30;
     .img {
       margin-bottom: 12px;
     }
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

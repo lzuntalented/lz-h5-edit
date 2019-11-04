@@ -24,7 +24,9 @@ class RealPreview extends React.Component {
 
   componentDidMount() {
     const { data } = this.props;
-    // this.musicHandler.setSrc(data.backMusicUrl);
+    if (data.backMusicUrl) {
+      this.musicHandler.setSrc(data.backMusicUrl);
+    }
   }
 
   // componentWillReceiveProps(nextProps) {
@@ -51,14 +53,14 @@ class RealPreview extends React.Component {
     this.setState({ activePageIndex: +index });
   }
 
-  onPause = () => {
-    this.musicHandler.pause();
-    this.setState({ musicPlay: false });
-  }
-
   onPlay = () => {
-    this.musicHandler.play();
-    this.setState({ musicPlay: true });
+    const { musicPlay } = this.state;
+    if (musicPlay) {
+      this.musicHandler.pause();
+    } else {
+      this.musicHandler.play();
+    }
+    this.setState({ musicPlay: !musicPlay });
   }
 
   renderComponent() {
@@ -97,14 +99,9 @@ class RealPreview extends React.Component {
             this.renderComponent()
           }
         </Carousel>
-        <div className="music-container" style={{ display: 'none' }}>
-          {
-            !musicPlay && <Icon type="play-circle" onClick={this.onPlay} />
-          }
-          {
-            musicPlay && <Icon type="pause-circle" onClick={this.onPause} />
-          }
-        </div>
+        {
+          data.backMusicUrl && (<div style={{ animationPlayState: musicPlay ? 'running' : 'paused' }} className="music-container" onClick={this.onPlay} />)
+        }
       </div>
     );
   }
