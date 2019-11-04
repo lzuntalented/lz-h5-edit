@@ -57,6 +57,24 @@
                     }
                 }
             }
+
+            .node {
+
+                .ys {
+                    width: 60px;
+                    line-height: 32px;
+                    border: 1px solid #f0f0f0;
+                    text-align: center;
+                    cursor: pointer;
+                    font-size: 16px;
+                }
+                .ys1 {
+                    font-family: 'ys1';
+                    text-shadow: rgb(255, 255, 255) 1px -1px 0px, rgb(255, 255, 255) 0px -1px 0px, rgb(255, 255, 255) 1px 1px 0px, rgb(255, 255, 255) 1px 0px 0px, rgb(255, 255, 255) 1px 1px 0px, rgb(255, 255, 255) 0px 1px 0px, rgb(255, 255, 255) -1px 1px 0px, rgb(255, 255, 255) -1px 0px 0px, rgb(214, 214, 214) 1px 1px 0px, rgb(214, 214, 214) 2px 2px 0px, rgb(214, 214, 214) 3px 3px 0px, rgb(214, 214, 214) 4px 4px 0px, rgb(125, 144, 175) 5px 5px 0.2em !important;
+                    color: #ff79a2;
+                    font-weight: bold;
+                }
+            }
         }
     }
 }

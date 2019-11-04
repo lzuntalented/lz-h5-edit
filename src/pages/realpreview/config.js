@@ -1408,7 +1408,7 @@ export function getDouble11Data() {
         animate: {
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
         },
-        attrs: { imgSrc: 'https://cdnoss.zhizuoh5.com/pic/1/201910/5d9c01049298a.png?x-oss-process=style/w750&t=1' },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       tg9c2z: {
