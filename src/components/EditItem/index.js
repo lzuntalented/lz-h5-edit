@@ -59,7 +59,7 @@ export default function (Component) {
     }
 
     onStartMove = (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       const {
         dispatch, data, activeEditKey, uniqueId, editList, groupList,
       } = this.props;

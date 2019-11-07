@@ -93,6 +93,12 @@ class Text extends React.Component {
     this.onInput(e);
   }
 
+  onMouseDown = (e) => {
+    if (this.focusAble) {
+      e.stopPropagation();
+    }
+  }
+
   // 设置魔术引用
   setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
@@ -120,6 +126,7 @@ class Text extends React.Component {
         ref={this.setMagicRefs(refNames.editDom)}
         onInput={this.onInput}
         onFocus={this.onFocus}
+        onMouseDown={this.onMouseDown}
       />
     );
   }

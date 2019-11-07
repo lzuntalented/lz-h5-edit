@@ -95,9 +95,9 @@ class Text extends React.Component {
   }
 
   onMouseDown = (e) => {
-    // if (this.focusAble) {
-    //   e.stopPropagation();
-    // }
+    if (this.focusAble) {
+      e.stopPropagation();
+    }
   }
 
   // 设置魔术引用

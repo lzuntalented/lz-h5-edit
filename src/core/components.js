@@ -27,5 +27,8 @@ export function getComponentRenderMap(key) {
 }
 
 export function getComponentStyleMap(key) {
-  return map[key].style;
+  if (key) {
+    return map[key].style;
+  }
+  return null;
 }

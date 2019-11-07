@@ -56,7 +56,7 @@ let multiple = false;
 
 class LevelManage extends React.Component {
   componentDidMount() {
-    hotkeys('a', { keyup: true, keydown: true }, (event, handler) => {
+    hotkeys('shift+*', { keyup: true, keydown: true }, (event, handler) => {
       // Prevent the default refresh event under WINDOWS system
       if (event.type === 'keydown') {
         multiple = true;
