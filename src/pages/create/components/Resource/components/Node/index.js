@@ -3,7 +3,7 @@ import {
   Tabs, Button, Row, Col,
 } from 'antd';
 import {
-  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT,
+  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
 } from '../../../../../../core/constants';
 
 const { TabPane } = Tabs;
@@ -11,7 +11,7 @@ const { TabPane } = Tabs;
 export default function Node(props) {
   const { onAddComponent } = props;
   return (
-    <Tabs className="node" defaultActiveKey="2">
+    <Tabs className="node" defaultActiveKey="1">
       <TabPane tab="基础组件" key="1">
         <div className="text-center m-t-12 m-b-12">
           <Row>
@@ -26,6 +26,11 @@ export default function Node(props) {
             </Col>
             <Col span={6}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_INPUT)}>输入框</Button>
+            </Col>
+          </Row>
+          <Row className="m-t-8">
+            <Col span={6}>
+              <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_MAP)}>地图</Button>
             </Col>
           </Row>
         </div>

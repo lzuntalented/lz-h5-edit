@@ -1,14 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Draggable from 'react-draggable'; // The default
 import {
   Tabs, Button, Row, Col, Card, Menu,
 } from 'antd';
 import { addPageItem, initStore } from '../../../../store/action';
 import Node from './components/Node';
 import Scene from './components/Scene';
-
-const { TabPane } = Tabs;
 
 const TAB_KEY_NODE = 'TAB_KEY_NODE';
 const TAB_KEY_SCENE = 'TAB_KEY_SCENE';

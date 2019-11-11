@@ -4,9 +4,10 @@ import QQVideo from '../components/QQVideo';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import ArtInput from '../components/ArtInput';
+import BDMap from '../resource/BDMap';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
-  COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT,
+  COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
 } from './constants';
 
 const map = {
@@ -16,6 +17,7 @@ const map = {
   [COMPONENT_TYPE_INPUT]: Input,
   [COMPONENT_TYPE_BUTTON]: Button,
   [COMPONENT_TYPE_ART_INPUT]: ArtInput,
+  [COMPONENT_TYPE_MAP]: BDMap,
 };
 
 export function getComponentEditMap(key) {
