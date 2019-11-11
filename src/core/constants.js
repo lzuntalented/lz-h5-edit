@@ -74,6 +74,10 @@ export const STORE_GROUP_ACTIVE_EDIT_KEYS = 'STORE_GROUP_ACTIVE_EDIT_KEYS';
 export const STORE_GROUP_SPLIT = 'STORE_GROUP_SPLIT';
 // 修改动画属性
 export const CHANGE_ANIMATION = 'CHANGE_ANIMATION';
+// 拷贝页面
+export const ACTION_COPY_PAGE = 'ACTION_COPY_PAGE';
+// 拷贝单个元素
+export const ACTION_COPY_ITEM = 'ACTION_COPY_ITEM';
 
 // 组件类型
 // 文本

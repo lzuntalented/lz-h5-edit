@@ -6,7 +6,7 @@ import {
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT,
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect,
@@ -627,6 +627,52 @@ function initStore(store, action) {
 }
 
 
+function copyPage(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_COPY_PAGE) {
+    return fromJS(value);
+  }
+  return null;
+}
+
+function copyItem(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_COPY_ITEM) {
+    const obj = store.toJS();
+    const {
+      groupList, editList, pages, activePage,
+    } = obj;
+    const item = editList[value];
+    const {
+      rect, animate, attrs, nodeType, name, belong,
+    } = item;
+    const uniqueId = createId();
+    const page = pages[activePage];
+    editList[uniqueId] = createNode(item.type, `${name} 拷贝`, belong);
+    // 拷贝属性
+    editList[uniqueId].rect = Object.assign({}, rect);
+    editList[uniqueId].animate = Object.assign({}, animate);
+    editList[uniqueId].attrs = Object.assign({}, attrs);
+
+    if (nodeType === ITEM_TYPE_SINGLE) {
+      if (belong) {
+        // 组内元素，不需要挂载到页面上，只要挂在组节点下
+        groupList[belong].push(uniqueId);
+      } else {
+        page.push(uniqueId);
+      }
+    } else {
+      // 拷贝组元素，需要拷贝各个节点
+    }
+
+    // 设置当前添加的元素为激活项
+    obj.activeEditKey = [uniqueId];
+    return fromJS(obj);
+  }
+  return null;
+}
+
+
 export default [
   startMove,
   endMove,
@@ -651,4 +697,6 @@ export default [
   changeAnimation,
   splitGroupActiveEditKeys,
   initStore,
+  copyPage,
+  copyItem,
 ];

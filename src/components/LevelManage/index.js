@@ -4,35 +4,55 @@ import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 import classnames from 'classnames';
 import hotkeys from 'hotkeys-js';
-import { Icon } from 'antd';
+import { Icon, Col, Row } from 'antd';
 
 import './index.scss';
 import {
   changeActiveEditKey, resortPageItem, groupActiveEditKeys,
-  addActiveEditKey, splitGroupActiveEditKeys,
+  addActiveEditKey, splitGroupActiveEditKeys, copyItem,
 } from '../../store/action';
 import { ITEM_TYPE_GROUP } from '../../core/constants';
 
-const SortableItem = SortableElement(({ value, onItemClick }) => {
+const SortableItem = SortableElement(({ value, onItemClick, onItemCopyClick }) => {
   const { name, key, active } = value;
   const cls = active ? 'active' : '';
-  return <div className={classnames('level-item', cls)} onMouseDown={onItemClick(key)}>{name}</div>;
+  return (
+    <div className={classnames('level-item', cls)} onMouseDown={onItemClick(key)}>
+      <Row type="flex" justify="space-between">
+        <Col>
+          {name}
+        </Col>
+        <Col onMouseDown={onItemCopyClick(key)}>
+          <Icon type="copy" />
+        </Col>
+      </Row>
+    </div>
+  );
 });
 
-const SortableItemGroup = SortableElement(({ value, onItemClick }) => {
+const SortableItemGroup = SortableElement(({ value, onItemClick, onItemCopyClick }) => {
   const {
     name, children, active, key,
   } = value;
   const cls = active ? 'active' : '';
   return (
     <div className={classnames('level-item group-names', cls)}>
-      <div className="name" onMouseDown={onItemClick(key)}>{name}</div>
+      <div className="name" onMouseDown={onItemClick(key)}>
+        <Row type="flex" justify="space-between">
+          <Col>
+            {name}
+          </Col>
+          <Col onMouseDown={onItemCopyClick(key)}>
+            <Icon type="copy" />
+          </Col>
+        </Row>
+      </div>
       <SortableList items={children} onItemClick={onItemClick} />
     </div>
   );
 });
 
-const SortableList = SortableContainer(({ items, onItemClick }) => (
+const SortableList = SortableContainer(({ items, onItemClick, onItemCopyClick }) => (
   <div className="sort-container">
     {
       items.map((value, index) => {
@@ -41,11 +61,11 @@ const SortableList = SortableContainer(({ items, onItemClick }) => (
           const { name, key, active } = value;
           const cls = active ? 'active' : '';
           return (
-            <SortableItemGroup key={`item-${index}`} index={index} value={value} onItemClick={onItemClick} />
+            <SortableItemGroup key={`item-${index}`} index={index} value={value} onItemCopyClick={onItemCopyClick} onItemClick={onItemClick} />
           );
         }
         return (
-          <SortableItem key={`item-${index}`} index={index} value={value} onItemClick={onItemClick} />
+          <SortableItem key={`item-${index}`} index={index} value={value} onItemCopyClick={onItemCopyClick} onItemClick={onItemClick} />
         );
       })
     }
@@ -87,6 +107,12 @@ class LevelManage extends React.Component {
     }
   }
 
+  onItemCopyClick = key => (e) => {
+    e.stopPropagation();
+    const { dispatch } = this.props;
+    dispatch(copyItem(key));
+  }
+
   onGroup = () => {
     const { dispatch } = this.props;
     dispatch(groupActiveEditKeys());
@@ -114,6 +140,7 @@ class LevelManage extends React.Component {
         <SortableList
           items={list}
           onItemClick={this.onItemClick}
+          onItemCopyClick={this.onItemCopyClick}
           onSortEnd={this.onSortEnd}
         />
       </div>
