@@ -444,6 +444,7 @@ function removeItem(store, action) {
     // { 唯一标识, 组件类型 }
     const page = pages[activePage];
     let delIndex = -1;
+    // 当前只支持单个移除
     if (activeEditKey.length === 1) {
       page.forEach((it, index) => {
         if (activeEditKey.indexOf(it) > -1) delIndex = index;

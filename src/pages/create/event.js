@@ -1,3 +1,4 @@
+import hotkeys from 'hotkeys-js';
 import {
   QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, POINT_LEFT_CENTER,
   POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP,
@@ -5,7 +6,7 @@ import {
 } from '../../core/constants';
 import { subscribe, dispatch } from '../../store';
 import { checkQuadrant, debounce } from '../../utils/index';
-import { change, endMove } from '../../store/action';
+import { change, endMove, removeItem } from '../../store/action';
 
 // 正在移动标识
 let moveTag = false;
@@ -127,6 +128,19 @@ window.addEventListener('mousecancel', () => {
     moveTag = false;
     dispatch(endMove(key));
   }
+});
+
+
+// let shiftDown = false;
+hotkeys('backspace', (event) => {
+  const { type } = event;
+  console.log('delete', type);
+  dispatch(removeItem());
+  // if (type === 'keydown') {
+  //   shiftDown = true;
+  // } else {
+  //   shiftDown = false;
+  // }
 });
 
 // window.addEventListener('keyup', (e) => {
