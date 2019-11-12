@@ -71,7 +71,8 @@ class TextStyle extends React.Component {
             <Col span={16}>
               <Select value={attrs.type} onChange={this.onChangeAttr('type')}>
                 <Select.Option value="">默认</Select.Option>
-                <Select.Option value="primary">主要</Select.Option>
+                <Select.Option value="primary">蓝色</Select.Option>
+                <Select.Option value="danger">红色</Select.Option>
               </Select>
             </Col>
           </Row>
