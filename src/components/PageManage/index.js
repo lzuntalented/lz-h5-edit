@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
-import { Button, Tabs } from 'antd';
+import {
+  Button, Tabs, Icon, Row, Col,
+} from 'antd';
 
 import './index.scss';
-import { addPage, changeActivePage } from '../../store/action';
+import { addPage, changeActivePage, copyPage } from '../../store/action';
 import LevelManage from '../LevelManage';
 
 const { TabPane } = Tabs;
@@ -15,10 +17,17 @@ class PageManage extends React.Component {
     dispatch(addPage());
   }
 
+  onCopy = (e) => {
+    e.stopPropagation();
+    const { dispatch } = this.props;
+    dispatch(copyPage());
+  }
+
   changePage = pageIndex => () => {
     const { dispatch } = this.props;
     dispatch(changeActivePage(pageIndex));
   }
+
 
   render() {
     const { pages, activePage } = this.props;
@@ -47,7 +56,14 @@ class PageManage extends React.Component {
                       className={activePage === index ? 'page-item active' : 'page-item'}
                     >
                       <div className="index">{index + 1}</div>
-                      <div className="describe">{`第${index + 1}页`}</div>
+                      <div className="describe">
+                        <Row type="flex" justify="space-between">
+                          <Col>{`第${index + 1}页`}</Col>
+                          {
+                            activePage === index && <Col><Icon onClick={this.onCopy} type="copy" alt="复制页面" /></Col>
+                          }
+                        </Row>
+                      </div>
                     </div>
                   ))
                 }

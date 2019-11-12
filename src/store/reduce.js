@@ -9,7 +9,7 @@ import {
   CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
 } from '../core/constants';
 import {
-  createEditItem, createNode, getAroundRect, createGroup, performGroupRect,
+  createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
 } from '../utils';
 import { createId } from '../utils/IDManage';
 import { getNameWithItemType } from '../utils/Tools';
@@ -628,9 +628,42 @@ function initStore(store, action) {
 
 
 function copyPage(store, action) {
-  const { type, value } = action;
+  const { type } = action;
   if (type === ACTION_COPY_PAGE) {
-    return fromJS(value);
+    const obj = store.toJS();
+    const {
+      groupList, editList, pages, activePage,
+    } = obj;
+    const page = pages[activePage];
+    const result = [];
+    const cloneGroupList = {};
+
+    page.forEach((key) => {
+      const item = editList[key];
+      const itemObj = deepCopy(item);
+      const uniqueId = createId();
+      editList[uniqueId] = itemObj;
+      result.push(uniqueId);
+      const { nodeType } = item;
+      if (nodeType === ITEM_TYPE_GROUP) {
+        cloneGroupList[key] = uniqueId;
+      }
+    });
+
+    Object.keys(cloneGroupList).forEach((key) => {
+      groupList[key].forEach((k) => {
+        const item = editList[k];
+        const itemObj = deepCopy(item);
+        const uniqueId = createId();
+        editList[uniqueId] = itemObj;
+        itemObj.belong = cloneGroupList[key];
+      });
+    });
+
+    obj.activePage = pages.length;
+    obj.activeEditKey = [];
+    pages.push(result);
+    return fromJS(obj);
   }
   return null;
 }

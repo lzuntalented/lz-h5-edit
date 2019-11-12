@@ -1,6 +1,7 @@
 import {
   QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE,
 } from '../core/constants';
+import { isObject, isArray } from './Tools';
 
 function lzlog(...params) {
   const args = Array.prototype.slice.call(params);
@@ -220,4 +221,16 @@ export function translateShowDataFromStore(store) {
     backGroundImage,
     list: result,
   };
+}
+
+export function deepCopy(obj) {
+  if (isObject(obj)) {
+    const result = {};
+    Object.keys(obj).forEach((key) => { result[key] = deepCopy(obj[key]); });
+    return result;
+  }
+  if (isArray(obj)) {
+    return obj.map(it => deepCopy(it));
+  }
+  return obj;
 }
