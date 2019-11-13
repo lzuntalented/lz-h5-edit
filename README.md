@@ -53,4 +53,11 @@ npm run build
 ### 后续规划
 > 集中物料仓库建设
 
+### 交流群
+
+
+|  微信交流群   | QQ交流群  |
+|  ----  | ----  |
+| ![微信交流群](http://www.lzuntalented.cn/img/sxx-wx.png)  | ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
+
 Give a ⭐️ if this project helped you!

@@ -2,11 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
 import {
-  Button, Tabs, Icon, Row, Col,
+  Button, Tabs, Icon, Row, Col, Tooltip,
 } from 'antd';
 
 import './index.scss';
-import { addPage, changeActivePage, copyPage } from '../../store/action';
+import {
+  addPage, changeActivePage, copyPage, deletePage,
+} from '../../store/action';
 import LevelManage from '../LevelManage';
 
 const { TabPane } = Tabs;
@@ -21,6 +23,12 @@ class PageManage extends React.Component {
     e.stopPropagation();
     const { dispatch } = this.props;
     dispatch(copyPage());
+  }
+
+  onDelete = (e) => {
+    e.stopPropagation();
+    const { dispatch } = this.props;
+    dispatch(deletePage());
   }
 
   changePage = pageIndex => () => {
@@ -60,7 +68,14 @@ class PageManage extends React.Component {
                         <Row type="flex" justify="space-between">
                           <Col>{`第${index + 1}页`}</Col>
                           {
-                            activePage === index && <Col><Icon onClick={this.onCopy} type="copy" alt="复制页面" /></Col>
+                            activePage === index && (
+                            <Col>
+                              <Tooltip placement="top" title="复制页面">
+                                <Icon onClick={this.onCopy} type="copy" alt="复制页面" />
+                              </Tooltip>
+                              { pages.length > 1 && <Tooltip placement="top" title="删除页面"><Icon className="delete" onClick={this.onDelete} type="delete" alt="删除页面" /></Tooltip>}
+                            </Col>
+                            )
                           }
                         </Row>
                       </div>

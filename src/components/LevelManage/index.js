@@ -47,7 +47,7 @@ const SortableItemGroup = SortableElement(({ value, onItemClick, onItemCopyClick
           </Col>
         </Row>
       </div>
-      <SortableList items={children} onItemClick={onItemClick} />
+      <SortableList items={children} onItemClick={onItemClick} onItemCopyClick={onItemCopyClick} />
     </div>
   );
 });

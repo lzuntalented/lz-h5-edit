@@ -78,6 +78,8 @@ export const CHANGE_ANIMATION = 'CHANGE_ANIMATION';
 export const ACTION_COPY_PAGE = 'ACTION_COPY_PAGE';
 // 拷贝单个元素
 export const ACTION_COPY_ITEM = 'ACTION_COPY_ITEM';
+// 删除单个页面
+export const ACTION_DELETE_PAGE = 'ACTION_DELETE_PAGE';
 
 // 组件类型
 // 文本
