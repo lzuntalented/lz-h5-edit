@@ -6,11 +6,7 @@ import {
 
 class LayoutFrame extends React.Component {
   static propTypes = {
-    children: PropTypes.object,
-  }
-
-  static defaultProps = {
-    children: null,
+    location: PropTypes.object.isRequired,
   }
 
   constructor(props) {
@@ -28,6 +24,13 @@ class LayoutFrame extends React.Component {
   }
 
   render() {
+    const { location } = this.props;
+    const selectKeys = [];
+    if (location && location.pathname === '/list') {
+      selectKeys.push('2');
+    } else {
+      selectKeys.push('1');
+    }
     return (
       <Row className="default-header" type="flex" justify="space-between">
         <Col>
@@ -35,6 +38,7 @@ class LayoutFrame extends React.Component {
         </Col>
         <Col>
           <Menu
+            selectedKeys={selectKeys}
             defaultSelectedKeys={['1']}
             mode="horizontal"
             onSelect={this.onClick}

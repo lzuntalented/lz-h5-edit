@@ -11,10 +11,12 @@ const { Header, Content } = Layout;// 引入样式文件
 class LayoutFrame extends React.Component {
   static propTypes = {
     children: PropTypes.object,
+    nav: PropTypes.object,
   }
 
   static defaultProps = {
     children: null,
+    nav: null,
   }
 
   constructor(props) {
@@ -28,9 +30,7 @@ class LayoutFrame extends React.Component {
     return (
       <Layout className="layout">
         <Header className="layout-header-container">
-          {
-            nav
-          }
+          {nav}
         </Header>
         <Content className="layout-content-container">
           {
