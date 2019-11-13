@@ -17,6 +17,46 @@
         
         .ant-row-flex {
             margin: 8px 0;
+
+            .animatename {
+                color: #1593ff;
+            }
+
+            .ant-tabs {
+                border: 1px solid #ccd5db;
+
+                .ant-tabs-tab {
+                    margin-right: 8px;
+                }
+            }
+
+            .animte-overflow {
+                max-height: 300px;
+                overflow: auto;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            .animate-name-item {
+                text-align: center;
+                font-size: 20px;
+                cursor: pointer;
+
+                .animte-desc {
+                    font-size: 12px;
+                    color: #76838f;
+                }
+
+                &:hover, &.active {
+                    color: #1593ff;
+
+                    .animte-desc {
+                        color: #1593ff;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Select, Row, Col, Input,
+  Select, Row, Col, Input, Tabs, Icon,
 } from 'antd';
 import { connect } from 'react-redux';
 import getSelectOptions from './config';
@@ -11,6 +11,11 @@ const opts = getSelectOptions();
 const { Option, OptGroup } = Select;
 
 class Animation extends React.Component {
+  onChangeAnimateName = name => () => {
+    const { dispatch, activeEditKey } = this.props;
+    dispatch(changeAnimation({ name }, activeEditKey));
+  }
+
   setBaseStyle = key => (e) => {
     const { dispatch, activeEditKey } = this.props;
     const { target } = e;
@@ -23,37 +28,20 @@ class Animation extends React.Component {
 
   render() {
     const {
-      animate, activeEditKey, dispatch, animateDuration, animateDelay, animateRepeat,
+      animate,
     } = this.props;
     const {
       name, delay, repeat, duration,
     } = animate;
+    let animateName = name;
+    opts.forEach((item) => {
+      const obj = item.list.find(it => it.key === name);
+      if (obj) {
+        animateName = obj.title;
+      }
+    });
     return (
       <div className="animate-container">
-        <Row align="middle" type="flex" gutter={8}>
-          <Col span={8}>动画名称</Col>
-          <Col span={16}>
-            <Select
-              onChange={(e) => {
-                dispatch(changeAnimation({
-                  name: e,
-                }, activeEditKey));
-              }}
-              style={{ width: '100%' }}
-              value={name}
-            >
-              {
-                Object.keys(opts).map(item => (
-                  <OptGroup label={item} key={item}>
-                    {
-                        opts[item].map(it => <Option value={it} key={it}>{it}</Option>)
-                    }
-                  </OptGroup>
-                ))
-              }
-            </Select>
-          </Col>
-        </Row>
         <Row align="middle" type="flex" gutter={8}>
           <Col span={8}>动画时间</Col>
           <Col span={16}>
@@ -70,7 +58,7 @@ class Animation extends React.Component {
           <Col span={8}>动画循环</Col>
           <Col span={16}>
             <Select
-              onChange={this.setBaseStyle('animateRepeat')}
+              onChange={this.setBaseStyle('repeat')}
               style={{ width: '100%' }}
               value={repeat}
             >
@@ -78,6 +66,38 @@ class Animation extends React.Component {
               <Option value={ANIMATE_REPEAT_INFINITE}>无限循环</Option>
             </Select>
           </Col>
+        </Row>
+        <Row align="middle" type="flex" gutter={8}>
+          <Col span={8}>动画名称</Col>
+          <Col span={16} className="animatename">
+            {animateName}
+          </Col>
+        </Row>
+        <Row align="middle" type="flex" gutter={8}>
+          <Tabs size="small">
+            {
+              opts.map(item => (
+                <Tabs.TabPane tab={item.title} key={item.title}>
+                  <Row align="middle" type="flex" gutter={8} className="animte-overflow">
+                    {
+                    item.list.map(it => (
+                      <Col span={8} key={it.key}>
+                        <Row
+                          type="flex"
+                          justify="center"
+                          className={`animate-name-item ${name === it.key ? 'active' : ''}`}
+                          onClick={this.onChangeAnimateName(it.key)}
+                        >
+                          <Col><Icon type="smile" /><div className="animte-desc">{it.title}</div></Col>
+                        </Row>
+                      </Col>
+                    ))
+                  }
+                  </Row>
+                </Tabs.TabPane>
+              ))
+            }
+          </Tabs>
         </Row>
       </div>
     );
