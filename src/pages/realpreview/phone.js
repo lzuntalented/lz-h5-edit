@@ -29,12 +29,12 @@ class RealPreview extends React.Component {
     }
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   const { data } = this.props;
-  //   if (data && data.backMusicUrl !== nextProps.data.backMusicUrl) {
-  //     this.musicHandler.setSrc(data.backMusicUrl);
-  //   }
-  // }
+  componentWillUnmount() {
+    const { data } = this.props;
+    if (data.backMusicUrl) {
+      this.musicHandler.pause();
+    }
+  }
 
   // 设置魔术引用
   setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
