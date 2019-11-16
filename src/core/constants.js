@@ -80,6 +80,8 @@ export const ACTION_COPY_PAGE = 'ACTION_COPY_PAGE';
 export const ACTION_COPY_ITEM = 'ACTION_COPY_ITEM';
 // 删除单个页面
 export const ACTION_DELETE_PAGE = 'ACTION_DELETE_PAGE';
+// 新增元素，附带私有属性
+export const ACTION_ADD_PAGE_ITEM_WITH_ATTRS = 'ACTION_ADD_PAGE_ITEM_WITH_ATTRS';
 
 // 组件类型
 // 文本

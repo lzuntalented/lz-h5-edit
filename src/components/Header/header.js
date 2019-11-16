@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Icon, Button } from 'antd';
+import { Icon, Button, Upload } from 'antd';
 
 import './index.scss';
 import {
@@ -10,9 +10,11 @@ import {
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
   EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
-  ITEM_TYPE_GROUP, COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
+  COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
 } from '../../core/constants';
-import { addPageItem, resetStore } from '../../store/action';
+import {
+  addPageItem, resetStore, addPageItemWithAttrs, changeBackMusicUrl,
+} from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
 
 import ImageClip from './components/ImageClip';
@@ -21,6 +23,11 @@ import {
   getGKData, getDragonFestivalData, getChildrenFestivalData, get1024Data,
 } from '../../pages/realpreview/config';
 import { save } from '../../services/create';
+import ModalContainer from '../ModalContainer';
+import ImageList from './components/ImageList';
+import MusicList from './components/MusicList';
+import { getUploadProps } from './config';
+
 
 class Header extends React.Component {
   static propTypes = {
@@ -44,7 +51,12 @@ class Header extends React.Component {
       modelImageClipVisible: false,
       // 音乐选择
       modalMusicVisible: false,
+      showPictureModal: false,
+      showMusicModal: false,
     };
+    this.uploadProps = getUploadProps();
+    this.imageListRef = React.createRef();
+    this.musicListRef = React.createRef();
   }
 
   onAddText = () => {
@@ -53,8 +65,7 @@ class Header extends React.Component {
   }
 
   onAddPicture = () => {
-    const { dispatch } = this.props;
-    dispatch(addPageItem(COMPONENT_TYPE_PICTURE));
+    this.setState({ showPictureModal: true });
   }
 
   onAddComponent = key => () => {
@@ -75,7 +86,13 @@ class Header extends React.Component {
   }
 
   onChangeModalMusicVisible = flag => () => {
-    this.setState({ modalMusicVisible: flag });
+    this.setState({ showMusicModal: flag });
+  }
+
+  onAddPciture = imgSrc => () => {
+    const { dispatch } = this.props;
+    dispatch(addPageItemWithAttrs(COMPONENT_TYPE_PICTURE, { imgSrc }));
+    this.setState({ showPictureModal: false });
   }
 
   onEdit = key => () => {
@@ -91,9 +108,38 @@ class Header extends React.Component {
     dispatch(resetStore(data));
   }
 
+  onModalCancel = key => () => {
+    if (key === 'showMusicModal') {
+      const { current } = this.musicListRef;
+      if (current) {
+        current.onStop();
+      }
+    }
+    this.setState({ [key]: false });
+  }
+
+  onFileChange = ({ file }) => {
+    if (file.status !== 'uploading') {
+      if (file.status === 'done') {
+        const { current } = this.imageListRef;
+        if (current) {
+          current.refresh();
+        }
+      }
+    }
+  }
+
+  onChangeMusic = (src) => {
+    this.setState({ showMusicModal: false });
+    const { dispatch } = this.props;
+    dispatch(changeBackMusicUrl(src));
+  }
+
   render() {
     const { dispatch } = this.props;
-    const { modelImageClipVisible, modalMusicVisible } = this.state;
+    const {
+      modelImageClipVisible, modalMusicVisible, showPictureModal, showMusicModal,
+    } = this.state;
     return (
       <section
         className="page-header-container"
@@ -113,7 +159,7 @@ class Header extends React.Component {
             <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_1024)}>示例-1024程序员节</Button>
           </a>
         </div>
-        <ul>
+        <ul className="ul-comp">
           <li className="item" onClick={this.onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>
             <Icon type="qq" className="icon" />
             <div className="txt">QQ通话</div>
@@ -156,6 +202,31 @@ class Header extends React.Component {
             className="m-t-12"
           />
         </ul>
+        <ModalContainer
+          onCancel={this.onModalCancel('showPictureModal')}
+          maskClosable
+          getContainer={false}
+          visible={showPictureModal}
+          title="素材库"
+          options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPciture={this.onAddPciture} /> }]}
+        >
+          <Upload
+            {...this.uploadProps}
+            onChange={this.onFileChange}
+          >
+            <Button type="primary">
+              本地上传
+            </Button>
+          </Upload>
+        </ModalContainer>
+        <ModalContainer
+          onCancel={this.onModalCancel('showMusicModal')}
+          maskClosable
+          getContainer={false}
+          visible={showMusicModal}
+          title="音乐库"
+          options={[{ title: '音乐列表', comp: <MusicList ref={this.musicListRef} onSelect={this.onChangeMusic} /> }]}
+        />
       </section>
     );
   }
