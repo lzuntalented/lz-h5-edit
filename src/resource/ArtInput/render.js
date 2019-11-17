@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
-import Layout from '../EditItem/render';
+import Layout from '../../components/EditItem/render';
 
 function Text(props) {
   const {

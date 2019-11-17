@@ -37,6 +37,10 @@ export default () => {
               height="32px"
             />
           </div>
+          <div className="line" />
+          <div className="eq">
+            <img src="http://www.lzuntalented.cn/img/show.home.png" alt="" />
+          </div>
         </div>
         <div className="home-logo">
           <img src="http://www.lzuntalented.cn/img/home-log.png" alt="" width="100%" />

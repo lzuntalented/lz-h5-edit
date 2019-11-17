@@ -5,8 +5,8 @@ import {
   Select, Row, Col, Slider, Input,
 } from 'antd';
 import { changeAttrs, changeBaseStyle } from '../../store/action';
-import SettingPosition from '../SettingPosition';
-import ColorPicker from '../ColorPicker';
+import SettingPosition from '../../components/SettingPosition';
+import ColorPicker from '../../components/ColorPicker';
 
 import './style.scss';
 

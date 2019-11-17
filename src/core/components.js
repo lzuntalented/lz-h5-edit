@@ -1,9 +1,9 @@
-import Text from '../components/Text';
-import Picture from '../components/Picture';
-import QQVideo from '../components/QQVideo';
-import Input from '../components/Input';
-import Button from '../components/Button';
-import ArtInput from '../components/ArtInput';
+import Text from '../resource/Text';
+import Picture from '../resource/Picture';
+import QQVideo from '../resource/QQVideo';
+import Input from '../resource/Input';
+import Button from '../resource/Button';
+import ArtInput from '../resource/ArtInput';
 import BDMap from '../resource/BDMap';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,

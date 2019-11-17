@@ -5,8 +5,8 @@ import {
   Select, Row, Col, Slider, Input,
 } from 'antd';
 import { changeAttrs, changeBaseStyle } from '../../store/action';
-import SettingPosition from '../SettingPosition';
-import ColorPicker from '../ColorPicker';
+import SettingPosition from '../../components/SettingPosition';
+import ColorPicker from '../../components/ColorPicker';
 
 import './style.scss';
 
@@ -27,11 +27,15 @@ class TextStyle extends React.Component {
       dispatch(changeAttrs({ color: e }, activeEditKey));
     }
 
-    onChangeAttr = key => (e) => {
+    onChangeAttr = (key, number = false) => (e) => {
       const { target } = e;
       let value = e;
       if (target) {
-        value = +target.value;
+        if (number) {
+          value = +target.value;
+        } else {
+          value = target.value;
+        }
       }
       const { dispatch, activeEditKey } = this.props;
       dispatch(changeAttrs({ [key]: value }, activeEditKey));
@@ -57,12 +61,18 @@ class TextStyle extends React.Component {
       return (
         <div className="component-text-style-container">
           <Row align="middle" type="flex" gutter={8}>
-            <Col span={8}>字号</Col>
+            <Col span={8}>文字</Col>
             <Col span={16}>
-              <Select defaultValue={12} onChange={this.onChange}>
-                <Select.Option key={12}>12</Select.Option>
-                <Select.Option key={14}>14</Select.Option>
-                <Select.Option key={16}>16</Select.Option>
+              <Input value={attrs.text} onChange={this.onChangeAttr('text')} />
+            </Col>
+          </Row>
+          <Row align="middle" type="flex" gutter={8}>
+            <Col span={8}>按钮类型</Col>
+            <Col span={16}>
+              <Select value={attrs.type} onChange={this.onChangeAttr('type')}>
+                <Select.Option value="">默认</Select.Option>
+                <Select.Option value="primary">蓝色</Select.Option>
+                <Select.Option value="danger">红色</Select.Option>
               </Select>
             </Col>
           </Row>

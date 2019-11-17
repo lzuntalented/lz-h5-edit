@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'antd';
-import Layout from '../EditItem';
+import { Button } from 'antd';
+import Layout from '../../components/EditItem';
 import { COMPONENT_TYPE_TEXT } from '../../core/constants';
 // 组件默认属性
 const defaultAttrs = {
   // 字体颜色
-  color: 'red',
+  color: '#fff',
   // 内容
-  text: '文本',
+  text: '按钮',
   // 背景颜色
   bgColor: '',
+  type: 'primary',
 };
 
 class Text extends React.Component {
@@ -35,17 +36,14 @@ class Text extends React.Component {
   render() {
     const {
       resetHeight, setAttribute,
-      text, bgColor, ...others
+      text, bgColor, type, ...others
     } = this.props;
     const style = Object.assign({
       width: '100%',
-      minHeight: '40px',
-      background: bgColor,
-      outerColor: 'transport',
     }, defaultAttrs, others);
     return (
       <div style={style}>
-        <Input style={style} value={text} />
+        <Button type={type} style={{ width: '100%' }}>{text}</Button>
       </div>
     );
   }

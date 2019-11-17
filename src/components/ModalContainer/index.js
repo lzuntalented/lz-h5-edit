@@ -56,7 +56,7 @@ export default class ModalContainer extends React.Component {
                 if (selectKeys.indexOf(it.title) > -1) {
                   style.display = 'block';
                 }
-                return <div style={style}>{it.comp}</div>;
+                return <div key={it.title} style={style}>{it.comp}</div>;
               })
             }
           </Col>

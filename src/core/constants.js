@@ -82,6 +82,8 @@ export const ACTION_COPY_ITEM = 'ACTION_COPY_ITEM';
 export const ACTION_DELETE_PAGE = 'ACTION_DELETE_PAGE';
 // 新增元素，附带私有属性
 export const ACTION_ADD_PAGE_ITEM_WITH_ATTRS = 'ACTION_ADD_PAGE_ITEM_WITH_ATTRS';
+// 初始化store，在撤销重做里使用
+export const ACTION_INIT_HISTORY_STORE = 'ACTION_INIT_HISTORY_STORE';
 
 // 组件类型
 // 文本

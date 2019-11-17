@@ -1,10 +1,11 @@
 
 import {
-  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData,
+  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData, getDouble11Data,
 } from '../../../../../realpreview/config';
 import {
   EXAMPLE_DATA_1024, EXAMPLE_DATA_DRAGON_FESTIVAL, EXAMPLE_DATA_CHILDREN_FESTIVAL,
   EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
+  EXAMPLE_DATA_DOUBLE_ELEVEN,
 } from '../../../../../../core/constants';
 import { translateShowDataFromStore } from '../../../../../../utils';
 
@@ -14,6 +15,11 @@ export function getLocalCardList() {
       id: EXAMPLE_DATA_1024,
       origin: get1024Data(),
       content: translateShowDataFromStore(get1024Data()),
+    },
+    {
+      id: EXAMPLE_DATA_DOUBLE_ELEVEN,
+      origin: getDouble11Data(),
+      content: translateShowDataFromStore(getDouble11Data()),
     },
     {
       id: EXAMPLE_DATA_DRAGON_FESTIVAL,

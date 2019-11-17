@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Icon } from 'antd';
-import Layout from '../EditItem';
+import Layout from '../../components/EditItem';
 import { COMPONENT_TYPE_QQ_VIDEO } from '../../core/constants';
 import { winSize } from '../../utils';
 

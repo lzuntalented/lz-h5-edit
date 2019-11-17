@@ -4,7 +4,7 @@ import {
   Row, Col, Input,
 } from 'antd';
 import { changeAttrs, changeBaseStyle } from '../../store/action';
-import SettingPosition from '../SettingPosition';
+import SettingPosition from '../../components/SettingPosition';
 
 import './index.scss';
 

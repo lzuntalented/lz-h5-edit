@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
-import Layout from '../EditItem';
+import Layout from '../../components/EditItem';
 import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
 
 // 组件默认属性

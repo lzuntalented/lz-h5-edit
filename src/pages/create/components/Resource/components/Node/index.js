@@ -3,7 +3,7 @@ import {
   Tabs, Button, Row, Col,
 } from 'antd';
 import {
-  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
+  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP, COMPONENT_TYPE_QQ_VIDEO,
 } from '../../../../../../core/constants';
 
 const { TabPane } = Tabs;
@@ -31,6 +31,9 @@ export default function Node(props) {
           <Row className="m-t-8">
             <Col span={6}>
               <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_MAP)}>地图</Button>
+            </Col>
+            <Col span={6}>
+              <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>QQ通话</Button>
             </Col>
           </Row>
         </div>

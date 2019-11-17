@@ -1,14 +1,40 @@
 import { createStore } from 'redux';
 import { fromJS } from 'immutable';
+import HistoryStore from '../utils/HistoryStore';
 
 import reduces from './reduce';
+import {
+  ACTION_COPY_ITEM, ACTION_COPY_PAGE, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
+  CHANGE_ACTIVE_EDIT_KEY, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, STORE_ADD_PAGE, STORE_INIT_TO_EDIT,
+  MOVE_END,
+  CHANGE_ITEM_BASE_STYLE,
+  CHANGE_ANIMATION,
+  REMOVE_ITEM,
+  PAGE_ITEM_RESORT,
+  STORE_GROUP_ACTIVE_EDIT_KEYS,
+  STORE_GROUP_SPLIT,
+  CHANGE_ITEM_ATTR,
+} from '../core/constants';
+
+// 可以回退的操作列表
+const recordHistoryAction = [
+  ACTION_COPY_ITEM, ACTION_COPY_PAGE, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
+  CHANGE_ACTIVE_EDIT_KEY, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, STORE_ADD_PAGE, STORE_INIT_TO_EDIT,
+  MOVE_END, CHANGE_ITEM_BASE_STYLE, CHANGE_ANIMATION, REMOVE_ITEM, PAGE_ITEM_RESORT,
+  STORE_GROUP_ACTIVE_EDIT_KEYS, STORE_GROUP_SPLIT, CHANGE_ITEM_ATTR,
+];
 
 // 合并多个reducer
 const reducer = (store, action) => {
   for (let i = 0, len = reduces.length; i < len; i += 1) {
     const func = reduces[i];
     const ret = func.call(null, store, action);
-    if (ret) return ret;
+    if (ret) {
+      if (recordHistoryAction.indexOf(action.type) > -1) {
+        HistoryStore.push(ret.toJS());
+      }
+      return ret;
+    }
   }
   return store;
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col, Icon } from 'antd';
 import PropTypes from 'prop-types';
 // import { Input } from 'antd';
-import Layout from '../EditItem/render';
+import Layout from '../../components/EditItem/render';
 import { winSize } from '../../utils';
 
 function Picture(props) {

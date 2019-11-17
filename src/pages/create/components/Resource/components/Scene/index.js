@@ -16,7 +16,6 @@ class RealPreview extends React.Component {
     const { onClickTpl } = this.props;
     const { content, id, origin } = data;
     const { height } = winSize;
-    console.log(data, this);
     const { list, backGroundImage } = content;
     const style = {
       backgroundImage: `url(${backGroundImage})`,

@@ -13,7 +13,7 @@ import {
   COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
 } from '../../core/constants';
 import {
-  addPageItem, resetStore, addPageItemWithAttrs, changeBackMusicUrl,
+  addPageItem, resetStore, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore,
 } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
 
@@ -27,7 +27,7 @@ import ModalContainer from '../ModalContainer';
 import ImageList from './components/ImageList';
 import MusicList from './components/MusicList';
 import { getUploadProps } from './config';
-
+import HistoryStore from '../../utils/HistoryStore';
 
 class Header extends React.Component {
   static propTypes = {
@@ -135,6 +135,22 @@ class Header extends React.Component {
     dispatch(changeBackMusicUrl(src));
   }
 
+  onUndo = () => {
+    const store = HistoryStore.undo();
+    if (store) {
+      const { dispatch } = this.props;
+      dispatch(initHistoryStore(store));
+    }
+  }
+
+  onRedo = () => {
+    const store = HistoryStore.redo();
+    if (store) {
+      const { dispatch } = this.props;
+      dispatch(initHistoryStore(store));
+    }
+  }
+
   render() {
     const { dispatch } = this.props;
     const {
@@ -160,9 +176,13 @@ class Header extends React.Component {
           </a>
         </div>
         <ul className="ul-comp">
-          <li className="item" onClick={this.onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>
-            <Icon type="qq" className="icon" />
-            <div className="txt">QQ通话</div>
+          <li className="item" onClick={this.onUndo}>
+            <Icon type="undo" className="icon" />
+            <div className="txt">撤销</div>
+          </li>
+          <li className="item" onClick={this.onRedo}>
+            <Icon type="redo" className="icon" />
+            <div className="txt">重做</div>
           </li>
           <li className="item" onClick={this.onAddText}>
             <Icon type="border-inner" className="icon" />

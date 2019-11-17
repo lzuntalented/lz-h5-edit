@@ -4,6 +4,7 @@
     position: relative;
 
     .banner {
+        min-height: calc(100vh - 74px);
         z-index: 1;
         position: relative;
         display: flex;
@@ -40,6 +41,11 @@
             align-items: center;
             margin: 24px auto;
         }
+
+        .eq {
+            text-align: left;
+        }
+
         .m-r-12 {
             margin-right: 12px;
         }

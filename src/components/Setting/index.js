@@ -3,12 +3,9 @@ import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
 import { Tabs, Button } from 'antd';
 
-import TextStyle from '../Text/style';
-import PictureStyle from '../Picture/style';
 import GroupItemStyle from '../GroupItem/style';
 
 import './index.scss';
-import { COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE } from '../../core/constants';
 import { changeBaseStyle, removeItem } from '../../store/action';
 import Animate from './components/animate';
 import { getComponentStyleMap } from '../../core/components';
