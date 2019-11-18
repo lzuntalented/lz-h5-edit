@@ -6,7 +6,7 @@ import { COMPONENT_TYPE_TEXT } from '../../core/constants';
 // 组件默认属性
 const defaultAttrs = {
   // 字体颜色
-  color: 'red',
+  color: '#000000',
   // 字体大小
   fontSize: 12,
   // 内容
@@ -15,6 +15,12 @@ const defaultAttrs = {
   bgColor: '',
   // 行高
   lineHeight: 1.5,
+  textAlign: 'center',
+  fontWeight: '',
+  fontStyle: '',
+  textDecoration: '',
+  letterSpacing: 0,
+  opacity: 0,
 };
 
 const refNames = {
@@ -106,7 +112,7 @@ class Text extends React.Component {
     const { editable } = this.state;
     const {
       resetHeight, setAttribute,
-      text, bgColor, ...others
+      text, bgColor, opacity, ...others
     } = this.props;
     const style = Object.assign({
       width: '100%',
@@ -114,7 +120,7 @@ class Text extends React.Component {
       padding: 10,
       background: bgColor,
       outerColor: 'transport',
-    }, defaultAttrs, others);
+    }, defaultAttrs, others, { opacity: (100 - opacity) / 100 });
     return (
       <div
         style={style}

@@ -5,7 +5,7 @@ import Layout from '../../components/EditItem/render';
 
 function Text(props) {
   const {
-    color, fontSize, text, bgColor, lineHeight,
+    color, fontSize, text, bgColor, lineHeight, opacity, ...others
   } = props;
   return (
     <div
@@ -17,6 +17,8 @@ function Text(props) {
         fontSize,
         background: bgColor,
         lineHeight,
+        opacity: (100 - opacity) / 100,
+        ...others,
       }}
       dangerouslySetInnerHTML={{ __html: text }}
     />
