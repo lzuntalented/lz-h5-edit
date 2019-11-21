@@ -3,25 +3,10 @@ import PropTypes from 'prop-types';
 // import { Input } from 'antd';
 import Layout from '../../components/EditItem';
 import { COMPONENT_TYPE_TEXT } from '../../core/constants';
+import config from './config';
+import { getDefaultAttrs } from '../../utils/Tools';
 // 组件默认属性
-const defaultAttrs = {
-  // 字体颜色
-  color: '#000000',
-  // 字体大小
-  fontSize: 12,
-  // 内容
-  text: '双击编辑文本',
-  // 背景颜色
-  bgColor: '',
-  // 行高
-  lineHeight: 1.5,
-  textAlign: 'center',
-  fontWeight: '',
-  fontStyle: '',
-  textDecoration: '',
-  letterSpacing: 0,
-  opacity: 0,
-};
+const defaultAttrs = getDefaultAttrs(config);
 
 const refNames = {
   editDom: 'editDom',
@@ -120,7 +105,7 @@ class Text extends React.Component {
       padding: 10,
       background: bgColor,
       outerColor: 'transport',
-    }, defaultAttrs, others, { opacity: (100 - opacity) / 100 });
+    }, defaultAttrs, others, { opacity });
     return (
       <div
         style={style}

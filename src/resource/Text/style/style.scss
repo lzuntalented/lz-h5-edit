@@ -1,0 +1,19 @@
+.component-text-style-container {
+    background-color: #fafafa;
+    .ant-row-flex {
+        margin: 8px 0;
+    }
+
+    .quick-btns {
+
+        .anticon {
+            padding: 4px;
+            border-radius: 2px;
+        }
+
+        .active {
+            background-color: #1593ff;
+            color: #fff;
+        }
+    }
+}

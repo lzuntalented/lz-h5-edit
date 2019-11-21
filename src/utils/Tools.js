@@ -1,25 +1,20 @@
 import {
-  COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_MAP, COMPONENT_TYPE_QQ_VIDEO,
+  COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON,
+  COMPONENT_TYPE_MAP, COMPONENT_TYPE_QQ_VIDEO,
 } from '../core/constants';
 
 function isType(type) {
   return obj => Object.prototype.toString.call(obj) === `[object ${type}]`;
 }
 
-// let testType = {
-//   isFunction: isType("function")
-// }
-
 function isTypeOf(type) {
-  return obj => typeof obj === type;
+  return obj => typeof (obj) === type;
 }
-const isFunction = isType('Function');
-const isUndefined = isType('Undefined');
-const isArray = Array.isArray || isType('Array');
-const isObject = isType('Object');
-export {
-  isFunction, isUndefined, isArray, isObject,
-};
+export const isFunction = isType('Function');
+export const isUndefined = isTypeOf('Undefined');
+export const isArray = Array.isArray || isType('Array');
+export const isObject = isType('Object');
+export const isString = isTypeOf('string');
 
 /**
  * 获取指定类型组件的文本描述
@@ -40,5 +35,18 @@ export function getNameWithItemType(type) {
   } else if (type === COMPONENT_TYPE_QQ_VIDEO) {
     result = 'QQ通话';
   }
+  return result;
+}
+
+
+export function getDefaultAttrs(config) {
+  const result = {};
+  config.forEach(({ key, initValue }) => {
+    if (isString(key)) {
+      result[key] = initValue;
+    } else {
+      Object.assign(result, initValue);
+    }
+  });
   return result;
 }

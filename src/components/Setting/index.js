@@ -9,6 +9,8 @@ import './index.scss';
 import { changeBaseStyle, removeItem } from '../../store/action';
 import Animate from './components/animate';
 import { getComponentStyleMap } from '../../core/components';
+import Attribute from './components/attribute';
+import SettingPosition from '../SettingPosition';
 
 const { TabPane } = Tabs;
 
@@ -25,17 +27,27 @@ class Setting extends React.Component {
     dispatch(removeItem());
   }
 
+  setBaseStyle = key => (e) => {
+    const { dispatch, activeEditKey } = this.props;
+    const { target } = e;
+    let value = e;
+    if (target) {
+      value = +target.value;
+    }
+    dispatch(changeBaseStyle({ [key]: value }, activeEditKey));
+  }
+
   renderComponent() {
     const { componentType } = this.props;
-    const StyleComp = getComponentStyleMap(componentType);
-    if (StyleComp) {
-      return <StyleComp />;
+    const styleConfig = getComponentStyleMap(componentType);
+    if (styleConfig) {
+      return <Attribute styleConfig={styleConfig} />;
     }
-    return <GroupItemStyle />;
+    return null;
   }
 
   render() {
-    const { activeEditKey } = this.props;
+    const { activeEditKey, item } = this.props;
     return (
       activeEditKey && activeEditKey.length > 0
       && (
@@ -56,6 +68,9 @@ class Setting extends React.Component {
             <TabPane tab="样式" key="1">
               {
                   this.renderComponent()
+              }
+              {
+                item && <SettingPosition {...item} setBaseStyle={this.setBaseStyle} />
               }
               <div className="text-center m-t-12 m-b-12">
                 <Button onClick={this.onRemove} type="danger">删除元素</Button>
@@ -83,7 +98,7 @@ const mapStateToProps = (store) => {
   const result = { activeEditKey };
   if (activeEditKey && activeEditKey.length === 1) {
     const item = editList[activeEditKey[0]];
-    if (item) return Object.assign(result, { componentType: item.type });
+    if (item) return Object.assign(result, { componentType: item.type, item });
   }
   return result;
 };

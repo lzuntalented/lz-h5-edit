@@ -1,6 +1,6 @@
 import edit from './edit';
 import render from './render';
-import style from './style';
+import style from './config';
 
 export default {
   edit,

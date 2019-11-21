@@ -137,3 +137,25 @@ export const EXAMPLE_DATA_1024 = 'IT1024';
 export const EXAMPLE_DATA_DOUBLE_ELEVEN = 'double11';
 // 使用缓存数据标识
 export const EXAMPLE_DATA_PREVIEW = 'cache';
+
+
+/* 样式渲染组件表示 */
+// 颜色
+export const STYLE_RENDER_TYPE_COLOR = 'STYLE_RENDER_TYPE_COLOR';
+// 选择框
+export const STYLE_RENDER_TYPE_SELECT = 'STYLE_RENDER_TYPE_SELECT';
+// 输入框
+export const STYLE_RENDER_TYPE_INPUT = 'STYLE_RENDER_TYPE_INPUT';
+// 带滑动条的输入框
+export const STYLE_RENDER_TYPE_SLIDER_INPUT = 'STYLE_RENDER_TYPE_SLIDER_INPUT';
+// 自定义
+export const STYLE_RENDER_TYPE_CUSTOM = 'STYLE_RENDER_TYPE_CUSTOM';
+// 不需要显示
+export const STYLE_RENDER_TYPE_HIDDEN = 'STYLE_RENDER_TYPE_HIDDEN';
+
+/* 属性值类型 */
+// 数字型
+export const STYLE_VALUE_TYPE_NUMBER = 'STYLE_VALUE_TYPE_NUMBER';
+
+// 多个属性值设置使用key
+export const STYLE_KEY_TYPE_ALL = 'STYLE_KEY_TYPE_ALL';

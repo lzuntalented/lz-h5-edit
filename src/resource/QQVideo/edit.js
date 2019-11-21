@@ -7,13 +7,10 @@ import { winSize } from '../../utils';
 
 import './index.scss';
 
+import config from './config';
+import { getDefaultAttrs } from '../../utils/Tools';
 // 组件默认属性
-const defaultAttrs = {
-  // 图片地址
-  imgSrc: 'http://www.lzuntalented.cn/img/1.jpg',
-  name: 'lz',
-  place: '北京',
-};
+const defaultAttrs = getDefaultAttrs(config);
 
 class Picture extends React.Component {
   static propTypes = {

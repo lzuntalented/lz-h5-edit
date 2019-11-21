@@ -3,20 +3,11 @@ import PropTypes from 'prop-types';
 // import { Input } from 'antd';
 import Layout from '../../components/EditItem';
 import { COMPONENT_TYPE_TEXT } from '../../core/constants';
+
+import config from './config';
+import { getDefaultAttrs } from '../../utils/Tools';
 // 组件默认属性
-const defaultAttrs = {
-  // 字体颜色
-  color: '#ff79a2',
-  // 字体大小
-  fontSize: 16,
-  // 内容
-  text: '双击编辑艺术字',
-  // 背景颜色
-  bgColor: '',
-  // 行高
-  lineHeight: 1.5,
-  fontFamily: 'ys1',
-};
+const defaultAttrs = getDefaultAttrs(config);
 
 const refNames = {
   editDom: 'editDom',

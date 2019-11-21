@@ -5,23 +5,16 @@ import Layout from '../../components/EditItem';
 import Map from '../../components/Map';
 import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
 
+import config from './config';
+import { getDefaultAttrs } from '../../utils/Tools';
 // 组件默认属性
-const defaultAttrs = {
-  // 图片地址
-  address: '浙江省杭州市西湖区西湖',
-};
-
-const refNames = {
-  editDom: 'editDom',
-};
+const defaultAttrs = getDefaultAttrs(config);
 
 class Picture extends React.Component {
   static propTypes = {
     registerAttrs: PropTypes.func.isRequired,
     resetHeight: PropTypes.func.isRequired,
   }
-
-  magicRefs = {}
 
   constructor(props) {
     super(props);
@@ -33,9 +26,6 @@ class Picture extends React.Component {
     resetHeight();
   }
 
-  // 设置魔术引用
-  setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
-
   render() {
     const { address } = this.props;
     return (
@@ -44,7 +34,6 @@ class Picture extends React.Component {
           width: '100%',
           minHeight: '320px',
         }}
-        ref={this.setMagicRefs(refNames.editDom)}
       >
         <Map address={address} />
       </div>

@@ -3,15 +3,11 @@ import PropTypes from 'prop-types';
 import { Input } from 'antd';
 import Layout from '../../components/EditItem';
 import { COMPONENT_TYPE_TEXT } from '../../core/constants';
+
+import config from './config';
+import { getDefaultAttrs } from '../../utils/Tools';
 // 组件默认属性
-const defaultAttrs = {
-  // 字体颜色
-  color: 'red',
-  // 内容
-  text: '文本',
-  // 背景颜色
-  bgColor: '',
-};
+const defaultAttrs = getDefaultAttrs(config);
 
 class Text extends React.Component {
   static propTypes = {
