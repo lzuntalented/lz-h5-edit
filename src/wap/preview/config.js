@@ -3,9 +3,10 @@ import {
   EXAMPLE_DATA_1024, EXAMPLE_DATA_DRAGON_FESTIVAL, EXAMPLE_DATA_CHILDREN_FESTIVAL,
   EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
   EXAMPLE_DATA_DOUBLE_ELEVEN,
+  EXAMPLE_DATA_THINKSGIVING,
 } from '../../core/constants';
 import {
-  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData, getDouble11Data,
+  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData, getDouble11Data, getThinksgivingData,
 } from '../../pages/realpreview/config';
 
 const { width, height } = winSize;
@@ -42,6 +43,9 @@ export function getComponetData(id) {
       break;
     case EXAMPLE_DATA_DOUBLE_ELEVEN:
       result = getDouble11Data();
+      break;
+    case EXAMPLE_DATA_THINKSGIVING:
+      result = getThinksgivingData();
       break;
     default: break;
   }
