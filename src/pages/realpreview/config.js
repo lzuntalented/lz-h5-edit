@@ -1866,3 +1866,1174 @@ export function getDouble11Data() {
     backMusicUrl: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
   };
 }
+
+
+export function getThinksgivingData() {
+  return {
+    pages: [
+      ['71n3bn', 'np6qla', '6yiwuf', '43t0ii', '6dgnaj', 'unlmqh', 'x1f7ju', 'c9hdpz', 'mnhwnu', 'grsi2z', 'k378wn', '0yyj7g', 'wq3j8p', 'qpggco'],
+      ['wzwmi8', 'gfss9a', 'ufwzd4', 'pl65my', 'ism0vv', 'zjdi5x', 'ff6rqv', 'sima1c', 'zc5ilj'], ['wn7cx5', 'i4cb3w', 'os6dry', '1tczw1', 'ib7sx8', 'abxr2f', '6hscwd', 'iswq2w'],
+      ['j4a4dd', '87tx55', 'eygpw4', '9nd7is', 'i97m18', 'ishgy2'], ['284es5', 'v1el9f', 'uytwwt', 'aag0j7', 'ng10xl', 'ypazl1', 'fpqr5a', '7g8hre']],
+    editList: {
+      wn7cx5:
+        {
+          name: '文本 1',
+          nodeType: 'ITEM_TYPE_SINGLE',
+          rect: {
+            top: 60, left: 16, width: 308, height: 188, rotate: 0,
+          },
+          animate: {
+            name: 'rotateInDownRight',
+            duration: 1,
+            delay: 0.3,
+            repeat: 1,
+          },
+          attrs: {
+            fontStyle: '',
+            color: '#9e7a52',
+            fontWeight: '',
+            opacity: 1,
+            text:
+              '你是我此生甜蜜的邂逅，<div>让我再不会在世间孤单的漂流，<div>希望你能接受这永恒的指环，</div><div>让闪耀如不灭的星斗，</div><div>从此让幸福成为我们心头最温柔的刺绣！</div></div>',
+            fontSize: 14,
+            textAlign: 'left',
+            lineHeight: 1.5,
+            letterSpacing: 6,
+            textDecoration: '',
+            bgColor: '',
+          },
+          type: 'COMPONENT_TYPE_TEXT',
+        },
+      k378wn:
+        {
+          name: '文本 1 拷贝',
+          nodeType: 'ITEM_TYPE_SINGLE',
+          rect: {
+            top: 338, left: 187, width: 84, height: 42, rotate: 0,
+          },
+          animate: {
+            name:
+              'zoomIn',
+            duration: 1,
+            delay: 1,
+            repeat: 1,
+          },
+          attrs: {
+            fontStyle: '',
+            color: '#9e7a52',
+            fontWeight: '',
+            opacity: 1,
+            text: '@父母',
+            fontSize: 14,
+            textAlign: 'left',
+            lineHeight: 1.5,
+            letterSpacing: 4,
+            textDecoration: '',
+            bgColor: '',
+          },
+          type: 'COMPONENT_TYPE_TEXT',
+        },
+      ff6rqv: {
+        name: '图片 7',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 245, left: -15, width: 144, height: 181, rotate: 69,
+        },
+        animate: {
+          name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/flower.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      ishgy2: {
+        name: '文本 1 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect:
+            {
+              top: 27, left: 16, width: 222, height: 47, rotate: 0,
+            },
+        animate: {
+          name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '亲爱的朋友：',
+          fontSize: 18,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 2,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type:
+            'COMPONENT_TYPE_TEXT',
+      },
+      '6yiwuf': {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      q45378: {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225, left: 157, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '87tx55': {
+        name: '图片 2',
+        nodeType:
+            'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+                'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      ufwzd4: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top:
+              -7,
+          left: 312,
+          width: 10,
+          height: 504,
+          rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      uytwwt: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      d95ue6: {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect:
+            {
+              top: 108, left: 16, width: 222, height: 123, rotate: 0,
+            },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#373535',
+          fontWeight: '',
+          opacity: 1,
+          text: '父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。',
+          fontSize: 14,
+          textAlign: 'center',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      '2sae56': {
+        name: '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      pl65my: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246,
+          left:
+              152,
+          width: 10,
+          height: 504,
+          rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      gfss9a: {
+        name: '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '53i992': {
+        name:
+            '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      wzwmi8: {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 21,
+          left: 23,
+          width: 271,
+          height: 43,
+          rotate: 0,
+        },
+        animate: {
+          name: 'fadeInLeft', duration: 1, delay: 0.5, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '亲爱的老爸老妈：',
+          fontSize: 18,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 2,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type:
+            'COMPONENT_TYPE_TEXT',
+      },
+      wq3j8p: {
+        name: '文本 1 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 377, left: 189, width: 84, height: 42, rotate: 0,
+        },
+        animate: {
+          name: 'zoomIn', duration: 1, delay: 1, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '@朋友',
+          fontSize: 14,
+          textAlign:
+              'left',
+          lineHeight: 1.5,
+          letterSpacing: 4,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      m41qq3: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      grsi2z: {
+        name: '图片 6 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect:
+            {
+              top: 247, left: 0, width: 168, height: 187, rotate: 74,
+            },
+        animate: {
+          name: 'bounceInUp', duration: 1, delay: 0.3, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+                'http://www.lzuntalented.cn/img/gen/flower.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      iswq2w: {
+        name: '图片 8',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 168,
+          left: 131,
+          width: 156,
+          height: 172,
+          rotate: 0,
+        },
+        animate: {
+          name: 'zoomInRight', duration: 1, delay: 0.8, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/heart.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '0yyj7g': {
+        name: '文本 1 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect:
+            {
+              top: 357, left: 188, width: 84, height: 42, rotate: 0,
+            },
+        animate: {
+          name: 'zoomIn', duration: 1, delay: 1, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '@爱人',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 4,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type:
+            'COMPONENT_TYPE_TEXT',
+      },
+      '71n3bn': {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 29, left: 13, width: 223, height: 176, rotate: 0,
+        },
+        animate: {
+          name: 'fadeIn', duration: 1, delay: 1, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text:
+              '今天，<div>你是否会想起那个</div><div>抚育过你，责骂过你，</div><div>照顾过你，包容过你，</div><div>关心过你，爱过你..的人</div><div>这个感恩节</div><div>我想@最重要的你</div>',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 4,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      qpggco: {
+        name: '文本 1 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 262, left: 189, width: 131, height: 62, rotate: 0,
+        },
+        animate: {
+          name: 'fadeInRight', duration: 1, delay: 0.8, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '不要等到明天<div>才想起感恩</div>',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 4,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      ap9lm7: {
+        name: '图片 10',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 131,
+          left: 43,
+          width: 320,
+          height: 212,
+          rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzun' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      xpimyi: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      ng10xl: {
+        name: '图片 2 拷贝 拷贝',
+        nodeType:
+            'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225, left: 157, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+                'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      i97m18: {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225,
+          left: 157,
+          width: 10,
+          height: 504,
+          rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      ism0vv: {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225, left: 157, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      i4cb3w: {
+        name: '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      abxr2f: {
+        name: '文本 1 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect:
+            {
+              top: 22, left: 16, width: 222, height: 45, rotate: 0,
+            },
+        animate: {
+          name: 'rotateInDownRight', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color:
+                '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '宝贝：',
+          fontSize: 18,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type:
+            'COMPONENT_TYPE_TEXT',
+      },
+      '6hscwd': {
+        name: '图片 7',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 232, left: 26, width: 227, height: 311, rotate: 0,
+        },
+        animate: {
+          name:
+              'slideInUp',
+          duration: 1,
+          delay: 0.2,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/love.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      vmn0wm: {
+        name:
+            '文本 15 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 315, left: 188, width: 122, height: 40, rotate: 0,
+        },
+        animate: {
+          name: 'fadeInRight',
+          duration: 1,
+          delay:
+                0.8,
+          repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#000000',
+          fontWeight: '',
+          opacity: 1,
+          text: '123',
+          fontSize: 12,
+          textAlign: 'center',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '#9e7a52',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      v1el9f: {
+        name: '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4,
+          left: 0,
+          width: 10,
+          height: 504,
+          rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      q0zray: {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 108, left: 16, width: 222, height: 123, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#373535',
+          fontWeight: '',
+          opacity: 1,
+          text:
+              '父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。',
+          fontSize: 14,
+          textAlign: 'center',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      unlmqh: {
+        name: '图片 6',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 19, left: 199, width: 94, height: 106, rotate: 0,
+        },
+        animate: {
+          name: 'bounceInDown',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/gan.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      pie6o6: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs:
+            { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '9nd7is': {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246, left: 152, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      np6qla: {
+        name: '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '7g8hre': {
+        name: '输入框 7 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 170, left: 61, width: 184, height: 44, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          text: '留言内容',
+          color: '#000',
+          bgColor: '按钮',
+        },
+        type: 'COMPONENT_TYPE_INPUT',
+      },
+      vuok5m: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246,
+          left: 152,
+          width: 10,
+          height: 504,
+          rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      j35vpy: {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225, left: 157, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      k8rli5: {
+        name: '图片 2',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -4, left: 0, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '1tczw1': {
+        name: '图片 2 拷贝',
+        nodeType:
+            'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246, left: 152, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+                'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '4lrbf3': {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 108,
+          left: 16,
+          width: 222,
+          height: 123,
+          rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#373535',
+          fontWeight: '',
+          opacity: 1,
+          text: '父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。',
+          fontSize: 14,
+          textAlign: 'center',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      ypazl1: {
+        name: '按钮 6',
+        nodeType:
+            'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 246, left: 62, width: 182, height: 40, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs:
+            { text: '提交', type: 'primary' },
+        type: 'COMPONENT_TYPE_BUTTON',
+      },
+      ib7sx8: {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225,
+          left: 157,
+          width: 10,
+          height: 504,
+          rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      x1f7ju: {
+        name: '图片 6 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 143, left: 178, width: 66, height: 78, rotate: 0,
+        },
+        animate: {
+          name: 'bounceInDown', duration: 1, delay: 0.2, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/en.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      aag0j7: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246, left: 152, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      mnhwnu: {
+        name: '图片 6 拷贝 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 220, left: 238, width: 66, height: 63, rotate: 0,
+        },
+        animate: {
+          name: 'bounceInDown', duration: 1, delay: 0.6, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/xin.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      fpqr5a: {
+        name: '输入框 7',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 93, left: 62, width: 184, height: 45, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          text: '姓名', color: '#000', bgColor: '按钮',
+        },
+        type: 'COMPONENT_TYPE_INPUT',
+      },
+      '0hm4jb': {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225, left: 157, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      zjdi5x: {
+        name: '文本 1 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 58, left: 24, width: 271, height: 146, rotate: 0,
+        },
+        animate: {
+          name: 'fadeInLeft',
+          duration: 1,
+          delay: 0.7,
+          repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text:
+              '<div>父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。</div>',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 2,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      ygnki6:
+        {
+          name: '图片 2 拷贝',
+          nodeType: 'ITEM_TYPE_SINGLE',
+          rect: {
+            top: -246, left: 152, width: 10, height: 504, rotate: 90,
+          },
+          animate: {
+            name: '',
+            duration: 1,
+            delay: 0,
+            repeat: 1,
+          },
+          attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+          type: 'COMPONENT_TYPE_PICTURE',
+        },
+      os6dry: {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate:
+            {
+              name: '', duration: 1, delay: 0, repeat: 1,
+            },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '284es5': {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 33, left: 45, width: 222, height: 42, rotate: 0,
+        },
+        animate: {
+          name: 'fadeIn',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '留言祝福',
+          fontSize: 16,
+          textAlign:
+              'center',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      eygpw4: {
+        name: '图片 2 拷贝',
+        nodeType:
+            'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -7, left: 312, width: 10, height: 504, rotate: 0,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+                'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      zc5ilj: {
+        name: '文本 9',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 428,
+          left: 9,
+          width: 320,
+          height: 47,
+          rotate: 0,
+        },
+        animate: {
+          name: 'jackInTheBox', duration: 1, delay: 1.2, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '常回家看看',
+          fontSize: 16,
+          textAlign: 'center',
+          lineHeight: 1.5,
+          letterSpacing: 5,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      '43t0ii': {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246, left: 152, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '',
+          duration: 1,
+          delay:
+              0,
+          repeat: 1,
+        },
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      c9hdpz: {
+        name: '图片 6 拷贝 拷贝',
+        nodeType:
+            'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 121, left: 241, width: 66, height: 78, rotate: 0,
+        },
+        animate: {
+          name: 'bounceInDown', duration: 1, delay: 0.4, repeat: 1,
+        },
+        attrs: {
+          imgSrc: 'http://www.lzuntalented.cn/img/gen/zai.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      sima1c: {
+        name: '图片 7 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 336, left: 110, width: 238, height: 122, rotate: 0,
+        },
+        animate: {
+          name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/one.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '1yzifk': {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246, left: 152, width: 10, height: 504, rotate: 90,
+        },
+        animate: {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
+        attrs: {
+          imgSrc:
+              'http://www.lzuntalented.cn/img/gen/border.png',
+        },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
+      '9z1ci3': {
+        name: '文本 15',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 270, left: 188, width: 122, height: 40, rotate: 0,
+        },
+        animate: {
+          name: 'fadeInRight', duration: 1, delay: 0.8, repeat: 1,
+        },
+        attrs:
+          {
+            fontStyle: '',
+            color: '#000000',
+            fontWeight: '',
+            opacity: 1,
+            text: '123',
+            fontSize: 12,
+            textAlign: 'center',
+            lineHeight: 1.5,
+            letterSpacing: 0,
+            textDecoration: '',
+            bgColor: '#9e7a52',
+          },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      j4a4dd: {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 65,
+          left: 17,
+          width: 293,
+          height: 146,
+          rotate: 0,
+        },
+        animate: {
+          name: 'fadeInLeft', duration: 1, delay: 0.3, repeat: 1,
+        },
+        attrs: {
+          fontStyle: '',
+          color:
+              '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text:
+              '感谢你陪我闯过那些风那些雨，感谢在最无助的时候有你鼓励，感谢在孤独的时候至少还有你，亲爱的朋友，<div>想说真得很谢谢你陪我走过人生那么多里地!</div>',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 5,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
+      '6dgnaj':
+          {
+            name: '图片 2 拷贝 拷贝',
+            nodeType: 'ITEM_TYPE_SINGLE',
+            rect: {
+              top: 225, left: 157, width: 10, height: 504, rotate: 90,
+            },
+            animate: {
+              name: '', duration: 1, delay: 0, repeat: 1,
+            },
+            attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+            type: 'COMPONENT_TYPE_PICTURE',
+          },
+    },
+    moveTag: false,
+    backGroundImage: 'http://www.lzuntalented.cn/img/gen/bg.jpg',
+    activeEditKey: [],
+    backMusicUrl: 'http://www.lzuntalented.cn/assets/music/datianhoushengzai.mp3',
+    moveBoundRect: {},
+    activePage: 0,
+    groupList: {},
+    moveInfo: null,
+  };
+}

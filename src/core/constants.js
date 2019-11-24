@@ -135,6 +135,8 @@ export const EXAMPLE_DATA_DRAGON_FESTIVAL = 'dragon';
 export const EXAMPLE_DATA_1024 = 'IT1024';
 // 双十一展示
 export const EXAMPLE_DATA_DOUBLE_ELEVEN = 'double11';
+// 感恩节展示
+export const EXAMPLE_DATA_THINKSGIVING = 'thinksgiving';
 // 使用缓存数据标识
 export const EXAMPLE_DATA_PREVIEW = 'cache';
 

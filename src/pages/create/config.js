@@ -6,9 +6,11 @@ import {
   LOCALSTORAGE_PREVIEW_NAMESPACE,
   LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_DOUBLE_ELEVEN,
+  EXAMPLE_DATA_THINKSGIVING,
 } from '../../core/constants';
 import {
-  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData, getDouble11Data,
+  get1024Data, getDragonFestivalData, getChildrenFestivalData, getGKData,
+  getDouble11Data, getThinksgivingData,
 } from '../realpreview/config';
 import LzLocalStorage from '../../utils/LocalStorage';
 
@@ -24,6 +26,8 @@ export function getComponetData(id) {
       return getGKData();
     case EXAMPLE_DATA_DOUBLE_ELEVEN:
       return getDouble11Data();
+    case EXAMPLE_DATA_THINKSGIVING:
+      return getThinksgivingData();
     default: break;
   }
   if (+id > 0) {
@@ -31,7 +35,7 @@ export function getComponetData(id) {
     const data = mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
     return JSON.parse(data);
   }
-  return getDouble11Data();
+  return getThinksgivingData();
 }
 
 export default () => {};

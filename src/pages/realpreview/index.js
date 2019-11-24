@@ -7,11 +7,13 @@ import LzLocalStorage from '../../utils/LocalStorage';
 // 引入样式文件
 import './index.scss';
 import {
-  getDragonFestivalData, getChildrenFestivalData, getGKData, get1024Data, getDouble11Data,
+  getDragonFestivalData, getChildrenFestivalData, getGKData, get1024Data,
+  getDouble11Data, getThinksgivingData,
 } from './config';
 import {
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_PREVIEW,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, EXAMPLE_DATA_1024, EXAMPLE_DATA_DOUBLE_ELEVEN,
+  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, EXAMPLE_DATA_1024,
+  EXAMPLE_DATA_DOUBLE_ELEVEN, EXAMPLE_DATA_THINKSGIVING,
 } from '../../core/constants';
 import { translateShowDataFromStore } from '../../utils';
 
@@ -24,7 +26,6 @@ class Perview extends React.Component {
     super(props);
     this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
     const { params } = props;
-    console.log(params);
     this.data = getDragonFestivalData();
     if (params && (params.id === EXAMPLE_DATA_PREVIEW || +params.id > 0)) {
       const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
@@ -41,6 +42,9 @@ class Perview extends React.Component {
     }
     if (params && params.id === EXAMPLE_DATA_DOUBLE_ELEVEN) {
       this.data = getDouble11Data();
+    }
+    if (params && params.id === EXAMPLE_DATA_THINKSGIVING) {
+      this.data = getThinksgivingData();
     }
     this.data = translateShowDataFromStore(this.data);
     this.cacheKey = params && params.id;
