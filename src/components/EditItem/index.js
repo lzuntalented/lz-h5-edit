@@ -12,6 +12,7 @@ import {
 } from '../../store/action';
 
 import './index.scss';
+import { getDefaultAttrs } from '../../utils/Tools';
 
 const refNames = {
   content: 'content',
@@ -27,7 +28,7 @@ const refNames = {
 //   }
 // });
 
-export default function (Component) {
+export default function (Component, config) {
   // 唯一id
   // const uniqueId = createId();
   class Layout extends React.Component {
@@ -41,9 +42,12 @@ export default function (Component) {
       super(props);
       this.magicRefs = {};
       this.shiftDown = false;
+      this.defaultAttrs = getDefaultAttrs(config);
     }
 
     componentDidMount() {
+      const attrs = this.defaultAttrs;
+      this.registerAttrs(attrs);
       this.resetHeight();
     }
 
@@ -174,6 +178,7 @@ export default function (Component) {
                 resetHeight={this.resetHeight}
                 registerAttrs={this.registerAttrs}
                 setAttribute={this.setAttribute}
+                defaultAttrs={this.defaultAttrs}
                 {...attrs}
               />
             </div>

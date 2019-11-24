@@ -1,10 +1,5 @@
-.component-text-style-container {
-    background-color: #fafafa;
-    .ant-row-flex {
-        margin: 8px 0;
-    }
-
-    .quick-btns {
+.resource-text-style-container {
+    &.quick-btns {
 
         .anticon {
             padding: 4px;

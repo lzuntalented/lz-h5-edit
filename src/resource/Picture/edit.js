@@ -1,23 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Input } from 'antd';
-import Layout from '../../components/EditItem';
-import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
+import Picture from './Picture';
 
-import config from './config';
-import { getDefaultAttrs } from '../../utils/Tools';
-// 组件默认属性
-const defaultAttrs = getDefaultAttrs(config);
-
-class Picture extends React.Component {
+class PictureEdit extends React.Component {
   static propTypes = {
-    registerAttrs: PropTypes.func.isRequired,
     resetHeight: PropTypes.func.isRequired,
+    imgSrc: PropTypes.string,
   }
 
-  constructor(props) {
-    super(props);
-    props.registerAttrs(defaultAttrs);
+  static defaultProps = {
+    imgSrc: '',
   }
 
   onLoad = () => {
@@ -28,16 +20,9 @@ class Picture extends React.Component {
   render() {
     const { imgSrc } = this.props;
     return (
-      <div
-        style={{
-          width: '100%',
-          minHeight: '40px',
-        }}
-      >
-        <img src={imgSrc} alt="" onLoad={this.onLoad} width="100%" />
-      </div>
+      <Picture imgSrc={imgSrc} onLoad={this.onLoad} />
     );
   }
 }
 
-export default Layout(Picture, COMPONENT_TYPE_PICTURE);
+export default PictureEdit;

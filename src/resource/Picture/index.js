@@ -1,5 +1,5 @@
 import edit from './edit';
-import render from './render';
+import render from './Picture';
 import style from './config';
 
 export default {

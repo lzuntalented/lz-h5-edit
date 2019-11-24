@@ -1,11 +1,11 @@
 import React from 'react';
 import { Row, Col, Icon } from 'antd';
 import PropTypes from 'prop-types';
-// import { Input } from 'antd';
-import Layout from '../../components/EditItem/render';
 import { winSize } from '../../utils';
 
-function Picture(props) {
+import './index.scss';
+
+function QQVideo(props) {
   const {
     imgSrc, name, place, height,
   } = props;
@@ -16,7 +16,7 @@ function Picture(props) {
         height: height || winSize.height,
         background: '#232129',
       }}
-      className="component-qq-video"
+      className="resource-qq-video"
     >
       <Row type="flex" justify="space-between" className="nav">
         <Col>
@@ -56,4 +56,18 @@ function Picture(props) {
   );
 }
 
-export default Layout(Picture);
+QQVideo.prototype.propTypes = {
+  imgSrc: PropTypes.string,
+  name: PropTypes.string,
+  place: PropTypes.string,
+  height: PropTypes.number,
+};
+
+QQVideo.prototype.defaultProps = {
+  imgSrc: '',
+  name: '',
+  place: '',
+  height: 0,
+};
+
+export default QQVideo;

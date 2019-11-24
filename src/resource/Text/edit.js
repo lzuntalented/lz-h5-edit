@@ -1,12 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Input } from 'antd';
-import Layout from '../../components/EditItem';
-import { COMPONENT_TYPE_TEXT } from '../../core/constants';
-import config from './config';
-import { getDefaultAttrs } from '../../utils/Tools';
-// 组件默认属性
-const defaultAttrs = getDefaultAttrs(config);
 
 const refNames = {
   editDom: 'editDom',
@@ -34,7 +27,7 @@ class Text extends React.Component {
 
   constructor(props) {
     super(props);
-    props.registerAttrs(defaultAttrs);
+    // props.registerAttrs(defaultAttrs);
     this.focusAble = false;
   }
 
@@ -96,7 +89,7 @@ class Text extends React.Component {
   render() {
     const { editable } = this.state;
     const {
-      resetHeight, setAttribute,
+      resetHeight, setAttribute, defaultAttrs,
       text, bgColor, opacity, ...others
     } = this.props;
     const style = Object.assign({
@@ -123,4 +116,4 @@ class Text extends React.Component {
   }
 }
 
-export default Layout(Text, COMPONENT_TYPE_TEXT);
+export default Text;

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
-import Layout from '../../components/EditItem/render';
 
-function Text(props) {
+function ButtonRender(props) {
   const {
     text, type,
   } = props;
@@ -17,4 +16,15 @@ function Text(props) {
     </Button>
   );
 }
-export default Layout(Text);
+
+ButtonRender.prototype.propTypes = {
+  text: PropTypes.string,
+  type: PropTypes.string,
+};
+
+ButtonRender.prototype.defaultProps = {
+  text: '',
+  type: '',
+};
+
+export default ButtonRender;

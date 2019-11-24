@@ -17,7 +17,7 @@ export default function StyleAlign(props) {
   } = props;
   const { options = [] } = attrs || {};
   return (
-    <Row align="middle" type="flex" gutter={6} className="quick-btns">
+    <Row align="middle" type="flex" gutter={6} className="resource-text-style-container quick-btns">
       <Col>
         <Tooltip placement="top" title="靠左">
           <Icon type="align-left" className={data.textAlign === 'left' && 'active'} onClick={() => onChange({ textAlign: 'left' })} />

@@ -28,6 +28,7 @@ import ImageList from './components/ImageList';
 import MusicList from './components/MusicList';
 import { getUploadProps } from './config';
 import HistoryStore from '../../utils/HistoryStore';
+import { getComponetData } from '../../pages/create/config';
 
 class Header extends React.Component {
   static propTypes = {
@@ -96,16 +97,19 @@ class Header extends React.Component {
   }
 
   onEdit = key => () => {
-    let data = getGKData();
-    if (key === EXAMPLE_DATA_DRAGON_FESTIVAL) {
-      data = getDragonFestivalData();
-    } else if (key === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
-      data = getChildrenFestivalData();
-    } else if (key === EXAMPLE_DATA_1024) {
-      data = get1024Data();
-    }
+    // let data = getGKData();
+    // if (key === EXAMPLE_DATA_DRAGON_FESTIVAL) {
+    //   data = getDragonFestivalData();
+    // } else if (key === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
+    //   data = getChildrenFestivalData();
+    // } else if (key === EXAMPLE_DATA_1024) {
+    //   data = get1024Data();
+    // }
+
+    const data = getComponetData(key);
+    // dispatch(initStore(data));
     const { dispatch } = this.props;
-    dispatch(resetStore(data));
+    dispatch(initStore(data));
   }
 
   onModalCancel = key => () => {

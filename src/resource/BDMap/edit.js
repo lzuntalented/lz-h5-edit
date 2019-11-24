@@ -1,44 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { Input } from 'antd';
-import Layout from '../../components/EditItem';
-import Map from '../../components/Map';
-import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
+import BDMap from './BDMap';
 
-import config from './config';
-import { getDefaultAttrs } from '../../utils/Tools';
-// 组件默认属性
-const defaultAttrs = getDefaultAttrs(config);
-
-class Picture extends React.Component {
-  static propTypes = {
-    registerAttrs: PropTypes.func.isRequired,
-    resetHeight: PropTypes.func.isRequired,
-  }
-
-  constructor(props) {
-    super(props);
-    props.registerAttrs(defaultAttrs);
-  }
-
-  onLoad = () => {
-    const { resetHeight } = this.props;
-    resetHeight();
-  }
-
-  render() {
-    const { address } = this.props;
-    return (
-      <div
-        style={{
-          width: '100%',
-          minHeight: '320px',
-        }}
-      >
-        <Map address={address} />
-      </div>
-    );
-  }
+export default function BDMapEdit(props) {
+  const { defaultAttrs, ...others } = props;
+  const styleProps = Object.assign({ }, defaultAttrs, others);
+  return (
+    <BDMap
+      style={{
+        minHeight: '320px',
+      }}
+      {...styleProps}
+    />
+  );
 }
 
-export default Layout(Picture, COMPONENT_TYPE_PICTURE);
+BDMapEdit.prototype.propTypes = {
+  defaultAttrs: PropTypes.object.isRequired,
+};
