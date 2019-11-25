@@ -53,6 +53,25 @@ npm run build
     - [x] 示例-双十一
     - [x] 示例-感恩节
   
+### 如何新增物料
+* 1.在src/resource目录下新建组件
+``` js
+// index.js 文件的导出需要如下格式
+export default {
+  edit: 编辑态组件,
+  render: 渲染太组件,
+  style: 属性面板配置文件（普通对象）,
+};
+
+```
+* 2.在src/components.js文件中使用 registerComponent 注册物料
+``` js
+// components.js 新增如下调用
+import 物料组件 from '../resource/物料组件';
+
+registerComponent(自定义组件唯一标识字符串, 物料组件);
+```
+
 ### 后续规划
 > 集中物料仓库建设
 
@@ -61,6 +80,6 @@ npm run build
 
 |  微信交流群   | QQ交流群  |
 |  ----  | ----  |
-| ![微信交流群](http://www.lzuntalented.cn/img/sxx-wx.png)  | ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
+| ![微信交流群](http://www.lzuntalented.cn/img/sxx-wx.png?1)  | ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
 
 Give a ⭐️ if this project helped you!
