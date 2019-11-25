@@ -1,3 +1,5 @@
+@import url(//at.alicdn.com/t/font_1471801_jlec4qsp4n.css);
+
 @function toREM($n) {
   @return $n * 0.083rem ;
 }
@@ -56,30 +58,6 @@ body > li {
   line-height: 32px;
 }
 
-@font-face {font-family: "iconfont";
-  src: url('//at.alicdn.com/t/font_1471801_o3nwnrnt0jp.eot?t=1571760749313'); /* IE9 */
-  src: url('//at.alicdn.com/t/font_1471801_o3nwnrnt0jp.eot?t=1571760749313#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOEAAsAAAAABzwAAAM4AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDBgqCHIIDATYCJAMMCwgABCAFhG0HPxtSBlGUzUma7EtMRUa6KwnUwp2HG99gwktmAD++AfxoIK99dqmj2wK5uCYA4gFeZ/q+pHMcXQgIdwDYk7YjwTL4atrun1YtqJXU0i7JXkrf7LfxjEcjbFfihQSH7MLQJFBTzKBkJzpKKNOJpwFnWRLS30b0E+cSmc1ogg3UCTLM88ovsAdZ8hfId0rQ1SY7gL8Bl+Nf4vPsLcexpo01McA4kALdy6LICpxTahi74AXeJyBVRYdUr6WNA1EpYS8LCItsU4rKgl3SURlkBZmGvYlwTJ5stD8aR6Pvh/+1CJVE8mL2Q8PmLBpi5q/1t+NtOdekeJdty3nBDhGjESEhTGn0j1OSJBspker60u7CjEQQLRXJ5Yjkhjbj/OERCYQMu7wQqIeskYdSeBIRf1v51OkYnm4yYwirF/hxCMIULTY+30rHlI9UL+L+Urfqugm1fTWqNebOOiId1+Z1Oz91KlPmSjXtuu12O3y4fC82xW/btXK1Tv0yj6pNOs7cKxfSdT46BVQ6F+fmA8WvBP2UcMZ+W1B9uk/14c0XlXubiy91C8m3cXceKfUq/HXhkRvd1wZ1ZuDnw2uTp+ILNG7D74lWv5/Y8rBr1ol3lRg9tuxW1bszgzvkPhQ5c79egBs//m9L49cLnzLVXi5k6ma5QPW48TkBhNwkIZr365/zf5ZKrhs6OZufgF9YXxzt/Zf7moR4F7IiBit+dFcSckgCV9n2ONGsOZ36rWCsxQBvBKxIkcsOl/A+3Vz6ZbJBVukJ4QIqv1gwq1ZGJEwj5MnXChlZXZFqaPlwvpJIiZAURAO3AEExz4gU8RqxYopEwrwhTxmfyCgWSpAaE0qema9OsKt7EkpGA7QC2HoYKNfF1XHlHpoZT1JeFbFHSIkdgd6unnJmGQOkJTYkWbOPWYGi0Icl8Bh6XggRhQ7q3GUxR2Pd3arpTV166ItqPREkMWQAmgJg04UCKhjNqiuf34NMGR6JOgbqskcQSdjTg15degYQy/pg0MCjvJLIMvVhTAEKCfnAEvAiz0mGQNQ8y4F0rIs1IR4Z042GqaH6ru2N/v8dg5S9Mw5RiEMis8wKA+yrDRsNWwZWRgoB') format('woff2'),
-  url('//at.alicdn.com/t/font_1471801_o3nwnrnt0jp.woff?t=1571760749313') format('woff'),
-  url('//at.alicdn.com/t/font_1471801_o3nwnrnt0jp.ttf?t=1571760749313') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
-  url('//at.alicdn.com/t/font_1471801_o3nwnrnt0jp.svg?t=1571760749313#iconfont') format('svg'); /* iOS 4.1- */
-}
-
-.iconfont {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-phone2:before {
-  content: "\e7f5";
-}
-
-.icon-phonedianhua:before {
-  content: "\e678";
-}
 
 @font-face {
   font-family: "ys1";

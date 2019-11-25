@@ -5,11 +5,13 @@ import Input from '../resource/Input';
 import Button from '../resource/Button';
 import ArtInput from '../resource/ArtInput';
 import BDMap from '../resource/BDMap';
+import Shape from '../resource/Shape';
+
 import EditItem from '../components/EditItem';
 import RenderItem from '../components/EditItem/render';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
-  COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
+  COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE,
 } from './constants';
 
 const map = {
@@ -43,6 +45,7 @@ registerComponent(COMPONENT_TYPE_INPUT, Input);
 registerComponent(COMPONENT_TYPE_BUTTON, Button);
 registerComponent(COMPONENT_TYPE_ART_INPUT, ArtInput);
 registerComponent(COMPONENT_TYPE_MAP, BDMap);
+registerComponent(COMPONENT_TYPE_SHAPE, Shape);
 
 export function getComponentEditMap(key) {
   const obj = map[key];
