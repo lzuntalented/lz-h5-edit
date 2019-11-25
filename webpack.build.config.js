@@ -1,7 +1,10 @@
 const path = require('path');
+const fs = require('fs');
+const compareVersions = require('compare-versions');
 // var Page = require('./plugins/page');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 let cfgPath = './src/style/theme.js';
@@ -12,6 +15,38 @@ if (cfgPath.charAt(0) === '.') {
 const getThemeConfig = require(cfgPath);
 const theme = getThemeConfig;
 
+// 构建生成的目录地址
+const distPath = path.resolve(__dirname, 'dist');
+// 获取当前版本号
+function getCurrentVersion() {
+  let version = '0.0.1';
+  const existDist = fs.existsSync(distPath);
+  if (existDist) {
+    const versionList = [];
+    const list = fs.readdirSync(distPath);
+    list.forEach((it) => {
+      const dirHander = fs.statSync(path.resolve(distPath, it));
+      const isDir = dirHander.isDirectory();
+      if (isDir) versionList.push(it);
+    });
+    if (versionList.length > 0) {
+      const vers = versionList.sort(compareVersions);
+      version = vers[vers.length - 1];
+      version = +(version.split('.').join('')) + 1;
+      if (version < 10) {
+        version = `00${version}`.split('').join('.');
+      } else if (version < 100) {
+        version = `0${version}`.split('').join('.');
+      } else {
+        version = `${version}`.split('').join('.');
+      }
+    }
+  }
+  return version;
+}
+
+const version = getCurrentVersion();
+
 module.exports = {
   entry: {
     bound: './src/index.js',
@@ -19,8 +54,9 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(distPath, `${version}`),
     chunkFilename: '[name].js',
+    publicPath: `${version}/`,
   },
   module: {
     rules: [
@@ -79,6 +115,22 @@ module.exports = {
       // both options are optional
       filename: '[name].css',
       chunkFilename: '[name].css',
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
+      chunks: [],
+      filename: path.resolve(distPath, 'index.html'),
+      template: 'dist/index.html.tpl',
+      templateParameters: {
+        jsPath: `${version}/bound`,
+      },
+    }),
+    new HtmlWebpackPlugin({ // Also generate a test.html
+      chunks: [],
+      filename: path.resolve(distPath, 'wap.html'),
+      template: 'dist/wap.html.tpl',
+      templateParameters: {
+        jsPath: `${version}/wap`,
+      },
     }),
   ],
   devServer: {
