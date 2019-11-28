@@ -6,7 +6,7 @@ import {
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS, ACTION_INIT_HISTORY_STORE,
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS, ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
@@ -456,6 +456,26 @@ function addPageItemWithAttrs(store, action) {
   return null;
 }
 
+function addPageItemWithSize(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === ACTION_ADD_PAGE_ITEM_WITH_SIZE) {
+    const { editList, activePage, pages } = obj;
+    // { 唯一标识, 组件类型 }
+    const uniqueId = createId();
+    const page = pages[activePage];
+    // 给组件命名
+    const name = `${getNameWithItemType(value.type)} ${page.length + 1}`;
+    editList[uniqueId] = createNode(value.type, name);
+    Object.assign(editList[uniqueId].rect, value.size);
+    page.push(uniqueId);
+    // 设置当前添加的元素为激活项
+    obj.activeEditKey = [uniqueId];
+    return fromJS(obj);
+  }
+  return null;
+}
+
 // 移除元素
 function removeItem(store, action) {
   const { type } = action;
@@ -780,4 +800,5 @@ export default [
   deletePage,
   addPageItemWithAttrs,
   initHistoryStore,
+  addPageItemWithSize,
 ];

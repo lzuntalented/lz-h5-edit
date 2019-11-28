@@ -18,9 +18,12 @@ class PictureEdit extends React.Component {
   }
 
   render() {
-    const { shape, bgColor, stroke } = this.props;
+    const {
+      defaultAttrs, registerAttrs, resetHeight, setAttribute, ...others
+    } = this.props;
+    console.log('pciture', others);
     return (
-      <Picture shape={shape} bgColor={bgColor} stroke={stroke} />
+      <Picture {...others} />
     );
   }
 }

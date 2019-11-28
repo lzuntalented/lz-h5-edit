@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Picture(props) {
-  const { shape, stroke, bgColor } = props;
-  const style = { background: bgColor };
+  const {
+    shape, stroke, bgColor,
+  } = props;
+  const style = { background: bgColor, width: '100%', height: '100%' };
   return (
     <div
       style={style}
