@@ -36,7 +36,7 @@ export default function Node(props) {
               <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>QQ通话</Button>
             </Col>
             <Col span={6}>
-              <Button type="primary" onClick={onAddComponentWithSize(COMPONENT_TYPE_SHAPE, { width: 100, height: 100 })}>形状</Button>
+              <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_SHAPE)}>形状</Button>
             </Col>
           </Row>
         </div>

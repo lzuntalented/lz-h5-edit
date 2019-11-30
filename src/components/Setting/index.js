@@ -1,16 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
-import { Tabs, Button } from 'antd';
+import { Tabs, Button, Collapse } from 'antd';
 
 import GroupItemStyle from '../GroupItem/style';
 
 import './index.scss';
-import { changeBaseStyle, removeItem } from '../../store/action';
+import { changeBaseStyle, removeItem, changeItemBorder } from '../../store/action';
 import Animate from './components/animate';
 import { getComponentStyleMap } from '../../core/components';
 import Attribute from './components/attribute';
 import SettingPosition from '../SettingPosition';
+import SettingBorder from './components/border';
 
 const { TabPane } = Tabs;
 
@@ -35,6 +36,16 @@ class Setting extends React.Component {
       value = +target.value;
     }
     dispatch(changeBaseStyle({ [key]: value }, activeEditKey));
+  }
+
+  setBorder = key => (e) => {
+    const { dispatch, activeEditKey } = this.props;
+    const { target } = e;
+    let value = e;
+    if (target) {
+      value = +target.value;
+    }
+    dispatch(changeItemBorder(activeEditKey, { [key]: value }));
   }
 
   renderComponent() {
@@ -69,9 +80,18 @@ class Setting extends React.Component {
               {
                   this.renderComponent()
               }
-              {
-                item && <SettingPosition {...item} setBaseStyle={this.setBaseStyle} />
-              }
+              <Collapse>
+                <Collapse.Panel header="边框" key="1">
+                  {
+                    item && <SettingBorder {...item} setBorder={this.setBorder} />
+                  }
+                </Collapse.Panel>
+                <Collapse.Panel header="位置与尺寸" key="3">
+                  {
+                    item && <SettingPosition {...item} setBaseStyle={this.setBaseStyle} />
+                  }
+                </Collapse.Panel>
+              </Collapse>
               <div className="text-center m-t-12 m-b-12">
                 <Button onClick={this.onRemove} type="danger">删除元素</Button>
               </div>

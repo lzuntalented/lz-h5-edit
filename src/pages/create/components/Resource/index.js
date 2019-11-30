@@ -60,6 +60,6 @@ class Setting extends React.Component {
   }
 }
 
-const mapStateToProps = () => {};
+const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch => ({ dispatch });
 export default connect(mapStateToProps, mapDispatchToProps)(Setting);

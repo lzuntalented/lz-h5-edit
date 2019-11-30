@@ -6,4 +6,5 @@ export default {
   edit,
   render,
   style,
+  size: { height: 40 },
 };

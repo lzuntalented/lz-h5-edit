@@ -4,7 +4,7 @@ const config = [
   {
     label: '形状',
     key: 'shape',
-    initValue: '2',
+    initValue: '1',
     renderType: STYLE_RENDER_TYPE_SELECT,
     props: {
       options: [

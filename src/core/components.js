@@ -13,6 +13,7 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE,
 } from './constants';
+import { getDefaultAttrs } from '../utils/Tools';
 
 const map = {
   // [COMPONENT_TYPE_TEXT]: Text,
@@ -30,11 +31,15 @@ const map = {
  * @param {*} obj
  */
 function registerComponent(key, obj) {
-  const { render, edit, style } = obj;
+  const {
+    render, edit, style, size,
+  } = obj;
   map[key] = {
-    edit: EditItem(edit, style),
+    edit: EditItem(edit),
     render: RenderItem(render),
     style,
+    size,
+    attrs: getDefaultAttrs(style),
   };
 }
 
@@ -63,4 +68,18 @@ export function getComponentStyleMap(key) {
   const obj = map[key];
   if (obj) return obj.style;
   return null;
+}
+
+export function getComponentDefaultSize(key) {
+  const obj = map[key];
+  let result = {};
+  if (obj && obj.attrs) result = obj.size;
+  return result;
+}
+
+export function getComponentDefaultAttrs(key) {
+  const obj = map[key];
+  let result = {};
+  if (obj && obj.size) result = obj.attrs;
+  return result;
 }

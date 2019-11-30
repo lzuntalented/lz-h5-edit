@@ -42,13 +42,9 @@ export default function (Component, config) {
       super(props);
       this.magicRefs = {};
       this.shiftDown = false;
-      this.defaultAttrs = getDefaultAttrs(config);
     }
 
     componentDidMount() {
-      const attrs = this.defaultAttrs;
-      this.registerAttrs(attrs);
-      this.resetHeight();
     }
 
     onClikItem = (e) => {
@@ -98,10 +94,12 @@ export default function (Component, config) {
     }
 
     // 重置高度
-    resetHeight = () => {
+    resetHeight = (h) => {
       const { dispatch, uniqueId } = this.props;
       const elem = this.magicRefs[refNames.content];
-      if (elem) {
+      if (h) {
+        dispatch(resetContentHeight({ height: h, key: uniqueId }));
+      } else if (elem) {
         const height = elem.clientHeight;
         dispatch(resetContentHeight({ height, key: uniqueId }));
       }
@@ -139,7 +137,7 @@ export default function (Component, config) {
     render() {
       const { data } = this.props;
       const {
-        rect, animate, attrs,
+        rect, animate, attrs, border = {},
       } = data;
       const {
         name, duration, delay, repeat,
@@ -155,6 +153,10 @@ export default function (Component, config) {
       const contentCls = 'content-hide-container';
       const animateStyle = {
         animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
+        borderStyle: border.style,
+        borderWidth: border.width,
+        borderColor: border.color,
+        borderRadius: border.radius,
       };
       return (
         <div
@@ -173,6 +175,7 @@ export default function (Component, config) {
             <div
               className="content-container"
               ref={this.setMagicRefs(refNames.content)}
+              style={{ height }}
             >
               <Component
                 resetHeight={this.resetHeight}

@@ -7,9 +7,6 @@ export default function BDMapEdit(props) {
   const styleProps = Object.assign({ }, defaultAttrs, others);
   return (
     <BDMap
-      style={{
-        minHeight: '320px',
-      }}
       {...styleProps}
     />
   );

@@ -31,6 +31,10 @@ class Text extends React.Component {
     this.focusAble = false;
   }
 
+  componentDidMount() {
+    this.componentDidUpdate();
+  }
+
   componentDidUpdate() {
     const handler = this.magicRefs[refNames.editDom];
     const { text } = this.props;
@@ -89,16 +93,15 @@ class Text extends React.Component {
   render() {
     const { editable } = this.state;
     const {
-      resetHeight, setAttribute, defaultAttrs,
-      text, bgColor, opacity, ...others
+      resetHeight, setAttribute,
+      text, bgColor, ...others
     } = this.props;
     const style = Object.assign({
       width: '100%',
-      minHeight: '40px',
       padding: 10,
       background: bgColor,
       outerColor: 'transport',
-    }, defaultAttrs, others, { opacity });
+    }, others);
     return (
       <div
         style={style}

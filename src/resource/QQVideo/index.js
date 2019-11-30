@@ -5,4 +5,5 @@ export default {
   edit: QQVideo,
   render: QQVideo,
   style,
+  size: { height: 480 },
 };

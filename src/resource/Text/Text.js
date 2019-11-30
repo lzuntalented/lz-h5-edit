@@ -9,7 +9,6 @@ function Text(props) {
     <div
       style={{
         width: '100%',
-        minHeight: '40px',
         padding: 10,
         color,
         fontSize,

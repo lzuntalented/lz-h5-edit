@@ -5,7 +5,7 @@ function Picture(props) {
   const {
     shape, stroke, bgColor,
   } = props;
-  const style = { background: bgColor, width: '100%', height: '100%' };
+  const style = { background: bgColor, width: '100%' };
   return (
     <div
       style={style}

@@ -23,9 +23,9 @@ class Phone extends React.Component {
   componentDidMount() {
     // 担心观众老爷等不及，预制一个场景
     // const data = get1024Data();
-    const { dispatch, id } = this.props;
-    const data = getComponetData(id);
-    dispatch(initStore(data));
+    // const { dispatch, id } = this.props;
+    // const data = getComponetData(id);
+    // dispatch(initStore(data));
   }
 
   renderComponent() {

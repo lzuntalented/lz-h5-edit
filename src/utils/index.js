@@ -69,6 +69,12 @@ export function createEditItem(type, name, nodeType, belong) {
       // 动画重复次数
       repeat: 1,
     },
+    border: {
+      style: 'solid',
+      color: '#000000',
+      width: 0,
+      radius: 0,
+    },
     attrs: {},
   };
   if (belong) {

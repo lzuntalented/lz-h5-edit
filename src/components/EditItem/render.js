@@ -8,7 +8,7 @@ import './render.scss';
 export default function EditItemRender(Component) {
   function Layout(props) {
     const {
-      rect, attrs, animate,
+      rect, attrs, animate, border = {},
     } = props;
     const {
       width, left, top, height, rotate,
@@ -22,6 +22,10 @@ export default function EditItemRender(Component) {
     const cls = `content-hide-container ${animate || ''}`;
     const animateStyle = {
       animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
+      borderStyle: border.style,
+      borderWidth: border.width,
+      borderColor: border.color,
+      borderRadius: border.radius,
     };
     return (
       <div
