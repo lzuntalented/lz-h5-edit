@@ -2,7 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Icon, Button, Upload } from 'antd';
+import {
+  Icon, Button, Upload, Modal,
+} from 'antd';
 
 import './index.scss';
 import {
@@ -10,25 +12,22 @@ import {
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
   EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
   EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
-  COMPONENT_TYPE_QQ_VIDEO, EXAMPLE_DATA_1024,
-} from '../../core/constants';
+  EXAMPLE_DATA_1024,
+} from '../../../../core/constants';
 import {
-  addPageItem, resetStore, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore,
-} from '../../store/action';
-import LzLocalStorage from '../../utils/LocalStorage';
+  addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore,
+} from '../../../../store/action';
+import LzLocalStorage from '../../../../utils/LocalStorage';
 
 import ImageClip from './components/ImageClip';
 import Music from './components/Music';
-import {
-  getGKData, getDragonFestivalData, getChildrenFestivalData, get1024Data,
-} from '../../pages/realpreview/config';
-import { save } from '../../services/create';
-import ModalContainer from '../ModalContainer';
+import { save } from '../../../../services/create';
+import ModalContainer from '../../../../components/ModalContainer';
 import ImageList from './components/ImageList';
 import MusicList from './components/MusicList';
 import { getUploadProps } from './config';
-import HistoryStore from '../../utils/HistoryStore';
-import { getComponetData } from '../../pages/create/config';
+import HistoryStore from '../../../../utils/HistoryStore';
+import { getComponetData } from '../../config';
 
 class Header extends React.Component {
   static propTypes = {
@@ -75,11 +74,28 @@ class Header extends React.Component {
   }
 
   onPreview = () => {
-    const { state } = this.props;
-    // 远程存储用户预览模板
-    save({ content: state });
+    const { showPreview, state } = this.props;
     this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, state);
-    window.open(`#/preview/${EXAMPLE_DATA_PREVIEW}`, '_blank');
+    showPreview();
+  }
+
+  onPublish = () => {
+    const { state } = this.props;
+    // // 远程存储用户预览模板
+    save({ content: state }).then((id) => {
+      Modal.success({
+        content: '恭喜，发布成功！',
+        onOk: () => {
+          window.open(`#/preview/${id}`, '_blank');
+        },
+      });
+    }).catch(() => {
+      Modal.error({
+        title: '发布失败',
+      });
+    });
+    // this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, state);
+    // window.open(`#/preview/${EXAMPLE_DATA_PREVIEW}`, '_blank');
   }
 
   onChangeVisible = flag => () => {
@@ -216,7 +232,8 @@ class Header extends React.Component {
           />
         </ul>
         <ul className="publish-container">
-          <Button type="primary" onClick={this.onPreview}>预览</Button>
+          <Button type="danger" onClick={this.onPublish}>发布</Button>
+          <Button type="primary" className="m-r-4" onClick={this.onPreview}>预览</Button>
           <iframe
             src="https://ghbtns.com/github-btn.html?user=lzuntalented&repo=lz-h5-edit&type=star&count=true"
             frameBorder="0"

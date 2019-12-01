@@ -783,6 +783,8 @@ function changeItemBorder(store, action) {
     const obj = store.toJS();
     const { border, key } = value;
     const { editList } = obj;
+    // 临时方案
+    if (!editList[key].border) editList[key].border = { style: 'solid' };
     Object.assign(editList[key].border, border);
     return fromJS(obj);
   }

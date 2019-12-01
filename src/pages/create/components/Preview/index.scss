@@ -1,0 +1,9 @@
+.realperview-container {
+    position: fixed;
+    left: 20%;
+    z-index: 1001;
+
+    .content {
+        background-color: #fff;
+    }
+}

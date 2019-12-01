@@ -6,6 +6,8 @@ import Phone from './phone';
 import Control from './components/Control';
 import AideLine from './components/AideLine';
 import Resource from './components/Resource';
+import Preview from './components/Preview';
+import Header from './components/Header';
 import './event';
 
 // 引入样式文件
@@ -16,12 +18,24 @@ class Home extends React.Component {
     super(props);
     const { routeParams } = props;
     this.id = routeParams && routeParams.id;
-    this.state = {};
+    this.state = {
+      showPreview: false,
+    };
+  }
+
+  showPreview = () => {
+    this.setState({ showPreview: true });
+  }
+
+  hidePreview = () => {
+    this.setState({ showPreview: false });
   }
 
   render() {
+    const { showPreview } = this.state;
     return (
       <div className="home-container">
+        <Header showPreview={this.showPreview} />
         <Row type="flex" justify="center">
           <Col>
             <div className="phone-container">
@@ -44,6 +58,12 @@ class Home extends React.Component {
           <PageManage />
         </div>
         <Resource />
+        {showPreview && (
+        <Preview
+          visible={showPreview}
+          hidePreview={this.hidePreview}
+        />
+        )}
       </div>
     );
   }

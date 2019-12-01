@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import { getPictureList } from '../../../../services/create';
+import { getPictureList } from '../../../../../../services/create';
+import LazyImage from './lazyImage';
 
 const defaultList = [
   'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png',
@@ -39,7 +40,7 @@ export default class ImageList extends React.Component {
         {
             list.map(it => (
               <Col key={it} className="item" onClick={onAddPciture(it)}>
-                <img width="95%" src={it} alt="" />
+                <LazyImage width="95%" src={it} alt="" />
               </Col>
             ))
         }

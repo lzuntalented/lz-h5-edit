@@ -1,6 +1,12 @@
 .page-header-container{
     display: flex;
     line-height: initial;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 1000;
 
     ul.ul-comp {
         margin: 0 0;

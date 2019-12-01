@@ -60,11 +60,13 @@ export default {
       }).then((response) => {
         if (response) {
           const res = response.data;
-          if (res && res.code === ajaxRetCode.success) {
-            resolve(res.msg);
+          if (res && res.errno === ajaxRetCode.success) {
+            resolve(res.data);
+          } else {
+            reject();
           }
         }
-      }).catch(() => {});
+      }).catch(reject);
     });
   },
 };

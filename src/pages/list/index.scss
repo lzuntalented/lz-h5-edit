@@ -3,7 +3,7 @@
     margin: 0 auto;
     padding: 24px 0;
 
-    ul {
+    ul.l {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
@@ -82,6 +82,11 @@
                     }
                 }
             }
+        }
+
+        i.empty {
+            width: 370px;
+            height: 0;
         }
     }
 }

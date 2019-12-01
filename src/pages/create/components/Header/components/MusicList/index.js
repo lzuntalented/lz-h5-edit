@@ -3,7 +3,7 @@ import {
   Row, Col, Icon, Button,
 } from 'antd';
 // import { getPictureList } from '../../../../services/create';
-import Music from '../../../../utils/music';
+import Music from '../../../../../../utils/music';
 
 const defaultList = [
   {

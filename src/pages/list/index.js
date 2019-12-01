@@ -1,9 +1,10 @@
 import React from 'react';
+import { Pagination } from 'antd';
 import Card from './components/Card';
 
 import './index.scss';
 import {
-  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, getLocalCardList,
+  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW,
 } from './config';
 import { getList } from '../../services/create';
 import { translateShowDataFromStore } from '../../utils';
@@ -14,19 +15,28 @@ export default class List extends React.Component {
   mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
 
   state = {
-    list: getLocalCardList(),
+    list: [],
+    // 当前页码
+    pageIndex: 1,
+    // 作品总数
+    total: 0,
   }
 
   componentDidMount() {
-    this.getCardList();
+    const { pageIndex } = this.state;
+    this.getCardList(pageIndex);
   }
 
+  onChosePage = (page) => {
+    this.getCardList(page);
+  }
 
-  getCardList = () => {
-    const { list } = this.state;
+  // 获取作品列表
+  getCardList = (pageIndex) => {
     const result = [];
-    getList().then((res) => {
-      res.forEach(({ id, content }) => {
+    getList({ pageIndex }).then((res) => {
+      const { list, total } = res;
+      list.forEach(({ id, content }) => {
         const obj = JSON.parse(content);
         result.push({
           id,
@@ -34,7 +44,11 @@ export default class List extends React.Component {
           content: translateShowDataFromStore(obj),
         });
       });
-      this.setState({ list: result.concat(list) });
+      this.setState({
+        pageIndex,
+        list: result,
+        total,
+      });
     });
   }
 
@@ -59,57 +73,20 @@ export default class List extends React.Component {
   };
 
   render() {
-    const { list } = this.state;
+    const { list, pageIndex, total } = this.state;
     return (
       <div className="page-list">
-        <ul>
+        <ul className="l">
           <Card defaultType onClick={this.clickCallback} />
           {
             list.map(it => <Card key={it.id} onClick={this.clickCallback} data={it} />)
         }
+          <i className="empty" /><i className="empty" /><i className="empty" />
         </ul>
+        <div className="text-right">
+          <Pagination current={pageIndex} total={total} onChange={this.onChosePage} />
+        </div>
       </div>
     );
   }
 }
-
-// const clickCallback = (type, data) => () => {
-//   if (type === CLICK_TYPE_DEFAULT) {
-//     window.location.hash = '/create';
-//   } else if (type === CLICK_TYPE_EDIT) {
-//     window.location.hash = `/edit/${data}`;
-//   } else if (type === CLICK_TYPE_PREVIEW) {
-//     // getPerviewImage();
-//     window.location.hash = `/preview/${data}`;
-//   }
-// };
-
-// function getCardList(list, setList) {
-//   getList().then((res) => {
-//     res.forEach(({ id, content }) => {
-//       list.push({
-//         id,
-//         content: translateShowDataFromStore(JSON.parse(content)),
-//       });
-//     });
-//     setList(list);
-//   });
-// }
-
-// export default () => {
-//   const [list, setList] = React.useState(getLocalCardList());
-//   React.useEffect(() => {
-//     getCardList(list, setList);
-//   }, []);
-//   console.log(list);
-//   return (
-//     <div className="page-list">
-//       <ul>
-//         <Card defaultType onClick={clickCallback} />
-//         {
-//             list.map(it => <Card key={it.id} onClick={clickCallback} data={it} />)
-//         }
-//       </ul>
-//     </div>
-//   );
-// };

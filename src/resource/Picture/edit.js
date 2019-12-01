@@ -13,7 +13,6 @@ class PictureEdit extends React.Component {
   }
 
   onLoad = (e) => {
-    console.log(e.target.height);
     const { resetHeight } = this.props;
     resetHeight(e.target.height);
   }

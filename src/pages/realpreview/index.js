@@ -2,20 +2,13 @@ import React from 'react';
 import { Button } from 'antd';
 import QRCode from 'qrcode';
 import Phone from './phone';
-import LzLocalStorage from '../../utils/LocalStorage';
 
 // 引入样式文件
 import './index.scss';
-import {
-  getDragonFestivalData, getChildrenFestivalData, getGKData, get1024Data,
-  getDouble11Data, getThinksgivingData,
-} from './config';
-import {
-  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_PREVIEW,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION, EXAMPLE_DATA_1024,
-  EXAMPLE_DATA_DOUBLE_ELEVEN, EXAMPLE_DATA_THINKSGIVING,
-} from '../../core/constants';
 import { translateShowDataFromStore } from '../../utils';
+import LzLocalStorage from '../../utils/LocalStorage';
+import { getDetail } from '../../services/create';
+import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
 
 const refNames = {
   content: 'content',
@@ -24,36 +17,25 @@ const refNames = {
 class Perview extends React.Component {
   constructor(props) {
     super(props);
-    this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
-    const { params } = props;
-    this.data = getDragonFestivalData();
-    if (params && (params.id === EXAMPLE_DATA_PREVIEW || +params.id > 0)) {
-      const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
-      this.data = JSON.parse(data);
-    }
-    if (params && params.id === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
-      this.data = getChildrenFestivalData();
-    }
-    if (params && params.id === EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION) {
-      this.data = getGKData();
-    }
-    if (params && params.id === EXAMPLE_DATA_1024) {
-      this.data = get1024Data();
-    }
-    if (params && params.id === EXAMPLE_DATA_DOUBLE_ELEVEN) {
-      this.data = getDouble11Data();
-    }
-    if (params && params.id === EXAMPLE_DATA_THINKSGIVING) {
-      this.data = getThinksgivingData();
-    }
-    this.data = translateShowDataFromStore(this.data);
-    this.cacheKey = params && params.id;
+    const { params, localPreview } = props;
+    this.state = { data: {} };
+
+    this.cacheKey = params && +params.id;
     this.state = { wapPreviewUrl: null };
+    if (localPreview) {
+      this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
+      const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
+      this.state.data = translateShowDataFromStore(JSON.parse(data));
+    }
     this.magicRefs = {};
   }
 
   componentDidMount() {
-    if (this.cacheKey !== EXAMPLE_DATA_PREVIEW && +this.cacheKey > 0) {
+    if (this.cacheKey && this.cacheKey > 0) {
+      getDetail({ id: this.cacheKey }).then((res) => {
+        const data = translateShowDataFromStore(JSON.parse(res));
+        this.setState({ data });
+      });
       QRCode.toDataURL(`http://show.lzuntalented.cn/wap.html?id=${this.cacheKey}`)
         .then((url) => {
           this.setState({ wapPreviewUrl: url });
@@ -74,12 +56,12 @@ class Perview extends React.Component {
   }
 
   render() {
-    const { wapPreviewUrl } = this.state;
+    const { wapPreviewUrl, data } = this.state;
     return (
       <div className="realperview-container">
         <div className="phone-container">
           <div className="header" />
-          <Phone data={this.data} ref={this.setMagicRefs(refNames.content)} />
+          {data && <Phone data={data} ref={this.setMagicRefs(refNames.content)} />}
           <div className="footer" />
         </div>
         <div className="toggle-page">
@@ -87,8 +69,8 @@ class Perview extends React.Component {
             <Button onClick={this.prevPage}>上一页</Button>
             <p />
             {
-              this.data && this.data.list
-              && <div className="text-center">共{this.data.list.length}页</div>
+              data && data.list
+              && <div className="text-center">共{data.list.length}页</div>
             }
             <p />
             <Button onClick={this.nextPage}>下一页</Button>
