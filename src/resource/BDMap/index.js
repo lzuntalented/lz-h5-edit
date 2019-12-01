@@ -7,4 +7,5 @@ export default {
   render,
   style,
   size: { height: 320 },
+  name: '地图',
 };

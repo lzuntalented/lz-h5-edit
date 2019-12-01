@@ -6,4 +6,5 @@ export default {
   render: QQVideo,
   style,
   size: { height: 480 },
+  name: 'QQ通话',
 };

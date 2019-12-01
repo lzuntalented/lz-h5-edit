@@ -42,7 +42,7 @@ class Text extends React.Component {
     if (handler) {
       // 如果文本内容为空，取已设置的内容填充
       const currentText = handler.innerHTML;
-      if (currentText.trim() === '') {
+      if (currentText.trim() === '' || currentText !== text) {
         handler.innerHTML = text;
       }
     }

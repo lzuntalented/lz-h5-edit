@@ -7,4 +7,5 @@ export default {
   render,
   style,
   size: { height: 100, width: 110 },
+  name: '形状',
 };

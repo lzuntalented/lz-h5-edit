@@ -6,14 +6,17 @@ import {
   CHANGE_ITEM_BASE_STYLE, STORE_ADD_PAGE, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_LEFT_BOTTOM, POINT_RIGHT_TOP, REMOVE_ITEM,
   POINT_ROTATE, SAVE_MOVE_START_RECT, PAGE_ITEM_RESORT,
-  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY, STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS, ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER,
+  CHANGE_ALL_PAGE_BACKGROUND, STORE_RESET_TO_EDIT, STORE_CHANGE_BACK_MUSIC_URL, ADD_ACTIVE_EDIT_KEY,
+  STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
+  STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
+  ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
 } from '../utils';
 import { createId } from '../utils/IDManage';
-import { getNameWithItemType } from '../utils/Tools';
-import { getComponentDefaultAttrs, getComponentDefaultSize } from '../core/components';
+import { getComponentDefaultAttrs, getComponentDefaultSize, getComponentDefaultName } from '../core/components';
 
 function startMove(store, action) {
   const { type, value } = action;
@@ -310,7 +313,7 @@ function create(store, action) {
   const { type, value } = action;
   const obj = store.toJS();
   if (type === CREATE_ITEM_STORE) {
-    const { editList, activePage, pages } = obj;
+    const { editList } = obj;
     // { 唯一标识, 组件类型 }
     const { uniqueId, type: componentType } = value;
     editList[uniqueId] = createEditItem(componentType);
@@ -426,7 +429,7 @@ function addPageItem(store, action) {
     const uniqueId = createId();
     const page = pages[activePage];
     // 给组件命名
-    const name = `${getNameWithItemType(value)} ${page.length + 1}`;
+    const name = `${getComponentDefaultName(value)} ${page.length + 1}`;
     editList[uniqueId] = createNode(value, name);
     Object.assign(editList[uniqueId].attrs, getComponentDefaultAttrs(value));
     Object.assign(editList[uniqueId].rect, getComponentDefaultSize(value));
@@ -448,7 +451,7 @@ function addPageItemWithAttrs(store, action) {
     const uniqueId = createId();
     const page = pages[activePage];
     // 给组件命名
-    const name = `${getNameWithItemType(value.type)} ${page.length + 1}`;
+    const name = `${getComponentDefaultName(value.type)} ${page.length + 1}`;
     editList[uniqueId] = createNode(value.type, name);
     Object.assign(editList[uniqueId].attrs, value.attrs);
     page.push(uniqueId);
@@ -468,7 +471,7 @@ function addPageItemWithSize(store, action) {
     const uniqueId = createId();
     const page = pages[activePage];
     // 给组件命名
-    const name = `${getNameWithItemType(value.type)} ${page.length + 1}`;
+    const name = `${getComponentDefaultName(value.type)} ${page.length + 1}`;
     editList[uniqueId] = createNode(value.type, name);
     Object.assign(editList[uniqueId].rect, value.size);
     page.push(uniqueId);
@@ -548,7 +551,7 @@ function resetStore(store, action) {
         const uniqueId = createId();
         page.push(uniqueId);
         editList[uniqueId] = {
-          name: `${getNameWithItemType(type)}${i}`,
+          name: `${getComponentDefaultName(type)}${i}`,
           ...JSON.parse(JSON.stringify(item)),
         };
       });

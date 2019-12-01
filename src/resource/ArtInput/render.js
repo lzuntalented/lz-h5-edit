@@ -10,7 +10,6 @@ function Text(props) {
       style={{
         fontFamily,
         width: '100%',
-        minHeight: '40px',
         padding: 10,
         color,
         fontSize,

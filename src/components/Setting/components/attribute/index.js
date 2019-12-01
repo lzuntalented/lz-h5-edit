@@ -5,10 +5,13 @@ import RenderStyle from './components/Select';
 import RenderColor from './components/Color';
 import RenderSliderInput from './components/SliderInput';
 import Input from './components/Input';
+import Textarea from './components/Textarea';
+import ContentEditDiv from './components/ContentEditDiv';
 // import styleConfig from '../../../../resource/Text/config';
 import {
   STYLE_RENDER_TYPE_SELECT, STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_SLIDER_INPUT,
-  STYLE_VALUE_TYPE_NUMBER, STYLE_RENDER_TYPE_INPUT,
+  STYLE_VALUE_TYPE_NUMBER, STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_TEXTAREA,
+  STYLE_RENDER_TYPE_CONTENT_EDIT_DIV,
 } from '../../../../core/constants';
 import { changeAttrs } from '../../../../store/action';
 import { isObject, isString } from '../../../../utils/Tools';
@@ -18,6 +21,8 @@ const renderMap = {
   [STYLE_RENDER_TYPE_COLOR]: RenderColor,
   [STYLE_RENDER_TYPE_SLIDER_INPUT]: RenderSliderInput,
   [STYLE_RENDER_TYPE_INPUT]: Input,
+  [STYLE_RENDER_TYPE_TEXTAREA]: Textarea,
+  [STYLE_RENDER_TYPE_CONTENT_EDIT_DIV]: ContentEditDiv,
 };
 
 export function registerRender(key, Comp) {
