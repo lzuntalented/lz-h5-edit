@@ -8,15 +8,13 @@ import queryString from 'query-string';
 // import Cookies from 'js-cookie';
 
 import constants from '../services/constants';
+import { getUrlPrefix } from '../services/apiConfig';
 
 const { ajaxRetCode } = constants;
 
 // let url_prefix = 'http://localhost:3000';
 // const url_prefix = 'http://mock-api.lzuntalented.cn';
-let urlPrefix = '//www.lzuntalented.cn:8380';
-if (window.location.host.indexOf('localhost') > -1) {
-  urlPrefix = '//localhost:8380';
-}
+const urlPrefix = getUrlPrefix();
 
 export default {
   get(url, params = {}) {

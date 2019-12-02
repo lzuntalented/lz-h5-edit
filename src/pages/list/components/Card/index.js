@@ -3,6 +3,7 @@ import QRCode from 'qrcode';
 import { Row, Col, Icon } from 'antd';
 import { CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW } from '../../config';
 import Perview from '../Perview';
+import { getUrlPrefix } from '../../../../services/apiConfig';
 
 export default (props) => {
   const { data, defaultType, onClick } = props;

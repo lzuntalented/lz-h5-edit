@@ -62,6 +62,8 @@ export default {
   edit: 编辑态组件,
   render: 渲染太组件,
   style: 属性面板配置文件（普通对象）,
+  size: { height: 物料高度 },
+  name: 物料名称(层级管理器显示的名字),
 };
 
 ```
