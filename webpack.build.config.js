@@ -47,6 +47,9 @@ function getCurrentVersion() {
 
 const version = getCurrentVersion();
 
+console.log(`当前构建版本号：${version}`);
+console.warn('当前构建生成的html文件中使用百度统计是开发者的，请及时替换成您自己的统计脚本!');
+
 module.exports = {
   entry: {
     bound: './src/index.js',
@@ -119,7 +122,7 @@ module.exports = {
     new HtmlWebpackPlugin({ // Also generate a test.html
       chunks: [],
       filename: path.resolve(distPath, 'index.html'),
-      template: 'dist/index.html.tpl',
+      template: 'src/tpl/index.html.tpl',
       templateParameters: {
         jsPath: `${version}/bound`,
       },
@@ -127,7 +130,7 @@ module.exports = {
     new HtmlWebpackPlugin({ // Also generate a test.html
       chunks: [],
       filename: path.resolve(distPath, 'wap.html'),
-      template: 'dist/wap.html.tpl',
+      template: 'src/tpl/wap.html.tpl',
       templateParameters: {
         jsPath: `${version}/wap`,
       },
