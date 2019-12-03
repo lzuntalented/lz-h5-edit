@@ -20,14 +20,16 @@ export default class ModalContainer extends React.Component {
   }
 
   render() {
-    const { options, children, ...others } = this.props;
+    const {
+      options, children, className, ...others
+    } = this.props;
     const { defaultKeys, selectKeys } = this.state;
     return (
       <Modal
         {...others}
         footer={null}
         closable
-        className="component-modal-container"
+        className={`component-modal-container ${className}`}
         width={960}
       >
         <Row type="flex" justify="space-between">

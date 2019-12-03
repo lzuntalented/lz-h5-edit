@@ -35,7 +35,7 @@ export function getComponetData(id) {
     const data = mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
     return JSON.parse(data);
   }
-  return getThinksgivingData();
+  return null;
 }
 
 export default () => {};

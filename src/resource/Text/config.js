@@ -1,10 +1,18 @@
 import Align from './style/align';
+import FontFamily from './style/fontFamily';
 import {
   STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_SELECT,
-  STYLE_RENDER_TYPE_SLIDER_INPUT, STYLE_VALUE_TYPE_NUMBER, STYLE_RENDER_TYPE_HIDDEN, STYLE_RENDER_TYPE_TEXTAREA, STYLE_RENDER_TYPE_CONTENT_EDIT_DIV,
+  STYLE_RENDER_TYPE_SLIDER_INPUT, STYLE_VALUE_TYPE_NUMBER,
+  STYLE_RENDER_TYPE_CONTENT_EDIT_DIV,
 } from '../../core/constants';
 
 const config = [
+  {
+    label: '文字字体',
+    key: 'fontFamily',
+    initValue: '双击输入文本',
+    renderType: FontFamily,
+  },
   {
     label: '文本内容',
     key: 'text',

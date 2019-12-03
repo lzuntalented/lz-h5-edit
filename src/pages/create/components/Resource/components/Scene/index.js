@@ -28,8 +28,8 @@ class RealPreview extends React.Component {
     const item = list[0];
 
     return (
-      <div className="scene-content" style={style}>
-        <div key={id} style={{ position: 'relative' }}>
+      <div key={id} className="scene-content" style={style}>
+        <div style={{ position: 'relative' }}>
           {
             item.map((it, idx) => {
               const { type, ...others } = it;
