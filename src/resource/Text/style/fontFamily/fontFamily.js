@@ -30,7 +30,7 @@ export default function StyleFontFamily(props) {
           >
             <div
               className="font-item-title"
-              style={{ fontFamily: it.key }}
+              style={{ fontFamily: `example-${it.key}` }}
             >字体示例
             </div>
             <div

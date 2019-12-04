@@ -10,7 +10,7 @@ const config = [
   {
     label: '文字字体',
     key: 'fontFamily',
-    initValue: '双击输入文本',
+    initValue: '默认字体',
     renderType: FontFamily,
   },
   {
