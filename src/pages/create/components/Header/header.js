@@ -9,10 +9,8 @@ import {
 import './index.scss';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
-  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
-  EXAMPLE_DATA_PREVIEW, EXAMPLE_DATA_DRAGON_FESTIVAL,
-  EXAMPLE_DATA_CHILDREN_FESTIVAL, EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION,
-  EXAMPLE_DATA_1024,
+  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_DRAGON_FESTIVAL,
+  EXAMPLE_DATA_THINKSGIVING,
 } from '../../../../core/constants';
 import {
   addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore,
@@ -183,16 +181,7 @@ class Header extends React.Component {
         <div className="example-container">
           <img onClick={() => { window.location.hash = '/'; }} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
           <a href={`#/preview/${EXAMPLE_DATA_DRAGON_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_DRAGON_FESTIVAL)}>示例-端午节</Button>
-          </a>
-          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_CHILDREN_FESTIVAL}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_CHILDREN_FESTIVAL)}>示例-儿童节</Button>
-          </a>
-          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_COLLEGE_ENTRANCE_EXAMINATION)}>示例-高考加油</Button>
-          </a>
-          <a className="m-l-20" href={`#/preview/${EXAMPLE_DATA_1024}`} target="_blank" rel="noopener noreferrer">
-            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_1024)}>示例-1024程序员节</Button>
+            <Button type="primary" onClick={this.onEdit(EXAMPLE_DATA_THINKSGIVING)}>示例-感恩节</Button>
           </a>
         </div>
         <ul className="ul-comp">

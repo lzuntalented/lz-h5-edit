@@ -21,6 +21,11 @@ npm start
 npm run build
 ```
 
+## 开发文档
+* [快速开始](http://blog.lzuntalented.cn/sxx/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html)
+* [项目解析](http://blog.lzuntalented.cn/sxx/%E9%A1%B9%E7%9B%AE%E8%A7%A3%E6%9E%90.html)
+
+
 ### 功能
 
 * 编辑器功能
@@ -96,6 +101,6 @@ registerComponent(自定义组件唯一标识字符串, 物料组件);
 
 |  微信交流群   | QQ交流群  |
 |  ----  | ----  |
-| ![微信交流群](http://www.lzuntalented.cn/img/sxx-wx.png?1)  | ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
+| ![微信交流群](http://www.lzuntalented.cn/img/sxx-wx.png?2)  | ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
 
 Give a ⭐️ if this project helped you!
