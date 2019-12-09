@@ -4,6 +4,26 @@
   @return $n * 0.083rem ;
 }
 
+$space: 4,8,12,16,20,24,30,48;
+$dirction: (t: 'top', r: 'right', l: 'left', b: 'bottom');
+
+@each $s in $space{
+  @each $key, $value in $dirction{
+    .m-#{$key}-#{$s}{
+      margin-#{$value}: $s + px;
+    }
+    .p-#{$key}-#{$s}{
+      padding-#{$value}: $s + px;
+    }
+    .m-#{$s}{
+      margin: $s + px;
+    }
+    .p-#{$s}{
+      padding: $s + px;
+    }
+  }
+}
+
 .m-l-20{
   margin-left: 20px;
 }

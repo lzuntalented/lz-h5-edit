@@ -1,14 +1,14 @@
 import React from 'react';
 import { Button } from 'antd';
 import { getComponentRenderMap } from '../../../../../../core/components';
-import { getLocalCardList } from './config';
 import { winSize } from '../../../../../../utils';
+import { getLocalTplDatas } from '../../../../../../core/config';
 
 class RealPreview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: getLocalCardList(),
+      list: getLocalTplDatas(),
     };
   }
 

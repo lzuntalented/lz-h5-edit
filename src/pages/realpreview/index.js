@@ -9,6 +9,7 @@ import { translateShowDataFromStore } from '../../utils';
 import LzLocalStorage from '../../utils/LocalStorage';
 import { getDetail } from '../../services/create';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
+import { getLocalTplDatas } from '../../core/config';
 
 const refNames = {
   content: 'content',
@@ -26,13 +27,20 @@ class Perview extends React.Component {
       this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
       const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
       this.state.data = translateShowDataFromStore(JSON.parse(data));
+    } else if (params && params.id) {
+      const locals = getLocalTplDatas();
+      const obj = locals.find(it => it.id === params.id);
+      if (obj) {
+        this.state.data = obj.content;
+      }
     }
     this.magicRefs = {};
   }
 
   componentDidMount() {
     if (this.cacheKey && this.cacheKey > 0) {
-      getDetail({ id: this.cacheKey }).then((res) => {
+      getDetail({ id: this.cacheKey }).then((resp) => {
+        const { content: res } = resp;
         const data = translateShowDataFromStore(JSON.parse(res));
         this.setState({ data });
       });
