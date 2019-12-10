@@ -24,7 +24,8 @@ class Perview extends React.Component {
   componentDidMount() {
     const { id } = this.state;
     if (+id > 0) {
-      getDetail({ id }).then((res) => {
+      getDetail({ id }).then((resp) => {
+        const { content: res } = resp;
         const data = translateShowDataFromStore(JSON.parse(res));
         this.setState({ data });
       });
