@@ -10,7 +10,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
   STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
   ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
@@ -791,6 +791,30 @@ function changeItemBorder(store, action) {
   return null;
 }
 
+function changeItemName(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_CHANGE_ITEM_NAME) {
+    const obj = store.toJS();
+    const { name, key } = value;
+    const { editList } = obj;
+    editList[key].name = name;
+    return fromJS(obj);
+  }
+  return null;
+}
+
+function resortGroupItem(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_RESORT_GROUP_ITEM) {
+    const obj = store.toJS();
+    const { list, key } = value;
+    const { groupList } = obj;
+    groupList[key] = list;
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -822,4 +846,6 @@ export default [
   initHistoryStore,
   addPageItemWithSize,
   changeItemBorder,
+  changeItemName,
+  resortGroupItem,
 ];

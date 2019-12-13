@@ -43,7 +43,7 @@
         border-bottom-width: 0;
     }
 
-    &.active {
+    .name.active {
         background-color: aquamarine;
     }
 }
@@ -54,9 +54,5 @@
     }
     &.active {
         background-color: #fff;
-
-        .name {
-            background-color: aquamarine;
-        }
     }
 }
