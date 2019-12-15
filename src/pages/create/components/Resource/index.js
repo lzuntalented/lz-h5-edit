@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import {
   Tabs, Button, Row, Col, Card, Menu,
 } from 'antd';
-import { addPageItem, initStore, addPageItemWithSize } from '../../../../store/action';
+import {
+  addPageItem, initStore, addPageItemWithSize, addPageItemWithAttrs,
+} from '../../../../store/action';
 import Node from './components/Node';
 import Scene from './components/Scene';
 
@@ -26,6 +28,11 @@ class Setting extends React.Component {
   onAddComponentWithSize = (key, size) => () => {
     const { dispatch } = this.props;
     dispatch(addPageItemWithSize(key, size));
+  }
+
+  onAddComponentWithAttrs = (key, attrs) => () => {
+    const { dispatch } = this.props;
+    dispatch(addPageItemWithAttrs(key, attrs));
   }
 
   onClickTpl = store => () => {
@@ -51,7 +58,12 @@ class Setting extends React.Component {
               </Menu>
             </Col>
             <Col className="right-list">
-              <Comp onAddComponentWithSize={this.onAddComponentWithSize} onAddComponent={this.onAddComponent} onClickTpl={this.onClickTpl} />
+              <Comp
+                onAddComponentWithAttrs={this.onAddComponentWithAttrs}
+                onAddComponentWithSize={this.onAddComponentWithSize}
+                onAddComponent={this.onAddComponent}
+                onClickTpl={this.onClickTpl}
+              />
             </Col>
           </Row>
         </Card>

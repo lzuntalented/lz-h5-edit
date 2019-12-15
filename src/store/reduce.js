@@ -453,7 +453,8 @@ function addPageItemWithAttrs(store, action) {
     // 给组件命名
     const name = `${getComponentDefaultName(value.type)} ${page.length + 1}`;
     editList[uniqueId] = createNode(value.type, name);
-    Object.assign(editList[uniqueId].attrs, value.attrs);
+    Object.assign(editList[uniqueId].attrs, getComponentDefaultAttrs(value.type), value.attrs);
+    Object.assign(editList[uniqueId].rect, getComponentDefaultSize(value.type));
     page.push(uniqueId);
     // 设置当前添加的元素为激活项
     obj.activeEditKey = [uniqueId];

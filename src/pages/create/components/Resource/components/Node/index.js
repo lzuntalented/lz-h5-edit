@@ -5,11 +5,13 @@ import {
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP, COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO, COMPONENT_TYPE_TEXT_TYPED,
 } from '../../../../../../core/constants';
+import { getFontFamilyOptions } from '../../../../../../core/config';
 
 const { TabPane } = Tabs;
 
 export default function Node(props) {
-  const { onAddComponent, onAddComponentWithSize } = props;
+  const { onAddComponent, onAddComponentWithSize, onAddComponentWithAttrs } = props;
+  const fontFamilys = getFontFamilyOptions();
   return (
     <Tabs className="node" defaultActiveKey="1">
       <TabPane tab="基础组件" key="1">
@@ -54,6 +56,17 @@ export default function Node(props) {
           <Col span={6}>
             <div className="ys ys1" onClick={onAddComponent(COMPONENT_TYPE_ART_INPUT)}>文本</div>
           </Col>
+        </Row>
+      </TabPane>
+      <TabPane tab="字体示例" key="3">
+        <Row gutter={16}>
+          {
+            fontFamilys.map(it => (
+              <Col span={8} key={it.key} className="m-b-8">
+                <Button style={{ fontFamily: `example-${it.key}` }} onClick={onAddComponentWithAttrs(COMPONENT_TYPE_TEXT, { fontFamily: it.key })}>字体示例</Button>
+              </Col>
+            ))
+          }
         </Row>
       </TabPane>
     </Tabs>

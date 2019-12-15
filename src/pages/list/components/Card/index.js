@@ -3,7 +3,7 @@ import QRCode from 'qrcode';
 import { Row, Col, Icon } from 'antd';
 import { CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW } from '../../config';
 import Perview from '../Perview';
-import { getUrlPrefix } from '../../../../services/apiConfig';
+import { getDomain } from '../../../../services/apiConfig';
 
 export default (props) => {
   const { data, defaultType, onClick } = props;
@@ -18,7 +18,7 @@ export default (props) => {
   }
   const [qcorde, setCorde] = React.useState('');
   React.useEffect(() => {
-    QRCode.toDataURL(`http://show.lzuntalented.cn/wap.html?id=${id}`)
+    QRCode.toDataURL(`${getDomain()}/wap.html?id=${id}`)
       .then((url) => {
         setCorde(url);
       });
