@@ -7,6 +7,7 @@ export default {
   file: {
     getList: '/file/getList',
     upload: '/file/upload',
+    cropImage: '/file/cropImage',
   },
 };
 

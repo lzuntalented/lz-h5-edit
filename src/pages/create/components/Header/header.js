@@ -13,7 +13,7 @@ import {
   EXAMPLE_DATA_THINKSGIVING,
 } from '../../../../core/constants';
 import {
-  addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore,
+  addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore, changeBackGround,
 } from '../../../../store/action';
 import LzLocalStorage from '../../../../utils/LocalStorage';
 
@@ -51,6 +51,8 @@ class Header extends React.Component {
       modalMusicVisible: false,
       showPictureModal: false,
       showMusicModal: false,
+      showBgChoseModal: false,
+      currentClipImage: null,
     };
     this.uploadProps = getUploadProps();
     this.imageListRef = React.createRef();
@@ -104,10 +106,29 @@ class Header extends React.Component {
     this.setState({ showMusicModal: flag });
   }
 
+  onChangeModalBgVisible = flag => () => {
+    this.setState({ showBgChoseModal: flag });
+  }
+
   onAddPciture = imgSrc => () => {
     const { dispatch } = this.props;
     dispatch(addPageItemWithAttrs(COMPONENT_TYPE_PICTURE, { imgSrc }));
     this.setState({ showPictureModal: false });
+  }
+
+  onChoseBackground = imgSrc => () => {
+    this.setState({
+      modelImageClipVisible: true,
+      currentClipImage: imgSrc,
+    });
+  }
+
+  onChangeBackground = (src) => {
+    const { dispatch } = this.props;
+    dispatch(changeBackGround(src));
+    this.setState({
+      showBgChoseModal: false,
+    });
   }
 
   onEdit = key => () => {
@@ -172,7 +193,8 @@ class Header extends React.Component {
   render() {
     const { dispatch } = this.props;
     const {
-      modelImageClipVisible, modalMusicVisible, showPictureModal, showMusicModal,
+      modelImageClipVisible, modalMusicVisible, showPictureModal,
+      showMusicModal, showBgChoseModal, currentClipImage,
     } = this.state;
     return (
       <section
@@ -201,7 +223,7 @@ class Header extends React.Component {
             <Icon type="picture" className="icon" />
             <div className="txt">图片</div>
           </li>
-          <li className="item" onClick={this.onChangeVisible(true)}>
+          <li className="item" onClick={this.onChangeModalBgVisible(true)}>
             <Icon type="qrcode" className="icon" />
             <div className="txt">背景</div>
           </li>
@@ -209,11 +231,18 @@ class Header extends React.Component {
             <Icon type="customer-service" className="icon" />
             <div className="txt">音效</div>
           </li>
-          <ImageClip
-            visible={modelImageClipVisible}
-            changeVisible={this.onChangeVisible(false)}
-            dispatch={dispatch}
-          />
+          {
+            modelImageClipVisible
+            && (
+            <ImageClip
+              src={currentClipImage}
+              visible={modelImageClipVisible}
+              changeVisible={this.onChangeVisible(false)}
+              dispatch={dispatch}
+              onChangeBackground={this.onChangeBackground}
+            />
+            )
+          }
           <Music
             visible={modalMusicVisible}
             changeVisible={this.onChangeModalMusicVisible(false)}
@@ -257,6 +286,23 @@ class Header extends React.Component {
           title="音乐库"
           options={[{ title: '音乐列表', comp: <MusicList ref={this.musicListRef} onSelect={this.onChangeMusic} /> }]}
         />
+        <ModalContainer
+          onCancel={this.onModalCancel('showBgChoseModal')}
+          maskClosable
+          getContainer={false}
+          visible={showBgChoseModal}
+          title="素材库"
+          options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPciture={this.onChoseBackground} /> }]}
+        >
+          <Upload
+            {...this.uploadProps}
+            onChange={this.onFileChange}
+          >
+            <Button type="primary">
+              本地上传
+            </Button>
+          </Upload>
+        </ModalContainer>
       </section>
     );
   }
