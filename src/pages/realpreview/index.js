@@ -10,6 +10,7 @@ import LzLocalStorage from '../../utils/LocalStorage';
 import { getDetail } from '../../services/create';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
 import { getLocalTplDatas } from '../../core/config';
+import { getDomain } from '../../services/apiConfig';
 
 const refNames = {
   content: 'content',
@@ -35,6 +36,7 @@ class Perview extends React.Component {
       }
     }
     this.magicRefs = {};
+    this.wapUrl = `${getDomain()}/wap.html?id=${this.cacheKey}`;
   }
 
   componentDidMount() {
@@ -44,7 +46,7 @@ class Perview extends React.Component {
         const data = translateShowDataFromStore(JSON.parse(res));
         this.setState({ data });
       });
-      QRCode.toDataURL(`http://show.lzuntalented.cn/wap.html?id=${this.cacheKey}`)
+      QRCode.toDataURL(this.wapUrl)
         .then((url) => {
           this.setState({ wapPreviewUrl: url });
         });
@@ -91,6 +93,7 @@ class Perview extends React.Component {
             <div>
               <img src={wapPreviewUrl} alt="" className="img" />
               <div className="text-center">手机扫码预览</div>
+              <div>{this.wapUrl}</div>
             </div>
           </div>
           )

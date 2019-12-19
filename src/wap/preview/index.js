@@ -6,7 +6,7 @@ import Phone from './phone';
 import './index.scss';
 import { getComponetData } from './config';
 import { getDetail } from '../../services/create';
-import { translateShowDataFromStore } from '../../utils';
+import { translateShowDataFromStore, addShortFonts } from '../../utils';
 
 class Perview extends React.Component {
   constructor(props) {
@@ -24,6 +24,7 @@ class Perview extends React.Component {
   componentDidMount() {
     const { id } = this.state;
     if (+id > 0) {
+      addShortFonts(id);
       getDetail({ id }).then((resp) => {
         const { content: res } = resp;
         const data = translateShowDataFromStore(JSON.parse(res));
