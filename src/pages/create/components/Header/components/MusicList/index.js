@@ -7,6 +7,10 @@ import Music from '../../../../../../utils/music';
 
 const defaultList = [
   {
+    name: 'John Dreamer - Rise',
+    url: 'http://www.lzuntalented.cn/assets/music/rise.mp3',
+  },
+  {
     name: '告白之夜',
     url: 'http://www.lzuntalented.cn/assets/music/sweet.mp3',
   },

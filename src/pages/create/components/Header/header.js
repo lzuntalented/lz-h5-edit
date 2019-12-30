@@ -57,6 +57,7 @@ class Header extends React.Component {
     this.uploadProps = getUploadProps();
     this.imageListRef = React.createRef();
     this.musicListRef = React.createRef();
+    this.imageBgListRef = React.createRef();
   }
 
   onAddText = () => {
@@ -164,6 +165,10 @@ class Header extends React.Component {
         if (current) {
           current.refresh();
         }
+        const { current: cur } = this.imageBgListRef;
+        if (cur) {
+          cur.refresh();
+        }
       }
     }
   }
@@ -266,7 +271,7 @@ class Header extends React.Component {
           maskClosable
           getContainer={false}
           visible={showPictureModal}
-          title="素材库"
+          title="图片素材库"
           options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPciture={this.onAddPciture} /> }]}
         >
           <Upload
@@ -291,8 +296,8 @@ class Header extends React.Component {
           maskClosable
           getContainer={false}
           visible={showBgChoseModal}
-          title="素材库"
-          options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPciture={this.onChoseBackground} /> }]}
+          title="背景素材库"
+          options={[{ title: '图片列表', comp: <ImageList ref={this.imageBgListRef} onAddPciture={this.onChoseBackground} /> }]}
         >
           <Upload
             {...this.uploadProps}
