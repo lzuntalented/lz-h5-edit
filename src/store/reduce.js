@@ -10,7 +10,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
   STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
   ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
@@ -816,6 +816,42 @@ function resortGroupItem(store, action) {
   return null;
 }
 
+function movePageToDown(store, action) {
+  const { type } = action;
+  if (type === ACTION_PAGE_MOVE_DOWN) {
+    const obj = store.toJS();
+    const { activePage, pages } = obj;
+    if (activePage + 1 < pages.length) {
+      const before = activePage;
+      const after = activePage + 1;
+      const tmp = pages[after];
+      pages[after] = pages[before];
+      pages[before] = tmp;
+      obj.activePage = activePage + 1;
+    }
+    return fromJS(obj);
+  }
+  return null;
+}
+
+function movePageToUp(store, action) {
+  const { type } = action;
+  if (type === ACTION_PAGE_MOVE_UP) {
+    const obj = store.toJS();
+    const { activePage, pages } = obj;
+    if (activePage - 1 > 0) {
+      const before = activePage;
+      const after = activePage - 1;
+      const tmp = pages[after];
+      pages[after] = pages[before];
+      pages[before] = tmp;
+      obj.activePage = activePage - 1;
+    }
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -849,4 +885,6 @@ export default [
   changeItemBorder,
   changeItemName,
   resortGroupItem,
+  movePageToDown,
+  movePageToUp,
 ];

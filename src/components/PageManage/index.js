@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
 import {
-  Button, Tabs, Icon, Row, Col, Tooltip,
+  Button, Tabs, Icon, Row, Col, Tooltip, Popover,
 } from 'antd';
 
 import './index.scss';
 import {
-  addPage, changeActivePage, copyPage, deletePage,
+  addPage, changeActivePage, copyPage, deletePage, movePageToUp, movePageToDown,
 } from '../../store/action';
 import LevelManage from '../LevelManage';
 
@@ -36,6 +36,17 @@ class PageManage extends React.Component {
     dispatch(changeActivePage(pageIndex));
   }
 
+  onItemMoveUp = (e) => {
+    e.stopPropagation();
+    const { dispatch } = this.props;
+    dispatch(movePageToUp());
+  }
+
+  onItemMoveDown = (e) => {
+    e.stopPropagation();
+    const { dispatch } = this.props;
+    dispatch(movePageToDown());
+  }
 
   render() {
     const { pages, activePage } = this.props;
@@ -70,6 +81,32 @@ class PageManage extends React.Component {
                           {
                             activePage === index && (
                             <Col>
+                              <Popover
+                                placement="bottom"
+                                trigger="click"
+                                overlayClassName="popover-comp-pagemanage-move"
+                                content={(
+                                  <div>
+                                    {
+                                      index > 0 && (
+                                      <div className="m-b-4">
+                                        <Button onClick={this.onItemMoveUp} size="small">上移</Button>
+                                      </div>
+                                      )
+                                    }
+                                    {
+                                      index < pages.length - 1 && (
+                                      <div>
+                                        <Button onClick={this.onItemMoveDown} size="small">下移</Button>
+                                      </div>
+                                      )
+                                    }
+                                  </div>
+                                )}
+                                title="Title"
+                              >
+                                <Icon className="m-r-8" type="dash" />
+                              </Popover>
                               <Tooltip placement="top" title="复制页面">
                                 <Icon onClick={this.onCopy} type="copy" alt="复制页面" />
                               </Tooltip>

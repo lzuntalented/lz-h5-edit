@@ -92,6 +92,10 @@ export const ACTION_CHANGE_ITEM_BORDER = 'ACTION_CHANGE_ITEM_BORDER';
 export const ACTION_CHANGE_ITEM_NAME = 'ACTION_CHANGE_ITEM_NAME';
 // 重排组内元素次序
 export const ACTION_RESORT_GROUP_ITEM = 'ACTION_RESORT_GROUP_ITEM';
+// 将当前页面上移
+export const ACTION_PAGE_MOVE_UP = 'ACTION_PAGE_MOVE_UP';
+// 将当前页面下移
+export const ACTION_PAGE_MOVE_DOWN = 'ACTION_PAGE_MOVE_DOWN';
 
 // 组件类型
 // 文本
