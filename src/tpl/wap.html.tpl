@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-<div id="root"></div>
+<div id="root" style="min-height: 480px;"></div>
 <script src="<%= jsPath %>.js" type="text/javascript" ></script>
 <script>
     var _hmt = _hmt || [];

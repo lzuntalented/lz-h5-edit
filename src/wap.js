@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import Preview from './wap/preview';
 import './style';
 import { winSize } from './utils';
+import './style/font.scss';
+import './style/wap.scss';
 
 function setPageScale() {
   const width = window.innerWidth;
