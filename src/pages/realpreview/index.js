@@ -93,8 +93,8 @@ class Perview extends React.Component {
             <div>
               <img src={wapPreviewUrl} alt="" className="img" />
               <div className="text-center">手机扫码预览</div>
-              <div>{this.wapUrl}</div>
             </div>
+            <div>{this.wapUrl}</div>
           </div>
           )
         }

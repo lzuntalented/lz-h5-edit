@@ -8,6 +8,7 @@ import {
 
 import './index.scss';
 import { save } from '../../../../services/create';
+import { deleteUnUseObject } from '../../../../utils';
 
 class Header extends React.Component {
   static propTypes = {
@@ -30,6 +31,14 @@ class Header extends React.Component {
     if (title.trim() === '') {
       notification.error({
         message: '请先输入作品标题',
+      });
+      return;
+    }
+    const content = deleteUnUseObject(state);
+    if (!content) {
+      Modal.error({
+        title: '发布失败',
+        content: '请在场景中添加物料，以丰富内容',
       });
       return;
     }

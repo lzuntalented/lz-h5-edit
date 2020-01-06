@@ -26,6 +26,7 @@ import MusicList from './components/MusicList';
 import { getUploadProps } from './config';
 import HistoryStore from '../../../../utils/HistoryStore';
 import { getComponetData } from '../../config';
+import { deleteUnUseObject } from '../../../../utils';
 
 class Header extends React.Component {
   static propTypes = {
@@ -82,8 +83,16 @@ class Header extends React.Component {
 
   onPublish = () => {
     const { state } = this.props;
+    const content = deleteUnUseObject(state);
+    if (!content) {
+      Modal.error({
+        title: '发布失败',
+        content: '请在场景中添加物料，以丰富内容',
+      });
+      return;
+    }
     // // 远程存储用户预览模板
-    save({ content: state }).then((id) => {
+    save({ content }).then((id) => {
       Modal.success({
         content: '恭喜，发布成功！',
         onOk: () => {

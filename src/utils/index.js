@@ -256,3 +256,49 @@ export function addShortFonts(id) {
   });
   s.innerText = txt;
 }
+
+/**
+ * 移除未被使用的对象
+ * @param {String|Object} str
+ */
+export function deleteUnUseObject(str) {
+  try {
+    const store = JSON.parse(str);
+    const { editList, pages, groupList } = store;
+    const allItemKeys = Object.keys(editList);
+    const allGroupKeys = Object.keys(groupList);
+    const useItemKeys = {};
+    const useGroupKeys = {};
+    pages.forEach((page) => {
+      page.forEach((it) => {
+        const item = editList[it];
+        const { nodeType } = item;
+        if (nodeType === ITEM_TYPE_GROUP) {
+          useGroupKeys[it] = true;
+          const groupItems = groupList[it];
+          groupItems.forEach((that) => {
+            useItemKeys[that] = true;
+          });
+        }
+        useItemKeys[it] = true;
+      });
+    });
+
+    allItemKeys.forEach((it) => {
+      if (!useItemKeys[it]) {
+        editList[it] = null;
+      }
+    });
+
+    allGroupKeys.forEach((it) => {
+      if (!useGroupKeys[it]) {
+        groupList[it] = null;
+      }
+    });
+    // 如果场景中未添加物料，不允许发布
+    if (Object.keys(useItemKeys).length === 0) return null;
+    return JSON.stringify(store);
+  } catch (error) {
+    return null;
+  }
+}
