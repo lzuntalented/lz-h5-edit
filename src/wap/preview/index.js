@@ -19,6 +19,12 @@ class Perview extends React.Component {
       data,
       id: obj.id,
     };
+    if (window.opusData) {
+      this.state = {
+        data: window.opusData,
+        id: 0,
+      };
+    }
   }
 
   componentDidMount() {

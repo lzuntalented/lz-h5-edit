@@ -13,10 +13,10 @@ function setPageScale() {
   const dom = window.document.querySelector('#viewport');
   dom.setAttribute('content', `width=${winSize.width},initial-scale=${scale},maximum-scale=${scale},user-scalable=no`);
 
-  const height = window.innerHeight;
-  if (height > winSize.height) {
-    const top = (height - winSize.height) / 2;
-  }
+  // const height = window.innerHeight;
+  // if (height > winSize.height) {
+  //   const top = (height - winSize.height) / 2;
+  // }
 }
 setPageScale();
 const rootEl = window.document.getElementById('root');

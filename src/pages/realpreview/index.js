@@ -10,7 +10,7 @@ import LzLocalStorage from '../../utils/LocalStorage';
 import { getDetail } from '../../services/create';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
 import { getLocalTplDatas } from '../../core/config';
-import { getDomain } from '../../services/apiConfig';
+import { getDomain, getUrlPrefix } from '../../services/apiConfig';
 
 const refNames = {
   content: 'content',
@@ -94,7 +94,10 @@ class Perview extends React.Component {
               <img src={wapPreviewUrl} alt="" className="img" />
               <div className="text-center">手机扫码预览</div>
             </div>
-            <div>{this.wapUrl}</div>
+            <div className="m-b-12">{this.wapUrl}</div>
+            {
+              (this.cacheKey && this.cacheKey > 0) && <a href={`${getUrlPrefix()}/index/download?id=${this.cacheKey}`} target="_blank" rel="noopener noreferrer">离线下载</a>
+            }
           </div>
           )
         }

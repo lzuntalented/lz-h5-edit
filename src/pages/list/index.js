@@ -4,12 +4,13 @@ import Card from './components/Card';
 
 import './index.scss';
 import {
-  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW,
+  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_DOWNLOAD,
 } from './config';
 import { getList } from '../../services/create';
 import { translateShowDataFromStore } from '../../utils';
 import { LOCALSTORAGE_PREVIEW_CHACHE, LOCALSTORAGE_PREVIEW_NAMESPACE } from '../../core/constants';
 import LzLocalStorage from '../../utils/LocalStorage';
+import { getUrlPrefix } from '../../services/apiConfig';
 
 export default class List extends React.Component {
   mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
@@ -69,6 +70,8 @@ export default class List extends React.Component {
         this.mLzLocalStorage.set(LOCALSTORAGE_PREVIEW_CHACHE, JSON.stringify(obj.origin));
       }
       window.location.hash = `/preview/${data}`;
+    } else if (type === CLICK_TYPE_DOWNLOAD) {
+      window.open(`${getUrlPrefix()}/index/download?id=${data}`, '_blank');
     }
   };
 
