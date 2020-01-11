@@ -2,8 +2,6 @@ import {
   QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE,
 } from '../core/constants';
 import { isObject, isArray } from './Tools';
-import { getUrlPrefix } from '../services/apiConfig';
-import { getFontFamilyOptions } from '../core/config';
 
 function lzlog(...params) {
   const args = Array.prototype.slice.call(params);
@@ -241,20 +239,6 @@ export function deepCopy(obj) {
     return obj.map(it => deepCopy(it));
   }
   return obj;
-}
-
-export function addShortFonts(id) {
-  const s = window.document.createElement('style');
-  s.type = 'text/css';
-  window.document.getElementsByTagName('head')[0].appendChild(s);
-
-  const cssTpl = `@font-face {font-family: "$fontName";src: url('${getUrlPrefix()}/static/fonts/${id}/$fontName.ttf');}`;
-  const fonts = getFontFamilyOptions();
-  let txt = '';
-  fonts.forEach((it) => {
-    txt += cssTpl.replace(/\$fontName/g, it.key);
-  });
-  s.innerText = txt;
 }
 
 /**

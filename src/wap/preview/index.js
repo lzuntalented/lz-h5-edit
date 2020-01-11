@@ -6,7 +6,8 @@ import Phone from './phone';
 import './index.scss';
 import { getComponetData } from './config';
 import { getDetail } from '../../services/create';
-import { translateShowDataFromStore, addShortFonts } from '../../utils';
+import { translateShowDataFromStore } from '../../utils';
+import { addShortFonts } from '../../utils/font';
 
 class Perview extends React.Component {
   constructor(props) {
