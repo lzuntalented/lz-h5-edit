@@ -7,7 +7,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT,
   ACTION_COPY_PAGE, ACTION_COPY_ITEM, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
   ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER,
-  ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP,
+  ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW,
 } from '../core/constants';
 
 export function startMove(value) {
@@ -153,4 +153,20 @@ export function movePageToDown() {
 
 export function movePageToUp() {
   return { type: ACTION_PAGE_MOVE_UP };
+}
+
+export function addAnimate(animateName) {
+  return { type: ACTION_ANIMATES_ADD, value: animateName };
+}
+
+export function removeAnimate(index) {
+  return { type: ACTION_ANIMATES_REMOVE, value: index };
+}
+
+export function changeAnimate(index, attrs) {
+  return { type: ACTION_ANIMATES_CHANGE, value: { index, attrs } };
+}
+
+export function previewAnimate() {
+  return { type: ACTION_ANIMATES_PREVIEW };
 }

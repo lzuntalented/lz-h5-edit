@@ -10,7 +10,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
   STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
   ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
@@ -852,6 +852,74 @@ function movePageToUp(store, action) {
   return null;
 }
 
+function addAnimate(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_ANIMATES_ADD) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const item = editList[activeEditKey[0]];
+      if (!item.animates) item.animates = [];
+      const animate = {
+        name: value,
+        duration: 1,
+        delay: 0,
+        repeat: 1,
+      };
+      item.animates.push(animate);
+      item.previewAnimates = [animate];
+      // item.pre;
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function changeAnimate(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_ANIMATES_CHANGE) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const { attrs, index } = value;
+      const item = editList[activeEditKey[0]];
+      Object.assign(item.animates[index], attrs);
+      item.previewAnimates = [item.animates[index]];
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function previewAnimate(store, action) {
+  const { type } = action;
+  if (type === ACTION_ANIMATES_PREVIEW) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const item = editList[activeEditKey[0]];
+      item.previewAnimates = item.animates;
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function removeAnimate(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_ANIMATES_REMOVE) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const item = editList[activeEditKey[0]];
+      item.animates.splice(value, 1);
+      item.previewAnimates = [];
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -887,4 +955,8 @@ export default [
   resortGroupItem,
   movePageToDown,
   movePageToUp,
+  addAnimate,
+  changeAnimate,
+  previewAnimate,
+  removeAnimate,
 ];

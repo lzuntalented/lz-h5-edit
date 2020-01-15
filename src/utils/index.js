@@ -1,5 +1,5 @@
 import {
-  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE,
+  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE, TYPE_PREVIEW_ANIMATE_ALL,
 } from '../core/constants';
 import { isObject, isArray } from './Tools';
 
@@ -59,6 +59,7 @@ export function createEditItem(type, name, nodeType, belong) {
       height: 0,
       rotate: 0,
     },
+    animates: [],
     animate: {
       // 动画名称
       name: '',
@@ -69,6 +70,7 @@ export function createEditItem(type, name, nodeType, belong) {
       // 动画重复次数
       repeat: 1,
     },
+    previewAnimates: [],
     border: {
       style: 'solid',
       color: '#000000',

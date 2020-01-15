@@ -10,6 +10,7 @@ import {
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs,
 } from '../../store/action';
+import PreviewAnimation from '../PreviewAnimation';
 
 import './index.scss';
 import { getDefaultAttrs } from '../../utils/Tools';
@@ -137,11 +138,11 @@ export default function (Component, config) {
     render() {
       const { data } = this.props;
       const {
-        rect, animate, attrs, border = {},
+        rect, attrs, border = {}, previewAnimates = [],
       } = data;
-      const {
-        name, duration, delay, repeat,
-      } = animate;
+      // const {
+      //   name, duration, delay, repeat,
+      // } = animate;
       const {
         top,
         left,
@@ -152,7 +153,7 @@ export default function (Component, config) {
       // 内容区样式
       const contentCls = 'content-hide-container';
       const animateStyle = {
-        animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
+        // animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
         borderStyle: border.style,
         borderWidth: border.width,
         borderColor: border.color,
@@ -171,7 +172,11 @@ export default function (Component, config) {
             transform: `rotate(${rotate}deg)`,
           }}
         >
-          <div className={contentCls} style={animateStyle}>
+          <PreviewAnimation
+            list={previewAnimates}
+            className={contentCls}
+            style={animateStyle}
+          >
             <div
               className="content-container"
               ref={this.setMagicRefs(refNames.content)}
@@ -185,7 +190,7 @@ export default function (Component, config) {
                 {...attrs}
               />
             </div>
-          </div>
+          </PreviewAnimation>
         </div>
       );
     }
