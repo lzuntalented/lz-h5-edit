@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { TYPE_PREVIEW_ANIMATE_ALL, TYPE_PREVIEW_ANIMATE_CURRENT } from '../../core/constants';
 
-function getCurrentAnimate(list) {
+function getCurrentAnimate(list, emptyAnimates) {
   const [animateIndex, setanimateIndex] = useState(0);
-  const animate = list[animateIndex];
+  const animate = list[animateIndex] || {};
 
   function onAnimationEnd() {
-    if (animateIndex > list.length - 1) {
-      return;
+    // if (list.length === 1) {
+    //   setanimateIndex(2);
+    //   return;
+    // }
+    if (animateIndex >= list.length - 1) {
+      emptyAnimates();
     }
     setanimateIndex(animateIndex + 1);
   }
@@ -19,12 +22,12 @@ function getCurrentAnimate(list) {
   };
 }
 
-export default function PreviewAnimation(props) {
+function PreviewAnimation(props) {
   const {
-    children, list, style, ...others
+    children, list, style, emptyAnimates, ...others
   } = props;
 
-  const { animate, onAnimationEnd, setanimateIndex } = getCurrentAnimate(list);
+  const { animate, onAnimationEnd, setanimateIndex } = getCurrentAnimate(list, emptyAnimates);
 
   useEffect(() => {
     setanimateIndex(0);
@@ -33,12 +36,30 @@ export default function PreviewAnimation(props) {
   const {
     name, duration, delay, repeat,
   } = animate || {};
-  const animateStyle = Object.assign({
-    animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
-  }, style);
+  let animateStyle = style;
+  if (name) {
+    animateStyle = Object.assign({
+      animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
+    }, style);
+  }
   return (
     <div {...others} style={animateStyle} onAnimationEnd={onAnimationEnd}>
       {children}
     </div>
   );
 }
+
+export default PreviewAnimation;
+
+// export default React.memo(PreviewAnimation, (prevProps, nextProps) => {
+//   const prevList = prevProps.list;
+//   const nextList = nextProps.list;
+//   if (prevList.length !== nextList) {
+//     return true;
+//   }
+//   const obj = prevList.find((it, index) => {
+//     const item = nextList[index];
+//     return Object.keys(it).find(k => it[k] !== item[k]);
+//   });
+//   return !obj;
+// });

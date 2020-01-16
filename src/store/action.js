@@ -7,7 +7,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, CHANGE_ANIMATION, STORE_GROUP_SPLIT, STORE_INIT_TO_EDIT,
   ACTION_COPY_PAGE, ACTION_COPY_ITEM, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
   ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER,
-  ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW,
+  ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY, ACTION_ANIMATES_PREVIEW_ONE,
 } from '../core/constants';
 
 export function startMove(value) {
@@ -103,8 +103,8 @@ export function groupActiveEditKeys() {
   return { type: STORE_GROUP_ACTIVE_EDIT_KEYS };
 }
 
-export function changeAnimation(style, key) {
-  return { type: CHANGE_ANIMATION, value: { style, key } };
+export function changeAnimation(style, key, index) {
+  return { type: CHANGE_ANIMATION, value: { style, key, index } };
 }
 
 export function splitGroupActiveEditKeys() {
@@ -169,4 +169,16 @@ export function changeAnimate(index, attrs) {
 
 export function previewAnimate() {
   return { type: ACTION_ANIMATES_PREVIEW };
+}
+
+export function hoverAnimate(name) {
+  return { type: ACTION_ANIMATES_HOVER, value: name };
+}
+
+export function emptyAnimate() {
+  return { type: ACTION_ANIMATES_EMPTY };
+}
+
+export function previewAnimateWithIndex(index) {
+  return { type: ACTION_ANIMATES_PREVIEW_ONE, value: index };
 }

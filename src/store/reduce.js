@@ -10,7 +10,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
   STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
   ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY, ACTION_ANIMATES_PREVIEW_ONE,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
@@ -388,9 +388,11 @@ function changeAnimation(store, action) {
   const { type, value } = action;
   const obj = store.toJS();
   if (type === CHANGE_ANIMATION) {
-    const { style, key } = value;
+    const { style, key, index } = value;
     const { editList } = obj;
-    Object.assign(editList[key].animate, style);
+    const item = editList[key].animates[index];
+    Object.assign(item, style);
+    editList[key].previewAnimates = [item];
     return fromJS(obj);
   }
   return null;
@@ -920,6 +922,54 @@ function removeAnimate(store, action) {
   return null;
 }
 
+function hoverAnimate(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_ANIMATES_HOVER) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const item = editList[activeEditKey[0]];
+      item.previewAnimates = [{
+        name: value,
+        duration: 1,
+        repeat: 1,
+        delay: 0,
+      }];
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function emptyAnimate(store, action) {
+  const { type } = action;
+  if (type === ACTION_ANIMATES_EMPTY) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const item = editList[activeEditKey[0]];
+      item.previewAnimates = [];
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function previewAnimateWithIndex(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_ANIMATES_PREVIEW_ONE) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length === 1) {
+      const item = editList[activeEditKey[0]];
+      const { animates } = item;
+      item.previewAnimates = [animates[value]];
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -959,4 +1009,7 @@ export default [
   changeAnimate,
   previewAnimate,
   removeAnimate,
+  hoverAnimate,
+  emptyAnimate,
+  previewAnimateWithIndex,
 ];

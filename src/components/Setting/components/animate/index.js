@@ -5,7 +5,7 @@ import {
 import { connect } from 'react-redux';
 import getSelectOptions from './config';
 import {
-  changeAnimation, addAnimate, changeAnimate, previewAnimate, removeAnimate,
+  changeAnimation, addAnimate, changeAnimate, previewAnimate, removeAnimate, hoverAnimate, previewAnimateWithIndex,
 } from '../../../../store/action';
 import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../core/constants';
 
@@ -32,6 +32,12 @@ class Animation extends React.Component {
     });
   }
 
+  onPreviewAnimateWithIndex = index => (e) => {
+    e.stopPropagation();
+    const { dispatch } = this.props;
+    dispatch(previewAnimateWithIndex(index));
+  }
+
   onChangeAnimateNameWithIndex = index => (e) => {
     e.stopPropagation();
     this.setState({
@@ -40,14 +46,14 @@ class Animation extends React.Component {
     });
   }
 
-  setBaseStyle = key => (e) => {
+  setBaseStyle = (index, key) => (e) => {
     const { dispatch, activeEditKey } = this.props;
     const { target } = e;
     let value = e;
     if (target) {
       value = +target.value;
     }
-    dispatch(changeAnimation({ [key]: value }, activeEditKey));
+    dispatch(changeAnimation({ [key]: value }, activeEditKey, index));
   }
 
   onAddAnimate = () => {
@@ -62,9 +68,15 @@ class Animation extends React.Component {
     dispatch(previewAnimate());
   }
 
-  onRemoveAnimate = index => () => {
+  onRemoveAnimate = index => (e) => {
+    e.stopPropagation();
     const { dispatch } = this.props;
     dispatch(removeAnimate(index));
+  }
+
+  onHoverAnimate = name => () => {
+    const { dispatch } = this.props;
+    dispatch(hoverAnimate(name));
   }
 
   render() {
@@ -98,12 +110,14 @@ class Animation extends React.Component {
             return (
               <Collapse.Panel
                 header={(
-                  <Row type="flex" gutter={8}>
-                    <Col>动画{index}</Col>
-                    <Col onClick={this.onChangeAnimateNameWithIndex(index)}>{animateName}</Col>
-                    <Col>
-                      <Icon type="caret-right" />
-                      <Icon onClick={this.onRemoveAnimate(index)} type="delete" />
+                  <Row type="flex" gutter={8} justify="space-around">
+                    <Col>动画{index + 1}</Col>
+                    <Col onClick={this.onChangeAnimateNameWithIndex(index)}>
+                      <div className="aniamte-name">{animateName}</div>
+                    </Col>
+                    <Col className="op-animate">
+                      <Icon onClick={this.onPreviewAnimateWithIndex(index)} type="caret-right" title="预览" />
+                      <Icon onClick={this.onRemoveAnimate(index)} title="删除" type="delete" />
                     </Col>
                   </Row>
               )}
@@ -112,20 +126,20 @@ class Animation extends React.Component {
                 <Row align="middle" type="flex" gutter={8}>
                   <Col span={8}>动画时间</Col>
                   <Col span={16}>
-                    <Input value={duration} type="number" onChange={this.setBaseStyle('duration')} />
+                    <Input value={duration} type="number" onChange={this.setBaseStyle(index, 'duration')} />
                   </Col>
                 </Row>
                 <Row align="middle" type="flex" gutter={8}>
                   <Col span={8}>动画延时</Col>
                   <Col span={16}>
-                    <Input value={delay} type="number" onChange={this.setBaseStyle('delay')} />
+                    <Input value={delay} type="number" onChange={this.setBaseStyle(index, 'delay')} />
                   </Col>
                 </Row>
                 <Row align="middle" type="flex" gutter={8}>
                   <Col span={8}>动画循环</Col>
                   <Col span={16}>
                     <Select
-                      onChange={this.setBaseStyle('repeat')}
+                      onChange={this.setBaseStyle(index, 'repeat')}
                       style={{ width: '100%' }}
                       value={repeat}
                     >
@@ -156,6 +170,7 @@ class Animation extends React.Component {
                           justify="center"
                           className={`animate-name-item ${it.key === 1 ? 'active' : ''}`}
                           onClick={this.onChangeAnimateName(it.key)}
+                          onMouseEnter={this.onHoverAnimate(it.key)}
                         >
                           <Col><Icon type="smile" /><div className="animte-desc">{it.title}</div></Col>
                         </Row>

@@ -8,7 +8,7 @@ import {
   ALL_ITEM, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import {
-  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs,
+  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, emptyAnimate,
 } from '../../store/action';
 import PreviewAnimation from '../PreviewAnimation';
 
@@ -135,6 +135,11 @@ export default function (Component, config) {
       this.shiftDown = true;
     }
 
+    emptyAnimates = () => {
+      const { dispatch } = this.props;
+      dispatch(emptyAnimate());
+    }
+
     render() {
       const { data } = this.props;
       const {
@@ -176,6 +181,7 @@ export default function (Component, config) {
             list={previewAnimates}
             className={contentCls}
             style={animateStyle}
+            emptyAnimates={this.emptyAnimates}
           >
             <div
               className="content-container"

@@ -20,6 +20,37 @@
         .ant-collapse-header {
             padding-top: 0;
             padding-bottom: 0;
+
+            .aniamte-name{
+                font-size: 12px;
+                background: rgba($color: #cacaca, $alpha: 0.4);
+                border-radius: 60px;
+                padding: 0 8px;
+                &:hover {
+                    background-color: #1593ff;
+                    color: #fff;
+                }
+            }
+
+            .anticon {
+                display: inline-block;
+                padding: 4px;
+                border-radius: 50%;
+            }
+
+            .anticon-caret-right{
+                &:hover {
+                    background-color: #1593ff;
+                    color: #fff;
+                }
+            }
+
+            .anticon-delete{
+                &:hover {
+                    background-color: #ff2a6a;
+                    color: #fff;
+                }
+            }
         }
         
         .ant-row-flex {
