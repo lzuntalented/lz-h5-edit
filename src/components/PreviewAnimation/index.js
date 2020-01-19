@@ -10,7 +10,7 @@ function getCurrentAnimate(list, emptyAnimates) {
     //   return;
     // }
     if (animateIndex >= list.length - 1) {
-      emptyAnimates();
+      if (emptyAnimates) emptyAnimates();
     }
     setanimateIndex(animateIndex + 1);
   }

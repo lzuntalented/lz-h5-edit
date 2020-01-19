@@ -28,7 +28,7 @@ export default function () {
           key: 'fadeIn',
         },
         {
-          title: '顶部部淡入',
+          title: '顶部淡入',
           key: 'fadeInDown',
         },
         {

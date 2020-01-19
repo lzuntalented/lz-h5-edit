@@ -13,7 +13,6 @@ import {
 import PreviewAnimation from '../PreviewAnimation';
 
 import './index.scss';
-import { getDefaultAttrs } from '../../utils/Tools';
 
 const refNames = {
   content: 'content',

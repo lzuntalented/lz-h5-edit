@@ -2,13 +2,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
+import PreviewAnimation from '../PreviewAnimation';
 
 import './render.scss';
 
 export default function EditItemRender(Component) {
   function Layout(props) {
     const {
-      rect, attrs, animate, border = {},
+      rect, attrs, animate, border = {}, animates,
     } = props;
     const {
       width, left, top, height, rotate,
@@ -21,12 +22,16 @@ export default function EditItemRender(Component) {
     } = animate;
     const cls = `content-hide-container ${animate || ''}`;
     const animateStyle = {
-      animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
+      // animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
       borderStyle: border.style,
       borderWidth: border.width,
       borderColor: border.color,
       borderRadius: border.radius,
     };
+    let animateList = [animate];
+    if (animates) {
+      animateList = animates;
+    }
     return (
       <div
         className="render-item"
@@ -38,13 +43,17 @@ export default function EditItemRender(Component) {
           transform: `rotate(${rotate}deg)`,
         }}
       >
-        <div className={cls} style={animateStyle}>
+        <PreviewAnimation
+          className={cls}
+          list={animateList}
+          style={animateStyle}
+        >
           <div
             className="content-container"
           >
             <Component {...attrs} />
           </div>
-        </div>
+        </PreviewAnimation>
       </div>
     );
   }
@@ -53,12 +62,16 @@ export default function EditItemRender(Component) {
     rect: PropTypes.object,
     attrs: PropTypes.object,
     animate: PropTypes.object,
+    animates: PropTypes.object,
+    border: PropTypes.object,
   };
 
   Layout.prototype.defaultProps = {
     rect: {},
     attrs: {},
     animate: {},
+    border: {},
+    animates: {},
   };
 
   return Layout;
