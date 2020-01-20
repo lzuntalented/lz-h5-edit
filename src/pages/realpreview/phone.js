@@ -1,7 +1,7 @@
 import React from 'react';
-import { Icon } from 'antd';
+import PropTypes from 'prop-types';
 import Carousel from 're-carousel';
-import Music from '../../utils/music';
+import MusicIcon from './music';
 
 // 引入样式文件
 import './index.scss';
@@ -11,29 +11,21 @@ const refNames = {
   content: 'content',
 };
 
-class RealPreview extends React.Component {
+class RealPreview extends React.PureComponent {
+  static propTypes = {
+    data: PropTypes.object,
+  }
+
+  static defaultProps = {
+    data: null,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       activePageIndex: 0,
-      musicPlay: true,
     };
     this.magicRefs = {};
-    this.musicHandler = new Music();
-  }
-
-  componentDidMount() {
-    const { data } = this.props;
-    if (data.backMusicUrl) {
-      this.musicHandler.setSrc(data.backMusicUrl);
-    }
-  }
-
-  componentWillUnmount() {
-    const { data } = this.props;
-    if (data.backMusicUrl) {
-      this.musicHandler.pause();
-    }
   }
 
   // 设置魔术引用
@@ -51,16 +43,6 @@ class RealPreview extends React.Component {
     const { current } = e;
     const index = current.firstElementChild.getAttribute('data-index');
     this.setState({ activePageIndex: +index });
-  }
-
-  onPlay = () => {
-    const { musicPlay } = this.state;
-    if (musicPlay) {
-      this.musicHandler.pause();
-    } else {
-      this.musicHandler.play();
-    }
-    this.setState({ musicPlay: !musicPlay });
   }
 
   renderComponent() {
@@ -85,7 +67,6 @@ class RealPreview extends React.Component {
 
   render() {
     const { data } = this.props;
-    const { musicPlay } = this.state;
     const style = {
       backgroundImage: `url(${data.backGroundImage})`,
       backgroundRepeat: 'no-repeat',
@@ -100,7 +81,7 @@ class RealPreview extends React.Component {
           }
         </Carousel>
         {
-          data.backMusicUrl && (<div style={{ animationPlayState: musicPlay ? 'running' : 'paused' }} className="music-container" onClick={this.onPlay} />)
+          data.backMusicUrl && (<MusicIcon backMusicUrl={data.backMusicUrl} />)
         }
       </div>
     );
