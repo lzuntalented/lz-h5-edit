@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import hotkeys from 'hotkeys-js';
 import {
   Icon, Button, Upload, Modal,
 } from 'antd';
@@ -13,9 +14,11 @@ import {
   EXAMPLE_DATA_THINKSGIVING,
 } from '../../../../core/constants';
 import {
-  addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore, initHistoryStore, changeBackGround,
+  addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore,
+  initHistoryStore, changeBackGround,
 } from '../../../../store/action';
 import LzLocalStorage from '../../../../utils/LocalStorage';
+
 
 import ImageClip from './components/ImageClip';
 import Music from './components/Music';
@@ -59,6 +62,16 @@ class Header extends React.Component {
     this.imageListRef = React.createRef();
     this.musicListRef = React.createRef();
     this.imageBgListRef = React.createRef();
+  }
+
+  componentDidMount() {
+    hotkeys('ctrl+z', this.onUndo);
+    hotkeys('ctrl+shift+z', this.onRedo);
+  }
+
+  componentWillUnmount() {
+    hotkeys.unbind('ctrl+z');
+    hotkeys.unbind('ctrl+shift+z');
   }
 
   onAddText = () => {
