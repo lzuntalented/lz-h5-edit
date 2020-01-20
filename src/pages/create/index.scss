@@ -146,37 +146,45 @@ $phone-footer-height: 5;
             left: -6px;
             top: 50%;
             transform: translateY(-50%);
+            cursor: ew-resize;
           }
           &.rc {
             right: -6px;
             top: 50%;
             transform: translateY(-50%);
+            cursor: ew-resize;
           }
           &.tc {
             left: 50%;
             top: -6px;
             transform: translateX(-50%);
+            cursor: ns-resize;
           }
           &.bc {
             left: 50%;
             bottom: -6px;
             transform: translateX(-50%);
+            cursor: ns-resize;
           }
           &.lt {
             left: -6px;
             top: -6px;
+            cursor: nwse-resize;
           }
           &.rt {
             right: -6px;
             top: -6px;
+            cursor: nesw-resize;
           }
           &.lb {
             left: -6px;
             bottom: -6px;
+            cursor: nesw-resize;
           }
           &.rb {
             right: -6px;
             bottom: -6px;
+            cursor: nwse-resize;
           }
           &.rotate {
             left: 50%;
@@ -184,6 +192,7 @@ $phone-footer-height: 5;
             transform: translateX(-50%);
             border-color: #44cb83;
             background-color: #44cb83;
+            cursor: url(//www.lzuntalented.cn/img/mouserotate.png) 10 10,default;
           }
         }
       }
