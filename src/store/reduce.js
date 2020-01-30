@@ -10,10 +10,10 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
   STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
   ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY, ACTION_ANIMATES_PREVIEW_ONE,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY, ACTION_ANIMATES_PREVIEW_ONE, ACTION_MULTI_ALIGN_LEFT, ACTION_MULTI_ALIGN_RIGHT, ACTION_MULTI_ALIGN_BOTTOM, ACTION_MULTI_ALIGN_TOP, ACTION_MULTI_ALIGN_CENTER_HORIZONTAL, ACTION_MULTI_ALIGN_CENTER_VERTICAL,
 } from '../core/constants';
 import {
-  createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy,
+  createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy, winSize,
 } from '../utils';
 import { createId } from '../utils/IDManage';
 import { getComponentDefaultAttrs, getComponentDefaultSize, getComponentDefaultName } from '../core/components';
@@ -970,6 +970,136 @@ function previewAnimateWithIndex(store, action) {
   return null;
 }
 
+function changeMultiActiveAlignLeft(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_MULTI_ALIGN_LEFT) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length > 1) {
+      let minLeft = 0;
+      const activeItems = [];
+      activeEditKey.forEach((it, index) => {
+        const item = editList[it];
+        const { rect } = item;
+        activeItems.push(item);
+        const { left } = rect;
+        if (index === 0) minLeft = left;
+        else minLeft = Math.min(minLeft, left);
+      });
+      activeItems.forEach(it => Object.assign(it.rect, { left: minLeft }));
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function changeMultiActiveAlignRight(store, action) {
+  const { type } = action;
+  if (type === ACTION_MULTI_ALIGN_RIGHT) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length > 1) {
+      let result = 0;
+      const activeItems = [];
+      activeEditKey.forEach((it, index) => {
+        const item = editList[it];
+        const { rect } = item;
+        activeItems.push(item);
+        const { left, width } = rect;
+        if (index === 0) result = left + width;
+        else result = Math.max(result, left + width);
+      });
+      activeItems.forEach(it => Object.assign(it.rect, { left: result - it.rect.width }));
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function changeMultiActiveAlignTop(store, action) {
+  const { type } = action;
+  if (type === ACTION_MULTI_ALIGN_TOP) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length > 1) {
+      let minLeft = 0;
+      const activeItems = [];
+      activeEditKey.forEach((it, index) => {
+        const item = editList[it];
+        const { rect } = item;
+        activeItems.push(item);
+        const { top } = rect;
+        if (index === 0) minLeft = top;
+        else minLeft = Math.min(minLeft, top);
+      });
+      activeItems.forEach(it => Object.assign(it.rect, { top: minLeft }));
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function changeMultiActiveAlignBottom(store, action) {
+  const { type } = action;
+  if (type === ACTION_MULTI_ALIGN_BOTTOM) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length > 1) {
+      let result = 0;
+      const activeItems = [];
+      activeEditKey.forEach((it, index) => {
+        const item = editList[it];
+        const { rect } = item;
+        activeItems.push(item);
+        const { top, height } = rect;
+        if (index === 0) result = top + height;
+        else result = Math.max(result, height + top);
+      });
+      activeItems.forEach(it => Object.assign(it.rect, { top: result - it.rect.height }));
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function changeMultiActiveAlignCenterHorizontal(store, action) {
+  const { type } = action;
+  if (type === ACTION_MULTI_ALIGN_CENTER_HORIZONTAL) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length > 1) {
+      activeEditKey.forEach((it) => {
+        const item = editList[it];
+        const { rect } = item;
+        const { width } = rect;
+        const left = (winSize.width - width) / 2;
+        Object.assign(item.rect, { left });
+      });
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
+function changeMultiActiveAlignCenterVertical(store, action) {
+  const { type } = action;
+  if (type === ACTION_MULTI_ALIGN_CENTER_VERTICAL) {
+    const obj = store.toJS();
+    const { activeEditKey, editList } = obj;
+    if (activeEditKey.length > 1) {
+      activeEditKey.forEach((it) => {
+        const item = editList[it];
+        const { rect } = item;
+        const { height } = rect;
+        const top = (winSize.height - height) / 2;
+        Object.assign(item.rect, { top });
+      });
+      return fromJS(obj);
+    }
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -1012,4 +1142,10 @@ export default [
   hoverAnimate,
   emptyAnimate,
   previewAnimateWithIndex,
+  changeMultiActiveAlignLeft,
+  changeMultiActiveAlignRight,
+  changeMultiActiveAlignTop,
+  changeMultiActiveAlignBottom,
+  changeMultiActiveAlignCenterHorizontal,
+  changeMultiActiveAlignCenterVertical,
 ];

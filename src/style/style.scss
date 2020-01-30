@@ -1,4 +1,4 @@
-@import url(//at.alicdn.com/t/font_1471801_egps5xe0ohb.css);
+@import url(//at.alicdn.com/t/font_1471801_3s6t318q10t.css);
 
 @function toREM($n) {
   @return $n * 0.083rem ;
@@ -73,6 +73,10 @@ ul, li {
 
 .text-right {
   text-align: right;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 body > li {

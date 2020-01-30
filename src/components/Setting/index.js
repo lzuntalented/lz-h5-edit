@@ -12,6 +12,7 @@ import { getComponentStyleMap } from '../../core/components';
 import Attribute from './components/attribute';
 import SettingPosition from '../SettingPosition';
 import SettingBorder from './components/border';
+import MutilAttribute from './components/MutilAttribute';
 
 const { TabPane } = Tabs;
 
@@ -49,10 +50,13 @@ class Setting extends React.Component {
   }
 
   renderComponent() {
-    const { componentType } = this.props;
+    const { componentType, activeEditKey } = this.props;
     const styleConfig = getComponentStyleMap(componentType);
     if (styleConfig) {
       return <Attribute styleConfig={styleConfig} />;
+    }
+    if (activeEditKey && activeEditKey.length > 1) {
+      return <MutilAttribute />;
     }
     return null;
   }

@@ -182,3 +182,7 @@ export function emptyAnimate() {
 export function previewAnimateWithIndex(index) {
   return { type: ACTION_ANIMATES_PREVIEW_ONE, value: index };
 }
+
+export function changeMultiActiveAlign(action) {
+  return { type: action };
+}
