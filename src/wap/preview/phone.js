@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Carousel from 're-carousel';
 
 // 引入样式文件
@@ -6,6 +7,7 @@ import './index.scss';
 import { getComponentRenderMap } from '../../core/components';
 import { winSize } from '../../utils';
 import Music from '../../utils/music';
+import MusicIcon from './music';
 
 let marginTop = 0;
 function getTop() {
@@ -22,12 +24,15 @@ function getTop() {
 //   });
 // }
 
-class RealPreview extends React.Component {
+class RealPreview extends React.PureComponent {
+  static propTypes = {
+    data: PropTypes.object.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
       activePageIndex: 0,
-      musicPlay: true,
       lastData: null,
     };
     this.musicHandler = new Music();
@@ -43,37 +48,10 @@ class RealPreview extends React.Component {
     return null;
   }
 
-  componentDidMount() {
-    this.startMusic();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.data !== this.props.data) {
-      this.startMusic();
-    }
-  }
-
-  onPlay = () => {
-    const { musicPlay } = this.state;
-    if (musicPlay) {
-      this.musicHandler.pause();
-    } else {
-      this.musicHandler.play();
-    }
-    this.setState({ musicPlay: !musicPlay });
-  }
-
   onTransitionEnd = (e) => {
     const { current } = e;
     const index = current.firstElementChild.getAttribute('data-index');
     this.setState({ activePageIndex: +index });
-  }
-
-  startMusic() {
-    const { data } = this.props;
-    if (data && data.backMusicUrl) {
-      this.musicHandler.setSrc(data.backMusicUrl);
-    }
   }
 
   renderComponent() {
@@ -103,7 +81,6 @@ class RealPreview extends React.Component {
   }
 
   render() {
-    const { musicPlay } = this.state;
     const { data } = this.props;
     if (!data) return null;
     const style = {
@@ -120,9 +97,7 @@ class RealPreview extends React.Component {
           }
         </Carousel>
         {
-          data.backMusicUrl && (
-          <div style={{ animationPlayState: musicPlay ? 'running' : 'paused' }} className="music-container" onClick={this.onPlay} />
-          )
+          data.backMusicUrl && (<MusicIcon backMusicUrl={data.backMusicUrl} />)
         }
       </div>
     );

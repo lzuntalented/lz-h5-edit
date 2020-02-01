@@ -57,5 +57,9 @@ export default function LoadingWrap(props) {
 }
 
 LoadingWrap.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
+};
+
+LoadingWrap.defaultProps = {
+  data: null,
 };
