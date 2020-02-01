@@ -1,6 +1,5 @@
 import React from 'react';
 import qs from 'query-string';
-import Phone from './phone';
 
 // 引入样式文件
 import './index.scss';
@@ -8,6 +7,7 @@ import { getComponetData } from './config';
 import { getDetail } from '../../services/create';
 import { translateShowDataFromStore } from '../../utils';
 import { addShortFonts } from '../../utils/font';
+import LoadingWrap from './Loading';
 
 class Perview extends React.Component {
   constructor(props) {
@@ -42,9 +42,7 @@ class Perview extends React.Component {
 
   render() {
     const { data } = this.state;
-    return (
-      <Phone data={data} />
-    );
+    return <LoadingWrap data={data} />;
   }
 }
 

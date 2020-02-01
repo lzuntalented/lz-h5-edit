@@ -25,6 +25,14 @@ html, body {
     background-size: contain;
     animation: rotating 1.2s linear infinite;
   }
+
+  .loading-wrap-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @keyframes rotating {
