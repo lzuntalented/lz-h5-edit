@@ -94,7 +94,7 @@ class RealPreview extends React.Component {
               item.map((it, idx) => {
                 const { type, ...others } = it;
                 const Component = getComponentRenderMap(type);
-                return <Component {...others} key={idx} />;
+                return <Component show={style.display === 'block'} {...others} key={idx} />;
               })
             }
         </div>

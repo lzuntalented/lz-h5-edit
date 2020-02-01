@@ -9,7 +9,7 @@ import './render.scss';
 export default function EditItemRender(Component) {
   function Layout(props) {
     const {
-      rect, attrs, animate, border = {}, animates,
+      rect, attrs, animate, border = {}, animates, show,
     } = props;
     const {
       width, left, top, height, rotate,
@@ -51,7 +51,7 @@ export default function EditItemRender(Component) {
           <div
             className="content-container"
           >
-            <Component {...attrs} />
+            <Component showStatus={show} {...attrs} />
           </div>
         </PreviewAnimation>
       </div>

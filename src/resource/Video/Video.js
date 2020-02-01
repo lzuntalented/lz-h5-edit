@@ -17,9 +17,19 @@ function play(ref, playIcon, setPlayIcon) {
 
 function Video(props) {
   const [playIcon, setPlayIcon] = React.useState(true);
-  const { src, loop } = props;
+  const { src, loop, showStatus } = props;
   const style = { width: '100%' };
   const ref = React.createRef();
+
+  React.useEffect(() => {
+    if (ref && ref.current) {
+      if (!showStatus) {
+        ref.current.pause();
+        setPlayIcon(true);
+      }
+    }
+  }, [showStatus]);
+
   return (
     <div
       style={style}
@@ -64,11 +74,13 @@ function Video(props) {
 Video.prototype.propTypes = {
   src: PropTypes.string,
   loop: PropTypes.string,
+  showStatus: PropTypes.bool,
 };
 
 Video.prototype.defaultProps = {
   src: '',
   loop: '0',
+  showStatus: true,
 };
 
 export default Video;
