@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { generatorTexttextShadow } from '../../utils';
 
 const refNames = {
   editDom: 'editDom',
@@ -94,13 +95,26 @@ class Text extends React.Component {
     const { editable } = this.state;
     const {
       resetHeight, setAttribute,
-      text, bgColor, ...others
+      text, bgColor,
+      textShadowX, textShadowY, textShadowSpread, textShadowColor,
+      textSolidSize, textSolidColor, textSolidAngle,
+      ...others
     } = this.props;
+    const textShadow = generatorTexttextShadow({
+      textShadowX,
+      textShadowY,
+      textShadowSpread,
+      textShadowColor,
+      textSolidSize,
+      textSolidColor,
+      textSolidAngle,
+    });
     const style = Object.assign({
       width: '100%',
       padding: 10,
       background: bgColor,
       outerColor: 'transport',
+      textShadow,
     }, others);
     return (
       <div

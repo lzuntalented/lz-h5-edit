@@ -18,7 +18,7 @@ export default function RenderStyle(props) {
         />
       </Col>
       <Col span={8}>
-        <Input value={data} onChange={data} />
+        <Input value={data} onChange={e => onChange(e.target.value)} />
       </Col>
     </Row>
   );

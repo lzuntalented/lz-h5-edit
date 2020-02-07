@@ -1,3 +1,5 @@
+import { STYLE_RENDER_TYPE_COLLAPSE } from '../core/constants';
+
 function isType(type) {
   return obj => Object.prototype.toString.call(obj) === `[object ${type}]`;
 }
@@ -13,8 +15,12 @@ export const isString = isTypeOf('string');
 
 export function getDefaultAttrs(config) {
   const result = {};
-  config.forEach(({ key, initValue }) => {
-    if (isString(key)) {
+  config.forEach(({
+    key, initValue, renderType, children,
+  }) => {
+    if (renderType === STYLE_RENDER_TYPE_COLLAPSE) {
+      Object.assign(result, getDefaultAttrs(children));
+    } else if (isString(key)) {
       result[key] = initValue;
     } else {
       Object.assign(result, initValue);

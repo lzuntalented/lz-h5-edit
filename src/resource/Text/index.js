@@ -1,6 +1,6 @@
 import edit from './edit';
 import render from './render';
-import style from './config';
+import style, { getConfig } from './config';
 
 export default {
   edit,
@@ -8,4 +8,5 @@ export default {
   style,
   size: { height: 40 },
   name: '文本',
+  getConfig,
 };

@@ -288,3 +288,35 @@ export function deleteUnUseObject(str) {
     return null;
   }
 }
+
+export function generatorTexttextShadow(obj = {}) {
+  const {
+    textShadowX, textShadowY, textShadowSpread, textShadowColor,
+    textSolidSize, textSolidColor, textSolidAngle,
+  } = obj;
+  let textShadow = `${textShadowColor} ${textShadowX}px ${textShadowY}px ${textShadowSpread}px`;
+  if (textSolidSize && textSolidSize > 0) {
+    const solidTmp = [];
+    for (let i = 0; i < +textSolidSize; i += 1) {
+      if (textSolidAngle < 45) {
+        solidTmp.push(`${textSolidColor} 0px ${-(i + 1)}px 0px`);
+      } else if (textSolidAngle < 90) {
+        solidTmp.push(`${textSolidColor} ${(i + 1)}px ${-(i + 1)}px 0px`);
+      } else if (textSolidAngle < 135) {
+        solidTmp.push(`${textSolidColor} ${(i + 1)}px 0px 0px`);
+      } else if (textSolidAngle < 180) {
+        solidTmp.push(`${textSolidColor} ${(i + 1)}px ${(i + 1)}px 0px`);
+      } else if (textSolidAngle < 225) {
+        solidTmp.push(`${textSolidColor} 0px ${(i + 1)}px 0px`);
+      } else if (textSolidAngle < 270) {
+        solidTmp.push(`${textSolidColor} ${-(i + 1)}px ${(i + 1)}px 0px`);
+      } else if (textSolidAngle < 315) {
+        solidTmp.push(`${textSolidColor} ${-(i + 1)}px 0px 0px`);
+      } else if (textSolidAngle < 315) {
+        solidTmp.push(`${textSolidColor} ${-(i + 1)}px ${-(i + 1)}px 0px`);
+      }
+    }
+    textShadow = `${solidTmp.join()}, ${textShadow}`;
+  }
+  return textShadow;
+}

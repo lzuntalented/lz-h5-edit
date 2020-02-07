@@ -8,13 +8,15 @@ import BDMap from '../resource/BDMap';
 import Shape from '../resource/Shape';
 import Video from '../resource/Video';
 import TypedText from '../resource/TypedText';
+import ArtShadow from '../resource/ArtTexts/Shadow';
+import ArtSolid from '../resource/ArtTexts/Solid';
 
 import EditItem from '../components/EditItem';
 import RenderItem from '../components/EditItem/render';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT,
-  COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO, COMPONENT_TYPE_TEXT_TYPED,
+  COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO, COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID,
 } from './constants';
 import { getDefaultAttrs } from '../utils/Tools';
 
@@ -57,6 +59,8 @@ registerComponent(COMPONENT_TYPE_MAP, BDMap);
 registerComponent(COMPONENT_TYPE_SHAPE, Shape);
 registerComponent(COMPONENT_TYPE_VIDEO, Video);
 registerComponent(COMPONENT_TYPE_TEXT_TYPED, TypedText);
+registerComponent(COMPONENT_TYPE_ART_SHADOW, ArtShadow);
+registerComponent(COMPONENT_TYPE_ART_SOLID, ArtSolid);
 
 export function getComponentEditMap(key) {
   const obj = map[key];

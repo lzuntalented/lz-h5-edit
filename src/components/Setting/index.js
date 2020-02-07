@@ -79,7 +79,7 @@ class Setting extends React.Component {
       >
         <section className="component-setting-container">
           <header className="header">组件设置</header>
-          <Tabs className="tabs-content" defaultActiveKey="2">
+          <Tabs className="tabs-content" defaultActiveKey="1">
             <TabPane tab="样式" key="1">
               {
                   this.renderComponent()

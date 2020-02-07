@@ -3,15 +3,19 @@ import {
   Tabs, Button, Row, Col,
 } from 'antd';
 import {
-  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP, COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO, COMPONENT_TYPE_TEXT_TYPED,
+  COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP, COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO, COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID,
 } from '../../../../../../core/constants';
 import { getFontFamilyOptions } from '../../../../../../core/config';
+import { getArtShadowOptions, getArtSolidOptions } from './config';
+import { generatorTexttextShadow } from '../../../../../../utils';
 
 const { TabPane } = Tabs;
 
 export default function Node(props) {
   const { onAddComponent, onAddComponentWithSize, onAddComponentWithAttrs } = props;
   const fontFamilys = getFontFamilyOptions();
+  const artShadows = getArtShadowOptions();
+  const artSolids = getArtSolidOptions();
   return (
     <Tabs className="node" defaultActiveKey="1">
       <TabPane tab="基础组件" key="1">
@@ -53,6 +57,36 @@ export default function Node(props) {
       </TabPane>
       <TabPane tab="艺术字" key="2">
         <Row>
+          {
+            artShadows.map(it => (
+              <Col span={6}>
+                <div
+                  className="ys m-b-4"
+                  onClick={onAddComponentWithAttrs(COMPONENT_TYPE_ART_SHADOW, it)}
+                  style={{
+                    textShadow: `${it.textShadowColor} ${it.textShadowX}px ${it.textShadowY}px ${it.textShadowSpread}px`,
+                    color: '#fff',
+                  }}
+                >阴影
+                </div>
+              </Col>
+            ))
+          }
+          {
+            artSolids.map(it => (
+              <Col span={6}>
+                <div
+                  className="ys m-b-4"
+                  onClick={onAddComponentWithAttrs(COMPONENT_TYPE_ART_SOLID, it)}
+                  style={{
+                    textShadow: generatorTexttextShadow(it),
+                    ...it,
+                  }}
+                >立体
+                </div>
+              </Col>
+            ))
+          }
           <Col span={6}>
             <div className="ys ys1" onClick={onAddComponent(COMPONENT_TYPE_ART_INPUT)}>文本</div>
           </Col>
