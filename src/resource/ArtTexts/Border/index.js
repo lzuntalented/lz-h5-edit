@@ -1,40 +1,28 @@
-import Shadow from '../Shadow';
+import Shadow from '../Solid';
 import {
   STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_COLLAPSE,
-  STYLE_RENDER_TYPE_SLIDER_INPUT,
 } from '../../../core/constants';
 
 const { getConfig } = Shadow;
 
 function getAddOptions() {
   return {
-    label: '立体层次',
+    label: '描边',
     props: {
       defaultOpen: true,
     },
     children: [
       {
         label: '尺寸',
-        key: 'textSolidSize',
+        key: 'textBorderSize',
         initValue: 1,
         renderType: STYLE_RENDER_TYPE_INPUT,
       },
       {
         label: '颜色',
-        key: 'textSolidColor',
+        key: 'textBorderColor',
         initValue: '',
         renderType: STYLE_RENDER_TYPE_COLOR,
-      },
-      {
-        label: '角度',
-        key: 'textSolidAngle',
-        initValue: 0,
-        props: {
-          min: 0,
-          max: 360,
-          step: 1,
-        },
-        renderType: STYLE_RENDER_TYPE_SLIDER_INPUT,
       },
     ],
     renderType: STYLE_RENDER_TYPE_COLLAPSE,
@@ -44,8 +32,7 @@ function getAddOptions() {
 function resetGetConfig() {
   const addOptions = getAddOptions();
   const config = getConfig();
-  config[2].initValue = '立体';
-  config[4].initValue = '#f7e3b9';
+  config[3].initValue = '描边';
   config.unshift(addOptions);
   return config;
 }

@@ -293,8 +293,12 @@ export function generatorTexttextShadow(obj = {}) {
   const {
     textShadowX, textShadowY, textShadowSpread, textShadowColor,
     textSolidSize, textSolidColor, textSolidAngle,
+    textBorderSize, textBorderColor,
   } = obj;
+  // 阴影
   let textShadow = `${textShadowColor} ${textShadowX}px ${textShadowY}px ${textShadowSpread}px`;
+
+  // 立体感
   if (textSolidSize && textSolidSize > 0) {
     const solidTmp = [];
     for (let i = 0; i < +textSolidSize; i += 1) {
@@ -317,6 +321,20 @@ export function generatorTexttextShadow(obj = {}) {
       }
     }
     textShadow = `${solidTmp.join()}, ${textShadow}`;
+  }
+
+  // 描边
+  if (textBorderSize && textBorderSize > 0) {
+    const tmp = [];
+    for (let i = 0; i <= +textBorderSize; i += 1) {
+      for (let j = 0; j <= +textBorderSize; j += 1) {
+        tmp.push(`${textBorderColor} ${-j}px ${-i}px 0px`);
+        tmp.push(`${textBorderColor} ${j}px ${i}px 0px`);
+        tmp.push(`${textBorderColor} ${i}px ${j}px 0px`);
+        tmp.push(`${textBorderColor} ${-i}px ${j}px 0px`);
+      }
+    }
+    textShadow = `${tmp.join()}, ${textShadow}`;
   }
   return textShadow;
 }

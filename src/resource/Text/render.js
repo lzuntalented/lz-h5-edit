@@ -8,6 +8,7 @@ function Text(props) {
     color, fontSize, text, bgColor, lineHeight, opacity,
     textShadowX, textShadowY, textShadowSpread, textShadowColor,
     textSolidSize, textSolidColor, textSolidAngle,
+    textBorderSize, textBorderColor,
     ...others
   } = props;
   const textShadow = generatorTexttextShadow({
@@ -18,6 +19,8 @@ function Text(props) {
     textSolidSize,
     textSolidColor,
     textSolidAngle,
+    textBorderSize,
+    textBorderColor,
   });
   return (
     <div

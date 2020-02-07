@@ -98,6 +98,7 @@ class Text extends React.Component {
       text, bgColor,
       textShadowX, textShadowY, textShadowSpread, textShadowColor,
       textSolidSize, textSolidColor, textSolidAngle,
+      textBorderSize, textBorderColor,
       ...others
     } = this.props;
     const textShadow = generatorTexttextShadow({
@@ -108,6 +109,8 @@ class Text extends React.Component {
       textSolidSize,
       textSolidColor,
       textSolidAngle,
+      textBorderSize,
+      textBorderColor,
     });
     const style = Object.assign({
       width: '100%',
