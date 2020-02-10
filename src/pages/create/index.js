@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import Setting from '../../components/Setting';
+import Setting from './components/Setting';
 import PageManage from '../../components/PageManage';
 import Phone from './phone';
 import Control from './components/Control';

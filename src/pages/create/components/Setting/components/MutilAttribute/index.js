@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import {
   Row, Col, Tooltip,
 } from 'antd';
-import { changeMultiActiveAlign } from '../../../../store/action';
+import { changeMultiActiveAlign } from '../../../../../../store/action';
 import { getAlignConfig } from './config';
 
 const alignOptions = getAlignConfig();

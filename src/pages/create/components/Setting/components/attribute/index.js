@@ -10,6 +10,7 @@ import Input from './components/Input';
 import Textarea from './components/Textarea';
 import ContentEditDiv from './components/ContentEditDiv';
 import RenderTwoInput from './components/TwoInput';
+import RenderPicture from './components/Picture';
 // import styleConfig from '../../../../resource/Text/config';
 import {
   STYLE_RENDER_TYPE_SELECT, STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_SLIDER_INPUT,
@@ -17,9 +18,10 @@ import {
   STYLE_RENDER_TYPE_CONTENT_EDIT_DIV,
   STYLE_RENDER_TYPE_COLLAPSE,
   STYLE_RENDER_TYPE_TWO_INPUT,
-} from '../../../../core/constants';
-import { changeAttrs } from '../../../../store/action';
-import { isObject, isString } from '../../../../utils/Tools';
+  STYLE_RENDER_TYPE_PICTURE,
+} from '../../../../../../core/constants';
+import { changeAttrs } from '../../../../../../store/action';
+import { isObject, isString } from '../../../../../../utils/Tools';
 
 const renderMap = {
   [STYLE_RENDER_TYPE_SELECT]: RenderStyle,
@@ -29,6 +31,7 @@ const renderMap = {
   [STYLE_RENDER_TYPE_TEXTAREA]: Textarea,
   [STYLE_RENDER_TYPE_CONTENT_EDIT_DIV]: ContentEditDiv,
   [STYLE_RENDER_TYPE_TWO_INPUT]: RenderTwoInput,
+  [STYLE_RENDER_TYPE_PICTURE]: RenderPicture,
 };
 
 export function registerRender(key, Comp) {
@@ -74,6 +77,7 @@ class Attribute extends React.Component {
     }
 
     renderItem(it, attrs, index) {
+      const { dispatch } = this.props;
       const {
         renderType, valueType, props, key, ...others
       } = it;
@@ -89,6 +93,7 @@ class Attribute extends React.Component {
         Comp
           ? (
             <Comp
+              dispatch={dispatch}
               key={index}
               keys={key}
               data={data}

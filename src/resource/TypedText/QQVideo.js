@@ -9,11 +9,11 @@ let typeHandler = null;
 
 function QQVideo(props) {
   const {
-    text, bgColor, ...ohters
+    text, bgColor, showStatus, ...ohters
   } = props;
   React.useEffect(() => {
     if (typeHandler) typeHandler.reset(true);
-  }, [text]);
+  }, [text, showStatus]);
   return (
     <div style={{ backgroundColor: bgColor }}>
       <Typed

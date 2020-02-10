@@ -294,7 +294,7 @@ class Header extends React.Component {
           getContainer={false}
           visible={showPictureModal}
           title="图片素材库"
-          options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPciture={this.onAddPciture} /> }]}
+          options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPicture={this.onAddPciture} /> }]}
         >
           <Upload
             {...this.uploadProps}
@@ -319,7 +319,7 @@ class Header extends React.Component {
           getContainer={false}
           visible={showBgChoseModal}
           title="背景素材库"
-          options={[{ title: '图片列表', comp: <ImageList ref={this.imageBgListRef} onAddPciture={this.onChoseBackground} /> }]}
+          options={[{ title: '图片列表', comp: <ImageList ref={this.imageBgListRef} onAddPicture={this.onChoseBackground} /> }]}
         >
           <Upload
             {...this.uploadProps}

@@ -33,13 +33,13 @@ export default class ImageList extends React.Component {
 
 
   render() {
-    const { onAddPciture } = this.props;
+    const { onAddPicture } = this.props;
     const { list } = this.state;
     return (
       <Row type="flex" className="image-list" justify="space-around">
         {
             list.map(it => (
-              <Col key={it} className="item" onClick={onAddPciture(it)}>
+              <Col key={it} className="item" onClick={onAddPicture(it)}>
                 <LazyImage width="95%" src={it} alt="" />
               </Col>
             ))

@@ -21,7 +21,7 @@ export default function Node(props) {
   const artSolids = getArtSolidOptions();
   const artBorders = getArtBorderOptions();
   return (
-    <Tabs className="node" defaultActiveKey="2">
+    <Tabs className="node" defaultActiveKey="1">
       <TabPane tab="基础组件" key="1">
         <div className="text-center m-t-12 m-b-12">
           <Row>

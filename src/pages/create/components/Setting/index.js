@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import Draggable from 'react-draggable'; // The default
 import { Tabs, Button, Collapse } from 'antd';
 
-import GroupItemStyle from '../GroupItem/style';
+import GroupItemStyle from '../../../../components/GroupItem/style';
 
 import './index.scss';
-import { changeBaseStyle, removeItem, changeItemBorder } from '../../store/action';
+import { changeBaseStyle, removeItem, changeItemBorder } from '../../../../store/action';
 import Animate from './components/animate';
-import { getComponentStyleMap } from '../../core/components';
+import { getComponentStyleMap } from '../../../../core/components';
 import Attribute from './components/attribute';
-import SettingPosition from '../SettingPosition';
+import SettingPosition from '../../../../components/SettingPosition';
 import SettingBorder from './components/border';
 import MutilAttribute from './components/MutilAttribute';
 

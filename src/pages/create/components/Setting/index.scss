@@ -12,6 +12,16 @@
         padding: 0 16px;
     }
 
+    .set-attr-picture {
+        .bg-blank {
+            background: url('http://www.lzuntalented.cn/img/bgblank.svg') repeat;
+            height: 80px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+    }
+
     .animate-container {
         padding: 0 0 12px 0;
         position: relative;

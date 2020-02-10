@@ -4,7 +4,7 @@ import {
   ACTION_MULTI_ALIGN_CENTER_HORIZONTAL,
   ACTION_MULTI_ALIGN_CENTER_VERTICAL,
   ACTION_MULTI_ALIGN_CENTER,
-} from '../../../../core/constants';
+} from '../../../../../../core/constants';
 
 export function getAlignConfig() {
   return [

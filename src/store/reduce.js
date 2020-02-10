@@ -10,7 +10,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS, ITEM_TYPE_GROUP, CHANGE_ANIMATION, STORE_GROUP_SPLIT,
   STORE_INIT_TO_EDIT, ACTION_COPY_PAGE, ACTION_COPY_ITEM, ITEM_TYPE_SINGLE,
   ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
-  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY, ACTION_ANIMATES_PREVIEW_ONE, ACTION_MULTI_ALIGN_LEFT, ACTION_MULTI_ALIGN_RIGHT, ACTION_MULTI_ALIGN_BOTTOM, ACTION_MULTI_ALIGN_TOP, ACTION_MULTI_ALIGN_CENTER_HORIZONTAL, ACTION_MULTI_ALIGN_CENTER_VERTICAL,
+  ACTION_INIT_HISTORY_STORE, ACTION_ADD_PAGE_ITEM_WITH_SIZE, ACTION_CHANGE_ITEM_BORDER, ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP, ACTION_ANIMATES_ADD, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY, ACTION_ANIMATES_PREVIEW_ONE, ACTION_MULTI_ALIGN_LEFT, ACTION_MULTI_ALIGN_RIGHT, ACTION_MULTI_ALIGN_BOTTOM, ACTION_MULTI_ALIGN_TOP, ACTION_MULTI_ALIGN_CENTER_HORIZONTAL, ACTION_MULTI_ALIGN_CENTER_VERTICAL, ACTION_CHANGE_ACTIVE_ITEM_ATTRS,
 } from '../core/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy, winSize,
@@ -367,6 +367,21 @@ function changeAttrs(store, action) {
     const { attrs, key } = value;
     const { editList } = obj;
     Object.assign(editList[key].attrs, attrs);
+    return fromJS(obj);
+  }
+  return null;
+}
+
+
+function changeActiveItemAttrs(store, action) {
+  const { type, value } = action;
+  const obj = store.toJS();
+  if (type === ACTION_CHANGE_ACTIVE_ITEM_ATTRS) {
+    const attrs = value;
+    const { editList, activeEditKey } = obj;
+    if (activeEditKey.length === 1) {
+      Object.assign(editList[activeEditKey[0]].attrs, attrs);
+    }
     return fromJS(obj);
   }
   return null;
@@ -971,7 +986,7 @@ function previewAnimateWithIndex(store, action) {
 }
 
 function changeMultiActiveAlignLeft(store, action) {
-  const { type, value } = action;
+  const { type } = action;
   if (type === ACTION_MULTI_ALIGN_LEFT) {
     const obj = store.toJS();
     const { activeEditKey, editList } = obj;
@@ -1148,4 +1163,5 @@ export default [
   changeMultiActiveAlignBottom,
   changeMultiActiveAlignCenterHorizontal,
   changeMultiActiveAlignCenterVertical,
+  changeActiveItemAttrs,
 ];
