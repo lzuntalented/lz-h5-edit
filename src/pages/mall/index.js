@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pagination } from 'antd';
 import Card from './components/Card';
 
 import './index.scss';
@@ -8,12 +9,29 @@ import {
 import { LOCALSTORAGE_PREVIEW_CHACHE, LOCALSTORAGE_PREVIEW_NAMESPACE } from '../../core/constants';
 import LzLocalStorage from '../../utils/LocalStorage';
 import { getLocalTplDatas } from '../../core/config';
+import { getList } from '../../services/mall';
+import { translateShowDataFromStore } from '../../utils';
 
+// 分页大小
+const pageSize = 8;
 export default class List extends React.Component {
   mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
 
   state = {
     list: getLocalTplDatas(),
+    // 当前页码
+    pageIndex: 1,
+    // 作品总数
+    total: pageSize,
+  }
+
+  componentDidMount() {
+    const { pageIndex } = this.state;
+    this.getCardList(pageIndex);
+  }
+
+  onChosePage = (page) => {
+    this.getCardList(page);
   }
 
   clickCallback = (type, data) => () => {
@@ -36,8 +54,38 @@ export default class List extends React.Component {
     }
   };
 
+  // 获取商城模板作品列表
+  getCardList = (pageIndex) => {
+    // 首屏渲染本地模板，第二页开始再渲染远端数据
+    let page = pageIndex;
+    if (pageIndex > 1) {
+      page = pageIndex - 1;
+    }
+
+    const result = [];
+    getList({ pageIndex: page }).then((res) => {
+      const { list, total } = res;
+      list.forEach(({ content, opus_id: id }) => {
+        const obj = JSON.parse(content);
+        result.push({
+          id,
+          origin: obj,
+          content: translateShowDataFromStore(obj),
+        });
+      });
+      const state = {
+        pageIndex,
+        total: total + pageSize,
+      };
+      if (pageIndex > 1) {
+        state.list = result;
+      }
+      this.setState(state);
+    });
+  }
+
   render() {
-    const { list } = this.state;
+    const { list, pageIndex, total } = this.state;
     return (
       <div className="page-list">
         <ul className="l">
@@ -47,6 +95,14 @@ export default class List extends React.Component {
         }
           <i className="empty" /><i className="empty" /><i className="empty" />
         </ul>
+        <div className="text-right">
+          <Pagination
+            current={pageIndex}
+            pageSize={pageSize}
+            total={total}
+            onChange={this.onChosePage}
+          />
+        </div>
       </div>
     );
   }

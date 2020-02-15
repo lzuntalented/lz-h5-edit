@@ -1,15 +1,19 @@
 import React from 'react';
 import QRCode from 'qrcode';
-import { Row, Col, Icon } from 'antd';
 import {
-  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_DOWNLOAD,
+  Row, Col, Icon, Tooltip,
+} from 'antd';
+import {
+  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_DOWNLOAD, CLICK_TYPE_TEMPLATE,
 } from '../../config';
 import Perview from '../Perview';
 import { getDomain } from '../../../../services/apiConfig';
 
 export default (props) => {
-  const { data, defaultType, onClick } = props;
-  const { src, id, content } = data || {};
+  const {
+    data, defaultType, onClick,
+  } = props;
+  const { template, id, content } = data || {};
   if (defaultType) {
     return (
       <li className="card card-default">
@@ -42,6 +46,21 @@ export default (props) => {
         </Col>
         <Col>
           <span className="hove-span" onClick={onClick(CLICK_TYPE_DOWNLOAD, id)}><Icon type="download" />下载</span>
+        </Col>
+        <Col>
+          {
+          !template
+            ? (
+              <Tooltip title="标记为模板，供他人可使用">
+                <span className="hove-span" onClick={onClick(CLICK_TYPE_TEMPLATE, id)}><Icon type="tag" />模板</span>
+              </Tooltip>
+            )
+            : (
+              <Tooltip title="取消该模板标记，仅供自己使用">
+                <span className="hove-span active" onClick={onClick(CLICK_TYPE_TEMPLATE, id)}><Icon type="tag" />模板</span>
+              </Tooltip>
+            )
+        }
         </Col>
       </Row>
     </li>

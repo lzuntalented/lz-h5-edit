@@ -4,13 +4,14 @@ import Card from './components/Card';
 
 import './index.scss';
 import {
-  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_DOWNLOAD,
+  CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_DOWNLOAD, CLICK_TYPE_TEMPLATE,
 } from './config';
 import { getList } from '../../services/create';
 import { translateShowDataFromStore } from '../../utils';
 import { LOCALSTORAGE_PREVIEW_CHACHE, LOCALSTORAGE_PREVIEW_NAMESPACE } from '../../core/constants';
 import LzLocalStorage from '../../utils/LocalStorage';
 import { getUrlPrefix } from '../../services/apiConfig';
+import { addTemplate, removeTemplate } from '../../services/mall';
 
 export default class List extends React.Component {
   mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
@@ -37,12 +38,13 @@ export default class List extends React.Component {
     const result = [];
     getList({ pageIndex }).then((res) => {
       const { list, total } = res;
-      list.forEach(({ id, content }) => {
+      list.forEach(({ id, content, ...others }) => {
         const obj = JSON.parse(content);
         result.push({
           id,
           origin: obj,
           content: translateShowDataFromStore(obj),
+          ...others,
         });
       });
       this.setState({
@@ -72,6 +74,21 @@ export default class List extends React.Component {
       window.location.hash = `/preview/${data}`;
     } else if (type === CLICK_TYPE_DOWNLOAD) {
       window.open(`${getUrlPrefix()}/index/download?id=${data}`, '_blank');
+    } else if (type === CLICK_TYPE_TEMPLATE) {
+      // 点击模板
+      const { list } = this.state;
+      const obj = list.find(it => it.id === data);
+      if (obj) {
+        const { template } = obj;
+        let requestHandler = addTemplate;
+        if (template) {
+          requestHandler = removeTemplate;
+        }
+        requestHandler({ id: obj.id }).then(() => {
+          const { pageIndex } = this.state;
+          this.getCardList(pageIndex);
+        });
+      }
     }
   };
 

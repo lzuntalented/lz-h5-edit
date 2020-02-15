@@ -49,6 +49,11 @@ class Setting extends React.Component {
     dispatch(changeItemBorder(activeEditKey, { [key]: value }));
   }
 
+  dispatchAction = action => () => {
+    const { dispatch } = this.props;
+    dispatch(action);
+  }
+
   renderComponent() {
     const { componentType, activeEditKey } = this.props;
     const styleConfig = getComponentStyleMap(componentType);
@@ -92,7 +97,13 @@ class Setting extends React.Component {
                 </Collapse.Panel>
                 <Collapse.Panel header="位置与尺寸" key="3">
                   {
-                    item && <SettingPosition {...item} setBaseStyle={this.setBaseStyle} />
+                    item && (
+                    <SettingPosition
+                      {...item}
+                      dispatchAction={this.dispatchAction}
+                      setBaseStyle={this.setBaseStyle}
+                    />
+                    )
                   }
                 </Collapse.Panel>
               </Collapse>

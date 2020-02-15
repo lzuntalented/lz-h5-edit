@@ -187,6 +187,10 @@ export function changeMultiActiveAlign(action) {
   return { type: action };
 }
 
+export function changeSingleActiveAlign(action) {
+  return { type: action };
+}
+
 export function changeActiveItemAttrs(value) {
   return { type: ACTION_CHANGE_ACTIVE_ITEM_ATTRS, value };
 }

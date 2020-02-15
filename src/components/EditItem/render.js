@@ -29,7 +29,7 @@ export default function EditItemRender(Component) {
       borderRadius: border.radius,
     };
     let animateList = [animate];
-    if (animates) {
+    if (animates && animates.length > 0) {
       animateList = animates;
     }
     return (

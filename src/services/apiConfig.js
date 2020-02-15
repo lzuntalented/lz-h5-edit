@@ -9,6 +9,12 @@ export default {
     upload: '/file/upload',
     cropImage: '/file/cropImage',
   },
+  // 商城相关
+  mall: {
+    getList: '/tmp/getList',
+    addTemplate: '/tmp/add',
+    removeTemplate: '/tmp/remove',
+  },
 };
 
 export function isDaily() {

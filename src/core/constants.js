@@ -128,6 +128,14 @@ export const ACTION_MULTI_ALIGN_CENTER_HORIZONTAL = 'ACTION_MULTI_ALIGN_CENTER_H
 export const ACTION_MULTI_ACTIVE_ALIGN = 'ACTION_MULTI_ACTIVE_ALIGN';
 // 修改激活态元素属性
 export const ACTION_CHANGE_ACTIVE_ITEM_ATTRS = 'ACTION_CHANGE_ACTIVE_ITEM_ATTRS';
+// 单个激活态元素对齐方式-左对齐
+export const ACTION_ACTVIE_ALIGN_LEFT = 'ACTION_ACTVIE_ALIGN_LEFT';
+// 单个激活态元素对齐方式-右对齐
+export const ACTION_ACTVIE_ALIGN_RIGHT = 'ACTION_ACTVIE_ALIGN_RIGHT';
+// 单个激活态元素对齐方式-上对齐
+export const ACTION_ACTVIE_ALIGN_TOP = 'ACTION_ACTVIE_ALIGN_TOP';
+// 单个激活态元素对齐方式-下对齐
+export const ACTION_ACTVIE_ALIGN_BOTTOM = 'ACTION_ACTVIE_ALIGN_BOTTOM';
 
 // 组件类型
 // 文本
@@ -195,6 +203,8 @@ export const EXAMPLE_DATA_DOUBLE_ELEVEN = 'double11';
 export const EXAMPLE_DATA_DOUBLE_TWENTY = 'double12';
 // 感恩节展示
 export const EXAMPLE_DATA_THINKSGIVING = 'thinksgiving';
+// 2020元旦展示
+export const EXAMPLE_DATA_NEW_YEAR_2020 = 'newyear2020';
 // 使用缓存数据标识
 export const EXAMPLE_DATA_PREVIEW = 'cache';
 
