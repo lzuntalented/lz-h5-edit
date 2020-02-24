@@ -30,6 +30,7 @@ class ImageClip extends React.Component {
           zoomable: false,
           mouseWheelZoom: false,
           autoCropArea: 1,
+          checkCrossOrigin: false,
         });
     }
   }
