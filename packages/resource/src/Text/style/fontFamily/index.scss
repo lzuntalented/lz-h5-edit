@@ -1,0 +1,23 @@
+.modal-resource-text-font-family {
+    .font-item {
+        background: #fafafa;
+        margin-bottom: 12px;
+
+        &:hover {
+            box-shadow: 0 0 16px 0 rgba(0,0,0,.16);
+        }
+
+        &-title {
+            line-height: 72px;
+            border-bottom: 1px solid #e6ebed;
+            text-align: center;
+            padding-left: 12px;
+            font-size: 32px;
+        }
+
+        &-desc {
+            line-height: 32px;
+            padding-left: 12px;
+        }
+    }
+}

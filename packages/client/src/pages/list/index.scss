@@ -1,0 +1,95 @@
+.page-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 0;
+
+    ul.l {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
+        .card {
+            width: 370px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            background-color: #fff;
+            position: relative;
+            padding: 24px;
+            margin-left: 12px;
+            margin-right: 12px;
+
+            .bottom {
+                margin-top: 24px;
+                line-height: 40px;
+                border: 1px solid #e6ebed;
+                text-align: center;
+
+                .hove-span {
+                    cursor: pointer;
+                    i {
+                        margin-right: 4px;
+                    }
+                    &:hover {
+                        color: #1593ff;
+                    }
+                    &.active {
+                        color: #1593ff;
+                    }
+                }
+            }
+
+            .img {
+                height: 482px;
+                overflow: hidden;
+                position: relative;
+                border: 1px solid #e6ebed;
+
+                .qcorde {
+                    display: none;
+                    position: absolute;
+                    justify-content: center;
+                    align-items: center;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: rgba($color: #000000, $alpha: 0.3);
+                }
+
+                &:hover {
+                    .qcorde {
+                        display: flex;
+                    }
+                }
+            }
+
+            &.card-default {
+                .border {
+                    line-height: 482px;
+                    height: 482px;
+                    border: 1px solid #e6ebed;
+                    font-size: 20px;
+                    text-align: center;
+                    cursor: pointer;
+
+                    &:hover {
+                        border-color: #1593ff;
+                    }
+                }
+
+                .bottom {
+                    cursor: pointer;
+                    &:hover {
+                        border-color: #1593ff;
+                    }
+                }
+            }
+        }
+
+        i.empty {
+            width: 370px;
+            height: 0;
+        }
+    }
+}
