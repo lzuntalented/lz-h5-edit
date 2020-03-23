@@ -2,14 +2,12 @@ import React from 'react';
 import { Router, Route, hashHistory } from 'react-router';
 
 import home from '../pages/home/Loadable';
-import realpreview from '../pages/realpreview/Loadable';
+// import realpreview from '../pages/preview/Loadable';
 import create from '../pages/create/Loadable';
-import list from '../pages/list/Loadable';
-import Mall from '../pages/mall/Loadable';
 
-import Layout from '../core/layout';
-import DefaultHeader from '../core/layout/components/Header';
-import EmptyHeader from '../core/layout/components/EmptyHeader';
+import Layout from '../components/layout';
+import DefaultHeader from '../components/layout/components/Header';
+import EmptyHeader from '../components/layout/components/EmptyHeader';
 
 const RouteConfig = (
   <Layout
@@ -25,11 +23,7 @@ const RouteConfig = (
   >
     <Router history={hashHistory}>
       <Route path="/" component={home} />
-      <Route path="/list" component={list} />
-      <Route path="/mall" component={Mall} />
       <Route path="/create" component={create} />
-      <Route path="/edit/:id" component={create} />
-      <Route path="/preview/:id" component={realpreview} />
     </Router>
   </Layout>
 );

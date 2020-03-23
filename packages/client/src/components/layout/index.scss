@@ -1,0 +1,55 @@
+@import '../../style/base.scss';
+
+.layout {
+  .layout-header-container {
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+    height: 48px;
+    box-shadow: 0 4px 12px rgba(138,166,195,0.45);
+
+    .default-header {
+      max-width: 1080px;
+      margin: 0 auto;
+
+      img {
+        display: block;
+        cursor: pointer;
+      }
+    }
+
+    .menu-container {
+      width: $content-width;
+      margin: 0 auto;
+      .ant-menu-item {
+        padding: 0 10px;
+        a {
+          line-height: 30px;
+          margin: 8px 0;
+          padding: 0 8px;
+          &:hover {
+            background-color: rgba(0,0,0,.05);
+            color: #b0b0b0;
+            border-radius: 5px;
+          }
+          &.active {
+            color: #1d1d31;
+            font-weight: bold;
+            &:hover {
+              background-color: rgba(0,0,0,.05);
+              color: #b0b0b0;
+              border-radius: 5px;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+  .layout-content-container {
+    width: 100%;
+    margin: 12px auto;
+    min-height: calc(100vh - 74px);
+  }
+}
