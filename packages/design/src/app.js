@@ -8,7 +8,7 @@ import AideLine from './components/AideLine';
 import Resource from './components/Resource';
 import Preview from './components/Preview';
 import Header from './components/Header';
-import './event';
+import './core/event';
 
 // 引入样式文件
 import './index.scss';

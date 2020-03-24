@@ -1,6 +1,5 @@
 import React from 'react';
 import { Drawer, Input, Button } from 'antd';
-import Realpreview from '../../../realpreview/Loadable';
 import Content from './content';
 
 export default function Preview(props) {
@@ -16,7 +15,6 @@ export default function Preview(props) {
       onClose={hidePreview}
       closable
     >
-      <Realpreview localPreview />
       <Content />
     </Drawer>
   );

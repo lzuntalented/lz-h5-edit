@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GroupItem from '../../components/GroupItem';
-import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '../../core/constants';
+import GroupItem from './components/GroupItem';
+import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from './core/constants';
 
 // 引入样式文件
 import './index.scss';
-import { resetStore, initStore } from '../../store/action';
-import { getComponentEditMap } from '../../core/components';
+import { resetStore, initStore } from './store/action';
+import { getComponentEditMap } from './core/components';
 import { getComponetData } from './config';
 
 // const componentMap = {

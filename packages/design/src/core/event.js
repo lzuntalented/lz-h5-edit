@@ -3,10 +3,10 @@ import {
   QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, POINT_LEFT_CENTER,
   POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_ROTATE,
-} from '../../core/constants';
-import { subscribe, dispatch } from '../../store';
-import { checkQuadrant, debounce } from '../../utils/index';
-import { change, endMove, removeItem } from '../../store/action';
+} from './constants';
+import { subscribe, dispatch } from '../store';
+import { checkQuadrant, debounce } from '../utils/index';
+import { change, endMove, removeItem } from '../store/action';
 
 // 正在移动标识
 let moveTag = false;

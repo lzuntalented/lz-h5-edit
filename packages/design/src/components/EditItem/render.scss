@@ -1,0 +1,14 @@
+.render-item {
+    position: absolute;
+    border: 1px dashed transparent;
+
+    .content-hide-container {
+      overflow: auto;
+      height: 100%;
+      // animation-duration: 1s;
+  
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+.edit-item {
+  position: absolute;
+  border: 1px dashed transparent;
+
+  &:hover {
+    border-color: gray;
+  }
+
+  .content-hide-container {
+    overflow: auto;
+    height: 100%;
+    // animation-duration: 1s;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .content-container {
+      // height: 100%;
+    }
+  }
+}

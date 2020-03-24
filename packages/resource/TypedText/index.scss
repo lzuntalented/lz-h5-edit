@@ -1,0 +1,70 @@
+.resource-qq-video {
+    .nav {
+        padding: 24px;
+        align-items: center;
+
+        .name {
+            color: #fff;
+            font-size: 18px;
+        }
+        .place {
+            font-size: 14px;
+            color: #9b9b9b;
+        }
+        img {
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+        }
+    }
+
+    .bottom {
+        padding: 48px 24px;
+        right: 0;
+        left: 0;
+        position: absolute;
+        bottom: 0;
+        color: #fff;
+
+        .text-center {
+            text-align: center;
+            width: 60px;
+        }
+
+        .message {
+            margin-bottom: 24px;
+            .anticon {
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .i-bg-diss {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #ff382c;
+            display: block;
+            font-size: 28px;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .i-bg-acp {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #4bda64;
+            display: block;
+            font-size: 28px;
+            line-height: 60px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+    }
+}

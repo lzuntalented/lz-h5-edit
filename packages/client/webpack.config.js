@@ -1,6 +1,5 @@
 const path = require('path');
 
-console.log('clent run webpack');
 module.exports = {
   entry: {
     bound: './src/index.js',
@@ -10,12 +9,31 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
   },
+  resolve: {
+    // symlinks: false,
+  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /((\.(js|jsx)$)|(@lz))/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          plugins: [
+            ['@babel/plugin-transform-runtime'],
+            ['@babel/plugin-transform-async-to-generator'],
+            ['@babel/plugin-syntax-dynamic-import'],
+            ['@babel/plugin-proposal-class-properties'],
+            [
+              'import',
+              {
+                libraryName: 'antd',
+                style: 'css',
+              },
+            ],
+          ],
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.(css|scss)$/,
