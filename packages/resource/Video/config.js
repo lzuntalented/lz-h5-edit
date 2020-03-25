@@ -1,4 +1,4 @@
-import { STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_SELECT } from '../../core/constants';
+import { STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_SELECT } from '../core/constants';
 
 const config = [
   {

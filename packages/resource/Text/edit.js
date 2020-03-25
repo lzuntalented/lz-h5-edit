@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { generatorTexttextShadow } from '../../utils';
+import { generatorTexttextShadow } from '../utils';
 
 const refNames = {
   editDom: 'editDom',

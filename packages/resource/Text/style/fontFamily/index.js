@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Row, Col, Select,
 } from 'antd';
-import ModalContainer from '../../../../components/ModalContainer';
+import ModalContainer from '../../../components/ModalContainer';
 import FontFamily from './fontFamily';
 
 import './index.scss';
-import { getFontFamilyOptions } from '../../../../core/config';
+import { getFontFamilyOptions } from '../../../core/config';
 
 function onFontChange(onChange, setVisible) {
   return (e) => {

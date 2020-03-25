@@ -1,4 +1,4 @@
-import { STYLE_RENDER_TYPE_PICTURE } from '../../core/constants';
+import { STYLE_RENDER_TYPE_PICTURE } from '../core/constants';
 
 const config = [
   {

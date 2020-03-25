@@ -1,7 +1,7 @@
 import Shadow from '../Solid';
 import {
   STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_COLLAPSE,
-} from '../../../core/constants';
+} from '../../core/constants';
 
 const { getConfig } = Shadow;
 

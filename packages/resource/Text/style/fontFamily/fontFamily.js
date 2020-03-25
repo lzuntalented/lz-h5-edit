@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Row, Col, Tooltip, Icon,
 } from 'antd';
-import { getFontFamilyOptions } from '../../../../core/config';
+import { getFontFamilyOptions } from '../../../core/config';
 
 function change(cb) {
   return () => {

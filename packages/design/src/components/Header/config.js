@@ -1,4 +1,4 @@
-import apiConfig, { getUrlPrefix } from '../../../../services/apiConfig';
+import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 
 export function getUploadProps() {
   const props = {

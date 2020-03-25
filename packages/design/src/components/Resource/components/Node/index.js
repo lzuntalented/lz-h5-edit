@@ -7,10 +7,10 @@ import {
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
   COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
   COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER,
-} from '../../../../../../core/constants';
-import { getFontFamilyOptions } from '../../../../../../core/config';
+} from '../../../../core/constants';
+import { getFontFamilyOptions } from '../../../../core/config';
 import { getArtShadowOptions, getArtSolidOptions, getArtBorderOptions } from './config';
-import { generatorTexttextShadow } from '../../../../../../utils';
+import { generatorTexttextShadow } from '../../../../utils';
 
 const { TabPane } = Tabs;
 

@@ -5,6 +5,6 @@ import router from './router';
 
 const rootEl = window.document.getElementById('root');
 ReactDOM.render(
-  { router },
+  router,
   rootEl,
 );

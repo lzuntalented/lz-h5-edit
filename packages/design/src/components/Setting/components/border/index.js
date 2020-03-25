@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Row, Col, Input, Slider, Select,
 } from 'antd';
-import ColorPicker from '../../../../../../components/ColorPicker';
+import ColorPicker from '../../../ColorPicker';
 
 export default function (props) {
   const {

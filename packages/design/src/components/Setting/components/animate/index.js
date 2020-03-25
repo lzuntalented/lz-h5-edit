@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import getSelectOptions from './config';
 import {
   changeAnimation, addAnimate, changeAnimate, previewAnimate, removeAnimate, hoverAnimate, previewAnimateWithIndex,
-} from '../../../../../../store/action';
-import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../../../core/constants';
+} from '../../../../store/action';
+import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../core/constants';
 
 const opts = getSelectOptions();
 const { Option, OptGroup } = Select;

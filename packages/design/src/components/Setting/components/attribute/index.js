@@ -19,9 +19,9 @@ import {
   STYLE_RENDER_TYPE_COLLAPSE,
   STYLE_RENDER_TYPE_TWO_INPUT,
   STYLE_RENDER_TYPE_PICTURE,
-} from '../../../../../../core/constants';
-import { changeAttrs } from '../../../../../../store/action';
-import { isObject, isString } from '../../../../../../utils/Tools';
+} from '../../../../core/constants';
+import { changeAttrs } from '../../../../store/action';
+import { isObject, isString } from '../../../../utils/Tools';
 
 const renderMap = {
   [STYLE_RENDER_TYPE_SELECT]: RenderStyle,

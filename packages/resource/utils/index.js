@@ -1,4 +1,9 @@
 
+export const winSize = {
+  width: 320,
+  height: 480,
+};
+
 export function generatorTexttextShadow(obj = {}) {
   const {
     textShadowX, textShadowY, textShadowSpread, textShadowColor,

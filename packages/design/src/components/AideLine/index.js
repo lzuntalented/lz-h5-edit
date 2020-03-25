@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   ITEM_TYPE_GROUP,
-} from '../../../../core/constants';
-import { isUndefined } from '../../../../utils/Tools';
-import { winSize } from '../../../../utils';
+} from '../../core/constants';
+import { isUndefined } from '../../utils/Tools';
+import { winSize } from '../../utils';
 
 class Phone extends React.Component {
     static propTypes = {

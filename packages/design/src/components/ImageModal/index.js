@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Upload } from 'antd';
-import ModalContainer from '../../../../components/ModalContainer';
+import ModalContainer from '../ModalContainer';
 import ImageList from '../Header/components/ImageList';
-import { addPageItemWithAttrs, changeActiveItemAttrs } from '../../../../store/action';
-import { COMPONENT_TYPE_PICTURE } from '../../../../core/constants';
+import { addPageItemWithAttrs, changeActiveItemAttrs } from '../../store/action';
+import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
 import { getUploadProps } from '../Header/config';
 
 import './index.scss';
@@ -57,7 +57,7 @@ export default function ImageModal(props) {
         onChange={onFileChange}
       >
         <Button type="primary">
-        本地上传
+          本地上传
         </Button>
       </Upload>
     </ModalContainer>

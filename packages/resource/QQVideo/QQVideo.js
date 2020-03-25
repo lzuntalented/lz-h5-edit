@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Icon } from 'antd';
 import PropTypes from 'prop-types';
-import { winSize } from '../../utils';
+import { winSize } from '../utils';
 
 import './index.scss';
 
@@ -30,24 +30,24 @@ function QQVideo(props) {
         <Row type="flex" justify="space-between" className="message">
           <Col className="text-center">
             <Icon type="clock-circle" /><br />
-              提醒我
+            提醒我
           </Col>
           <Col className="text-center">
             <Icon type="message" /><br />
-              信息
+            信息
           </Col>
         </Row>
         <Row type="flex" justify="space-between" className="message">
           <Col className="text-center">
             <div>
               <i className="iconfont icon-phonedianhua i-bg-diss" />
-                拒绝
+              拒绝
             </div>
           </Col>
           <Col className="text-center">
             <div>
               <i className="iconfont icon-phone2 i-bg-acp" />
-                    接听
+              接听
             </div>
           </Col>
         </Row>

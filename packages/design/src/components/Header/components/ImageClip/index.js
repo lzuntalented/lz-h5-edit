@@ -2,9 +2,9 @@ import React from 'react';
 import { Modal } from 'antd';
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.min.css';
-import { changeBackGround } from '../../../../../../store/action';
+import { changeBackGround } from '../../../../store/action';
 import ImageClipChild from './ImageClip';
-import { cropImage } from '../../../../../../services/create';
+import { cropImage } from '../../../../services/create';
 
 class ImageClip extends React.Component {
   constructor(props) {

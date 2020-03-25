@@ -5,7 +5,7 @@ import {
 } from 'antd';
 import {
   addPageItem, initStore, addPageItemWithSize, addPageItemWithAttrs,
-} from '../../../../store/action';
+} from '../../store/action';
 import Node from './components/Node';
 import Scene from './components/Scene';
 

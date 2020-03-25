@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Map from '../../components/Map';
+import Map from '../components/Map';
 
 function BDMap(props) {
   const { address, style } = props;

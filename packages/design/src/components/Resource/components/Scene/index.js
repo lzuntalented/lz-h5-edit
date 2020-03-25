@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from 'antd';
-import { getComponentRenderMap } from '../../../../../../core/components';
-import { winSize } from '../../../../../../utils';
-import { getLocalTplDatas } from '../../../../../../core/config';
+import { getComponentRenderMap } from '../../../../core/components';
+import { winSize } from '../../../../utils';
+import { getLocalTplDatas } from '../../../../core/config';
 
 class RealPreview extends React.Component {
   constructor(props) {

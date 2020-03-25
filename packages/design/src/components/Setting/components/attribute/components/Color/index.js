@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Select } from 'antd';
-import ColorPicker from '../../../../../../../../components/ColorPicker';
+import ColorPicker from '../../../../../ColorPicker';
 
 export default function RenderStyle(props) {
   const {

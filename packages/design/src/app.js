@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 import Setting from './components/Setting';
-import PageManage from '../../components/PageManage';
+import PageManage from './components/PageManage';
 import Phone from './phone';
 import Control from './components/Control';
 import AideLine from './components/AideLine';
@@ -16,8 +16,6 @@ import './index.scss';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    const { routeParams } = props;
-    this.id = routeParams && routeParams.id;
     this.state = {
       showPreview: false,
     };
