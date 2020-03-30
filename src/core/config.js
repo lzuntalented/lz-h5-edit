@@ -45,12 +45,12 @@ export function getDragonFestivalData() {
           height: 300,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#333',
           text: '端午节是我国最大的传统节日之一，下面就跟小编一起来看看端午节的由来吧，仲夏五月人倍忙。五月是传统中国农事劳动最繁重的月份之一,可就是在达忙的时间里,却有一个重大的节日。这看起来似乎有些矛盾,实际上,这种安排是能反映乡土社会生产、生活的运行特点。五月虽忙,但可以忙里偷闲,这闲为的是忙。一段忙碌之后,来一个大或小的节日,既是休息,又可以激发劳动热情,这样,“节日和劳动交替着。在劳动中村民们盼望着下一个节日,节日过后他们又精力充活地投人劳动,他们的生活就是劳动和娱乐的循环过程,然而是十分充实的。',
@@ -68,12 +68,12 @@ export function getDragonFestivalData() {
           height: 150,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/2-bg-bottom.png',
         },
@@ -89,12 +89,12 @@ export function getDragonFestivalData() {
           height: 190,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/1-bg-top.png',
         },
@@ -110,12 +110,12 @@ export function getDragonFestivalData() {
           height: 203,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateInUpLeft',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/1-circle.png',
         },
@@ -131,12 +131,12 @@ export function getDragonFestivalData() {
           height: 190,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/1-bg-bottom.png',
         },
@@ -152,12 +152,12 @@ export function getDragonFestivalData() {
           height: 250,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#358d64',
           text: '五月初五',
@@ -175,12 +175,12 @@ export function getDragonFestivalData() {
           height: 122,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'swing',
           duration: 1,
           delay: 1,
           repeat: 'infinite',
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/2-shake.png',
         },
@@ -196,12 +196,12 @@ export function getDragonFestivalData() {
           height: 66,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'swing',
           duration: 1,
           delay: 1,
           repeat: 'infinite',
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/1-shake.png',
         },
@@ -217,12 +217,12 @@ export function getDragonFestivalData() {
           height: 250,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/1-dw.png',
         },
@@ -238,12 +238,12 @@ export function getDragonFestivalData() {
           height: 106,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/2-bg-top-l.png',
         },
@@ -259,12 +259,12 @@ export function getDragonFestivalData() {
           height: 63,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'flipInY',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/2-title.png',
         },
@@ -280,12 +280,12 @@ export function getDragonFestivalData() {
           height: 100,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/2-bg-top-r.png',
         },
@@ -301,12 +301,12 @@ export function getDragonFestivalData() {
           height: 50,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#fff',
           text: '端午由来',
@@ -348,12 +348,12 @@ export function getChildrenFestivalData() {
     editList: {
       '8cn3iz': {
         name: '图片1',
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-top.png',
         },
@@ -369,12 +369,12 @@ export function getChildrenFestivalData() {
       },
       nqibpw: {
         name: '图片1',
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           delay: 0,
           duration: 1.5,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/2-top.png',
         },
@@ -390,12 +390,12 @@ export function getChildrenFestivalData() {
       },
       '1ijae9': {
         name: '图片3',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bottom.png',
         },
@@ -411,12 +411,12 @@ export function getChildrenFestivalData() {
       },
       '2nlxmp': {
         name: '文本6',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 1.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#fe8b9d',
           fontSize: 14,
@@ -436,12 +436,12 @@ export function getChildrenFestivalData() {
       },
       '675qbp': {
         name: '文本3',
-        animate: {
+        animates: [{
           name: 'lightSpeedIn',
           delay: 1.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#faa8d4',
           fontSize: 16,
@@ -461,12 +461,12 @@ export function getChildrenFestivalData() {
       },
       cdl42u: {
         name: '图片9',
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           delay: 2.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-left.png',
         },
@@ -489,12 +489,12 @@ export function getChildrenFestivalData() {
           top: 53,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         type: 'COMPONENT_TYPE_PICTURE',
         nodeType: 'ITEM_TYPE_SINGLE',
         attrs: {
@@ -503,12 +503,12 @@ export function getChildrenFestivalData() {
       },
       tldcuo: {
         name: '图片7',
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           delay: 2,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bl.png',
         },
@@ -524,12 +524,12 @@ export function getChildrenFestivalData() {
       },
       '8esv27': {
         name: '图片8',
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           delay: 2,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bl.png',
         },
@@ -545,12 +545,12 @@ export function getChildrenFestivalData() {
       },
       k3pmvf: {
         name: '图片2',
-        animate: {
+        animates: [{
           name: 'fadeIn',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/2-bottom-l.png',
         },
@@ -566,12 +566,12 @@ export function getChildrenFestivalData() {
       },
       twde0a: {
         name: '图片0',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/2-bg.png',
         },
@@ -587,12 +587,12 @@ export function getChildrenFestivalData() {
       },
       jmbuno: {
         name: '图片5',
-        animate: {
+        animates: [{
           name: 'jackInTheBox',
           delay: 0.5,
           repeat: 1,
           duration: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-children.png',
         },
@@ -610,12 +610,12 @@ export function getChildrenFestivalData() {
         name: '图片4',
         type: 'COMPONENT_TYPE_PICTURE',
         nodeType: 'ITEM_TYPE_SINGLE',
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-top.png',
         },
@@ -629,12 +629,12 @@ export function getChildrenFestivalData() {
       },
       zzy6ok: {
         name: '图片2',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-bottom.png',
         },
@@ -650,12 +650,12 @@ export function getChildrenFestivalData() {
       },
       '7abxki': {
         name: '图片10',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 2.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/61/1-right.png',
         },
@@ -713,12 +713,12 @@ export function getGKData() {
           bgColor: '',
           lineHeight: 1.5,
         },
-        animate: {
+        animates: [{
           delay: 0,
           name: '',
           duration: 1,
           repeat: 1,
-        },
+        }],
         rect: {
           width: 283,
           left: 17,
@@ -738,12 +738,12 @@ export function getGKData() {
           bgColor: '',
           lineHeight: 1.5,
         },
-        animate: {
+        animates: [{
           delay: 0,
           duration: 1,
           repeat: 1,
           name: '',
-        },
+        }],
         rect: {
           width: 320,
           left: 18,
@@ -756,12 +756,12 @@ export function getGKData() {
       },
       irq9b9: {
         name: '图片2',
-        animate: {
+        animates: [{
           name: 'rollIn',
           delay: 1.2,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/1-s.png',
         },
@@ -777,12 +777,12 @@ export function getGKData() {
       },
       '352o7g': {
         name: '图片2',
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           delay: 0.7,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/3-t.png',
         },
@@ -798,12 +798,12 @@ export function getGKData() {
       },
       xqqm94: {
         name: '文本4',
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           delay: 1.4,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -823,12 +823,12 @@ export function getGKData() {
       },
       m5zc1r: {
         name: '图片1',
-        animate: {
+        animates: [{
           name: 'flipInX',
           delay: 0.7,
           repeat: 1,
           duration: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/2-1.png',
         },
@@ -844,12 +844,12 @@ export function getGKData() {
       },
       d6sa8j: {
         name: '图片2',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 0.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/2-b-2.png',
         },
@@ -865,12 +865,12 @@ export function getGKData() {
       },
       g7xrpx: {
         name: '图片4',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 0.4,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/1-bottom.png',
         },
@@ -886,12 +886,12 @@ export function getGKData() {
       },
       '5p9gis': {
         name: '文本7',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 1,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 16,
@@ -911,12 +911,12 @@ export function getGKData() {
       },
       nviuv5: {
         name: '图片1',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 0.7,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/1-fight.png',
         },
@@ -932,12 +932,12 @@ export function getGKData() {
       },
       '0bysis': {
         name: '文本6',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 1,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 16,
@@ -957,12 +957,12 @@ export function getGKData() {
       },
       gccvi0: {
         name: '图片1',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 0.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/3-b.png',
         },
@@ -978,12 +978,12 @@ export function getGKData() {
       },
       gj0v9f: {
         name: '文本3',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 1.4,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -1003,12 +1003,12 @@ export function getGKData() {
       },
       vc4wp6: {
         name: '文本4',
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           delay: 0.7,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 16,
@@ -1028,12 +1028,12 @@ export function getGKData() {
       },
       y9uujc: {
         name: '文本5',
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           delay: 0.7,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -1053,12 +1053,12 @@ export function getGKData() {
       },
       oqvfpx: {
         name: '文本5',
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           delay: 1.4,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -1078,12 +1078,12 @@ export function getGKData() {
       },
       eohtr6: {
         name: '图片3',
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           delay: 0.5,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/2-b-1.png',
         },
@@ -1106,12 +1106,12 @@ export function getGKData() {
           bgColor: '',
           lineHeight: 1.5,
         },
-        animate: {
+        animates: [{
           name: '',
           delay: 0,
           duration: 1,
           repeat: 1,
-        },
+        }],
         rect: {
           width: 291,
           left: 21,
@@ -1124,12 +1124,12 @@ export function getGKData() {
       },
       poapds: {
         name: '图片3',
-        animate: {
+        animates: [{
           name: 'zoomIn',
           delay: 1,
           duration: 1,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/tool/h5edit/img/gk/1-qc.png',
         },
@@ -1194,13 +1194,13 @@ export function get1024Data() {
           height: 108,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0,
           repeat: 1,
           animateRepeat: 'infinite',
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/1024/1024.png',
         },
@@ -1216,12 +1216,12 @@ export function get1024Data() {
           height: 227,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/1024/1.b.png',
         },
@@ -1237,12 +1237,12 @@ export function get1024Data() {
           height: 108,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/1024/1.cloud.png',
         },
@@ -1258,12 +1258,12 @@ export function get1024Data() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#181818',
           fontSize: 12,
@@ -1283,12 +1283,12 @@ export function get1024Data() {
           height: 266,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 14,
@@ -1308,12 +1308,12 @@ export function get1024Data() {
           height: 61,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/1024/2.gif',
         },
@@ -1329,12 +1329,12 @@ export function get1024Data() {
           height: 227,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/1024/1.b.png',
         },
@@ -1372,9 +1372,9 @@ export function getDouble11Data() {
         rect: {
           top: 222, left: 47, width: 222, height: 114, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs:
           { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
@@ -1385,9 +1385,9 @@ export function getDouble11Data() {
         rect: {
           top: 363, left: 215, width: 36, height: 57, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1436,9 +1436,9 @@ export function getDouble11Data() {
         rect: {
           top: 16, left: 16, width: 288, height: 182, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1448,9 +1448,9 @@ export function getDouble11Data() {
         rect: {
           top: 424, left: 86, width: 165, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0.3, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff', fontSize: 12, text: '不挤不堵双十一保价到底', bgColor: '', lineHeight: 1.5,
         },
@@ -1462,9 +1462,9 @@ export function getDouble11Data() {
         rect: {
           top: 121, left: 54, width: 208, height: 100, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1474,9 +1474,9 @@ export function getDouble11Data() {
         rect: {
           top: 149, left: 104, width: 120, height: 41, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff', fontSize: 14, text: '我第一重优惠', bgColor: '', lineHeight: 1.5,
         },
@@ -1488,9 +1488,9 @@ export function getDouble11Data() {
         rect: {
           top: 422, left: 0, width: 320, height: 84, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820657.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1500,9 +1500,9 @@ export function getDouble11Data() {
         rect: {
           top: 416, left: 13, width: 294, height: 60, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0.3, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1512,9 +1512,9 @@ export function getDouble11Data() {
         rect: {
           top: 341, left: 125, width: 64, height: 91, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1524,9 +1524,9 @@ export function getDouble11Data() {
         rect: {
           top: 73, left: -81, width: 320, height: 319, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: '//bpic.588ku.com/original_pic/19/10/11/b13e770bdd6274e7e0c41fb82c65899a.jpg!/fw/252/quality/99/unsharp/true/compress/true' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1537,9 +1537,9 @@ export function getDouble11Data() {
         {
           top: 444, left: 114, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#181818', fontSize: 12, text: '科技创造未来', bgColor: '', lineHeight: 1.5,
         },
@@ -1551,9 +1551,9 @@ export function getDouble11Data() {
         rect: {
           top: 379, left: 225, width: 36, height: 51, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
             'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
@@ -1566,9 +1566,9 @@ export function getDouble11Data() {
         rect: {
           top: 76, left: 59, width: 200, height: 108, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1, animateRepeat: 'infinite',
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/1024.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1578,9 +1578,9 @@ export function getDouble11Data() {
         rect: {
           top: 55, left: 43, width: 230, height: 58, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs:
           { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
@@ -1591,9 +1591,9 @@ export function getDouble11Data() {
         rect: {
           top: 415, left: -1, width: 320, height: 83, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820657.png?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1619,9 +1619,9 @@ export function getDouble11Data() {
         rect: {
           top: 87, left: 32, width: 259, height: 266, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 14,
@@ -1641,9 +1641,9 @@ export function getDouble11Data() {
           height: 128,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'flipInY', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -1677,9 +1677,9 @@ export function getDouble11Data() {
           height: 41,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs:
         {
           color: 'red',
@@ -1696,9 +1696,9 @@ export function getDouble11Data() {
         rect: {
           top: 197, left: 97, width: 137, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ff00d5', fontSize: 16, text: '全场五折疯抢', bgColor: '', lineHeight: 1.5,
         },
@@ -1710,9 +1710,9 @@ export function getDouble11Data() {
         rect: {
           top: 204, left: 17, width: 290, height: 60, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
             'http://www.lzuntalented.cn/img/double11/5daff7582086b.png?x-oss-process=style/w750&t=1',
@@ -1725,9 +1725,9 @@ export function getDouble11Data() {
         rect: {
           top: 242, left: 217, width: 116, height: 122, rotate: 264,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
             'http://www.lzuntalented.cn/img/double11/5daff75820748.png?x-oss-process=style/w750&t=1',
@@ -1740,9 +1740,9 @@ export function getDouble11Data() {
         rect: {
           top: 53, left: 128, width: 79, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -1759,9 +1759,9 @@ export function getDouble11Data() {
         {
           top: 374, left: 229, width: 48, height: 98, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1771,9 +1771,9 @@ export function getDouble11Data() {
         rect: {
           top: 362, left: 43, width: 56, height: 106, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
             'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
@@ -1803,12 +1803,12 @@ export function getDouble11Data() {
         rect: {
           top: 328, left: 123, width: 84, height: 134, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1819,9 +1819,9 @@ export function getDouble11Data() {
         {
           top: 410, left: -26, width: 356, height: 108, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs:
           { imgSrc: 'http://www.lzuntalented.cn/img/1024/1.cloud.png' },
         type: 'COMPONENT_TYPE_PICTURE',
@@ -1832,9 +1832,9 @@ export function getDouble11Data() {
         rect: {
           top: 36, left: 90, width: 132, height: 61, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/1024/2.gif' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1844,9 +1844,9 @@ export function getDouble11Data() {
         rect: {
           top: 365, left: 47, width: 50, height: 100, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
             'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
@@ -1859,9 +1859,9 @@ export function getDouble11Data() {
         rect: {
           top: 351, left: 59, width: 50, height: 78, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif?x-oss-process=style/w750&t=1',
         },
@@ -1873,9 +1873,9 @@ export function getDouble11Data() {
         rect: {
           top: 56, left: 123, width: 94, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           color: '#ffffff',
           fontSize: 12,
@@ -1906,72 +1906,72 @@ export function getThinksgivingData() {
       ['j4a4dd', '87tx55', 'eygpw4', '9nd7is', 'i97m18', 'ishgy2'], ['284es5', 'v1el9f', 'uytwwt', 'aag0j7', 'ng10xl', 'ypazl1', 'fpqr5a', '7g8hre']],
     editList: {
       wn7cx5:
-        {
-          name: '文本 1',
-          nodeType: 'ITEM_TYPE_SINGLE',
-          rect: {
-            top: 60, left: 16, width: 308, height: 188, rotate: 0,
-          },
-          animate: {
-            name: 'rotateInDownRight',
-            duration: 1,
-            delay: 0.3,
-            repeat: 1,
-          },
-          attrs: {
-            fontStyle: '',
-            color: '#9e7a52',
-            fontWeight: '',
-            opacity: 1,
-            text:
-              '你是我此生甜蜜的邂逅，<div>让我再不会在世间孤单的漂流，<div>希望你能接受这永恒的指环，</div><div>让闪耀如不灭的星斗，</div><div>从此让幸福成为我们心头最温柔的刺绣！</div></div>',
-            fontSize: 14,
-            textAlign: 'left',
-            lineHeight: 1.5,
-            letterSpacing: 6,
-            textDecoration: '',
-            bgColor: '',
-          },
-          type: 'COMPONENT_TYPE_TEXT',
+      {
+        name: '文本 1',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 60, left: 16, width: 308, height: 188, rotate: 0,
         },
+        animates: [{
+          name: 'rotateInDownRight',
+          duration: 1,
+          delay: 0.3,
+          repeat: 1,
+        }],
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text:
+            '你是我此生甜蜜的邂逅，<div>让我再不会在世间孤单的漂流，<div>希望你能接受这永恒的指环，</div><div>让闪耀如不灭的星斗，</div><div>从此让幸福成为我们心头最温柔的刺绣！</div></div>',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 6,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
       k378wn:
-        {
-          name: '文本 1 拷贝',
-          nodeType: 'ITEM_TYPE_SINGLE',
-          rect: {
-            top: 338, left: 187, width: 84, height: 42, rotate: 0,
-          },
-          animate: {
-            name:
-              'zoomIn',
-            duration: 1,
-            delay: 1,
-            repeat: 1,
-          },
-          attrs: {
-            fontStyle: '',
-            color: '#9e7a52',
-            fontWeight: '',
-            opacity: 1,
-            text: '@父母',
-            fontSize: 14,
-            textAlign: 'left',
-            lineHeight: 1.5,
-            letterSpacing: 4,
-            textDecoration: '',
-            bgColor: '',
-          },
-          type: 'COMPONENT_TYPE_TEXT',
+      {
+        name: '文本 1 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 338, left: 187, width: 84, height: 42, rotate: 0,
         },
+        animates: [{
+          name:
+            'zoomIn',
+          duration: 1,
+          delay: 1,
+          repeat: 1,
+        }],
+        attrs: {
+          fontStyle: '',
+          color: '#9e7a52',
+          fontWeight: '',
+          opacity: 1,
+          text: '@父母',
+          fontSize: 14,
+          textAlign: 'left',
+          lineHeight: 1.5,
+          letterSpacing: 4,
+          textDecoration: '',
+          bgColor: '',
+        },
+        type: 'COMPONENT_TYPE_TEXT',
+      },
       ff6rqv: {
         name: '图片 7',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect: {
           top: 245, left: -15, width: 144, height: 181, rotate: 69,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/flower.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -1979,12 +1979,12 @@ export function getThinksgivingData() {
         name: '文本 1 拷贝',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect:
-            {
-              top: 27, left: 16, width: 222, height: 47, rotate: 0,
-            },
-        animate: {
-          name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
+        {
+          top: 27, left: 16, width: 222, height: 47, rotate: 0,
         },
+        animates: [{
+          name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -1999,7 +1999,7 @@ export function getThinksgivingData() {
           bgColor: '',
         },
         type:
-            'COMPONENT_TYPE_TEXT',
+          'COMPONENT_TYPE_TEXT',
       },
       '6yiwuf': {
         name: '图片 2 拷贝',
@@ -2007,9 +2007,9 @@ export function getThinksgivingData() {
         rect: {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2019,28 +2019,28 @@ export function getThinksgivingData() {
         rect: {
           top: 225, left: 157, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '87tx55': {
         name: '图片 2',
         nodeType:
-            'ITEM_TYPE_SINGLE',
+          'ITEM_TYPE_SINGLE',
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-                'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2049,18 +2049,18 @@ export function getThinksgivingData() {
         nodeType: 'ITEM_TYPE_SINGLE',
         rect: {
           top:
-              -7,
+            -7,
           left: 312,
           width: 10,
           height: 504,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2070,12 +2070,12 @@ export function getThinksgivingData() {
         rect: {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2083,12 +2083,12 @@ export function getThinksgivingData() {
         name: '文本 1',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect:
-            {
-              top: 108, left: 16, width: 222, height: 123, rotate: 0,
-            },
-        animate: {
-          name: '', duration: 1, delay: 0, repeat: 1,
+        {
+          top: 108, left: 16, width: 222, height: 123, rotate: 0,
         },
+        animates: [{
+          name: '', duration: 1, delay: 0, repeat: 1,
+        }],
         attrs: {
           fontStyle: '',
           color: '#373535',
@@ -2110,12 +2110,12 @@ export function getThinksgivingData() {
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2125,14 +2125,14 @@ export function getThinksgivingData() {
         rect: {
           top: -246,
           left:
-              152,
+            152,
           width: 10,
           height: 504,
           rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2142,22 +2142,22 @@ export function getThinksgivingData() {
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '53i992': {
         name:
-            '图片 2',
+          '图片 2',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2171,9 +2171,9 @@ export function getThinksgivingData() {
           height: 43,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -2188,7 +2188,7 @@ export function getThinksgivingData() {
           bgColor: '',
         },
         type:
-            'COMPONENT_TYPE_TEXT',
+          'COMPONENT_TYPE_TEXT',
       },
       wq3j8p: {
         name: '文本 1 拷贝 拷贝',
@@ -2196,9 +2196,9 @@ export function getThinksgivingData() {
         rect: {
           top: 377, left: 189, width: 84, height: 42, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 1, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -2207,7 +2207,7 @@ export function getThinksgivingData() {
           text: '@朋友',
           fontSize: 14,
           textAlign:
-              'left',
+            'left',
           lineHeight: 1.5,
           letterSpacing: 4,
           textDecoration: '',
@@ -2221,12 +2221,12 @@ export function getThinksgivingData() {
         rect: {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2234,15 +2234,15 @@ export function getThinksgivingData() {
         name: '图片 6 拷贝',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect:
-            {
-              top: 247, left: 0, width: 168, height: 187, rotate: 74,
-            },
-        animate: {
-          name: 'bounceInUp', duration: 1, delay: 0.3, repeat: 1,
+        {
+          top: 247, left: 0, width: 168, height: 187, rotate: 74,
         },
+        animates: [{
+          name: 'bounceInUp', duration: 1, delay: 0.3, repeat: 1,
+        }],
         attrs: {
           imgSrc:
-                'http://www.lzuntalented.cn/img/gen/flower.png',
+            'http://www.lzuntalented.cn/img/gen/flower.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2256,12 +2256,12 @@ export function getThinksgivingData() {
           height: 172,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomInRight', duration: 1, delay: 0.8, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/heart.png',
+            'http://www.lzuntalented.cn/img/gen/heart.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2269,12 +2269,12 @@ export function getThinksgivingData() {
         name: '文本 1 拷贝 拷贝',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect:
-            {
-              top: 357, left: 188, width: 84, height: 42, rotate: 0,
-            },
-        animate: {
-          name: 'zoomIn', duration: 1, delay: 1, repeat: 1,
+        {
+          top: 357, left: 188, width: 84, height: 42, rotate: 0,
         },
+        animates: [{
+          name: 'zoomIn', duration: 1, delay: 1, repeat: 1,
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -2289,7 +2289,7 @@ export function getThinksgivingData() {
           bgColor: '',
         },
         type:
-            'COMPONENT_TYPE_TEXT',
+          'COMPONENT_TYPE_TEXT',
       },
       '71n3bn': {
         name: '文本 1',
@@ -2297,16 +2297,16 @@ export function getThinksgivingData() {
         rect: {
           top: 29, left: 13, width: 223, height: 176, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn', duration: 1, delay: 1, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
           fontWeight: '',
           opacity: 1,
           text:
-              '今天，<div>你是否会想起那个</div><div>抚育过你，责骂过你，</div><div>照顾过你，包容过你，</div><div>关心过你，爱过你..的人</div><div>这个感恩节</div><div>我想@最重要的你</div>',
+            '今天，<div>你是否会想起那个</div><div>抚育过你，责骂过你，</div><div>照顾过你，包容过你，</div><div>关心过你，爱过你..的人</div><div>这个感恩节</div><div>我想@最重要的你</div>',
           fontSize: 14,
           textAlign: 'left',
           lineHeight: 1.5,
@@ -2322,9 +2322,9 @@ export function getThinksgivingData() {
         rect: {
           top: 262, left: 189, width: 131, height: 62, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.8, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -2350,9 +2350,9 @@ export function getThinksgivingData() {
           height: 212,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzun' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2362,28 +2362,28 @@ export function getThinksgivingData() {
         rect: {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       ng10xl: {
         name: '图片 2 拷贝 拷贝',
         nodeType:
-            'ITEM_TYPE_SINGLE',
+          'ITEM_TYPE_SINGLE',
         rect: {
           top: 225, left: 157, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-                'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2397,9 +2397,9 @@ export function getThinksgivingData() {
           height: 504,
           rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png',
         },
@@ -2411,9 +2411,9 @@ export function getThinksgivingData() {
         rect: {
           top: 225, left: 157, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2423,9 +2423,9 @@ export function getThinksgivingData() {
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2433,16 +2433,16 @@ export function getThinksgivingData() {
         name: '文本 1 拷贝',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect:
-            {
-              top: 22, left: 16, width: 222, height: 45, rotate: 0,
-            },
-        animate: {
-          name: 'rotateInDownRight', duration: 1, delay: 0, repeat: 1,
+        {
+          top: 22, left: 16, width: 222, height: 45, rotate: 0,
         },
+        animates: [{
+          name: 'rotateInDownRight', duration: 1, delay: 0, repeat: 1,
+        }],
         attrs: {
           fontStyle: '',
           color:
-                '#9e7a52',
+            '#9e7a52',
           fontWeight: '',
           opacity: 1,
           text: '宝贝：',
@@ -2454,7 +2454,7 @@ export function getThinksgivingData() {
           bgColor: '',
         },
         type:
-            'COMPONENT_TYPE_TEXT',
+          'COMPONENT_TYPE_TEXT',
       },
       '6hscwd': {
         name: '图片 7',
@@ -2462,30 +2462,30 @@ export function getThinksgivingData() {
         rect: {
           top: 232, left: 26, width: 227, height: 311, rotate: 0,
         },
-        animate: {
+        animates: [{
           name:
-              'slideInUp',
+            'slideInUp',
           duration: 1,
           delay: 0.2,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/love.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       vmn0wm: {
         name:
-            '文本 15 拷贝',
+          '文本 15 拷贝',
         nodeType: 'ITEM_TYPE_SINGLE',
         rect: {
           top: 315, left: 188, width: 122, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay:
-                0.8,
+            0.8,
           repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#000000',
@@ -2511,9 +2511,9 @@ export function getThinksgivingData() {
           height: 504,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2523,16 +2523,16 @@ export function getThinksgivingData() {
         rect: {
           top: 108, left: 16, width: 222, height: 123, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#373535',
           fontWeight: '',
           opacity: 1,
           text:
-              '父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。',
+            '父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。',
           fontSize: 14,
           textAlign: 'center',
           lineHeight: 1.5,
@@ -2548,12 +2548,12 @@ export function getThinksgivingData() {
         rect: {
           top: 19, left: 199, width: 94, height: 106, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/gan.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2563,11 +2563,11 @@ export function getThinksgivingData() {
         rect: {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs:
-            { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+          { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '9nd7is': {
@@ -2576,12 +2576,12 @@ export function getThinksgivingData() {
         rect: {
           top: -246, left: 152, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2591,12 +2591,12 @@ export function getThinksgivingData() {
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2606,9 +2606,9 @@ export function getThinksgivingData() {
         rect: {
           top: 170, left: 61, width: 184, height: 44, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           text: '留言内容',
           color: '#000',
@@ -2626,9 +2626,9 @@ export function getThinksgivingData() {
           height: 504,
           rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2638,9 +2638,9 @@ export function getThinksgivingData() {
         rect: {
           top: 225, left: 157, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2650,28 +2650,28 @@ export function getThinksgivingData() {
         rect: {
           top: -4, left: 0, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       '1tczw1': {
         name: '图片 2 拷贝',
         nodeType:
-            'ITEM_TYPE_SINGLE',
+          'ITEM_TYPE_SINGLE',
         rect: {
           top: -246, left: 152, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-                'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2685,9 +2685,9 @@ export function getThinksgivingData() {
           height: 123,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#373535',
@@ -2706,15 +2706,15 @@ export function getThinksgivingData() {
       ypazl1: {
         name: '按钮 6',
         nodeType:
-            'ITEM_TYPE_SINGLE',
+          'ITEM_TYPE_SINGLE',
         rect: {
           top: 246, left: 62, width: 182, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs:
-            { text: '提交', type: 'primary' },
+          { text: '提交', type: 'primary' },
         type: 'COMPONENT_TYPE_BUTTON',
       },
       ib7sx8: {
@@ -2727,9 +2727,9 @@ export function getThinksgivingData() {
           height: 504,
           rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2739,9 +2739,9 @@ export function getThinksgivingData() {
         rect: {
           top: 143, left: 178, width: 66, height: 78, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/en.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2751,12 +2751,12 @@ export function getThinksgivingData() {
         rect: {
           top: -246, left: 152, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2766,9 +2766,9 @@ export function getThinksgivingData() {
         rect: {
           top: 220, left: 238, width: 66, height: 63, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown', duration: 1, delay: 0.6, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/xin.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2778,9 +2778,9 @@ export function getThinksgivingData() {
         rect: {
           top: 93, left: 62, width: 184, height: 45, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           text: '姓名', color: '#000', bgColor: '按钮',
         },
@@ -2792,9 +2792,9 @@ export function getThinksgivingData() {
         rect: {
           top: 225, left: 157, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2804,19 +2804,19 @@ export function getThinksgivingData() {
         rect: {
           top: 58, left: 24, width: 271, height: 146, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           duration: 1,
           delay: 0.7,
           repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
           fontWeight: '',
           opacity: 1,
           text:
-              '<div>父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。</div>',
+            '<div>父爱似海，宽广伟大，浩瀚无边；母爱似泉，连绵不断，滋润心田；母爱似花，温馨芬芳，一生相伴。母亲节来临之际，祝天下父母幸福快乐，身体健康。</div>',
           fontSize: 14,
           textAlign: 'left',
           lineHeight: 1.5,
@@ -2827,21 +2827,21 @@ export function getThinksgivingData() {
         type: 'COMPONENT_TYPE_TEXT',
       },
       ygnki6:
-        {
-          name: '图片 2 拷贝',
-          nodeType: 'ITEM_TYPE_SINGLE',
-          rect: {
-            top: -246, left: 152, width: 10, height: 504, rotate: 90,
-          },
-          animate: {
-            name: '',
-            duration: 1,
-            delay: 0,
-            repeat: 1,
-          },
-          attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
-          type: 'COMPONENT_TYPE_PICTURE',
+      {
+        name: '图片 2 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: -246, left: 152, width: 10, height: 504, rotate: 90,
         },
+        animates: [{
+          name: '',
+          duration: 1,
+          delay: 0,
+          repeat: 1,
+        }],
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
       os6dry: {
         name: '图片 2 拷贝',
         nodeType: 'ITEM_TYPE_SINGLE',
@@ -2849,9 +2849,9 @@ export function getThinksgivingData() {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
         animate:
-            {
-              name: '', duration: 1, delay: 0, repeat: 1,
-            },
+        {
+          name: '', duration: 1, delay: 0, repeat: 1,
+        },
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2861,12 +2861,12 @@ export function getThinksgivingData() {
         rect: {
           top: 33, left: 45, width: 222, height: 42, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -2875,7 +2875,7 @@ export function getThinksgivingData() {
           text: '留言祝福',
           fontSize: 16,
           textAlign:
-              'center',
+            'center',
           lineHeight: 1.5,
           letterSpacing: 0,
           textDecoration: '',
@@ -2886,16 +2886,16 @@ export function getThinksgivingData() {
       eygpw4: {
         name: '图片 2 拷贝',
         nodeType:
-            'ITEM_TYPE_SINGLE',
+          'ITEM_TYPE_SINGLE',
         rect: {
           top: -7, left: 312, width: 10, height: 504, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-                'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2909,9 +2909,9 @@ export function getThinksgivingData() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'jackInTheBox', duration: 1, delay: 1.2, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color: '#9e7a52',
@@ -2933,26 +2933,26 @@ export function getThinksgivingData() {
         rect: {
           top: -246, left: 152, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '',
           duration: 1,
           delay:
-              0,
+            0,
           repeat: 1,
-        },
+        }],
         attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
         type: 'COMPONENT_TYPE_PICTURE',
       },
       c9hdpz: {
         name: '图片 6 拷贝 拷贝',
         nodeType:
-            'ITEM_TYPE_SINGLE',
+          'ITEM_TYPE_SINGLE',
         rect: {
           top: 121, left: 241, width: 66, height: 78, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInDown', duration: 1, delay: 0.4, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc: 'http://www.lzuntalented.cn/img/gen/zai.png',
         },
@@ -2964,12 +2964,12 @@ export function getThinksgivingData() {
         rect: {
           top: 336, left: 110, width: 238, height: 122, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/one.png',
+            'http://www.lzuntalented.cn/img/gen/one.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2979,12 +2979,12 @@ export function getThinksgivingData() {
         rect: {
           top: -246, left: 152, width: 10, height: 504, rotate: 90,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         attrs: {
           imgSrc:
-              'http://www.lzuntalented.cn/img/gen/border.png',
+            'http://www.lzuntalented.cn/img/gen/border.png',
         },
         type: 'COMPONENT_TYPE_PICTURE',
       },
@@ -2994,23 +2994,23 @@ export function getThinksgivingData() {
         rect: {
           top: 270, left: 188, width: 122, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.8, repeat: 1,
-        },
+        }],
         attrs:
-          {
-            fontStyle: '',
-            color: '#000000',
-            fontWeight: '',
-            opacity: 1,
-            text: '123',
-            fontSize: 12,
-            textAlign: 'center',
-            lineHeight: 1.5,
-            letterSpacing: 0,
-            textDecoration: '',
-            bgColor: '#9e7a52',
-          },
+        {
+          fontStyle: '',
+          color: '#000000',
+          fontWeight: '',
+          opacity: 1,
+          text: '123',
+          fontSize: 12,
+          textAlign: 'center',
+          lineHeight: 1.5,
+          letterSpacing: 0,
+          textDecoration: '',
+          bgColor: '#9e7a52',
+        },
         type: 'COMPONENT_TYPE_TEXT',
       },
       j4a4dd: {
@@ -3023,17 +3023,17 @@ export function getThinksgivingData() {
           height: 146,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.3, repeat: 1,
-        },
+        }],
         attrs: {
           fontStyle: '',
           color:
-              '#9e7a52',
+            '#9e7a52',
           fontWeight: '',
           opacity: 1,
           text:
-              '感谢你陪我闯过那些风那些雨，感谢在最无助的时候有你鼓励，感谢在孤独的时候至少还有你，亲爱的朋友，<div>想说真得很谢谢你陪我走过人生那么多里地!</div>',
+            '感谢你陪我闯过那些风那些雨，感谢在最无助的时候有你鼓励，感谢在孤独的时候至少还有你，亲爱的朋友，<div>想说真得很谢谢你陪我走过人生那么多里地!</div>',
           fontSize: 14,
           textAlign: 'left',
           lineHeight: 1.5,
@@ -3044,18 +3044,18 @@ export function getThinksgivingData() {
         type: 'COMPONENT_TYPE_TEXT',
       },
       '6dgnaj':
-          {
-            name: '图片 2 拷贝 拷贝',
-            nodeType: 'ITEM_TYPE_SINGLE',
-            rect: {
-              top: 225, left: 157, width: 10, height: 504, rotate: 90,
-            },
-            animate: {
-              name: '', duration: 1, delay: 0, repeat: 1,
-            },
-            attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
-            type: 'COMPONENT_TYPE_PICTURE',
-          },
+      {
+        name: '图片 2 拷贝 拷贝',
+        nodeType: 'ITEM_TYPE_SINGLE',
+        rect: {
+          top: 225, left: 157, width: 10, height: 504, rotate: 90,
+        },
+        animates: [{
+          name: '', duration: 1, delay: 0, repeat: 1,
+        }],
+        attrs: { imgSrc: 'http://www.lzuntalented.cn/img/gen/border.png' },
+        type: 'COMPONENT_TYPE_PICTURE',
+      },
     },
     moveTag: false,
     backGroundImage: 'http://www.lzuntalented.cn/img/gen/bg.jpg',
@@ -3078,9 +3078,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3093,9 +3093,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3108,9 +3108,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3123,9 +3123,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3138,9 +3138,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3153,9 +3153,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3168,9 +3168,9 @@ export function getDouble12Data() {
         rect: {
           top: 106, left: 7, width: 320, height: 130, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3185,9 +3185,9 @@ export function getDouble12Data() {
         rect: {
           top: 201, left: 281, width: 32, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInRight', duration: 1, delay: 1.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3200,9 +3200,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3215,9 +3215,9 @@ export function getDouble12Data() {
         rect: {
           top: 85, left: -3, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 0.4, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3232,9 +3232,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3247,9 +3247,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3262,9 +3262,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3277,9 +3277,9 @@ export function getDouble12Data() {
         rect: {
           top: 106, left: 7, width: 320, height: 130, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3294,9 +3294,9 @@ export function getDouble12Data() {
         rect: {
           top: 66, left: 79, width: 179, height: 138, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3309,9 +3309,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3324,9 +3324,9 @@ export function getDouble12Data() {
         rect: {
           top: 37, left: -14, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'slideInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3341,9 +3341,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3358,9 +3358,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3373,9 +3373,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3388,9 +3388,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3403,9 +3403,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3418,9 +3418,9 @@ export function getDouble12Data() {
         rect: {
           top: 85, left: -3, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 0.4, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3435,9 +3435,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3452,9 +3452,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3467,9 +3467,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3482,9 +3482,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3499,9 +3499,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3514,9 +3514,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3529,9 +3529,9 @@ export function getDouble12Data() {
         rect: {
           top: 305, left: -14, width: 93, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3544,9 +3544,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3559,9 +3559,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3574,9 +3574,9 @@ export function getDouble12Data() {
         rect: {
           top: 37, left: -14, width: 320, height: 51, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'slideInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3591,9 +3591,9 @@ export function getDouble12Data() {
         rect: {
           top: 66, left: 79, width: 179, height: 138, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3606,9 +3606,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3621,9 +3621,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3636,9 +3636,9 @@ export function getDouble12Data() {
         rect: {
           top: 133, left: 40, width: 268, height: 62, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3653,9 +3653,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3668,9 +3668,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3683,9 +3683,9 @@ export function getDouble12Data() {
         rect: {
           top: 214, left: 57, width: 223, height: 28, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0.6, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3700,9 +3700,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3715,9 +3715,9 @@ export function getDouble12Data() {
         rect: {
           top: 37, left: -14, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'slideInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3732,9 +3732,9 @@ export function getDouble12Data() {
         rect: {
           top: 85, left: -3, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 0.4, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3749,9 +3749,9 @@ export function getDouble12Data() {
         rect: {
           top: 66, left: 79, width: 179, height: 138, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3764,9 +3764,9 @@ export function getDouble12Data() {
         rect: {
           top: 66, left: 79, width: 179, height: 138, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3779,9 +3779,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3794,9 +3794,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3809,9 +3809,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3826,9 +3826,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3843,9 +3843,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3858,9 +3858,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3873,9 +3873,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3890,9 +3890,9 @@ export function getDouble12Data() {
         rect: {
           top: 133, left: 40, width: 268, height: 62, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3907,9 +3907,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3922,9 +3922,9 @@ export function getDouble12Data() {
         rect: {
           top: 214, left: 57, width: 223, height: 28, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0.6, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3939,9 +3939,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3954,9 +3954,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3969,9 +3969,9 @@ export function getDouble12Data() {
         rect: {
           top: 0, left: 0, width: 320, height: 523, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -3984,9 +3984,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4001,9 +4001,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4016,9 +4016,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4031,9 +4031,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4046,9 +4046,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4061,9 +4061,9 @@ export function getDouble12Data() {
         rect: {
           top: 202, left: 13, width: 32, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 1.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4076,9 +4076,9 @@ export function getDouble12Data() {
         rect: {
           top: 93, left: 77, width: 180, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4091,9 +4091,9 @@ export function getDouble12Data() {
         rect: {
           top: 133, left: 40, width: 268, height: 62, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4108,9 +4108,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4123,9 +4123,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4138,9 +4138,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4153,9 +4153,9 @@ export function getDouble12Data() {
         rect: {
           top: 91, left: 87, width: 193, height: 111, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4168,9 +4168,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4183,9 +4183,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4198,9 +4198,9 @@ export function getDouble12Data() {
         rect: {
           top: 133, left: 40, width: 268, height: 62, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4215,9 +4215,9 @@ export function getDouble12Data() {
         rect: {
           top: 204, left: 49, width: 229, height: 29, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4232,9 +4232,9 @@ export function getDouble12Data() {
         rect: {
           top: 214, left: 57, width: 223, height: 28, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInUp', duration: 1, delay: 0.6, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4249,9 +4249,9 @@ export function getDouble12Data() {
         rect: {
           top: 91, left: 87, width: 193, height: 111, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4264,9 +4264,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4279,9 +4279,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4294,9 +4294,9 @@ export function getDouble12Data() {
         rect: {
           top: 248, left: 76, width: 152, height: 251, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4309,9 +4309,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4324,9 +4324,9 @@ export function getDouble12Data() {
         rect: {
           top: 66, left: 79, width: 179, height: 138, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceIn', duration: 1, delay: 0.1, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4339,9 +4339,9 @@ export function getDouble12Data() {
         rect: {
           top: 8, left: -4, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDownBig', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4356,9 +4356,9 @@ export function getDouble12Data() {
         rect: {
           top: 145, left: 77, width: 180, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4371,9 +4371,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4386,9 +4386,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4401,9 +4401,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4416,9 +4416,9 @@ export function getDouble12Data() {
         rect: {
           top: 133, left: 40, width: 268, height: 62, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4433,9 +4433,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4448,9 +4448,9 @@ export function getDouble12Data() {
         rect: {
           top: 85, left: -3, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 0.4, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4465,9 +4465,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4480,9 +4480,9 @@ export function getDouble12Data() {
         rect: {
           top: 319, left: 8, width: 89, height: 193, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4495,9 +4495,9 @@ export function getDouble12Data() {
         rect: {
           top: 91, left: 87, width: 193, height: 127, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4510,9 +4510,9 @@ export function getDouble12Data() {
         rect: {
           top: 42, left: -10, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4527,9 +4527,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4542,9 +4542,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4557,9 +4557,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4572,9 +4572,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4587,9 +4587,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4602,9 +4602,9 @@ export function getDouble12Data() {
         rect: {
           top: 386, left: 114, width: 112, height: 118, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn', duration: 1, delay: 1, repeat: 'infinite',
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4617,9 +4617,9 @@ export function getDouble12Data() {
         rect: {
           top: 28, left: 213, width: 44, height: 131, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4632,9 +4632,9 @@ export function getDouble12Data() {
         rect: {
           top: 42, left: -10, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4649,9 +4649,9 @@ export function getDouble12Data() {
         rect: {
           top: 184, left: 114, width: 320, height: 212, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4664,9 +4664,9 @@ export function getDouble12Data() {
         rect: {
           top: 414, left: 0, width: 320, height: 89, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4679,9 +4679,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4694,9 +4694,9 @@ export function getDouble12Data() {
         rect: {
           top: 206, left: 78, width: 175, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.5, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4709,9 +4709,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4724,9 +4724,9 @@ export function getDouble12Data() {
         rect: {
           top: 308, left: 231, width: 88, height: 173, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight', duration: 1, delay: 0.2, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4739,9 +4739,9 @@ export function getDouble12Data() {
         rect: {
           top: 27, left: 38, width: 42, height: 208, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft', duration: 1, delay: 0, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4754,9 +4754,9 @@ export function getDouble12Data() {
         rect: {
           top: 85, left: -3, width: 320, height: 40, rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'bounceInLeft', duration: 1, delay: 0.4, repeat: 1,
-        },
+        }],
         border: {
           style: 'solid', color: '#000000', width: 0, radius: 0,
         },
@@ -4799,12 +4799,12 @@ export function get2020NewYear() {
           height: 137,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4826,12 +4826,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4853,12 +4853,12 @@ export function get2020NewYear() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'lightSpeedIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4882,12 +4882,12 @@ export function get2020NewYear() {
           height: 503,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4909,12 +4909,12 @@ export function get2020NewYear() {
           height: 37,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4936,12 +4936,12 @@ export function get2020NewYear() {
           height: 137,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4963,12 +4963,12 @@ export function get2020NewYear() {
           height: 37,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -4990,12 +4990,12 @@ export function get2020NewYear() {
           height: 106,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'rotateIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5017,12 +5017,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5044,12 +5044,12 @@ export function get2020NewYear() {
           height: 37,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5071,12 +5071,12 @@ export function get2020NewYear() {
           height: 503,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5098,12 +5098,12 @@ export function get2020NewYear() {
           height: 44,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5125,12 +5125,12 @@ export function get2020NewYear() {
           height: 488,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5152,12 +5152,12 @@ export function get2020NewYear() {
           height: 150,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5179,12 +5179,12 @@ export function get2020NewYear() {
           height: 249,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5206,12 +5206,12 @@ export function get2020NewYear() {
           height: 126,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'flipInX',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5233,12 +5233,12 @@ export function get2020NewYear() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5260,12 +5260,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5287,12 +5287,12 @@ export function get2020NewYear() {
           height: 400,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'flipInY',
           duration: 1.5,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5314,12 +5314,12 @@ export function get2020NewYear() {
           height: 503,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5341,12 +5341,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5379,12 +5379,12 @@ export function get2020NewYear() {
           height: 44,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5406,12 +5406,12 @@ export function get2020NewYear() {
           height: 44,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5433,12 +5433,12 @@ export function get2020NewYear() {
           height: 79,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           duration: 1,
           delay: 1.2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5471,12 +5471,12 @@ export function get2020NewYear() {
           height: 137,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5498,12 +5498,12 @@ export function get2020NewYear() {
           height: 488,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5525,12 +5525,12 @@ export function get2020NewYear() {
           height: 503,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5552,12 +5552,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1.2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5590,12 +5590,12 @@ export function get2020NewYear() {
           height: 503,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5617,12 +5617,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5655,12 +5655,12 @@ export function get2020NewYear() {
           height: 44,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5682,12 +5682,12 @@ export function get2020NewYear() {
           height: 65,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5720,12 +5720,12 @@ export function get2020NewYear() {
           height: 65,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           duration: 1,
           delay: 2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5758,12 +5758,12 @@ export function get2020NewYear() {
           height: 44,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5785,12 +5785,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'lightSpeedIn',
           duration: 1,
           delay: 1.2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5823,12 +5823,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5850,12 +5850,12 @@ export function get2020NewYear() {
           height: 72,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5877,12 +5877,12 @@ export function get2020NewYear() {
           height: 79,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1.2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5915,12 +5915,12 @@ export function get2020NewYear() {
           height: 488,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5942,12 +5942,12 @@ export function get2020NewYear() {
           height: 137,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5969,12 +5969,12 @@ export function get2020NewYear() {
           height: 137,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -5996,12 +5996,12 @@ export function get2020NewYear() {
           height: 44,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6023,12 +6023,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6061,12 +6061,12 @@ export function get2020NewYear() {
           height: 114,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6088,12 +6088,12 @@ export function get2020NewYear() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6115,12 +6115,12 @@ export function get2020NewYear() {
           height: 488,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6142,12 +6142,12 @@ export function get2020NewYear() {
           height: 503,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6169,12 +6169,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInLeft',
           duration: 1,
           delay: 1.2,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6207,12 +6207,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: '',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6245,12 +6245,12 @@ export function get2020NewYear() {
           height: 94,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6283,12 +6283,12 @@ export function get2020NewYear() {
           height: 488,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6310,12 +6310,12 @@ export function get2020NewYear() {
           height: 137,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6337,12 +6337,12 @@ export function get2020NewYear() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6364,12 +6364,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'lightSpeedIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6392,12 +6392,12 @@ export function get2020NewYear() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6419,12 +6419,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6446,12 +6446,12 @@ export function get2020NewYear() {
           height: 97,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInRight',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6473,12 +6473,12 @@ export function get2020NewYear() {
           height: 47,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6500,12 +6500,12 @@ export function get2020NewYear() {
           height: 37,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6527,12 +6527,12 @@ export function get2020NewYear() {
           height: 488,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6554,12 +6554,12 @@ export function get2020NewYear() {
           height: 37,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6581,12 +6581,12 @@ export function get2020NewYear() {
           height: 37,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 0.8,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6608,12 +6608,12 @@ export function get2020NewYear() {
           height: 268,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'zoomIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6646,12 +6646,12 @@ export function get2020NewYear() {
           height: 111,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 1.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6684,12 +6684,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6722,12 +6722,12 @@ export function get2020NewYear() {
           height: 49,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUp',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6749,12 +6749,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInDown',
           duration: 1,
           delay: 0.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6787,12 +6787,12 @@ export function get2020NewYear() {
           height: 174,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeInUpBig',
           duration: 1,
           delay: 1.5,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',
@@ -6825,12 +6825,12 @@ export function get2020NewYear() {
           height: 40,
           rotate: 0,
         },
-        animate: {
+        animates: [{
           name: 'fadeIn',
           duration: 1,
           delay: 1,
           repeat: 1,
-        },
+        }],
         border: {
           style: 'solid',
           color: '#000000',

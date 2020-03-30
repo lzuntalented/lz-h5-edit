@@ -70,12 +70,12 @@ class RealPreview extends React.PureComponent {
         <div key={index} data-index={index} style={style}>
           {
               item.map((it, idx) => {
-                const { type, animates, ...others } = it;
+                const { type, animates = [], ...others } = it;
                 const Component = getComponentRenderMap(type);
                 return (
                   <Component
                     show={style.display === 'block'}
-                    animates={{ ...animates }}
+                    animates={[...animates]}
                     {...others}
                     key={idx}
                   />

@@ -19,7 +19,7 @@ export default function EditItemRender(Component) {
       duration,
       delay,
       repeat,
-    } = animate;
+    } = animate || {};
     const cls = `content-hide-container ${animate || ''}`;
     const animateStyle = {
       // animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
