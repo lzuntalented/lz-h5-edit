@@ -1,13 +1,6 @@
-import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 
 export function getUploadProps() {
-  const props = {
-    name: 'upFile',
-    accept: 'image/*',
-    action: `${getUrlPrefix()}${apiConfig.file.upload}`,
-    showUploadList: false,
-    // withCredentials: true,
-  };
+  const props = {};
   return props;
 }
 

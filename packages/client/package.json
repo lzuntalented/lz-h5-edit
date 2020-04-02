@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@lz/core": "^1.0.0",
     "@lz/design": "^1.0.0",
-    "@lz/resource": "^1.0.0",
     "animate.css": "^3.7.0",
     "antd": "^3.6.6",
     "array-move": "^2.1.0",

@@ -4,7 +4,6 @@ import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.min.css';
 import { changeBackGround } from '../../../../store/action';
 import ImageClipChild from './ImageClip';
-import { cropImage } from '../../../../services/create';
 
 class ImageClip extends React.Component {
   constructor(props) {

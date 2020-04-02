@@ -6,10 +6,10 @@ import App from './app';
 import ConfigProvide from './context/provider';
 
 export default function LzDesign(props) {
-  const { onPublish } = props;
+  const { onPublish, libs } = props;
   return (
     <Provider store={store}>
-      <ConfigProvide config={{ onPublish }}>
+      <ConfigProvide config={{ onPublish, libs }}>
         <App />
       </ConfigProvide>
     </Provider>
@@ -19,4 +19,11 @@ export default function LzDesign(props) {
 LzDesign.propTypes = {
   // 发布按钮点击
   onPublish: PropTypes.func.isRequired,
+  libs: PropTypes.shape({
+    picture: PropTypes.shape({
+      initData: PropTypes.array.isRequired,
+      fetchPromise: PropTypes.func.isRequired,
+      upLoadProps: PropTypes.object.isRequired,
+    }).isRequired,
+  }).isRequired,
 };

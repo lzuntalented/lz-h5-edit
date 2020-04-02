@@ -1,15 +1,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import hotkeys from 'hotkeys-js';
 import {
   ALL_ITEM, ITEM_TYPE_GROUP,
-} from '../../core/constants';
-import {
-  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, emptyAnimate,
-} from '../../store/action';
+} from '../../constants';
 import PreviewAnimation from '../PreviewAnimation';
 
 import './index.scss';
@@ -28,7 +24,7 @@ const refNames = {
 //   }
 // });
 
-export default function (Component, config) {
+export default function (Component) {
   // 唯一id
   // const uniqueId = createId();
   class Layout extends React.Component {
@@ -36,12 +32,18 @@ export default function (Component, config) {
       dispatch: PropTypes.func.isRequired,
       data: PropTypes.object.isRequired,
       uniqueId: PropTypes.string.isRequired,
+      activeEditKey: PropTypes.array.isRequired,
+      editList: PropTypes.object.isRequired,
+      groupList: PropTypes.object.isRequired,
+      actions: PropTypes.object.isRequired,
     }
 
     constructor(props) {
       super(props);
+      const { actions } = props;
       this.magicRefs = {};
       this.shiftDown = false;
+      this.actions = actions;
     }
 
     componentDidMount() {
@@ -50,6 +52,7 @@ export default function (Component, config) {
     onClikItem = (e) => {
       e.stopPropagation();
       const { dispatch, uniqueId } = this.props;
+      const { changeActiveEditKey } = this.actions;
       // 暂不提供多选功能
       // if (shiftDown) {
       //   dispatch(addActiveEditKey(uniqueId));
@@ -59,9 +62,10 @@ export default function (Component, config) {
     }
 
     onStartMove = (e) => {
+      const { startMove } = this.actions;
       // e.preventDefault();
       const {
-        dispatch, data, activeEditKey, uniqueId, editList, groupList,
+        dispatch, activeEditKey, uniqueId, editList, groupList,
       } = this.props;
       if (activeEditKey.indexOf(uniqueId) === -1) return;
       e.cancelMove = true;
@@ -86,7 +90,10 @@ export default function (Component, config) {
         itemList.forEach((itemKey) => {
           const item = editList[itemKey];
           const { rect } = item;
-          rectMap[itemKey] = Object.assign({}, rect, { top: groupItem.rect.top + rect.top, left: groupItem.rect.left + rect.left });
+          rectMap[itemKey] = Object.assign({}, rect, {
+            top: groupItem.rect.top + rect.top,
+            left: groupItem.rect.left + rect.left,
+          });
         });
       });
 
@@ -95,6 +102,7 @@ export default function (Component, config) {
 
     // 重置高度
     resetHeight = (h) => {
+      const { resetContentHeight } = this.actions;
       const { dispatch, uniqueId } = this.props;
       const elem = this.magicRefs[refNames.content];
       if (h) {
@@ -109,6 +117,7 @@ export default function (Component, config) {
     setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
     registerAttrs = (attrs) => {
+      const { addAttrs } = this.actions;
       const { dispatch, uniqueId, data } = this.props;
       if (Object.keys(data.attrs).length === 0) {
         dispatch(addAttrs(attrs, uniqueId));
@@ -116,6 +125,7 @@ export default function (Component, config) {
     }
 
     setAttribute = (attrs) => {
+      const { changeAttrs } = this.actions;
       const { dispatch, uniqueId } = this.props;
       dispatch(changeAttrs(attrs, uniqueId));
     }
@@ -135,6 +145,7 @@ export default function (Component, config) {
     }
 
     emptyAnimates = () => {
+      const { emptyAnimate } = this.actions;
       const { dispatch } = this.props;
       dispatch(emptyAnimate());
     }
@@ -144,9 +155,6 @@ export default function (Component, config) {
       const {
         rect, attrs, border = {}, previewAnimates = [],
       } = data;
-      // const {
-      //   name, duration, delay, repeat,
-      // } = animate;
       const {
         top,
         left,
@@ -157,7 +165,6 @@ export default function (Component, config) {
       // 内容区样式
       const contentCls = 'content-hide-container';
       const animateStyle = {
-        // animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
         borderStyle: border.style,
         borderWidth: border.width,
         borderColor: border.color,
@@ -201,11 +208,5 @@ export default function (Component, config) {
     }
   }
 
-  const mapStateToProps = (store) => {
-    const state = store.toJS();
-    const { activeEditKey, editList, groupList } = state;
-    return { activeEditKey, editList, groupList };
-  };
-  const mapDispatchToProps = dispatch => ({ dispatch });
-  return connect(mapStateToProps, mapDispatchToProps)(Layout);
+  return Layout;
 }

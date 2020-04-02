@@ -16,11 +16,6 @@ $phone-footer-height: 5;
     position: relative;
 
     & > .header {
-      // position: absolute;
-      // top: -$phone-header-height + px;
-      // left: 0;
-      // right: 0;
-      // z-index: 1;
       height: $phone-header-height + px;
       border-top-left-radius: $phone-header-height + px;
       border-top-right-radius: $phone-header-height + px;
@@ -34,8 +29,6 @@ $phone-footer-height: 5;
       position: relative;
       border-left: 5px solid #e0e0e0;
       border-right: 5px solid #e0e0e0;
-      // margin-top: $phone-header-height + px;
-      // margin-bottom: $phone-footer-height + px;
 
       .border-left {
         position: absolute;
@@ -198,11 +191,6 @@ $phone-footer-height: 5;
       }
     }
     & > .footer {
-      // position: absolute;
-      // bottom: -$phone-footer-height + px;
-      // left: 0;
-      // right: 0;
-      // z-index: 1;
       height: $phone-footer-height + px;
       border-bottom-left-radius: $phone-footer-height + px;
       border-bottom-right-radius: $phone-footer-height + px;
@@ -213,12 +201,12 @@ $phone-footer-height: 5;
   }
   .style-setting-container{
     position: absolute;
-    right: 0;
+    right: 270px;
     top: 0;
   }
   .page-manage-container {
     position: absolute;
-    right: 270px;
+    right: 0;
     top: 0;
   }
 

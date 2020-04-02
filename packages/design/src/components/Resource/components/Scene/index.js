@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'antd';
-import { getComponentRenderMap } from '../../../../core/components';
+import { getComponentRenderMap } from '@lz/core';
 import { winSize } from '../../../../utils';
 import { getLocalTplDatas } from '../../../../core/config';
 

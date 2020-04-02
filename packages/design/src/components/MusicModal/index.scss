@@ -1,0 +1,21 @@
+.music-list {
+  .item {
+      line-height: 40px;
+      color: #000000;
+      padding: 0 8px;
+      border-bottom: 1px solid #e6ebed;
+      font-size: 14px;
+
+      &:nth-child(2n + 1) {
+          border-right: 1px solid #e6ebed;
+      }
+
+      .ant-btn {
+          margin-left: 16px;
+      }
+
+      &:hover {
+          background-color: rgba($color: #1593ff, $alpha: 0.1);
+      }
+  }
+}

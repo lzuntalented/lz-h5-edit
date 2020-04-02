@@ -5,10 +5,6 @@ function getCurrentAnimate(list, emptyAnimates) {
   const animate = list[animateIndex] || {};
 
   function onAnimationEnd() {
-    // if (list.length === 1) {
-    //   setanimateIndex(2);
-    //   return;
-    // }
     if (animateIndex >= list.length - 1) {
       if (emptyAnimates) emptyAnimates();
     }
@@ -50,16 +46,3 @@ function PreviewAnimation(props) {
 }
 
 export default PreviewAnimation;
-
-// export default React.memo(PreviewAnimation, (prevProps, nextProps) => {
-//   const prevList = prevProps.list;
-//   const nextList = nextProps.list;
-//   if (prevList.length !== nextList) {
-//     return true;
-//   }
-//   const obj = prevList.find((it, index) => {
-//     const item = nextList[index];
-//     return Object.keys(it).find(k => it[k] !== item[k]);
-//   });
-//   return !obj;
-// });

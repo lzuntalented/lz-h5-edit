@@ -2,17 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GroupItem from './components/GroupItem';
 import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from './core/constants';
+import {
+  startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, emptyAnimate,
+  initStore,
+} from './store/action';
 
 // 引入样式文件
 import './index.scss';
-import { resetStore, initStore } from './store/action';
-import { getComponentEditMap } from './core/components';
-import { getComponetData } from './config';
 
-// const componentMap = {
-//   COMPONENT_TYPE_TEXT: Input,
-//   COMPONENT_TYPE_PICTURE: Picture,
-// };
+import { getComponentEditMap } from '@lz/core';
+import { getComponetData } from './config';
 
 class Phone extends React.Component {
   constructor(props) {
@@ -30,15 +29,35 @@ class Phone extends React.Component {
 
   renderComponent() {
     const {
-      pages, activePage, editList, groupList,
+      pages, activePage, editList, groupList, dispatch, activeEditKey,
     } = this.props;
+
     const list = pages[activePage];
     return list.map((it) => {
       const { nodeType } = editList[it];
       if (nodeType === ITEM_TYPE_SINGLE) {
         const { type, ...others } = editList[it];
         const Component = getComponentEditMap(type);
-        return <Component uniqueId={it} key={it} data={others} />;
+        return (
+          <Component
+            dispatch={dispatch}
+            uniqueId={it}
+            activeEditKey={activeEditKey}
+            activePage={activePage}
+            editList={editList}
+            groupList={groupList}
+            key={it}
+            data={others}
+            actions={{
+              startMove,
+              resetContentHeight,
+              changeActiveEditKey,
+              addAttrs,
+              changeAttrs,
+              emptyAnimate,
+            }}
+          />
+        );
       } if (nodeType === ITEM_TYPE_GROUP) {
         return <GroupItem key={it} uniqueId={it} list={groupList[it]} editList={editList} />;
       }
@@ -68,10 +87,10 @@ class Phone extends React.Component {
 const mapStateToProps = (store) => {
   const state = store.toJS();
   const {
-    pages, activePage, editList, backGroundImage, backMusicUrl, groupList,
+    pages, activePage, editList, backGroundImage, backMusicUrl, groupList, activeEditKey,
   } = state;
   const result = {
-    pages, activePage, editList, backGroundImage, backMusicUrl, groupList,
+    pages, activePage, editList, backGroundImage, backMusicUrl, groupList, activeEditKey,
   };
   return result;
 };

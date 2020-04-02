@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Row, Col, Icon, Button,
 } from 'antd';
-// import { getPictureList } from '../../../../services/create';
 import Music from '../../../../utils/music';
 
 const defaultList = [
@@ -37,17 +37,18 @@ const defaultList = [
 ];
 
 export default class ImageList extends React.Component {
+  static propTypes = {
+    defaultList: PropTypes.array.isRequired,
+  }
+
   constructor(props) {
     super(props);
+    const { defaultList = [] } = props;
     this.state = {
       list: [...defaultList],
       play: false,
     };
     this.musicHandler = new Music();
-  }
-
-  componentDidMount() {
-    this.refresh();
   }
 
   onPlay = obj => () => {
@@ -65,14 +66,6 @@ export default class ImageList extends React.Component {
     const { onSelect } = this.props;
     onSelect(obj.url);
   }
-
-  refresh() {
-    // 暂不提供后端输出
-    // getPictureList().then((res) => {
-    //   this.setState({ list: [...defaultList].concat(res) });
-    // });
-  }
-
 
   render() {
     const { list, play } = this.state;

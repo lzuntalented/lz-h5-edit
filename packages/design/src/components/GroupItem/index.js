@@ -3,13 +3,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getComponentEditMap } from '@lz/core';
 import {
   ALL_ITEM, ITEM_TYPE_GROUP,
 } from '../../core/constants';
 import {
   startMove, changeActiveEditKey,
 } from '../../store/action';
-import { getComponentEditMap } from '../../core/components';
 
 class GroupItem extends React.Component {
     static propTypes = {

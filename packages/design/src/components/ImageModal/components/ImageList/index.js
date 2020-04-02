@@ -1,23 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Row, Col } from 'antd';
 import LazyImage from './lazyImage';
 
-const defaultList = [
-  'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png',
-  'http://www.lzuntalented.cn/img/1.jpg',
-  'http://www.lzuntalented.cn/img/double11/5daff75820748.png',
-  'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif',
-  'http://www.lzuntalented.cn/img/double11/5daff75820657.png',
-  'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif',
-  'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png',
-];
-
 export default class ImageList extends React.Component {
+  static propTypes = {
+    defaultPicture: PropTypes.array.isRequired,
+    fetchPicture: PropTypes.func.isRequired,
+    onAddPicture: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
-    const { config } = props;
-    const { defaultPicture = [] } = config || {};
-    console.log(config);
+    const { defaultPicture = [] } = props;
     this.state = {
       list: [...defaultPicture],
     };
@@ -28,13 +23,13 @@ export default class ImageList extends React.Component {
   }
 
   refresh() {
-    // const { config } = this.props;
-    // const { fetch = [] } = config || {};
-    // getPictureList().then((res) => {
-    //   this.setState({ list: [...defaultList].concat(res) });
-    // });
+    const { defaultPicture = [], fetchPicture } = this.props;
+    if (fetchPicture) {
+      fetchPicture().then((res) => {
+        this.setState({ list: [...defaultPicture].concat(res) });
+      });
+    }
   }
-
 
   render() {
     const { onAddPicture } = this.props;

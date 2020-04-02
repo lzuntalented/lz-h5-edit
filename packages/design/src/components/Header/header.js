@@ -10,26 +10,21 @@ import {
 import './index.scss';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
-  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE, EXAMPLE_DATA_DRAGON_FESTIVAL,
-  EXAMPLE_DATA_THINKSGIVING,
+  LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
 } from '../../core/constants';
 import {
-  addPageItem, addPageItemWithAttrs, changeBackMusicUrl, initStore,
+  addPageItem, addPageItemWithAttrs, changeBackMusicUrl,
   initHistoryStore, changeBackGround,
 } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
-import ConfigConsumer from '../../context/consumer';
-
+import ImageModal from '../ImageModal';
+import MusicModal from '../MusicModal';
 
 import ImageClip from './components/ImageClip';
-import Music from './components/Music';
-import { save } from '../../services/create';
 import ModalContainer from '../ModalContainer';
 import ImageList from './components/ImageList';
-import MusicList from './components/MusicList';
 import { getUploadProps } from './config';
 import HistoryStore from '../../utils/HistoryStore';
-import { getComponetData } from '../../config';
 import { deleteUnUseObject } from '../../utils';
 import { isFunction } from '../../utils/Tools';
 
@@ -61,8 +56,6 @@ class Header extends React.Component {
       currentClipImage: null,
     };
     this.uploadProps = getUploadProps();
-    this.imageListRef = React.createRef();
-    this.musicListRef = React.createRef();
     this.imageBgListRef = React.createRef();
   }
 
@@ -146,29 +139,7 @@ class Header extends React.Component {
     });
   }
 
-  onEdit = key => () => {
-    // let data = getGKData();
-    // if (key === EXAMPLE_DATA_DRAGON_FESTIVAL) {
-    //   data = getDragonFestivalData();
-    // } else if (key === EXAMPLE_DATA_CHILDREN_FESTIVAL) {
-    //   data = getChildrenFestivalData();
-    // } else if (key === EXAMPLE_DATA_1024) {
-    //   data = get1024Data();
-    // }
-
-    const data = getComponetData(key);
-    // dispatch(initStore(data));
-    const { dispatch } = this.props;
-    dispatch(initStore(data));
-  }
-
   onModalCancel = key => () => {
-    if (key === 'showMusicModal') {
-      const { current } = this.musicListRef;
-      if (current) {
-        current.onStop();
-      }
-    }
     this.setState({ [key]: false });
   }
 
@@ -259,11 +230,6 @@ class Header extends React.Component {
             />
             )
           }
-          <Music
-            visible={modalMusicVisible}
-            changeVisible={this.onChangeModalMusicVisible(false)}
-            dispatch={dispatch}
-          />
         </ul>
         <ul className="publish-container">
           <Button type="danger" onClick={this.onPublish}>发布</Button>
@@ -277,30 +243,16 @@ class Header extends React.Component {
             className="m-t-12"
           />
         </ul>
-        <ModalContainer
-          onCancel={this.onModalCancel('showPictureModal')}
-          maskClosable
-          getContainer={false}
+        <ImageModal
+          dispatch={dispatch}
+          onVisibleChange={this.onModalCancel('showPictureModal')}
           visible={showPictureModal}
-          title="图片素材库"
-          options={[{ title: '图片列表', comp: <ImageList ref={this.imageListRef} onAddPicture={this.onAddPciture} /> }]}
-        >
-          <Upload
-            {...this.uploadProps}
-            onChange={this.onFileChange}
-          >
-            <Button type="primary">
-              本地上传
-            </Button>
-          </Upload>
-        </ModalContainer>
-        <ModalContainer
-          onCancel={this.onModalCancel('showMusicModal')}
-          maskClosable
-          getContainer={false}
+          addMode
+        />
+        <MusicModal
+          dispatch={dispatch}
+          onVisibleChange={this.onModalCancel('showMusicModal')}
           visible={showMusicModal}
-          title="音乐库"
-          options={[{ title: '音乐列表', comp: <MusicList ref={this.musicListRef} onSelect={this.onChangeMusic} /> }]}
         />
         <ModalContainer
           onCancel={this.onModalCancel('showBgChoseModal')}
@@ -341,4 +293,4 @@ const mapStateToProps = (store) => {
 };
 
 const mapDispatchToProps = dispatch => ({ dispatch });
-export default connect(mapStateToProps, mapDispatchToProps)(ConfigConsumer(Header));
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

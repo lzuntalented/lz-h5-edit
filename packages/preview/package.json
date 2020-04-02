@@ -1,0 +1,16 @@
+{
+  "name": "@lz/preview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lz/core": "^1.0.0",
+    "@lz/resource": "^1.0.0",
+    "@lz/utils": "^1.0.0"
+  }
+}

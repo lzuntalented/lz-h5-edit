@@ -25,35 +25,29 @@ export default function Node(props) {
       <TabPane tab="基础组件" key="1">
         <div className="text-center m-t-12 m-b-12">
           <Row>
-            <Col span={6}>
-              <Button onClick={onAddComponent(COMPONENT_TYPE_TEXT)}>文本</Button>
-            </Col>
-            <Col span={6}>
-              <Button onClick={onAddComponent(COMPONENT_TYPE_PICTURE)}>图片</Button>
-            </Col>
-            <Col span={6}>
+            <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_BUTTON)}>按钮</Button>
             </Col>
-            <Col span={6}>
+            <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_INPUT)}>输入框</Button>
+            </Col>
+            <Col span={8}>
+              <Button onClick={onAddComponent(COMPONENT_TYPE_SHAPE)}>形状</Button>
             </Col>
           </Row>
           <Row className="m-t-8">
-            <Col span={6}>
+            <Col span={8}>
               <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_MAP)}>地图</Button>
             </Col>
-            <Col span={6}>
+            <Col span={8}>
               <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_QQ_VIDEO)}>QQ通话</Button>
             </Col>
-            <Col span={6}>
-              <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_SHAPE)}>形状</Button>
-            </Col>
-            <Col span={6}>
+            <Col span={8}>
               <Button type="primary" onClick={onAddComponent(COMPONENT_TYPE_VIDEO)}>视频</Button>
             </Col>
           </Row>
           <Row className="m-t-8">
-            <Col span={6}>
+            <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_TEXT_TYPED)}>文本打字机</Button>
             </Col>
           </Row>
@@ -93,7 +87,7 @@ export default function Node(props) {
           }
           {
             artBorders.map(it => (
-              <Col span={8} key={`${it.textShadowColor}${it.textSolidColor}`}>
+              <Col span={8} key={`${it.textShadowColor}${it.textSolidColor}${it.color}`}>
                 <div
                   className="ys m-b-8"
                   onClick={onAddComponentWithAttrs(COMPONENT_TYPE_ART_BORDER, it)}
@@ -109,7 +103,7 @@ export default function Node(props) {
         </Row>
       </TabPane>
       <TabPane tab="字体示例" key="3">
-        <Row gutter={16}>
+        <Row gutter={18}>
           {
             fontFamilys.map(it => (
               <Col span={8} key={it.key} className="m-b-8">
