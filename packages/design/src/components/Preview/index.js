@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Drawer, Input, Button } from 'antd';
 import Realpreview from '@lz/preview';
 import Content from './content';
@@ -13,6 +13,17 @@ export default function Preview(props) {
   const { visible, hidePreview } = props;
   const state = JSON.parse(mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE));
   const content = translateShowDataFromStore(state);
+  const total = (content && content.list && content.list.length) || 0;
+  const ref = useRef();
+  const prevPage = () => {
+    const { current } = ref;
+    current.prev();
+  };
+
+  const nextPage = () => {
+    const { current } = ref;
+    current.next();
+  };
   return (
     <Drawer
       title="作品信息"
@@ -25,7 +36,19 @@ export default function Preview(props) {
       closable
     >
       <div className="realperview-container" style={{ ...winSize }}>
-        <Realpreview data={content} />
+        <Realpreview data={content} ref={ref} />
+        <div className="toggle-page">
+          <div>
+            <Button onClick={prevPage}>上一页</Button>
+            <p />
+            {
+              content && content.list
+              && <div className="text-center">共{total}页</div>
+            }
+            <p />
+            <Button onClick={nextPage}>下一页</Button>
+          </div>
+        </div>
       </div>
       <ConsumerContainer>
         <Content />

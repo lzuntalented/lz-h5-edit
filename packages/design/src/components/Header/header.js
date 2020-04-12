@@ -20,9 +20,6 @@ import LzLocalStorage from '../../utils/LocalStorage';
 import ImageModal from '../ImageModal';
 import MusicModal from '../MusicModal';
 
-import ImageClip from './components/ImageClip';
-import ModalContainer from '../ModalContainer';
-import ImageList from './components/ImageList';
 import { getUploadProps } from './config';
 import HistoryStore from '../../utils/HistoryStore';
 import { deleteUnUseObject } from '../../utils';
@@ -111,32 +108,16 @@ class Header extends React.Component {
   }
 
   onChangeModalMusicVisible = flag => () => {
-    this.setState({ showMusicModal: flag });
+    this.setState({ showMusicModal: flag, withCrop: false });
   }
 
   onChangeModalBgVisible = flag => () => {
-    this.setState({ showBgChoseModal: flag });
-  }
-
-  onAddPciture = imgSrc => () => {
-    const { dispatch } = this.props;
-    dispatch(addPageItemWithAttrs(COMPONENT_TYPE_PICTURE, { imgSrc }));
-    this.setState({ showPictureModal: false });
-  }
-
-  onChoseBackground = imgSrc => () => {
-    this.setState({
-      modelImageClipVisible: true,
-      currentClipImage: imgSrc,
-    });
+    this.setState({ showPictureModal: flag, withCrop: true });
   }
 
   onChangeBackground = (src) => {
     const { dispatch } = this.props;
     dispatch(changeBackGround(src));
-    this.setState({
-      showBgChoseModal: false,
-    });
   }
 
   onModalCancel = key => () => {
@@ -183,7 +164,7 @@ class Header extends React.Component {
   render() {
     const { dispatch } = this.props;
     const {
-      modelImageClipVisible, modalMusicVisible, showPictureModal,
+      modelImageClipVisible, withCrop, showPictureModal,
       showMusicModal, showBgChoseModal, currentClipImage,
     } = this.state;
     return (
@@ -248,29 +229,14 @@ class Header extends React.Component {
           onVisibleChange={this.onModalCancel('showPictureModal')}
           visible={showPictureModal}
           addMode
+          withCrop={withCrop}
+          onChangeBackground={this.onChangeBackground}
         />
         <MusicModal
           dispatch={dispatch}
           onVisibleChange={this.onModalCancel('showMusicModal')}
           visible={showMusicModal}
         />
-        <ModalContainer
-          onCancel={this.onModalCancel('showBgChoseModal')}
-          maskClosable
-          getContainer={false}
-          visible={showBgChoseModal}
-          title="背景素材库"
-          options={[{ title: '图片列表', comp: <ImageList ref={this.imageBgListRef} onAddPicture={this.onChoseBackground} /> }]}
-        >
-          <Upload
-            {...this.uploadProps}
-            onChange={this.onFileChange}
-          >
-            <Button type="primary">
-              本地上传
-            </Button>
-          </Upload>
-        </ModalContainer>
       </section>
     );
   }

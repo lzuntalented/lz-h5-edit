@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@lz/design": "^1.0.0",
     "@lz/resource": "^1.0.0",
     "@lz/utils": "^1.0.0"
   }

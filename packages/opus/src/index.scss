@@ -1,0 +1,43 @@
+
+$phone-width: 320;
+$phone-height: 480;
+$phone-header-height: 50;
+$phone-footer-height: 30;
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#root,.content {
+  height: 100%;
+  width: 100%;
+
+  .music-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    z-index: 100;
+    background: url('//www.lzuntalented.cn/img/music.svg') no-repeat;
+    background-size: contain;
+    animation: rotating 1.2s linear infinite;
+  }
+
+  .loading-wrap-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

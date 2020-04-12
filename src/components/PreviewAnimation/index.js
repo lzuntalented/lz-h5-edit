@@ -11,6 +11,7 @@ function getCurrentAnimate(list, emptyAnimates) {
     // }
     if (animateIndex >= list.length - 1) {
       if (emptyAnimates) emptyAnimates();
+      return;
     }
     setanimateIndex(animateIndex + 1);
   }

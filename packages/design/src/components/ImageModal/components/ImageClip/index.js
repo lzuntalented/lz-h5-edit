@@ -2,7 +2,6 @@ import React from 'react';
 import { Modal } from 'antd';
 import Cropper from 'cropperjs';
 import 'cropperjs/dist/cropper.min.css';
-import { changeBackGround } from '../../../../store/action';
 import ImageClipChild from './ImageClip';
 
 class ImageClip extends React.Component {
@@ -19,7 +18,7 @@ class ImageClip extends React.Component {
 
   handleOk = () => {
     const {
-      changeVisible, src, onChangeBackground,
+      changeVisible, src, onChangeBackground, cropImage,
     } = this.props;
     const handler = this.imgRef.current;
     if (handler) {
@@ -30,9 +29,11 @@ class ImageClip extends React.Component {
         url: src,
       }).then((res) => {
         onChangeBackground(res);
+        changeVisible();
+      }).catch(() => {
+        Modal.error('操作失败');
       });
     }
-    changeVisible();
   }
 
   render() {

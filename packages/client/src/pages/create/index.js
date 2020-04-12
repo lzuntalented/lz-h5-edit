@@ -1,6 +1,6 @@
 import React from 'react';
 import LzDesign from '@lz/design';
-import { getPictureList } from '../../services/create';
+import { getPictureList, cropImage } from '../../services/create';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 
 export default function () {
@@ -24,10 +24,26 @@ export default function () {
         action: `${getUrlPrefix()}${apiConfig.file.upload}`,
         showUploadList: false,
       },
+      cropImage,
     },
     // 背景图片库
     bg: {
-
+      initData: [
+        'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png',
+        'http://www.lzuntalented.cn/img/1.jpg',
+        'http://www.lzuntalented.cn/img/double11/5daff75820748.png',
+        'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif',
+        'http://www.lzuntalented.cn/img/double11/5daff75820657.png',
+        'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif',
+        'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png',
+      ],
+      fetchPromise: getPictureList,
+      upLoadProps: {
+        name: 'upFile',
+        accept: 'image/*',
+        action: `${getUrlPrefix()}${apiConfig.file.upload}`,
+        showUploadList: false,
+      },
     },
     // 音乐库
     music: {

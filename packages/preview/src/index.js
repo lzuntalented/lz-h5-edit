@@ -21,6 +21,7 @@ class Preview extends React.PureComponent {
     };
     this.musicHandler = new Music();
     this.magicRefs = {};
+    this.ref = React.createRef();
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -29,6 +30,16 @@ class Preview extends React.PureComponent {
       return Object.assign(state, { lastData: props.data });
     }
     return null;
+  }
+
+  prev = () => {
+    const { current } = this.ref;
+    current.prev();
+  }
+
+  next = () => {
+    const { current } = this.ref;
+    current.next();
   }
 
   onTransitionEnd = (e) => {
@@ -80,7 +91,7 @@ class Preview extends React.PureComponent {
     };
     return (
       <div className="content" style={style}>
-        <Carousel onTransitionEnd={this.onTransitionEnd} axis="y">
+        <Carousel onTransitionEnd={this.onTransitionEnd} axis="y" ref={this.ref}>
           {
             this.renderComponent()
           }

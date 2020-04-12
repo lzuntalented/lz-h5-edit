@@ -5,6 +5,8 @@ import store from './store';
 import App from './app';
 import ConfigProvide from './context/provider';
 
+import './style';
+
 export default function LzDesign(props) {
   const { onPublish, libs } = props;
   return (

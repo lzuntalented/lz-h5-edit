@@ -5,12 +5,6 @@ import {
 
 import './style.scss';
 
-function change(cb) {
-  return () => {
-    cb();
-  };
-}
-
 export default function StyleAlign(props) {
   const {
     data = {}, onChange, attrs, label,

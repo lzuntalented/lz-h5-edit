@@ -6,6 +6,7 @@ import { changeBackMusicUrl } from '../../store/action';
 import ConsumerContainer from '../../context/ConsumerContainer';
 
 import './index.scss';
+import { Button } from 'antd';
 
 function MusicModal(props) {
   const {
@@ -29,6 +30,10 @@ function MusicModal(props) {
     hidden();
   };
 
+  const onClear = () => {
+    onChangeMusic('');
+  };
+
   return (
     <ModalContainer
       onCancel={hidden}
@@ -37,7 +42,9 @@ function MusicModal(props) {
       visible={visible}
       title="音乐库"
       options={[{ title: '音乐列表', comp: <MusicList ref={ref} defaultList={initData} onSelect={onChangeMusic} /> }]}
-    />
+    >
+      <Button type="danger" onClick={onClear}>清空音效</Button>
+    </ModalContainer>
   );
 }
 
