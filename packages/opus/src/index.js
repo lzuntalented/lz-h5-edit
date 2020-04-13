@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { winSize } from '@lz/utils';
 import App from './App';
+import 'animate.css';
 import './index.scss';
 
 function setPageScale() {
@@ -13,6 +14,8 @@ function setPageScale() {
 }
 setPageScale();
 const rootEl = window.document.getElementById('root');
+rootEl.style.height = `${winSize.height}`;
+rootEl.style.display = 'flex';
 ReactDOM.render(
   <App />,
   rootEl,

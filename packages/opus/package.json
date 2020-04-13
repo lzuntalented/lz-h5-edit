@@ -12,6 +12,7 @@
   "dependencies": {
     "@lz/preview": "^1.0.0",
     "@lz/utils": "^1.0.0",
+    "@lz/constants": "^1.0.0",
     "query-string": "^6.12.0"
   }
 }

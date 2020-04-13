@@ -4,9 +4,17 @@ import Carousel from 're-carousel';
 
 // 引入样式文件
 import './index.scss';
-import { Music } from '@lz/utils';
+import { Music, winSize } from '@lz/utils';
 import { getComponentRenderMap } from '@lz/core';
 import MusicIcon from './music';
+
+let marginTop = 0;
+function getTop() {
+  const height = window.innerHeight;
+  if (height > winSize.height) {
+    marginTop = (height - winSize.height) / 2;
+  }
+}
 
 class Preview extends React.PureComponent {
   static propTypes = {
@@ -22,6 +30,7 @@ class Preview extends React.PureComponent {
     this.musicHandler = new Music();
     this.magicRefs = {};
     this.ref = React.createRef();
+    getTop();
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -54,9 +63,10 @@ class Preview extends React.PureComponent {
     return data.list.map((item, index) => {
       const style = {
         position: 'relative',
-        height: '100%',
+        height: winSize.height,
         display: 'none',
         overflow: 'hidden',
+        marginTop,
       };
       if (activePageIndex === index) style.display = 'block';
       return (
