@@ -1,6 +1,6 @@
 {
   "name": "@lz/opus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lz/constants": "^0.0.1",
-    "@lz/preview": "^0.0.1",
-    "@lz/utils": "^0.0.1",
+    "@lz/constants": "^0.0.2",
+    "@lz/preview": "^0.0.2",
+    "@lz/utils": "^0.0.2",
     "query-string": "^6.12.0"
   }
 }
