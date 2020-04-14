@@ -21,6 +21,7 @@ export default function LzDesign(props) {
 LzDesign.propTypes = {
   // 发布按钮点击
   onPublish: PropTypes.func.isRequired,
+  // 弹出库
   libs: PropTypes.shape({
     picture: PropTypes.shape({
       initData: PropTypes.array.isRequired,
