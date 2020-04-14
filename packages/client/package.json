@@ -1,6 +1,6 @@
 {
   "name": "@lz/client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lz/design": "^1.0.0",
-    "@lz/utils": "^1.0.0"
+    "@lz/design": "^0.0.1",
+    "@lz/utils": "^0.0.1"
   }
 }
