@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { Music } from '@lz/utils';
+import { Music } from '@lzshow/utils';
 
 export default function MusicIcon(props) {
   const { backMusicUrl } = props;

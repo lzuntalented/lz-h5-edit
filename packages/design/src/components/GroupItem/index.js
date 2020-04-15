@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getComponentEditMap } from '@lz/core';
+import { getComponentEditMap } from '@lzshow/core';
 import {
   ALL_ITEM, ITEM_TYPE_GROUP,
 } from '../../core/constants';

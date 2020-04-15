@@ -1,6 +1,6 @@
 {
-  "name": "@lz/client",
-  "version": "0.0.3-alpha.6+d7ef2f8",
+  "name": "@lzshow/client",
+  "version": "0.0.3-alpha.7+11baea9",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lz/design": "^0.0.3-alpha.6+d7ef2f8",
-    "@lz/utils": "^0.0.2"
+    "@lzshow/design": "^0.0.3-alpha.7+11baea9",
+    "@lzshow/utils": "^0.0.2"
   },
-  "gitHead": "d7ef2f85317d580cce2325256629e031c9dbb539"
+  "gitHead": "11baea98b979b498ab3cb95894011e8766158ffd"
 }

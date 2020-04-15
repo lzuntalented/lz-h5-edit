@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { winSize } from '@lz/utils';
+import { winSize } from '@lzshow/utils';
 import App from './App';
 import 'animate.css';
 import './index.scss';

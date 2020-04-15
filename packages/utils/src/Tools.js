@@ -1,4 +1,4 @@
-import { STYLE_RENDER_TYPE_COLLAPSE } from '@lz/constants';
+import { STYLE_RENDER_TYPE_COLLAPSE } from '@lzshow/constants';
 
 function isType(type) {
   return obj => Object.prototype.toString.call(obj) === `[object ${type}]`;

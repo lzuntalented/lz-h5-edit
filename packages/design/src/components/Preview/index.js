@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Drawer, Input, Button } from 'antd';
-import Realpreview from '@lz/preview';
+import Realpreview from '@lzshow/preview';
 import Content from './content';
 import ConsumerContainer from '../../context/consumer';
 import LzLocalStorage from '../../utils/LocalStorage';

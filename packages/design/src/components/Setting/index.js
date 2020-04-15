@@ -4,7 +4,7 @@ import Draggable from 'react-draggable'; // The default
 import { Tabs, Button, Collapse } from 'antd';
 
 import './index.scss';
-import { getComponentStyleMap } from '@lz/core';
+import { getComponentStyleMap } from '@lzshow/core';
 import { changeBaseStyle, removeItem, changeItemBorder } from '../../store/action';
 import Animate from './components/animate';
 import Attribute from './components/attribute';

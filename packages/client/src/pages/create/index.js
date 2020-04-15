@@ -1,5 +1,5 @@
 import React from 'react';
-import LzDesign from '@lz/design';
+import LzDesign from '@lzshow/design';
 import { getPictureList, cropImage } from '../../services/create';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 

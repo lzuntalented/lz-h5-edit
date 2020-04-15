@@ -1,5 +1,5 @@
 {
-  "name": "@lz/core",
+  "name": "@lzshow/core",
   "version": "0.0.2",
   "description": "",
   "main": "src/index.js",
@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lz/resource": "^0.0.2",
-    "@lz/utils": "^0.0.2"
+    "@lzshow/resource": "^0.0.2",
+    "@lzshow/utils": "^0.0.2"
   }
 }

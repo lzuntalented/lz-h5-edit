@@ -1,6 +1,6 @@
-import Resource from '@lz/resource';
+import Resource from '@lzshow/resource';
 
-import { getDefaultAttrs } from '@lz/utils';
+import { getDefaultAttrs } from '@lzshow/utils';
 import EditItem from './components/EditItem';
 import RenderItem from './components/EditItem/render';
 import {

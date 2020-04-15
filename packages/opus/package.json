@@ -1,5 +1,5 @@
 {
-  "name": "@lz/opus",
+  "name": "@lzshow/opus",
   "version": "0.0.2",
   "description": "",
   "main": "index.js",
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lz/constants": "^0.0.2",
-    "@lz/preview": "^0.0.2",
-    "@lz/utils": "^0.0.2",
+    "@lzshow/constants": "^0.0.2",
+    "@lzshow/preview": "^0.0.2",
+    "@lzshow/utils": "^0.0.2",
     "query-string": "^6.12.0"
   }
 }

@@ -4,8 +4,8 @@ import Carousel from 're-carousel';
 
 // 引入样式文件
 import './index.scss';
-import { Music, winSize } from '@lz/utils';
-import { getComponentRenderMap } from '@lz/core';
+import { Music, winSize } from '@lzshow/utils';
+import { getComponentRenderMap } from '@lzshow/core';
 import MusicIcon from './music';
 
 let marginTop = 0;

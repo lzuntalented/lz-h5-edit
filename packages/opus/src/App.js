@@ -3,7 +3,7 @@ import qs from 'query-string';
 
 // 引入样式文件
 import './index.scss';
-import { translateShowDataFromStore } from '@lz/utils';
+import { translateShowDataFromStore } from '@lzshow/utils';
 import { addShortFonts } from './utils/font';
 import { getDetail } from './services/create';
 import LoadingWrap from './Loading';

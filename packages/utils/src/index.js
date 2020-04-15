@@ -1,4 +1,4 @@
-import { ITEM_TYPE_GROUP } from '@lz/constants';
+import { ITEM_TYPE_GROUP } from '@lzshow/constants';
 
 export { default as Music } from './Music';
 export * from './Tools';

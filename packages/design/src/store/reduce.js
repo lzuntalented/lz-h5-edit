@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { getComponentDefaultAttrs, getComponentDefaultSize, getComponentDefaultName } from '@lz/core';
+import { getComponentDefaultAttrs, getComponentDefaultSize, getComponentDefaultName } from '@lzshow/core';
 import {
   POINT_LEFT_CENTER, MOVE_START, MOVE_END, MOVE_CHANGE,
   CREATE_ITEM_STORE, POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER,

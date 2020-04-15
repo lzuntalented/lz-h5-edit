@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Spin } from 'antd';
-import Phone from '@lz/preview';
-import { COMPONENT_TYPE_PICTURE } from '@lz/constants';
+import Phone from '@lzshow/preview';
+import { COMPONENT_TYPE_PICTURE } from '@lzshow/constants';
 
 export default function LoadingWrap(props) {
   const { data } = props;

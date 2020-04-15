@@ -10,7 +10,7 @@ import {
 // 引入样式文件
 import './index.scss';
 
-import { getComponentEditMap } from '@lz/core';
+import { getComponentEditMap } from '@lzshow/core';
 import { getComponetData } from './config';
 
 class Phone extends React.Component {
