@@ -25,6 +25,7 @@ LzDesign.propTypes = {
   libs: PropTypes.shape({
     // 图片库
     picture: PropTypes.shape({
+      // 初始数据
       initData: PropTypes.array.isRequired,
       fetchPromise: PropTypes.func.isRequired,
       upLoadProps: PropTypes.object.isRequired,
