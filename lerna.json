@@ -5,8 +5,8 @@
   ],
   "version": "0.0.2",
   "command": {
-    "publish": {
-      "npmClientArgs": ["--access public"]   
+    "bootstrap": {
+      "npmClientArgs": ["--access public"]      
     }
   }
 }
