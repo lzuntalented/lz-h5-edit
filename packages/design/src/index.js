@@ -23,6 +23,7 @@ LzDesign.propTypes = {
   onPublish: PropTypes.func.isRequired,
   // 弹出库
   libs: PropTypes.shape({
+    // 图片库
     picture: PropTypes.shape({
       initData: PropTypes.array.isRequired,
       fetchPromise: PropTypes.func.isRequired,
