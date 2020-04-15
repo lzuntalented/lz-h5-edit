@@ -3,5 +3,10 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.2"
+  "version": "0.0.2",
+  "command": {
+    "publish": {
+      "npmClientArgs": ["--access public"]   
+    }
+  }
 }
