@@ -1,6 +1,6 @@
 {
   "name": "@lz/client",
-  "version": "0.0.2",
+  "version": "0.0.3-alpha.0+749c6b6",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lz/design": "^0.0.2",
+    "@lz/design": "^0.0.3-alpha.0+749c6b6",
     "@lz/utils": "^0.0.2"
-  }
+  },
+  "gitHead": "749c6b63825b0fcaeab717d0f969d1e55204a880"
 }

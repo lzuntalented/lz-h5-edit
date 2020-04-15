@@ -1,6 +1,6 @@
 {
   "name": "@lz/design",
-  "version": "0.0.2",
+  "version": "0.0.3-alpha.0+749c6b6",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -14,5 +14,6 @@
     "@lz/preview": "^0.0.2",
     "@lz/resource": "^0.0.2",
     "@lz/utils": "^0.0.2"
-  }
+  },
+  "gitHead": "749c6b63825b0fcaeab717d0f969d1e55204a880"
 }
