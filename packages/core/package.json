@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/core",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "",
   "main": "src/index.js",
   "module": "lib/index.js",
@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/resource": "^0.1.7",
-    "@lzshow/utils": "^0.1.7"
+    "@lzshow/resource": "^0.1.10",
+    "@lzshow/utils": "^0.1.10"
   },
-  "gitHead": "3ead546ea3cab63c0a2854e4ea34f9ddf4335caa"
+  "gitHead": "378665e51014950d6749ea8ca6ee3016560e60b0"
 }

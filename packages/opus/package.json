@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/opus",
-  "version": "0.1.7",
+  "version": "0.1.10",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/constants": "^0.1.7",
-    "@lzshow/preview": "^0.1.7",
-    "@lzshow/utils": "^0.1.7",
+    "@lzshow/constants": "^0.1.10",
+    "@lzshow/preview": "^0.1.10",
+    "@lzshow/utils": "^0.1.10",
     "query-string": "^6.12.0"
   },
-  "gitHead": "3ead546ea3cab63c0a2854e4ea34f9ddf4335caa"
+  "gitHead": "378665e51014950d6749ea8ca6ee3016560e60b0"
 }
