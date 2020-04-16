@@ -1,0 +1,111 @@
+.page-header-container{
+    display: flex;
+    line-height: initial;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    z-index: 1000;
+    background-color: #fff;
+
+    ul.ul-comp {
+        margin: 0 0;
+        padding: 0 0;
+        list-style: none;
+        flex: 1;
+        text-align: center;
+        li {
+            margin: 0 0;
+            padding: 0 0;
+            list-style: none;
+            display: inline-block;
+            width: 60px;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #1593ff;
+                color: #fff;
+            }
+
+            .icon {
+                font-size: 24px;
+            }
+
+            .txt {
+                font-size: 12px;
+                height: 24px;
+                line-height: 24px;
+                text-align: center;
+            }
+        }
+    }
+
+    .example-container {
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        flex: 1;
+    }
+
+    .publish-container {
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        flex-direction: row-reverse;
+    }
+
+    .image-list {
+        overflow: auto;
+        height: 100%;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .item {
+            margin: 12px;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($color: #000000, $alpha: 0.1);
+            overflow: hidden;
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba($color: #000000, $alpha: 0.3);
+            }
+        }
+
+        .i {
+            width: 140px;
+            margin: 12px;
+        }
+    }
+
+    .music-list {
+        .item {
+            line-height: 40px;
+            color: #000000;
+            padding: 0 8px;
+            border-bottom: 1px solid #e6ebed;
+            font-size: 14px;
+
+            &:nth-child(2n + 1) {
+                border-right: 1px solid #e6ebed;
+            }
+
+            .ant-btn {
+                margin-left: 16px;
+            }
+
+            &:hover {
+                background-color: rgba($color: #1593ff, $alpha: 0.1);
+            }
+        }
+    }
+}

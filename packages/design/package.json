@@ -3,8 +3,9 @@
   "version": "0.0.3-alpha.7+11baea9",
   "description": "",
   "main": "dist/index.js",
+  "module": "lib/index.js",
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "babel src --out-dir lib --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,7 +14,21 @@
     "@lzshow/core": "^0.0.2",
     "@lzshow/preview": "^0.0.2",
     "@lzshow/resource": "^0.0.2",
-    "@lzshow/utils": "^0.0.2"
+    "@lzshow/utils": "^0.0.2",
+    "animate.css": "^3.7.0",
+    "antd": "^3.6.6",
+    "array-move": "^2.1.0",
+    "classnames": "^2.2.6",
+    "cropperjs": "^1.5.1",
+    "hotkeys-js": "^3.6.13",
+    "immutable": "^4.0.0-rc.12",
+    "prop-types": "^15.6.2",
+    "react-color": "^2.17.3",
+    "react-draggable": "^3.3.0",
+    "react-redux": "^7.0.1",
+    "react-sortable-hoc": "^1.9.1",
+    "react-typed": "^1.2.0",
+    "redux": "^4.0.1"
   },
   "peerDependencies": {
     "react": "^16.13.1",

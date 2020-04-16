@@ -1,0 +1,14 @@
+.resource-text-style-container {
+    &.quick-btns {
+
+        .anticon {
+            padding: 4px;
+            border-radius: 2px;
+        }
+
+        .active {
+            background-color: #1593ff;
+            color: #fff;
+        }
+    }
+}
