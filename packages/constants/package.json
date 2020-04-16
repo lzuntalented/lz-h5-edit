@@ -1,11 +1,12 @@
 {
   "name": "@lzshow/constants",
-  "version": "0.0.2",
+  "version": "0.1.7",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "gitHead": "3ead546ea3cab63c0a2854e4ea34f9ddf4335caa"
 }

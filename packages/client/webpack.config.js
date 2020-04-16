@@ -18,22 +18,6 @@ module.exports = {
         test: /((\.(js|jsx)$)|(@lzshow))/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-        options: {
-          plugins: [
-            ['@babel/plugin-transform-runtime'],
-            ['@babel/plugin-transform-async-to-generator'],
-            ['@babel/plugin-syntax-dynamic-import'],
-            ['@babel/plugin-proposal-class-properties'],
-            [
-              'import',
-              {
-                libraryName: 'antd',
-                style: 'css',
-              },
-            ],
-          ],
-          presets: ['@babel/preset-env', '@babel/preset-react'],
-        },
       },
       {
         test: /\.(css|scss)$/,

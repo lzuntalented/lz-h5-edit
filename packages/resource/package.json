@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/resource",
-  "version": "0.0.2",
+  "version": "0.1.7",
   "description": "",
   "main": "src/index.js",
   "module": "lib/index.js",
@@ -8,6 +8,10 @@
     "build": "babel src --out-dir lib --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "re-carousel": "^2.3.1"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "gitHead": "3ead546ea3cab63c0a2854e4ea34f9ddf4335caa"
 }
