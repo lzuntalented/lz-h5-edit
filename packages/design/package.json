@@ -15,5 +15,9 @@
     "@lzshow/resource": "^0.0.2",
     "@lzshow/utils": "^0.0.2"
   },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
   "gitHead": "11baea98b979b498ab3cb95894011e8766158ffd"
 }

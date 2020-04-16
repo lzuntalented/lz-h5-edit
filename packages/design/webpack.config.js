@@ -74,12 +74,6 @@ module.exports = {
       },
     ],
   },
-  externals: [
-    {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-    },
-  ],
   plugins: [
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

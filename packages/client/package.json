@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack --config webpack.build.config.js",
+    "build1": "webpack --config webpack.build.config.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
