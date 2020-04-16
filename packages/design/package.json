@@ -2,7 +2,7 @@
   "name": "@lzshow/design",
   "version": "0.0.3-alpha.7+11baea9",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1"
