@@ -6,7 +6,7 @@ import {
   POINT_LEFT_TOP, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_RIGHT_BOTTOM, POINT_ROTATE,
   ALL_ITEM,
   ITEM_TYPE_GROUP,
-} from '../../core/constants';
+} from '@lzshow/constants';
 import { startMove } from '../../store/action';
 
 class Phone extends React.Component {

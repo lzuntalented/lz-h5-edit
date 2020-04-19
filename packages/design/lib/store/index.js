@@ -17,7 +17,7 @@ var _HistoryStore = _interopRequireDefault(require("../utils/HistoryStore"));
 
 var _reduce = _interopRequireDefault(require("./reduce"));
 
-var _constants = require("../core/constants");
+var _constants = require("@lzshow/constants");
 
 // 可以回退的操作列表
 var recordHistoryAction = [_constants.ACTION_COPY_ITEM, _constants.ACTION_COPY_PAGE, _constants.ACTION_DELETE_PAGE, _constants.ACTION_ADD_PAGE_ITEM_WITH_ATTRS, _constants.CHANGE_ACTIVE_EDIT_KEY, _constants.CHANGE_ACTIVE_PAGE, _constants.ADD_PAGE_ITEM, _constants.STORE_ADD_PAGE, _constants.STORE_INIT_TO_EDIT, _constants.MOVE_END, _constants.CHANGE_ITEM_BASE_STYLE, _constants.CHANGE_ANIMATION, _constants.REMOVE_ITEM, _constants.PAGE_ITEM_RESORT, _constants.STORE_GROUP_ACTIVE_EDIT_KEYS, _constants.STORE_GROUP_SPLIT, _constants.CHANGE_ITEM_ATTR]; // 合并多个reducer

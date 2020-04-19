@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.getAlignConfig = getAlignConfig;
 exports["default"] = void 0;
 
-var _constants = require("../../core/constants");
+var _constants = require("@lzshow/constants");
 
 function getAlignConfig() {
   return [{

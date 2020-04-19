@@ -1,7 +1,9 @@
 import { ITEM_TYPE_GROUP } from '@lzshow/constants';
 
 export { default as Music } from './Music';
-export * from './Tools';
+export * from './type';
+export * from './tpl';
+export * from './font';
 
 export const winSize = {
   width: 320,

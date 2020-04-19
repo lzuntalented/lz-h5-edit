@@ -14,13 +14,13 @@ exports.getComponentDefaultName = getComponentDefaultName;
 
 var _resource = _interopRequireDefault(require("@lzshow/resource"));
 
-var _utils = require("@lzshow/utils");
+var _constants = require("@lzshow/constants");
+
+var _utils = require("./utils");
 
 var _EditItem = _interopRequireDefault(require("./components/EditItem"));
 
 var _render = _interopRequireDefault(require("./components/EditItem/render"));
-
-var _constants = require("./constants");
 
 var Text = _resource["default"].Text,
     Picture = _resource["default"].Picture,

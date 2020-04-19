@@ -36,6 +36,10 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRedux = require("react-redux");
 
+var _constants = require("@lzshow/constants");
+
+var _utils = require("@lzshow/utils");
+
 var _Select = _interopRequireDefault(require("./components/Select"));
 
 var _Color = _interopRequireDefault(require("./components/Color"));
@@ -52,11 +56,7 @@ var _TwoInput = _interopRequireDefault(require("./components/TwoInput"));
 
 var _Picture = _interopRequireDefault(require("./components/Picture"));
 
-var _constants = require("../../../../core/constants");
-
 var _action = require("../../../../store/action");
-
-var _Tools = require("../../../../utils/Tools");
 
 var _renderMap;
 
@@ -101,14 +101,14 @@ var Attribute = /*#__PURE__*/function (_React$Component) {
 
 
         if (Array.isArray(key)) {
-          if (!(0, _Tools.isObject)(v)) {
+          if (!(0, _utils.isObject)(v)) {
             console.error('array key should has object value');
             return;
           }
 
           key.forEach(function (k) {
             // 检测key是否是对象
-            if ((0, _Tools.isObject)(k)) {
+            if ((0, _utils.isObject)(k)) {
               // 该对象表示字段类型为数字型
               if (k.valueType === _constants.STYLE_VALUE_TYPE_NUMBER) {
                 if (v[k.key]) {
@@ -137,13 +137,13 @@ var Attribute = /*#__PURE__*/function (_React$Component) {
           others = (0, _objectWithoutProperties2["default"])(it, ["renderType", "valueType", "props", "key"]);
       var Comp = renderType;
 
-      if ((0, _Tools.isString)(renderType)) {
+      if ((0, _utils.isString)(renderType)) {
         Comp = renderMap[renderType];
       }
 
       var data = attrs;
 
-      if ((0, _Tools.isString)(key)) {
+      if ((0, _utils.isString)(key)) {
         data = attrs[key];
       }
 

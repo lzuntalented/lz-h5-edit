@@ -45,16 +45,6 @@ function _createSuper(Derived) { return function () { var Super = (0, _getProtot
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-var marginTop = 0;
-
-function getTop() {
-  var height = window.innerHeight;
-
-  if (height > _utils.winSize.height) {
-    marginTop = (height - _utils.winSize.height) / 2;
-  }
-}
-
 var Preview = /*#__PURE__*/function (_React$PureComponent) {
   (0, _inherits2["default"])(Preview, _React$PureComponent);
 
@@ -88,14 +78,15 @@ var Preview = /*#__PURE__*/function (_React$PureComponent) {
     _this.musicHandler = new _utils.Music();
     _this.magicRefs = {};
     _this.ref = _react["default"].createRef();
-    getTop();
     return _this;
   }
 
   (0, _createClass2["default"])(Preview, [{
     key: "renderComponent",
     value: function renderComponent() {
-      var data = this.props.data;
+      var _this$props = this.props,
+          data = _this$props.data,
+          marginTop = _this$props.marginTop;
       var activePageIndex = this.state.activePageIndex;
       return data.list.map(function (item, index) {
         var style = {

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 // import hotkeys from 'hotkeys-js';
 import {
   ALL_ITEM, ITEM_TYPE_GROUP,
-} from '../../constants';
+} from '@lzshow/constants';
 import PreviewAnimation from '../PreviewAnimation';
 
 import './index.scss';

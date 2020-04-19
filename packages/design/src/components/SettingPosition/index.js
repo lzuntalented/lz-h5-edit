@@ -5,7 +5,7 @@ import {
 import {
   COMPONENT_STYLE_WIDHT, COMPONENT_STYLE_HEIGHT, COMPONENT_STYLE_LEFT,
   COMPONENT_STYLE_TOP, COMPONENT_STYLE_ROTATE,
-} from '../../core/constants';
+} from '@lzshow/constants';
 import { getAlignConfig } from './config';
 import { changeSingleActiveAlign } from '../../store/action';
 

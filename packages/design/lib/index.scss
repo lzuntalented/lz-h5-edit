@@ -1,16 +1,16 @@
 @import './style/style.scss';
-@import './style/base.scss';
 
 $phone-width: 320;
 $phone-height: 480;
 $phone-header-height: 5;
 $phone-footer-height: 5;
 
+$header-height: 48;
+
 .home-container {
   margin: 0 auto;
-  margin-top: 20px;
   position: relative;
-  height: calc(100vh - 100px);
+
   .phone-container {
     width: $phone-width + 10 + px;
     position: relative;
@@ -202,12 +202,12 @@ $phone-footer-height: 5;
   .style-setting-container{
     position: absolute;
     right: 270px;
-    top: 0;
+    top: $header-height + px;
   }
   .page-manage-container {
     position: absolute;
     right: 0;
-    top: 0;
+    top: $header-height + px;
   }
 
   @import './components/Resource/index.scss';

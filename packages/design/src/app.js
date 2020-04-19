@@ -8,7 +8,7 @@ import AideLine from './components/AideLine';
 import Resource from './components/Resource';
 import Preview from './components/Preview';
 import Header from './components/Header';
-import './core/event';
+import event from './core/event';
 
 // 引入样式文件
 import './index.scss';
@@ -18,7 +18,13 @@ class Home extends React.Component {
     super(props);
     this.state = {
       showPreview: false,
+      height: window.innerHeight,
     };
+    this.eventHandler = event();
+  }
+
+  componentWillUnmount() {
+    this.eventHandler();
   }
 
   showPreview = () => {
@@ -30,11 +36,11 @@ class Home extends React.Component {
   }
 
   render() {
-    const { showPreview } = this.state;
+    const { showPreview, height } = this.state;
     return (
-      <div className="home-container">
+      <div className="home-container" style={{ height }}>
         <Header showPreview={this.showPreview} />
-        <Row type="flex" justify="center">
+        <Row type="flex" justify="center" align="middle" className="home-edit-area m-t-48">
           <Col>
             <div className="phone-container">
               <div className="header" />

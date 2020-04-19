@@ -43,7 +43,9 @@ var _hotkeysJs = _interopRequireDefault(require("hotkeys-js"));
 
 require("./index.scss");
 
-var _constants = require("../../core/constants");
+var _utils = require("@lzshow/utils");
+
+var _constants = require("@lzshow/constants");
 
 var _action = require("../../store/action");
 
@@ -57,9 +59,7 @@ var _config = require("./config");
 
 var _HistoryStore = _interopRequireDefault(require("../../utils/HistoryStore"));
 
-var _utils = require("../../utils");
-
-var _Tools = require("../../utils/Tools");
+var _utils2 = require("../../utils");
 
 function _createSuper(Derived) { return function () { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
 
@@ -101,7 +101,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
     });
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "onPublish", function () {
       var state = _this.props.state;
-      var content = (0, _utils.deleteUnUseObject)(state);
+      var content = (0, _utils2.deleteUnUseObject)(state);
 
       if (!content) {
         _modal["default"].error({
@@ -117,7 +117,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
       var _ref = config || {},
           pub = _ref.onPublish;
 
-      if ((0, _Tools.isFunction)(pub)) {
+      if ((0, _utils.isFunction)(pub)) {
         pub(content);
       }
     });

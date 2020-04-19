@@ -14,7 +14,7 @@ exports.getDouble12Data = getDouble12Data;
 exports.get2020NewYear = get2020NewYear;
 exports.getLocalTplDatas = getLocalTplDatas;
 
-var _constants = require("./constants");
+var _constants = require("@lzshow/constants");
 
 var _utils = require("../utils");
 

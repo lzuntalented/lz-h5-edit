@@ -29,7 +29,7 @@ var _tooltip = _interopRequireDefault(require("antd/lib/tooltip"));
 
 var _react = _interopRequireDefault(require("react"));
 
-var _constants = require("../../core/constants");
+var _constants = require("@lzshow/constants");
 
 var _config = require("./config");
 

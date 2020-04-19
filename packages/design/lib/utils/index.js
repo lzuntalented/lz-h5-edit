@@ -17,9 +17,9 @@ exports.deleteUnUseObject = deleteUnUseObject;
 exports.generatorTexttextShadow = generatorTexttextShadow;
 exports.winSize = exports["default"] = void 0;
 
-var _constants = require("../core/constants");
+var _constants = require("@lzshow/constants");
 
-var _Tools = require("./Tools");
+var _utils = require("@lzshow/utils");
 
 function lzlog() {
   for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -90,16 +90,6 @@ function createEditItem(type, name, nodeType, belong) {
       rotate: 0
     },
     animates: [],
-    animate: {
-      // 动画名称
-      name: '',
-      // 动画执行时间 单位(s)
-      duration: 1,
-      // 动画延时执行 单位(s)
-      delay: 0,
-      // 动画重复次数
-      repeat: 1
-    },
     previewAnimates: [],
     border: {
       style: 'solid',
@@ -289,7 +279,7 @@ function translateShowDataFromStore(store) {
 }
 
 function deepCopy(obj) {
-  if ((0, _Tools.isObject)(obj)) {
+  if ((0, _utils.isObject)(obj)) {
     var result = {};
     Object.keys(obj).forEach(function (key) {
       result[key] = deepCopy(obj[key]);
@@ -297,7 +287,7 @@ function deepCopy(obj) {
     return result;
   }
 
-  if ((0, _Tools.isArray)(obj)) {
+  if ((0, _utils.isArray)(obj)) {
     return obj.map(function (it) {
       return deepCopy(it);
     });

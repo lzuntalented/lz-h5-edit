@@ -27,7 +27,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _constants = require("../../constants");
+var _constants = require("@lzshow/constants");
 
 var _PreviewAnimation = _interopRequireDefault(require("../PreviewAnimation"));
 

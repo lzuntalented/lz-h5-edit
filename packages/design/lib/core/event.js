@@ -2,9 +2,14 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = addEventListener;
+
 var _hotkeysJs = _interopRequireDefault(require("hotkeys-js"));
 
-var _constants = require("./constants");
+var _constants = require("@lzshow/constants");
 
 var _store = require("../store");
 
@@ -24,14 +29,16 @@ var coordEnd = {
   x: 0,
   y: 0
 };
-window.addEventListener('mousedown', function (e) {
+
+function onMouseDown(e) {
   if (moveTag) {
     e.preventDefault();
     coordStart.x = e.pageX;
     coordStart.y = e.pageY;
   }
-}, false);
-window.addEventListener('mousemove', (0, _index.debounce)(function (e) {
+}
+
+function onMouseMove(e) {
   e.preventDefault();
 
   if (moveTag) {
@@ -145,38 +152,33 @@ window.addEventListener('mousemove', (0, _index.debounce)(function (e) {
       }));
     }
   }
-}, 5));
-window.addEventListener('mouseup', function () {
+}
+
+function onMouseUp() {
   if (moveTag) {
     var key = moveTag;
     moveTag = false;
     (0, _store.dispatch)((0, _action.endMove)(key));
   }
+}
+
+function addEventListener() {
+  window.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mouseup', onMouseUp);
+  window.addEventListener('mousecancel', onMouseUp);
+  return function () {
+    window.removeEventListener('mousedown', onMouseDown);
+    window.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('mouseup', onMouseUp);
+    window.removeEventListener('mousecancel', onMouseUp);
+  };
+} // let shiftDown = false;
+
+
+(0, _hotkeysJs["default"])('backspace', function () {
+  (0, _store.dispatch)((0, _action.removeItem)());
 });
-window.addEventListener('mousecancel', function () {
-  if (moveTag) {
-    var key = moveTag;
-    moveTag = false;
-    (0, _store.dispatch)((0, _action.endMove)(key));
-  }
-}); // let shiftDown = false;
-
-(0, _hotkeysJs["default"])('backspace', function (event) {
-  var type = event.type;
-  console.log('delete', type);
-  (0, _store.dispatch)((0, _action.removeItem)()); // if (type === 'keydown') {
-  //   shiftDown = true;
-  // } else {
-  //   shiftDown = false;
-  // }
-}); // window.addEventListener('keyup', (e) => {
-//   const { keyCode } = e;
-//   // 删除键
-//   if (keyCode === 8) {
-//     dispatch(removeItem());
-//   }
-// });
-
 (0, _store.subscribe)('moveTag', function (tag) {
   moveTag = tag;
 });

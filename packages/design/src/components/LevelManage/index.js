@@ -5,6 +5,7 @@ import { SortableContainer } from 'react-sortable-hoc';
 import arrayMove from 'array-move';
 import hotkeys from 'hotkeys-js';
 import { Icon } from 'antd';
+import { ITEM_TYPE_GROUP } from '@lzshow/constants';
 import SortableItem from './components/Item';
 
 import './index.scss';
@@ -12,7 +13,6 @@ import {
   changeActiveEditKey, resortPageItem, groupActiveEditKeys,
   addActiveEditKey, splitGroupActiveEditKeys, copyItem, changeItemName, resortGroupItem,
 } from '../../store/action';
-import { ITEM_TYPE_GROUP } from '../../core/constants';
 
 const SortableList = SortableContainer(({
   items, onItemClick, onItemCopyClick, onChangeItemName, onSortEndCB,

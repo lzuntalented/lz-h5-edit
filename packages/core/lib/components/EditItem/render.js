@@ -21,7 +21,6 @@ function EditItemRender(Component) {
   function Layout(props) {
     var rect = props.rect,
         attrs = props.attrs,
-        animate = props.animate,
         _props$border = props.border,
         border = _props$border === void 0 ? {} : _props$border,
         animates = props.animates,
@@ -31,25 +30,14 @@ function EditItemRender(Component) {
         top = rect.top,
         height = rect.height,
         rotate = rect.rotate;
-    var _animate$name = animate.name,
-        name = _animate$name === void 0 ? '' : _animate$name,
-        duration = animate.duration,
-        delay = animate.delay,
-        repeat = animate.repeat;
-    var cls = "content-hide-container ".concat(animate || '');
+    var cls = 'content-hide-container ';
     var animateStyle = {
-      // animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
       borderStyle: border.style,
       borderWidth: border.width,
       borderColor: border.color,
       borderRadius: border.radius
     };
-    var animateList = [animate];
-
-    if (animates && animates.length > 0) {
-      animateList = animates;
-    }
-
+    var animateList = animates || [];
     return /*#__PURE__*/_react["default"].createElement("div", {
       className: "render-item",
       style: {
@@ -75,14 +63,16 @@ function EditItemRender(Component) {
     attrs: _propTypes["default"].object,
     animate: _propTypes["default"].object,
     animates: _propTypes["default"].object,
-    border: _propTypes["default"].object
+    border: _propTypes["default"].object,
+    show: _propTypes["default"].bool
   };
   Layout.prototype.defaultProps = {
     rect: {},
     attrs: {},
     animate: {},
     border: {},
-    animates: {}
+    animates: {},
+    show: false
   };
   return Layout;
 }

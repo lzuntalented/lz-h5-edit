@@ -27,7 +27,7 @@ var _tabs = _interopRequireDefault(require("antd/lib/tabs"));
 
 var _react = _interopRequireDefault(require("react"));
 
-var _constants = require("../../../../core/constants");
+var _constants = require("@lzshow/constants");
 
 var _config = require("../../../../core/config");
 

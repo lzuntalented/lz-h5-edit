@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Collapse } from 'antd';
 
+import {
+  STYLE_RENDER_TYPE_SELECT, STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_SLIDER_INPUT,
+  STYLE_VALUE_TYPE_NUMBER, STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_TEXTAREA,
+  STYLE_RENDER_TYPE_CONTENT_EDIT_DIV,
+  STYLE_RENDER_TYPE_COLLAPSE,
+  STYLE_RENDER_TYPE_TWO_INPUT,
+  STYLE_RENDER_TYPE_PICTURE,
+  STYLE_RENDER_TYPE_FONT,
+} from '@lzshow/constants';
+import { isObject, isString } from '@lzshow/utils';
 import RenderStyle from './components/Select';
 import RenderColor from './components/Color';
 import RenderSliderInput from './components/SliderInput';
@@ -11,17 +21,9 @@ import Textarea from './components/Textarea';
 import ContentEditDiv from './components/ContentEditDiv';
 import RenderTwoInput from './components/TwoInput';
 import RenderPicture from './components/Picture';
+import RenderFont from './components/Font';
 // import styleConfig from '../../../../resource/Text/config';
-import {
-  STYLE_RENDER_TYPE_SELECT, STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_SLIDER_INPUT,
-  STYLE_VALUE_TYPE_NUMBER, STYLE_RENDER_TYPE_INPUT, STYLE_RENDER_TYPE_TEXTAREA,
-  STYLE_RENDER_TYPE_CONTENT_EDIT_DIV,
-  STYLE_RENDER_TYPE_COLLAPSE,
-  STYLE_RENDER_TYPE_TWO_INPUT,
-  STYLE_RENDER_TYPE_PICTURE,
-} from '../../../../core/constants';
 import { changeAttrs } from '../../../../store/action';
-import { isObject, isString } from '../../../../utils/Tools';
 
 const renderMap = {
   [STYLE_RENDER_TYPE_SELECT]: RenderStyle,
@@ -32,6 +34,7 @@ const renderMap = {
   [STYLE_RENDER_TYPE_CONTENT_EDIT_DIV]: ContentEditDiv,
   [STYLE_RENDER_TYPE_TWO_INPUT]: RenderTwoInput,
   [STYLE_RENDER_TYPE_PICTURE]: RenderPicture,
+  [STYLE_RENDER_TYPE_FONT]: RenderFont,
 };
 
 export function registerRender(key, Comp) {

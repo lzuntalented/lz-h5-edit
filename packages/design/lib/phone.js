@@ -25,7 +25,7 @@ var _reactRedux = require("react-redux");
 
 var _GroupItem = _interopRequireDefault(require("./components/GroupItem"));
 
-var _constants = require("./core/constants");
+var _constants = require("@lzshow/constants");
 
 var _action = require("./store/action");
 

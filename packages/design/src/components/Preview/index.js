@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { Drawer, Input, Button } from 'antd';
 import Realpreview from '@lzshow/preview';
+import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '@lzshow/constants';
 import Content from './content';
 import ConsumerContainer from '../../context/consumer';
 import LzLocalStorage from '../../utils/LocalStorage';
-import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
 import { translateShowDataFromStore, winSize } from '../../utils';
 
 const mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);

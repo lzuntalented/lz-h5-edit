@@ -1,15 +1,15 @@
 import Resource from '@lzshow/resource';
 
-import { getDefaultAttrs } from '@lzshow/utils';
-import EditItem from './components/EditItem';
-import RenderItem from './components/EditItem/render';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_BUTTON, COMPONENT_TYPE_ART_INPUT,
   COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
   COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW,
   COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER,
-} from './constants';
+} from '@lzshow/constants';
+import { getDefaultAttrs } from './utils';
+import EditItem from './components/EditItem';
+import RenderItem from './components/EditItem/render';
 
 const {
   Text, Picture, QQVideo, Input, Button, ArtInput,

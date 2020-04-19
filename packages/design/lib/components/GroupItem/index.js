@@ -31,7 +31,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _core = require("@lzshow/core");
 
-var _constants = require("../../core/constants");
+var _constants = require("@lzshow/constants");
 
 var _action = require("../../store/action");
 

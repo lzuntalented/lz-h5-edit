@@ -3,11 +3,12 @@ import {
   Select, Row, Col, Input, Tabs, Icon, Button, Collapse,
 } from 'antd';
 import { connect } from 'react-redux';
+import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '@lzshow/constants';
 import getSelectOptions from './config';
 import {
-  changeAnimation, addAnimate, changeAnimate, previewAnimate, removeAnimate, hoverAnimate, previewAnimateWithIndex,
+  changeAnimation, addAnimate, changeAnimate, previewAnimate,
+  removeAnimate, hoverAnimate, previewAnimateWithIndex,
 } from '../../../../store/action';
-import { ANIMATE_REPEAT_INFINITE, ANIMATE_REPEAT_NORMAL } from '../../../../core/constants';
 
 const opts = getSelectOptions();
 const { Option, OptGroup } = Select;

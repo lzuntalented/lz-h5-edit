@@ -7,8 +7,8 @@ import {
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
   COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
   COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER,
-} from '../../../../core/constants';
-import { getFontFamilyOptions } from '../../../../core/config';
+} from '@lzshow/constants';
+// import { getFontFamilyOptions } from '../../../../core/config';
 import { getArtShadowOptions, getArtSolidOptions, getArtBorderOptions } from './config';
 import { generatorTexttextShadow } from '../../../../utils';
 
@@ -16,7 +16,7 @@ const { TabPane } = Tabs;
 
 export default function Node(props) {
   const { onAddComponent, onAddComponentWithSize, onAddComponentWithAttrs } = props;
-  const fontFamilys = getFontFamilyOptions();
+  // const fontFamilys = getFontFamilyOptions();
   const artShadows = getArtShadowOptions();
   const artSolids = getArtSolidOptions();
   const artBorders = getArtBorderOptions();
@@ -97,17 +97,6 @@ export default function Node(props) {
                   }}
                 >描边
                 </div>
-              </Col>
-            ))
-          }
-        </Row>
-      </TabPane>
-      <TabPane tab="字体示例" key="3">
-        <Row gutter={18}>
-          {
-            fontFamilys.map(it => (
-              <Col span={8} key={it.key} className="m-b-8">
-                <Button style={{ fontFamily: `example-${it.key}` }} onClick={onAddComponentWithAttrs(COMPONENT_TYPE_TEXT, { fontFamily: it.key })}>字体示例</Button>
               </Col>
             ))
           }

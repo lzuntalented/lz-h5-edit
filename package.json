@@ -4,6 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
+    "dev": "webpack-dev-server",
     "install": "lerna bootstrap --hoist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lerna run star",

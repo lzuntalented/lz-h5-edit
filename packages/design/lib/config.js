@@ -8,7 +8,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.getComponetData = getComponetData;
 exports["default"] = void 0;
 
-var _constants = require("./core/constants");
+var _constants = require("@lzshow/constants");
 
 var _LocalStorage = _interopRequireDefault(require("./utils/LocalStorage"));
 

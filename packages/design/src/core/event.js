@@ -1,11 +1,13 @@
 import hotkeys from 'hotkeys-js';
 import {
-  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR, POINT_LEFT_CENTER,
+  QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR,
+  POINT_LEFT_CENTER,
   POINT_RIGHT_CENTER, POINT_TOP_CENTER, POINT_BOTTOM_CENTER, ALL_ITEM, POINT_LEFT_TOP,
   POINT_RIGHT_BOTTOM, POINT_RIGHT_TOP, POINT_LEFT_BOTTOM, POINT_ROTATE,
-} from './constants';
+} from '@lzshow/constants';
+
 import { subscribe, dispatch } from '../store';
-import { checkQuadrant, debounce } from '../utils/index';
+import { checkQuadrant } from '../utils/index';
 import { change, endMove, removeItem } from '../store/action';
 
 // 正在移动标识
@@ -23,15 +25,15 @@ const coordEnd = {
   y: 0,
 };
 
-window.addEventListener('mousedown', (e) => {
+function onMouseDown(e) {
   if (moveTag) {
     e.preventDefault();
     coordStart.x = e.pageX;
     coordStart.y = e.pageY;
   }
-}, false);
+}
 
-window.addEventListener('mousemove', debounce((e) => {
+function onMouseMove(e) {
   e.preventDefault();
   if (moveTag) {
     const { key: flag } = moveTag;
@@ -112,43 +114,32 @@ window.addEventListener('mousemove', debounce((e) => {
       }));
     }
   }
-}, 5));
+}
 
-window.addEventListener('mouseup', () => {
+function onMouseUp() {
   if (moveTag) {
     const key = moveTag;
     moveTag = false;
     dispatch(endMove(key));
   }
-});
+}
 
-window.addEventListener('mousecancel', () => {
-  if (moveTag) {
-    const key = moveTag;
-    moveTag = false;
-    dispatch(endMove(key));
-  }
-});
-
+export default function addEventListener() {
+  window.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mouseup', onMouseUp);
+  window.addEventListener('mousecancel', onMouseUp);
+  return () => {
+    window.removeEventListener('mousedown', onMouseDown);
+    window.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('mouseup', onMouseUp);
+    window.removeEventListener('mousecancel', onMouseUp);
+  };
+}
 
 // let shiftDown = false;
-hotkeys('backspace', (event) => {
-  const { type } = event;
-  console.log('delete', type);
+hotkeys('backspace', () => {
   dispatch(removeItem());
-  // if (type === 'keydown') {
-  //   shiftDown = true;
-  // } else {
-  //   shiftDown = false;
-  // }
 });
-
-// window.addEventListener('keyup', (e) => {
-//   const { keyCode } = e;
-//   // 删除键
-//   if (keyCode === 8) {
-//     dispatch(removeItem());
-//   }
-// });
 
 subscribe('moveTag', (tag) => { moveTag = tag; });

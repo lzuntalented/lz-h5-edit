@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GroupItem from './components/GroupItem';
-import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from './core/constants';
+import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '@lzshow/constants';
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, emptyAnimate,
   initStore,

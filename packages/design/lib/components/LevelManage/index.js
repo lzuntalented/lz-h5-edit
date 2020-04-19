@@ -39,13 +39,13 @@ var _arrayMove = _interopRequireDefault(require("array-move"));
 
 var _hotkeysJs = _interopRequireDefault(require("hotkeys-js"));
 
+var _constants = require("@lzshow/constants");
+
 var _Item = _interopRequireDefault(require("./components/Item"));
 
 require("./index.scss");
 
 var _action = require("../../store/action");
-
-var _constants = require("../../core/constants");
 
 function _createSuper(Derived) { return function () { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
 

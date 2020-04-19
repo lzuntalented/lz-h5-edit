@@ -25,11 +25,11 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRedux = require("react-redux");
 
-var _constants = require("../../core/constants");
+var _constants = require("@lzshow/constants");
 
-var _Tools = require("../../utils/Tools");
+var _utils = require("@lzshow/utils");
 
-var _utils = require("../../utils");
+var _utils2 = require("../../utils");
 
 function _createSuper(Derived) { return function () { var Super = (0, _getPrototypeOf2["default"])(Derived), result; if (_isNativeReflectConstruct()) { var NewTarget = (0, _getPrototypeOf2["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2["default"])(this, result); }; }
 
@@ -81,7 +81,7 @@ var Phone = /*#__PURE__*/function (_React$Component) {
 
           if (Math.abs(rect.left - left) <= wu) {
             //   超出编辑器不绘制
-            if (left >= 0 && left <= _utils.winSize.width) {
+            if (left >= 0 && left <= _utils2.winSize.width) {
               result.push({
                 left: left
               });
@@ -90,7 +90,7 @@ var Phone = /*#__PURE__*/function (_React$Component) {
 
           if (Math.abs(rect.top - top) <= wu) {
             // 超出编辑器不绘制
-            if (top >= 0 && top <= _utils.winSize.height) {
+            if (top >= 0 && top <= _utils2.winSize.height) {
               result.push({
                 top: top
               });
@@ -148,7 +148,7 @@ var Phone = /*#__PURE__*/function (_React$Component) {
       }, list.map(function (_ref2, index) {
         var left = _ref2.left,
             top = _ref2.top;
-        return !(0, _Tools.isUndefined)(left) ? /*#__PURE__*/_react["default"].createElement("div", {
+        return !(0, _utils.isUndefined)(left) ? /*#__PURE__*/_react["default"].createElement("div", {
           key: index,
           className: "aide-left",
           style: {

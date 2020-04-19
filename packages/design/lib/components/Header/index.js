@@ -17,5 +17,3 @@ var _consumer = _interopRequireDefault(require("../../context/consumer"));
 function _default(props) {
   return /*#__PURE__*/_react["default"].createElement(_consumer["default"], null, /*#__PURE__*/_react["default"].createElement(_header["default"], props));
 }
-
-;

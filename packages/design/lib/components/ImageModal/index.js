@@ -25,6 +25,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
+var _constants = require("@lzshow/constants");
+
 var _ModalContainer = _interopRequireDefault(require("../ModalContainer"));
 
 var _ImageList = _interopRequireDefault(require("./components/ImageList"));
@@ -32,8 +34,6 @@ var _ImageList = _interopRequireDefault(require("./components/ImageList"));
 var _ImageClip = _interopRequireDefault(require("./components/ImageClip"));
 
 var _action = require("../../store/action");
-
-var _constants = require("../../core/constants");
 
 var _ConsumerContainer = _interopRequireDefault(require("../../context/ConsumerContainer"));
 

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build1": "webpack --config webpack.build.config.js",
-    "lint": "eslint src",
+    "lint1": "eslint src",
     "lint:fix": "eslint src --fix"
   },
   "author": "",

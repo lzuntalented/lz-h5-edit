@@ -23,13 +23,13 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _preview = _interopRequireDefault(require("@lzshow/preview"));
 
+var _constants = require("@lzshow/constants");
+
 var _content = _interopRequireDefault(require("./content"));
 
 var _consumer = _interopRequireDefault(require("../../context/consumer"));
 
 var _LocalStorage = _interopRequireDefault(require("../../utils/LocalStorage"));
-
-var _constants = require("../../core/constants");
 
 var _utils = require("../../utils");
 
@@ -38,6 +38,16 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 var mLzLocalStorage = new _LocalStorage["default"](_constants.LOCALSTORAGE_PREVIEW_NAMESPACE);
+
+function getTop() {
+  var height = window.innerHeight;
+
+  if (height > _utils.winSize.height) {
+    return (height - _utils.winSize.height) / 2;
+  }
+
+  return 0;
+}
 
 function Preview(props) {
   var visible = props.visible,
@@ -71,7 +81,8 @@ function Preview(props) {
     style: _objectSpread({}, _utils.winSize)
   }, /*#__PURE__*/_react["default"].createElement(_preview["default"], {
     data: content,
-    ref: ref
+    ref: ref,
+    marginTop: getTop()
   }), /*#__PURE__*/_react["default"].createElement("div", {
     className: "toggle-page"
   }, /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(_button["default"], {

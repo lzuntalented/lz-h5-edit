@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { getComponentEditMap } from '@lzshow/core';
 import {
   ALL_ITEM, ITEM_TYPE_GROUP,
-} from '../../core/constants';
+} from '@lzshow/constants';
 import {
   startMove, changeActiveEditKey,
 } from '../../store/action';

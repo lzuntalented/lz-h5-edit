@@ -3,10 +3,10 @@ import React from 'react';
 import Header from './header';
 import ConfigConsumer from '../../context/consumer';
 
-export default function(props) {
+export default function (props) {
   return (
     <ConfigConsumer>
       <Header {...props} />
     </ConfigConsumer>
   );
-};
+}

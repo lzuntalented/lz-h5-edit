@@ -1,9 +1,9 @@
 import {
   LOCALSTORAGE_PREVIEW_NAMESPACE,
   LOCALSTORAGE_PREVIEW_CHACHE,
-} from './core/constants';
+} from '@lzshow/constants';
+import { getLocalTplDatas } from '@lzshow/utils';
 import LzLocalStorage from './utils/LocalStorage';
-import { getLocalTplDatas } from './core/config';
 
 export function getComponetData(id) {
   const locals = getLocalTplDatas();

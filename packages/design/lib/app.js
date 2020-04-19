@@ -47,7 +47,7 @@ var _Preview = _interopRequireDefault(require("./components/Preview"));
 
 var _Header = _interopRequireDefault(require("./components/Header"));
 
-require("./core/event");
+var _event = _interopRequireDefault(require("./core/event"));
 
 require("./index.scss");
 
@@ -76,22 +76,39 @@ var Home = /*#__PURE__*/function (_React$Component) {
       });
     });
     _this.state = {
-      showPreview: false
+      showPreview: false,
+      height: window.innerHeight
     };
+    _this.eventHandler = (0, _event["default"])();
     return _this;
   }
 
   (0, _createClass2["default"])(Home, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.eventHandler();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var showPreview = this.state.showPreview;
+      var _this$state = this.state,
+          showPreview = _this$state.showPreview,
+          height = _this$state.height;
       return /*#__PURE__*/_react["default"].createElement("div", {
-        className: "home-container"
+        className: "home-container",
+        style: {
+          height: height
+        }
       }, /*#__PURE__*/_react["default"].createElement(_Header["default"], {
         showPreview: this.showPreview
       }), /*#__PURE__*/_react["default"].createElement(_row["default"], {
         type: "flex",
-        justify: "center"
+        justify: "center",
+        align: "middle",
+        className: "home-edit-area",
+        style: {
+          height: height - 48
+        }
       }, /*#__PURE__*/_react["default"].createElement(_col["default"], null, /*#__PURE__*/_react["default"].createElement("div", {
         className: "phone-container"
       }, /*#__PURE__*/_react["default"].createElement("div", {

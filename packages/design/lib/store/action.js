@@ -48,7 +48,7 @@ exports.changeMultiActiveAlign = changeMultiActiveAlign;
 exports.changeSingleActiveAlign = changeSingleActiveAlign;
 exports.changeActiveItemAttrs = changeActiveItemAttrs;
 
-var _constants = require("../core/constants");
+var _constants = require("@lzshow/constants");
 
 function startMove(value) {
   return {

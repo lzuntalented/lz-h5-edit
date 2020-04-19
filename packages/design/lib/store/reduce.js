@@ -13,7 +13,7 @@ var _immutable = require("immutable");
 
 var _core = require("@lzshow/core");
 
-var _constants = require("../core/constants");
+var _constants = require("@lzshow/constants");
 
 var _utils = require("../utils");
 

@@ -1,8 +1,9 @@
 import {
   QUADRANT_SECOND, QUADRANT_FIRST, QUADRANT_THREE, QUADRANT_FOUR,
-  ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE, TYPE_PREVIEW_ANIMATE_ALL,
-} from '../core/constants';
-import { isObject, isArray } from './Tools';
+  ITEM_TYPE_GROUP, ITEM_TYPE_SINGLE,
+} from '@lzshow/constants';
+
+import { isObject, isArray } from '@lzshow/utils';
 
 function lzlog(...params) {
   const args = Array.prototype.slice.call(params);
@@ -61,16 +62,6 @@ export function createEditItem(type, name, nodeType, belong) {
       rotate: 0,
     },
     animates: [],
-    animate: {
-      // 动画名称
-      name: '',
-      // 动画执行时间 单位(s)
-      duration: 1,
-      // 动画延时执行 单位(s)
-      delay: 0,
-      // 动画重复次数
-      repeat: 1,
-    },
     previewAnimates: [],
     border: {
       style: 'solid',

@@ -1,8 +1,5 @@
 import { createStore } from 'redux';
 import { fromJS } from 'immutable';
-import HistoryStore from '../utils/HistoryStore';
-
-import reduces from './reduce';
 import {
   ACTION_COPY_ITEM, ACTION_COPY_PAGE, ACTION_DELETE_PAGE, ACTION_ADD_PAGE_ITEM_WITH_ATTRS,
   CHANGE_ACTIVE_EDIT_KEY, CHANGE_ACTIVE_PAGE, ADD_PAGE_ITEM, STORE_ADD_PAGE, STORE_INIT_TO_EDIT,
@@ -14,7 +11,10 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS,
   STORE_GROUP_SPLIT,
   CHANGE_ITEM_ATTR,
-} from '../core/constants';
+} from '@lzshow/constants';
+import HistoryStore from '../utils/HistoryStore';
+
+import reduces from './reduce';
 
 // 可以回退的操作列表
 const recordHistoryAction = [

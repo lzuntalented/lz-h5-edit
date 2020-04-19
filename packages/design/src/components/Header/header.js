@@ -8,10 +8,11 @@ import {
 } from 'antd';
 
 import './index.scss';
+import { isFunction } from '@lzshow/utils';
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE,
   LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE,
-} from '../../core/constants';
+} from '@lzshow/constants';
 import {
   addPageItem, addPageItemWithAttrs, changeBackMusicUrl,
   initHistoryStore, changeBackGround,
@@ -23,7 +24,6 @@ import MusicModal from '../MusicModal';
 import { getUploadProps } from './config';
 import HistoryStore from '../../utils/HistoryStore';
 import { deleteUnUseObject } from '../../utils';
-import { isFunction } from '../../utils/Tools';
 
 class Header extends React.Component {
   static propTypes = {

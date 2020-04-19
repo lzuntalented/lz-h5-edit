@@ -27,7 +27,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRedux = require("react-redux");
 
-var _constants = require("../../core/constants");
+var _constants = require("@lzshow/constants");
 
 var _action = require("../../store/action");
 

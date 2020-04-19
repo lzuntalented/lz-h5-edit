@@ -8,17 +8,14 @@ import { Music, winSize } from '@lzshow/utils';
 import { getComponentRenderMap } from '@lzshow/core';
 import MusicIcon from './music';
 
-let marginTop = 0;
-function getTop() {
-  const height = window.innerHeight;
-  if (height > winSize.height) {
-    marginTop = (height - winSize.height) / 2;
-  }
-}
-
 class Preview extends React.PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
+    marginTop: PropTypes.number,
+  }
+
+  static defaultProps = {
+    marginTop: 0,
   }
 
   constructor(props) {
@@ -30,7 +27,6 @@ class Preview extends React.PureComponent {
     this.musicHandler = new Music();
     this.magicRefs = {};
     this.ref = React.createRef();
-    getTop();
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -58,7 +54,7 @@ class Preview extends React.PureComponent {
   }
 
   renderComponent() {
-    const { data } = this.props;
+    const { data, marginTop } = this.props;
     const { activePageIndex } = this.state;
     return data.list.map((item, index) => {
       const style = {

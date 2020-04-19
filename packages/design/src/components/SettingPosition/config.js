@@ -1,7 +1,7 @@
 import {
   ACTION_ACTVIE_ALIGN_TOP, ACTION_ACTVIE_ALIGN_BOTTOM, ACTION_ACTVIE_ALIGN_LEFT,
   ACTION_ACTVIE_ALIGN_RIGHT,
-} from '../../core/constants';
+} from '@lzshow/constants';
 
 export function getAlignConfig() {
   return [

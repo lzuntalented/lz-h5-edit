@@ -7,29 +7,19 @@ import './render.scss';
 export default function EditItemRender(Component) {
   function Layout(props) {
     const {
-      rect, attrs, animate, border = {}, animates, show,
+      rect, attrs, border = {}, animates, show,
     } = props;
     const {
       width, left, top, height, rotate,
     } = rect;
-    const {
-      name = '',
-      duration,
-      delay,
-      repeat,
-    } = animate;
-    const cls = `content-hide-container ${animate || ''}`;
+    const cls = 'content-hide-container ';
     const animateStyle = {
-      // animation: `${duration}s ease ${delay}s ${repeat} normal both running ${name}`,
       borderStyle: border.style,
       borderWidth: border.width,
       borderColor: border.color,
       borderRadius: border.radius,
     };
-    let animateList = [animate];
-    if (animates && animates.length > 0) {
-      animateList = animates;
-    }
+    const animateList = animates || [];
     return (
       <div
         className="render-item"
@@ -62,6 +52,7 @@ export default function EditItemRender(Component) {
     animate: PropTypes.object,
     animates: PropTypes.object,
     border: PropTypes.object,
+    show: PropTypes.bool,
   };
 
   Layout.prototype.defaultProps = {
@@ -70,6 +61,7 @@ export default function EditItemRender(Component) {
     animate: {},
     border: {},
     animates: {},
+    show: false,
   };
 
   return Layout;

@@ -1,10 +1,5 @@
-$phone-width: 320;
-$phone-height: 480;
-$phone-header-height: 50;
-$phone-footer-height: 30;
-
 .music-container {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   width: 30px;
@@ -13,14 +8,6 @@ $phone-footer-height: 30;
   background: url('//www.lzuntalented.cn/img/music.svg') no-repeat;
   background-size: contain;
   animation: rotating 1.2s linear infinite;
-}
-
-.loading-wrap-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @keyframes rotating {

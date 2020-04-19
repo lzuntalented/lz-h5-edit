@@ -4,4 +4,3 @@
 import './style.scss';
 
 import 'animate.css';
-// import 'antd/dist/antd.less';

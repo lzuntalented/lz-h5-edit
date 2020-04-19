@@ -1,11 +1,11 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, Upload } from 'antd';
+import { COMPONENT_TYPE_PICTURE } from '@lzshow/constants';
 import ModalContainer from '../ModalContainer';
 import ImageList from './components/ImageList';
 import ImageClip from './components/ImageClip';
 import { addPageItemWithAttrs, changeActiveItemAttrs } from '../../store/action';
-import { COMPONENT_TYPE_PICTURE } from '../../core/constants';
 import ConsumerContainer from '../../context/ConsumerContainer';
 
 import './index.scss';

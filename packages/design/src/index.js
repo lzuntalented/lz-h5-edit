@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
+import { addAllFontCssToStyle } from '@lzshow/utils';
 import store from './store';
 import App from './app';
 import ConfigProvide from './context/provider';
@@ -9,6 +10,10 @@ import './style';
 
 export default function LzDesign(props) {
   const { onPublish, libs } = props;
+  const { font } = libs || {};
+  useEffect(() => {
+    addAllFontCssToStyle(font.initData || []);
+  }, [font]);
   return (
     <Provider store={store}>
       <ConfigProvide config={{ onPublish, libs }}>

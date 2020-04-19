@@ -1,16 +1,13 @@
 const path = require('path');
 const chalk = require('chalk');
-
-const getThemeConfig = require('./src/style/theme.js');
-
-const theme = getThemeConfig;
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 console.log(chalk.green('http://localhost:9901'));
 
 module.exports = {
   entry: {
-    bound: './src/index.js',
-    wap: './src/wap.js',
+    client: './packages/client/src/index.js',
+    design: './packages/design/demo/index.js',
   },
   devtool: '#source-map',
   output: {
@@ -23,6 +20,22 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+        options: {
+          plugins: [
+            ['@babel/plugin-transform-runtime'],
+            ['@babel/plugin-transform-async-to-generator'],
+            ['@babel/plugin-syntax-dynamic-import'],
+            ['@babel/plugin-proposal-class-properties'],
+            [
+              'import',
+              {
+                libraryName: 'antd',
+                style: 'css',
+              },
+            ],
+          ],
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
       },
       {
         test: /\.(css|scss)$/,
@@ -34,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: `style-loader!css-loader!less-loader?{"javascriptEnabled": true,"modifyVars":${JSON.stringify(theme)}}`,
+        loader: 'style-loader!css-loader!less-loader',
       },
     ],
   },
@@ -42,5 +55,17 @@ module.exports = {
     host: '0.0.0.0',
     port: 9901,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      chunks: ['client'],
+      filename: 'client.html',
+      template: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['design'],
+      filename: 'design.html',
+      template: 'index.html',
+    }),
+  ],
   mode: 'development',
 };
