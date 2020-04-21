@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getComponentRenderMap } from '../../../../core/components';
+import { getComponentRenderMap } from '@lzshow/core';
 
 const refNames = {
   content: 'content',

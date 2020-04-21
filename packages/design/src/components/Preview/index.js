@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Drawer, Input, Button } from 'antd';
+import React, { useRef } from 'react';
+import { Drawer, Button } from 'antd';
 import Realpreview from '@lzshow/preview';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '@lzshow/constants';
 import Content from './content';

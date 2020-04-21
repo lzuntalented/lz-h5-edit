@@ -7,11 +7,12 @@ import {
 } from 'antd';
 
 import './index.scss';
+import { isFunction } from '@lzshow/utils';
 import { deleteUnUseObject } from '../../utils';
 
 class Header extends React.Component {
   static propTypes = {
-    state: PropTypes.object.isRequired,
+    state: PropTypes.string.isRequired,
   }
 
   constructor(props) {
@@ -41,19 +42,12 @@ class Header extends React.Component {
       });
       return;
     }
-    // // 远程存储用户预览模板
-    save({ content: state, title }).then((id) => {
-      Modal.success({
-        content: '恭喜，发布成功！',
-        onOk: () => {
-          window.open(`#/preview/${id}`, '_blank');
-        },
-      });
-    }).catch(() => {
-      Modal.error({
-        title: '发布失败',
-      });
-    });
+
+    const { config } = this.props;
+    const { onPublish: pub } = config || {};
+    if (isFunction(pub)) {
+      pub(state, title);
+    }
   }
 
   render() {

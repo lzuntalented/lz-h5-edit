@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Menu, Row, Col,
+  Menu, Row, Col, Layout,
 } from 'antd';
 
+const { Header } = Layout;// 引入样式文件
 class LayoutFrame extends React.Component {
   static propTypes = {
     location: PropTypes.object.isRequired,
@@ -36,23 +37,25 @@ class LayoutFrame extends React.Component {
       selectKeys.push('1');
     }
     return (
-      <Row className="default-header" type="flex" justify="space-between">
-        <Col>
-          <img onClick={() => this.onClick({ key: '1' })} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
-        </Col>
-        <Col>
-          <Menu
-            selectedKeys={selectKeys}
-            defaultSelectedKeys={['1']}
-            mode="horizontal"
-            onSelect={this.onClick}
-          >
-            <Menu.Item key="1">首页</Menu.Item>
-            <Menu.Item key="3">模板商城</Menu.Item>
-            <Menu.Item key="2">作品集市</Menu.Item>
-          </Menu>
-        </Col>
-      </Row>
+      <Header className="layout-header-container">
+        <Row className="default-header" type="flex" justify="space-between">
+          <Col>
+            <img onClick={() => this.onClick({ key: '1' })} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
+          </Col>
+          <Col>
+            <Menu
+              selectedKeys={selectKeys}
+              defaultSelectedKeys={['1']}
+              mode="horizontal"
+              onSelect={this.onClick}
+            >
+              <Menu.Item key="1">首页</Menu.Item>
+              <Menu.Item key="3">模板商城</Menu.Item>
+              <Menu.Item key="2">作品集市</Menu.Item>
+            </Menu>
+          </Col>
+        </Row>
+      </Header>
     );
   }
 }

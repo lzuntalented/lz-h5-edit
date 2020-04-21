@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LzDesign from '@lzshow/design';
-import { getPictureList, cropImage } from '../../services/create';
+import { message } from 'antd';
+import {
+  getPictureList, cropImage, save, getDetail,
+} from '../../services/create';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 
-export default function () {
+export default function (props) {
   // 库数据
   const libs = {
     // 图片库
@@ -25,25 +28,6 @@ export default function () {
         showUploadList: false,
       },
       cropImage,
-    },
-    // 背景图片库
-    bg: {
-      initData: [
-        'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png',
-        'http://www.lzuntalented.cn/img/1.jpg',
-        'http://www.lzuntalented.cn/img/double11/5daff75820748.png',
-        'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif',
-        'http://www.lzuntalented.cn/img/double11/5daff75820657.png',
-        'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif',
-        'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png',
-      ],
-      fetchPromise: getPictureList,
-      upLoadProps: {
-        name: 'upFile',
-        accept: 'image/*',
-        action: `${getUrlPrefix()}${apiConfig.file.upload}`,
-        showUploadList: false,
-      },
     },
     // 音乐库
     music: {
@@ -78,11 +62,64 @@ export default function () {
         },
       ],
     },
+    font: {
+      initData: [
+        {
+          key: 'tianxinyuanyue',
+          name: '甜心中文',
+          text: '文本示例',
+          example: 'http://www.lzuntalented.cn/assets/example/tianxinyuanyue.ttf',
+          url: 'http://www.lzuntalented.cn/assets/fonts/tianxinyuanyue.ttf',
+        },
+        {
+          key: 'lanlanlanlandan',
+          name: '【蛋蛋】懒懒懒懒蛋',
+          text: '文本示例',
+          example: 'http://www.lzuntalented.cn/assets/example/lanlanlanlandan.ttf',
+          url: 'http://www.lzuntalented.cn/assets/fonts/lanlanlanlandan.ttf',
+        },
+        {
+          key: 'shanmang1',
+          name: '【阿苗】闪吗1',
+          text: '文本示例',
+          example: 'http://www.lzuntalented.cn/assets/example/shanmang1.ttf',
+          url: 'http://www.lzuntalented.cn/assets/fonts/shanmang1.ttf',
+        },
+        {
+          key: 'wencangshufang',
+          name: '问藏书房',
+          text: '文本示例',
+          example: 'http://www.lzuntalented.cn/assets/example/wencangshufang.ttf',
+          url: 'http://www.lzuntalented.cn/assets/fonts/wencangshufang.ttf',
+        },
+      ],
+    },
   };
+
+  const onPublish = (data, title) => {
+    save({ content: data, title }).then(() => {
+      message.success('保存成功');
+    });
+  };
+
+  const [data, setData] = useState(null);
+
+  const { params } = props;
+  const id = params && +params.id;
+  useEffect(() => {
+    if (id && id > 0) {
+      getDetail({ id }).then((resp) => {
+        const { content: res } = resp;
+        setData(JSON.parse(res));
+      });
+    }
+  }, []);
+
   return (
     <LzDesign
-      onPublish={data => console.log('publish', data)}
+      onPublish={onPublish}
       libs={libs}
+      data={data}
     />
   );
 }

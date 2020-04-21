@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GroupItem from './components/GroupItem';
 import { ITEM_TYPE_SINGLE, ITEM_TYPE_GROUP } from '@lzshow/constants';
+import { getComponentEditMap } from '@lzshow/core';
+import GroupItem from './components/GroupItem';
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, emptyAnimate,
   initStore,
@@ -10,21 +11,24 @@ import {
 // 引入样式文件
 import './index.scss';
 
-import { getComponentEditMap } from '@lzshow/core';
-import { getComponetData } from './config';
-
 class Phone extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      lastData: null,
+    };
   }
 
-  componentDidMount() {
-    // 担心观众老爷等不及，预制一个场景
-    // const data = get1024Data();
-    const { dispatch, id } = this.props;
-    const data = getComponetData(id);
-    dispatch(initStore(data));
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { data, dispatch } = nextProps;
+    const { lastData } = prevState;
+    if (data !== lastData) {
+      if (data) {
+        dispatch(initStore(data));
+      }
+      return Object.assign(prevState, { data, lastData: data });
+    }
+    return null;
   }
 
   renderComponent() {

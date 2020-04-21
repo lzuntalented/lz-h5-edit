@@ -24,3 +24,5 @@ npm-debug.log*
 dist
 build
 dist/bound.js
+lib
+es

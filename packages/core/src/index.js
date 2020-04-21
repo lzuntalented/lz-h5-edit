@@ -11,6 +11,8 @@ import { getDefaultAttrs } from './utils';
 import EditItem from './components/EditItem';
 import RenderItem from './components/EditItem/render';
 
+import 'animate.css';
+
 const {
   Text, Picture, QQVideo, Input, Button, ArtInput,
   BDMap, Shape, Video, TypedText, ArtShadow, ArtSolid, ArtBorder,

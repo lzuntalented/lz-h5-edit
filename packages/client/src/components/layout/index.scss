@@ -7,7 +7,8 @@
     padding: 0;
     background-color: #fff;
     height: 48px;
-    box-shadow: 0 4px 12px rgba(138,166,195,0.45);
+    border-bottom: 1px solid #e8e8e8;
+    overflow: hidden;
 
     .default-header {
       max-width: 1080px;
@@ -49,7 +50,7 @@
   }
   .layout-content-container {
     width: 100%;
-    margin: 12px auto;
+    margin: 0 auto;
     min-height: calc(100vh - 74px);
   }
 }

@@ -23,10 +23,10 @@ export default () => {
           <div className="sub-title">提供一款开源微场景编辑器解决方案</div>
           <div className="line" />
           <div className="btn-container">
-            <a href="/#/list" className="m-r-12">
+            <a href="#/list" className="m-r-12">
               <Button type="primary">开始探索</Button>
             </a>
-            <a href="/#/create" className="m-r-12">
+            <a href="#/create" className="m-r-12">
               <Button>体验创造</Button>
             </a>
             <iframe

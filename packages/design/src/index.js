@@ -9,7 +9,7 @@ import ConfigProvide from './context/provider';
 import './style';
 
 export default function LzDesign(props) {
-  const { onPublish, libs } = props;
+  const { onPublish, libs, data } = props;
   const { font } = libs || {};
   useEffect(() => {
     addAllFontCssToStyle(font.initData || []);
@@ -17,7 +17,7 @@ export default function LzDesign(props) {
   return (
     <Provider store={store}>
       <ConfigProvide config={{ onPublish, libs }}>
-        <App />
+        <App data={data} />
       </ConfigProvide>
     </Provider>
   );

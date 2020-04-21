@@ -8,6 +8,7 @@ module.exports = {
   entry: {
     client: './packages/client/src/index.js',
     design: './packages/design/demo/index.js',
+    opus: './packages/opus/src/index.js',
   },
   devtool: '#source-map',
   output: {
@@ -64,6 +65,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       chunks: ['design'],
       filename: 'design.html',
+      template: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['opus'],
+      filename: 'opus.html',
       template: 'index.html',
     }),
   ],

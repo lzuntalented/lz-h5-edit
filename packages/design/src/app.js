@@ -37,6 +37,8 @@ class Home extends React.Component {
 
   render() {
     const { showPreview, height } = this.state;
+    const { data } = this.props;
+
     return (
       <div className="home-container" style={{ height }}>
         <Header showPreview={this.showPreview} />
@@ -47,7 +49,7 @@ class Home extends React.Component {
               <div className="content">
                 <div className="border-left" />
                 <div className="border-right" />
-                <Phone id={this.id} />
+                <Phone data={data} />
               </div>
               <AideLine />
               <Control />

@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 
 import { winSize } from '@lzshow/utils';
 import App from './App';
-import 'animate.css';
 import './index.scss';
 
 function setPageScale() {

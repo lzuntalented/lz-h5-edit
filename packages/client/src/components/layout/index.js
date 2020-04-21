@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Layout,
-} from 'antd';
+import { Layout } from 'antd';
 
 import './index.scss';
 
@@ -29,9 +27,7 @@ class LayoutFrame extends React.Component {
     const { children, nav } = this.props;
     return (
       <Layout className="layout">
-        <Header className="layout-header-container">
-          {nav}
-        </Header>
+        {nav}
         <Content className="layout-content-container">
           {
             children

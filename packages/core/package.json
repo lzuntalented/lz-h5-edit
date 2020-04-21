@@ -3,7 +3,6 @@
   "version": "0.1.10",
   "description": "",
   "main": "lib/index.js",
-  "module": "src/index.js",
   "scripts": {
     "build": "babel src --out-dir lib --copy-files",
     "build:es": "babel src --out-dir es --copy-files",
@@ -16,6 +15,7 @@
     "@lzshow/constants": "^0.1.10",
     "@lzshow/utils": "^0.1.10",
     "react": "^16.13.1",
+    "animate.css": "^3.7.0",
     "react-dom": "^16.13.1"
   },
   "gitHead": "378665e51014950d6749ea8ca6ee3016560e60b0"

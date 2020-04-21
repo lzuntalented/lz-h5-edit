@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
 import QRCode from 'qrcode';
-import Phone from './phone';
+import Phone from '@lzshow/preview';
 
 // 引入样式文件
 import './index.scss';
