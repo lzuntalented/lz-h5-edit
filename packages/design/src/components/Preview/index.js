@@ -11,7 +11,7 @@ const mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
 
 export default function Preview(props) {
   const { visible, hidePreview } = props;
-  const state = JSON.parse(mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE));
+  const state = JSON.parse(mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}'));
   const content = translateShowDataFromStore(state);
   const total = (content && content.list && content.list.length) || 0;
   const ref = useRef();

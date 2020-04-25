@@ -15,13 +15,23 @@
 ## 使用
 
 ```bash
-npm i
-// 开发
+# 首先安装lerna
+npm i lerna -g
+# 安装依赖
+npm run install
+# 构建包
+npm run build
+# 开发
 npm start
-// 浏览 http://localhost:9901
+# 浏览网站
+http://localhost:9901/client.html
+# 调试核心编辑器
+http://localhost:9901/design.html
+# 调试作品
+http://localhost:9901/opus.html?id=作品编号
 
 // 构建
-npm run build
+npm run webpack
 ```
 
 ## 开发文档

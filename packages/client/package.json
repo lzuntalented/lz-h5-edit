@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/client",
-  "version": "0.1.10",
+  "version": "0.1.12",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -12,18 +12,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/design": "^0.1.10",
-    "@lzshow/utils": "^0.1.10",
-    "@lzshow/core": "^0.1.10",
-    "@lzshow/preview": "^0.1.10",
+    "@lzshow/core": "^0.1.12",
+    "@lzshow/design": "^0.1.12",
+    "@lzshow/preview": "^0.1.12",
+    "@lzshow/utils": "^0.1.12",
+    "antd": "^3.6.6",
     "axios": "^0.19.0",
     "jparticles": "^2.0.1",
     "js-cookie": "^2.1.4",
+    "prop-types": "^15.6.2",
+    "qrcode": "^1.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "prop-types": "^15.6.2",
-    "antd": "^3.6.6",
-    "qrcode": "^1.4.2",
     "react-router": "^3.0.0"
   },
   "private": true,

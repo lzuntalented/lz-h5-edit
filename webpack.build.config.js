@@ -7,14 +7,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
-let cfgPath = './src/style/theme.js';
-// relative path
-if (cfgPath.charAt(0) === '.') {
-  cfgPath = path.resolve(process.cwd(), cfgPath);
-}
-const getThemeConfig = require(cfgPath);
-const theme = getThemeConfig;
-
 // 构建生成的目录地址
 const distPath = path.resolve(__dirname, 'dist');
 // 获取当前版本号
@@ -52,8 +44,8 @@ console.warn('当前构建生成的html文件中使用百度统计是开发者�
 
 module.exports = {
   entry: {
-    bound: './src/index.js',
-    wap: './src/wap.js',
+    bound: './packages/client/src/index.js',
+    wap: './packages/opus/src/index.js',
   },
   output: {
     filename: '[name].js',
@@ -69,7 +61,29 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            envName: 'production',
+            plugins: [
+              ['@babel/plugin-transform-runtime'],
+              ['@babel/plugin-transform-async-to-generator'],
+              ['@babel/plugin-syntax-dynamic-import'],
+              ['@babel/plugin-proposal-class-properties', { loose: false }],
+              [
+                'import',
+                {
+                  libraryName: 'animate.css',
+                  customName: () => './empty.css',
+                },
+                'animate.css',
+              ],
+              [
+                'import',
+                {
+                  libraryName: 'antd/dist/antd.less',
+                  customName: () => './empty.css',
+                },
+                'antd/dist/antd.less',
+              ],
+            ],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
       },
@@ -78,7 +92,7 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          `less-loader?{"javascriptEnabled": true,"modifyVars":${JSON.stringify(theme)}}`,
+          'less-loader',
         ],
       },
       {
@@ -108,8 +122,6 @@ module.exports = {
       'react-dom': 'ReactDOM',
       'react-router': 'ReactRouter',
       antd: 'antd',
-      // 'animate.css': 'window',
-      // 'antd/dist/antd.less': 'window',
     },
   ],
   plugins: [
@@ -122,7 +134,7 @@ module.exports = {
     new HtmlWebpackPlugin({ // Also generate a test.html
       chunks: [],
       filename: path.resolve(distPath, 'index.html'),
-      template: 'src/tpl/index.html.tpl',
+      template: 'packages/client/src/tpl/index.html.tpl',
       templateParameters: {
         jsPath: `${version}/bound`,
       },
@@ -130,15 +142,11 @@ module.exports = {
     new HtmlWebpackPlugin({ // Also generate a test.html
       chunks: [],
       filename: path.resolve(distPath, 'wap.html'),
-      template: 'src/tpl/wap.html.tpl',
+      template: 'packages/client/src/tpl/index.html.tpl',
       templateParameters: {
         jsPath: `${version}/wap`,
       },
     }),
   ],
-  devServer: {
-    host: '0.0.0.0',
-    port: 9901,
-  },
   mode: 'production',
 };
