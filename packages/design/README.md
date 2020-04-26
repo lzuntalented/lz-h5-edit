@@ -1,5 +1,14 @@
-# 作品设计端
+# 核心编辑器
 
+### 安装
+```
+npm i @lzshow/design -S
+```
+
+### 使用
+> 参考demo/index.js中使用
+
+### 参数
 参数名 | 参数说明 |  参数类型  
 -|-|-
 onPublish | 发布回调 | function
