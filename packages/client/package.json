@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/client",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
