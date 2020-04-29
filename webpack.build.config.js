@@ -142,7 +142,7 @@ module.exports = {
     new HtmlWebpackPlugin({ // Also generate a test.html
       chunks: [],
       filename: path.resolve(distPath, 'wap.html'),
-      template: 'packages/client/src/tpl/index.html.tpl',
+      template: 'packages/opus/src/tpl/index.html.tpl',
       templateParameters: {
         jsPath: `${version}/wap`,
       },
