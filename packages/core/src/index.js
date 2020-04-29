@@ -6,6 +6,7 @@ import {
   COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
   COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW,
   COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER,
+  COMPONENT_TYPE_LINK,
 } from '@lzshow/constants';
 import { getDefaultAttrs } from './utils';
 import EditItem from './components/EditItem';
@@ -16,6 +17,7 @@ import 'animate.css';
 const {
   Text, Picture, QQVideo, Input, Button, ArtInput,
   BDMap, Shape, Video, TypedText, ArtShadow, ArtSolid, ArtBorder,
+  Link,
 } = Resource;
 
 const map = {
@@ -60,6 +62,7 @@ registerComponent(COMPONENT_TYPE_TEXT_TYPED, TypedText);
 registerComponent(COMPONENT_TYPE_ART_SHADOW, ArtShadow);
 registerComponent(COMPONENT_TYPE_ART_SOLID, ArtSolid);
 registerComponent(COMPONENT_TYPE_ART_BORDER, ArtBorder);
+registerComponent(COMPONENT_TYPE_LINK, Link);
 
 export function getComponentEditMap(key) {
   const obj = map[key];

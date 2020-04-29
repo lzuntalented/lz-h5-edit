@@ -11,7 +11,21 @@ import TypedText from './TypedText';
 import ArtShadow from './ArtTexts/Shadow';
 import ArtSolid from './ArtTexts/Solid';
 import ArtBorder from './ArtTexts/Border';
+import Link from './Link';
 
 export default {
-  Text,Picture,QQVideo,Input,Button,ArtInput,BDMap,Shape,Video,TypedText,ArtShadow,ArtSolid,ArtBorder
+  Text,
+  Picture,
+  QQVideo,
+  Input,
+  Button,
+  ArtInput,
+  BDMap,
+  Shape,
+  Video,
+  TypedText,
+  ArtShadow,
+  ArtSolid,
+  ArtBorder,
+  Link,
 };

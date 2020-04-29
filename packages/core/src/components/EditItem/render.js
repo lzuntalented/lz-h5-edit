@@ -39,7 +39,7 @@ export default function EditItemRender(Component) {
           <div
             className="content-container"
           >
-            <Component showStatus={show} {...attrs} />
+            <Component showStatus={show} {...attrs} height={height} />
           </div>
         </PreviewAnimation>
       </div>
