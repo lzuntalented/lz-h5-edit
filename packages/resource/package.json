@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/resource",
-  "version": "0.1.10",
+  "version": "0.1.14",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "re-carousel": "^2.3.1",
-    "@lzshow/constants": "^0.1.10"
+    "@lzshow/constants": "^0.1.14",
+    "re-carousel": "^2.3.1"
   },
   "author": "",
   "license": "ISC",

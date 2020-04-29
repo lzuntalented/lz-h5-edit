@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/preview",
-  "version": "0.1.10",
+  "version": "0.1.14",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -10,9 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/core": "^0.1.10",
-    "@lzshow/resource": "^0.1.10",
-    "@lzshow/utils": "^0.1.10"
+    "@lzshow/core": "^0.1.14",
+    "@lzshow/resource": "^0.1.14",
+    "@lzshow/utils": "^0.1.14"
   },
   "gitHead": "378665e51014950d6749ea8ca6ee3016560e60b0"
 }
