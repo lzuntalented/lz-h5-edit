@@ -9,7 +9,6 @@ import { translateShowDataFromStore } from '../../utils';
 import LzLocalStorage from '../../utils/LocalStorage';
 import { getDetail } from '../../services/create';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';
-import { getLocalTplDatas } from '../../core/config';
 import { getDomain, getUrlPrefix } from '../../services/apiConfig';
 
 const refNames = {

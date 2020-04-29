@@ -8,7 +8,6 @@ import {
 } from './config';
 import { LOCALSTORAGE_PREVIEW_CHACHE, LOCALSTORAGE_PREVIEW_NAMESPACE } from '../../core/constants';
 import LzLocalStorage from '../../utils/LocalStorage';
-import { getLocalTplDatas } from '../../core/config';
 import { getList } from '../../services/mall';
 import { translateShowDataFromStore } from '../../utils';
 
@@ -18,7 +17,7 @@ export default class List extends React.Component {
   mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
 
   state = {
-    list: getLocalTplDatas(),
+    list: [],
     // 当前页码
     pageIndex: 1,
     // 作品总数
@@ -57,10 +56,7 @@ export default class List extends React.Component {
   // 获取商城模板作品列表
   getCardList = (pageIndex) => {
     // 首屏渲染本地模板，第二页开始再渲染远端数据
-    let page = pageIndex;
-    if (pageIndex > 1) {
-      page = pageIndex - 1;
-    }
+    const page = pageIndex;
 
     const result = [];
     getList({ pageIndex: page }).then((res) => {
@@ -77,9 +73,7 @@ export default class List extends React.Component {
         pageIndex,
         total: total + pageSize,
       };
-      if (pageIndex > 1) {
-        state.list = result;
-      }
+      state.list = result;
       this.setState(state);
     });
   }
