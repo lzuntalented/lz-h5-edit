@@ -39,7 +39,7 @@ export default () => {
           </div>
           <div className="line" />
           <div className="eq">
-            <img src="http://www.lzuntalented.cn/img/show.home.png" alt="" />
+            <img src="http://www.lzuntalented.cn/img/lzshow-logo.png" alt="" />
           </div>
         </div>
         <div className="home-logo">

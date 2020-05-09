@@ -27,12 +27,6 @@ class Perview extends React.Component {
       this.mLzLocalStorage = new LzLocalStorage(LOCALSTORAGE_PREVIEW_NAMESPACE);
       const data = this.mLzLocalStorage.get(LOCALSTORAGE_PREVIEW_CHACHE, '{}');
       this.state.data = translateShowDataFromStore(JSON.parse(data));
-    } else if (params && params.id) {
-      const locals = getLocalTplDatas();
-      const obj = locals.find(it => it.id === params.id);
-      if (obj) {
-        this.state.data = obj.content;
-      }
     }
     this.magicRefs = {};
     this.wapUrl = `${getDomain()}/wap.html?id=${this.cacheKey}`;

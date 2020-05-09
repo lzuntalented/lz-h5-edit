@@ -5,7 +5,7 @@ import Phone from '@lzshow/preview';
 import { COMPONENT_TYPE_PICTURE } from '@lzshow/constants';
 
 export default function LoadingWrap(props) {
-  const { data } = props;
+  const { data, marginTop } = props;
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -53,11 +53,12 @@ export default function LoadingWrap(props) {
     }
   }, [data]);
 
-  return isLoading ? <div className="loading-wrap-container"><Spin /></div> : <Phone data={data} />;
+  return isLoading ? <div className="loading-wrap-container"><Spin /></div> : <Phone data={data} marginTop={marginTop} />;
 }
 
 LoadingWrap.propTypes = {
   data: PropTypes.object,
+  marginTop: PropTypes.number.isRequired,
 };
 
 LoadingWrap.defaultProps = {

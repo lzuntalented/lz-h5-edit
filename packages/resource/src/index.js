@@ -12,6 +12,8 @@ import ArtShadow from './ArtTexts/Shadow';
 import ArtSolid from './ArtTexts/Solid';
 import ArtBorder from './ArtTexts/Border';
 import Link from './Link';
+import MotherDay from './MotherDay';
+
 
 export default {
   Text,
@@ -28,4 +30,5 @@ export default {
   ArtSolid,
   ArtBorder,
   Link,
+  MotherDay,
 };

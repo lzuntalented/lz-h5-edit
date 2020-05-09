@@ -3,10 +3,19 @@ import qs from 'query-string';
 
 // 引入样式文件
 import './index.scss';
-import { translateShowDataFromStore } from '@lzshow/utils';
+import { translateShowDataFromStore, winSize } from '@lzshow/utils';
 import { addShortFonts } from './utils/font';
 import { getDetail } from './services/create';
 import LoadingWrap from './Loading';
+
+
+let marginTop = 0;
+function getTop() {
+  const height = window.innerHeight;
+  if (height > winSize.height) {
+    marginTop = (height - winSize.height) / 2;
+  }
+}
 
 class Perview extends React.Component {
   constructor(props) {
@@ -24,6 +33,7 @@ class Perview extends React.Component {
         id: 0,
       };
     }
+    getTop();
   }
 
   componentDidMount() {
@@ -40,7 +50,7 @@ class Perview extends React.Component {
 
   render() {
     const { data } = this.state;
-    return <LoadingWrap data={data} />;
+    return <LoadingWrap data={data} marginTop={marginTop} />;
   }
 }
 

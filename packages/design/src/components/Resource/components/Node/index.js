@@ -6,7 +6,7 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON,
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
   COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
-  COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER, COMPONENT_TYPE_LINK,
+  COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER, COMPONENT_TYPE_LINK, COMPONENT_TYPE_MOTHER_DAY,
 } from '@lzshow/constants';
 // import { getFontFamilyOptions } from '../../../../core/config';
 import { getArtShadowOptions, getArtSolidOptions, getArtBorderOptions } from './config';
@@ -52,6 +52,9 @@ export default function Node(props) {
             </Col>
             <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_LINK)}>链接</Button>
+            </Col>
+            <Col span={8}>
+              <Button onClick={onAddComponent(COMPONENT_TYPE_MOTHER_DAY)}>母亲节</Button>
             </Col>
           </Row>
         </div>

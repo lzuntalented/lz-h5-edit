@@ -3,8 +3,10 @@
   "version": "0.1.14",
   "description": "",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "scripts": {
     "build": "babel src --out-dir lib --copy-files",
+    "build:es": "babel src --out-dir es --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -15,7 +15,7 @@ const libs = {
       'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif',
       'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png',
     ],
-    fetchPromise: () => {},
+    fetchPromise: () => new Promise((r) => { r(); }),
     upLoadProps: {
       name: 'upFile',
       accept: 'image/*',

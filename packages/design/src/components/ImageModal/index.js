@@ -24,7 +24,7 @@ const useCrop = () => {
 
 function ImageModal(props) {
   const {
-    dispatch, onVisibleChange, visible, addMode = true, config, withCrop, onChangeBackground,
+    dispatch, onVisibleChange, visible, addMode = true, config, withCrop, onChangeBackground, attrKey,
   } = props;
   const imageListRef = useRef();
 
@@ -47,7 +47,7 @@ function ImageModal(props) {
       setCropUrl(imgSrc);
       showCropAction();
     } else if (!addMode) {
-      dispatch(changeActiveItemAttrs({ imgSrc }));
+      dispatch(changeActiveItemAttrs({ [attrKey]: imgSrc }));
     } else {
       dispatch(addPageItemWithAttrs(COMPONENT_TYPE_PICTURE, { imgSrc }));
     }

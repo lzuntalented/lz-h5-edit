@@ -6,7 +6,7 @@ import {
   COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
   COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW,
   COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER,
-  COMPONENT_TYPE_LINK,
+  COMPONENT_TYPE_LINK, COMPONENT_TYPE_MOTHER_DAY,
 } from '@lzshow/constants';
 import { getDefaultAttrs } from './utils';
 import EditItem from './components/EditItem';
@@ -17,7 +17,7 @@ import 'animate.css';
 const {
   Text, Picture, QQVideo, Input, Button, ArtInput,
   BDMap, Shape, Video, TypedText, ArtShadow, ArtSolid, ArtBorder,
-  Link,
+  Link, MotherDay,
 } = Resource;
 
 const map = {
@@ -63,6 +63,8 @@ registerComponent(COMPONENT_TYPE_ART_SHADOW, ArtShadow);
 registerComponent(COMPONENT_TYPE_ART_SOLID, ArtSolid);
 registerComponent(COMPONENT_TYPE_ART_BORDER, ArtBorder);
 registerComponent(COMPONENT_TYPE_LINK, Link);
+registerComponent(COMPONENT_TYPE_MOTHER_DAY, MotherDay);
+
 
 export function getComponentEditMap(key) {
   const obj = map[key];

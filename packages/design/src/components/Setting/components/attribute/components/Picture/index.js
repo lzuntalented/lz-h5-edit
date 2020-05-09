@@ -6,7 +6,7 @@ import ImageModal from '../../../../../ImageModal';
 
 export default function RenderStyle(props) {
   const {
-    data, onChange, label, dispatch,
+    data, onChange, label, dispatch, keys,
   } = props;
 
   const [visible, setVisible] = useState(false);
@@ -29,6 +29,7 @@ export default function RenderStyle(props) {
         onVisibleChange={setVisible}
         visible={visible}
         dispatch={dispatch}
+        attrKey={keys}
       />
     </Row>
   );

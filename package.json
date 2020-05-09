@@ -6,7 +6,7 @@
   "scripts": {
     "install": "lerna bootstrap --hoist",
     "start": "webpack-dev-server",
-    "build": "lerna run build",
+    "build": "lerna run build && lerna run build:es",
     "webpack": "webpack --config webpack.build.config.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
