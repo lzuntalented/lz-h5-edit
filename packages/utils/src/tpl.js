@@ -10,7 +10,7 @@ import {
   getDouble11Data, get1024Data, getDragonFestivalData, getGKData,
 } from '@lzshow/constants/config';
 
-import { translateShowDataFromStore } from './index';
+import { translateShowDataFromStore } from './store';
 
 export function getLocalTplDatas() {
   return [

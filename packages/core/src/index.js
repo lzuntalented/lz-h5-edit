@@ -6,8 +6,11 @@ import {
   COMPONENT_TYPE_MAP, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
   COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW,
   COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER,
-  COMPONENT_TYPE_LINK, COMPONENT_TYPE_MOTHER_DAY,
+  COMPONENT_TYPE_LINK, COMPONENT_TYPE_MOTHER_DAY, COMPONENT_TYPE_LOVE_FOREVER,
 } from '@lzshow/constants';
+import ArtInput from '@lzshow/resource-artinput';
+import MotherDay from '@lzshow/resource-motherday';
+import LoveForever from '@lzshow/resource-loveforever';
 import { getDefaultAttrs } from './utils';
 import EditItem from './components/EditItem';
 import RenderItem from './components/EditItem/render';
@@ -15,9 +18,9 @@ import RenderItem from './components/EditItem/render';
 import 'animate.css';
 
 const {
-  Text, Picture, QQVideo, Input, Button, ArtInput,
+  Text, Picture, QQVideo, Input, Button,
   BDMap, Shape, Video, TypedText, ArtShadow, ArtSolid, ArtBorder,
-  Link, MotherDay,
+  Link,
 } = Resource;
 
 const map = {
@@ -40,6 +43,7 @@ function registerComponent(key, obj) {
     render, edit, style, size, name,
   } = obj;
   map[key] = {
+    preview: render,
     edit: EditItem(edit),
     render: RenderItem(render),
     style,
@@ -64,6 +68,7 @@ registerComponent(COMPONENT_TYPE_ART_SOLID, ArtSolid);
 registerComponent(COMPONENT_TYPE_ART_BORDER, ArtBorder);
 registerComponent(COMPONENT_TYPE_LINK, Link);
 registerComponent(COMPONENT_TYPE_MOTHER_DAY, MotherDay);
+registerComponent(COMPONENT_TYPE_LOVE_FOREVER, LoveForever);
 
 
 export function getComponentEditMap(key) {
@@ -102,4 +107,16 @@ export function getComponentDefaultName(key) {
   const obj = map[key];
   if (obj && obj.name) return obj.name;
   return '元素';
+}
+
+export function getComponentPreview(key) {
+  const obj = map[key];
+  if (obj) {
+    const { preview, attrs } = obj;
+    return {
+      comp: preview,
+      attrs,
+    };
+  }
+  return null;
 }

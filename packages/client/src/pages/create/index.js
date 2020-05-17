@@ -12,13 +12,7 @@ export default function (props) {
     // 图片库
     picture: {
       initData: [
-        'http://www.lzuntalented.cn/img/double11/5d9c01049298a.png',
-        'http://www.lzuntalented.cn/img/1.jpg',
-        'http://www.lzuntalented.cn/img/double11/5daff75820748.png',
-        'http://www.lzuntalented.cn/img/double11/5daff75820c8c.gif',
-        'http://www.lzuntalented.cn/img/double11/5daff75820657.png',
-        'http://www.lzuntalented.cn/img/double11/5daff758207ee.gif',
-        'http://www.lzuntalented.cn/img/double11/5daff75845ebc.png',
+        'http://www.lzuntalented.cn:8380/static/pic/1589697724000-oev0vndl370c-1.jpg',
       ],
       fetchPromise: getPictureList,
       upLoadProps: {

@@ -74,6 +74,26 @@
                         box-shadow: 1px 1px 8px 0 rgba(0,0,0,.16);
                     }
                 }
+
+                .space-line {
+                    border-top: 1px solid #ccd5db;
+                    margin: 12px 0;
+                }
+
+                .node-comp-preview {
+                    background-color: #fafafa;
+                    padding: 12px 8px;
+
+                    .node-comp-preview-item {
+                        background-color: #fff;
+                        cursor: pointer;
+                        margin-bottom: 12px;
+
+                        &:hover {
+                            box-shadow: 0 0 5px #1890ff;
+                        }
+                    }
+                }
             }
         }
     }

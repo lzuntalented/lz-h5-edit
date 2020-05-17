@@ -25,9 +25,9 @@ export function isDaily() {
 }
 
 export function getDomain() {
-  const result = 'http://show.lzuntalented.cn';
+  let result = 'http://show.lzuntalented.cn';
   if (isDaily()) {
-    // result = 'http://localhost';
+    result = 'http://localhost';
   }
   return result;
 }

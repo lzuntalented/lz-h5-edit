@@ -21,7 +21,7 @@ export default class List extends React.Component {
     // 当前页码
     pageIndex: 1,
     // 作品总数
-    total: pageSize,
+    total: 0,
   }
 
   componentDidMount() {
@@ -71,7 +71,7 @@ export default class List extends React.Component {
       });
       const state = {
         pageIndex,
-        total: total + pageSize,
+        total,
       };
       state.list = result;
       this.setState(state);

@@ -1,8 +1,8 @@
-import Align from './style/align';
 import {
   STYLE_RENDER_TYPE_COLOR, STYLE_RENDER_TYPE_SELECT,
   STYLE_RENDER_TYPE_SLIDER_INPUT, STYLE_VALUE_TYPE_NUMBER, STYLE_RENDER_TYPE_HIDDEN,
-} from '../core/constants';
+} from '@lzshow/constants';
+import Align from './style/align';
 
 const config = [
   {

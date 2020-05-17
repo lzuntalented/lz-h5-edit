@@ -6,13 +6,21 @@ import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_BUTTON,
   COMPONENT_TYPE_INPUT, COMPONENT_TYPE_ART_INPUT, COMPONENT_TYPE_MAP,
   COMPONENT_TYPE_QQ_VIDEO, COMPONENT_TYPE_SHAPE, COMPONENT_TYPE_VIDEO,
-  COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID, COMPONENT_TYPE_ART_BORDER, COMPONENT_TYPE_LINK, COMPONENT_TYPE_MOTHER_DAY,
+  COMPONENT_TYPE_TEXT_TYPED, COMPONENT_TYPE_ART_SHADOW, COMPONENT_TYPE_ART_SOLID,
+  COMPONENT_TYPE_ART_BORDER, COMPONENT_TYPE_LINK, COMPONENT_TYPE_MOTHER_DAY,
+  COMPONENT_TYPE_LOVE_FOREVER,
 } from '@lzshow/constants';
 // import { getFontFamilyOptions } from '../../../../core/config';
+import { getComponentPreview } from '@lzshow/core';
 import { getArtShadowOptions, getArtSolidOptions, getArtBorderOptions } from './config';
 import { generatorTexttextShadow } from '../../../../utils';
 
 const { TabPane } = Tabs;
+
+function renderComponentPreview(key) {
+  const { comp: Comp, attrs } = getComponentPreview(key);
+  return <Comp {...attrs} />;
+}
 
 export default function Node(props) {
   const { onAddComponent, onAddComponentWithSize, onAddComponentWithAttrs } = props;
@@ -20,6 +28,8 @@ export default function Node(props) {
   const artShadows = getArtShadowOptions();
   const artSolids = getArtSolidOptions();
   const artBorders = getArtBorderOptions();
+
+  const list = [COMPONENT_TYPE_MOTHER_DAY, COMPONENT_TYPE_LOVE_FOREVER];
   return (
     <Tabs className="node" defaultActiveKey="1">
       <TabPane tab="基础组件" key="1">
@@ -53,9 +63,16 @@ export default function Node(props) {
             <Col span={8}>
               <Button onClick={onAddComponent(COMPONENT_TYPE_LINK)}>链接</Button>
             </Col>
-            <Col span={8}>
-              <Button onClick={onAddComponent(COMPONENT_TYPE_MOTHER_DAY)}>母亲节</Button>
-            </Col>
+          </Row>
+          <div className="space-line" />
+          <Row className="node-comp-preview">
+            {
+            list.map(it => (
+              <Col key={it} className="node-comp-preview-item" onClick={onAddComponent(it)}>
+                {renderComponentPreview(it)}
+              </Col>
+            ))
+          }
           </Row>
         </div>
       </TabPane>

@@ -1,5 +1,5 @@
 {
-  "name": "@lzshow/core",
+  "name": "@lzshow/resource-motherday",
   "version": "0.1.14",
   "description": "",
   "main": "lib/index.js",
@@ -9,18 +9,11 @@
     "build:es": "babel src --out-dir es --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@lzshow/constants": "^0.1.14",
-    "@lzshow/resource": "^0.1.14",
-    "@lzshow/utils": "^0.1.14",
-    "@lzshow/resource-artinput": "^0.1.14",
-    "@lzshow/resource-motherday": "^0.1.14",
-    "@lzshow/resource-loveforever": "^0.1.14",
-    "animate.css": "^3.7.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@lzshow/utils": "^0.1.14"
   },
+  "author": "",
+  "license": "ISC",
   "gitHead": "378665e51014950d6749ea8ca6ee3016560e60b0"
 }

@@ -1,7 +1,7 @@
 {
   "npmClient": "cnpm",
   "packages": [
-    "packages/*"
+    "packages/**"
   ],
   "version": "0.1.16"
 }

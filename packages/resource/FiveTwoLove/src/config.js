@@ -17,15 +17,15 @@ const config = [
     renderType: STYLE_RENDER_TYPE_INPUT,
   },
   {
-    label: '右侧图片',
-    key: 'imgRight',
-    initValue: '',
+    label: '前置图片',
+    key: 'imgBefore',
+    initValue: 'http://www.lzuntalented.cn:8380/static/pic/1589689292000-ygpsdb6jbk6d-FiwEVaOXJNzp0IyicJvhpjRVrWmP.png',
     renderType: STYLE_RENDER_TYPE_PICTURE,
   },
   {
-    label: '左侧图片',
-    key: 'imgLeft',
-    initValue: '',
+    label: '后置图片',
+    key: 'imgBack',
+    initValue: 'http://www.lzuntalented.cn:8380/static/pic/1589621086000-hc7iawiefg56-o_1e6aml84e1gqe1tl3pmv1i3o10p29.png',
     renderType: STYLE_RENDER_TYPE_PICTURE,
   },
   {

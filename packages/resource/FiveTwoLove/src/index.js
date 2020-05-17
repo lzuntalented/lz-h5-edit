@@ -1,10 +1,10 @@
-import render from './motherDay';
+import render from './FiveTwoLove';
 import style from './config';
 
 export default {
   edit: render,
   render,
   style,
-  size: { height: 40 },
-  name: '母亲节组件',
+  size: { height: 100 },
+  name: '520爱你',
 };
