@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 // 构建生成的目录地址
-const distPath = path.resolve(__dirname, 'dist');
+const distPath = path.resolve(__dirname, '../dist');
 // 获取当前版本号
 function getCurrentVersion() {
   let version = '0.0.1';

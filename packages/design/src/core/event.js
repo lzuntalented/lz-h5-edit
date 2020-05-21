@@ -34,8 +34,8 @@ function onMouseDown(e) {
 }
 
 function onMouseMove(e) {
-  e.preventDefault();
   if (moveTag) {
+    e.preventDefault();
     const { key: flag } = moveTag;
     // e.stopPropagation();
 

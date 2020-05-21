@@ -754,14 +754,14 @@ function copyItem(store, action) {
     } = obj;
     const item = editList[value];
     const {
-      rect, animate, attrs, nodeType, name, belong,
+      rect, attrs, nodeType, name, belong, animates,
     } = item;
     const uniqueId = createId();
     const page = pages[activePage];
     editList[uniqueId] = createNode(item.type, `${name} 拷贝`, belong);
     // 拷贝属性
     editList[uniqueId].rect = Object.assign({}, rect);
-    editList[uniqueId].animate = Object.assign({}, animate);
+    editList[uniqueId].animates = animates;
     editList[uniqueId].attrs = Object.assign({}, attrs);
 
     if (nodeType === ITEM_TYPE_SINGLE) {
