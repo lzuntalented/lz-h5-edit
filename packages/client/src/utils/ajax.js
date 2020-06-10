@@ -35,6 +35,8 @@ export default {
           // console.log(res);
           if (res && res.errno === ajaxRetCode.success) {
             resolve(res.data);
+          } else {
+            reject(res);
           }
         }
       }).catch(() => {});
@@ -61,7 +63,7 @@ export default {
           if (res && res.errno === ajaxRetCode.success) {
             resolve(res.data);
           } else {
-            reject();
+            reject(res);
           }
         }
       }).catch(reject);

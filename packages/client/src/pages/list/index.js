@@ -1,5 +1,6 @@
 import React from 'react';
 import { Pagination } from 'antd';
+import { translateShowDataFromStore } from '@lzshow/utils';
 import Card from './components/Card';
 
 import './index.scss';
@@ -7,7 +8,6 @@ import {
   CLICK_TYPE_DEFAULT, CLICK_TYPE_EDIT, CLICK_TYPE_PREVIEW, CLICK_TYPE_DOWNLOAD, CLICK_TYPE_TEMPLATE,
 } from './config';
 import { getList } from '../../services/create';
-import { translateShowDataFromStore } from '../../utils';
 import { LOCALSTORAGE_PREVIEW_CHACHE, LOCALSTORAGE_PREVIEW_NAMESPACE } from '../../core/constants';
 import LzLocalStorage from '../../utils/LocalStorage';
 import { getUrlPrefix } from '../../services/apiConfig';

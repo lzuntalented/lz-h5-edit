@@ -268,47 +268,6 @@ function change(store, action) {
           { top: r.top - currentGroupRect.top, left: r.left - currentGroupRect.left });
       });
     });
-
-    // activeEditKey.forEach((it) => {
-    //   const item = editList[it];
-    //   resetRect(item, flag, originRect, distance, value, obj);
-    //   // console.log(item, flag, originRect, distance, value, 'change', item.rect);
-    //   const { belong } = item;
-    //   if (belong) {
-    //     const groupItem = editList[belong];
-    //     const groupItemRect = groupItem.rect;
-
-    //     // 计算组内 左上最小坐标
-    //     let minLeft = item.rect.left;
-    //     let minTop = item.rect.top;
-    //     groupList[belong].forEach((that) => {
-    //       // 当前元素使用移动后坐标
-    //       if (that === it) return;
-    //       const thatItemRect = rectMap[that];
-    //       minLeft = Math.min(minLeft, thatItemRect.left);
-    //       minTop = Math.min(minTop, thatItemRect.top);
-    //     });
-    //     // 重置组内元素坐标
-    //     groupList[belong].forEach((that) => {
-    //       const thatItemRect = editList[that].rect;
-    //       // 当前元素
-    //       if (that === it) {
-    //         thatItemRect.left -= minLeft;
-    //         thatItemRect.top -= minTop;
-    //       } else {
-    //         // 其余元素，使用点击时坐标计算
-    //         thatItemRect.left = rectMap[that].left - minLeft;
-    //         thatItemRect.top = rectMap[that].top - minTop;
-    //       }
-    //     });
-    //     // console.log(minLeft, minTop, 'minLeft, minTop, ');
-    //     groupItemRect.left = rectMap[belong].left + minLeft;
-    //     groupItemRect.top = rectMap[belong].top + minTop;
-    //     const groupRect = getAroundRect(groupList[belong], editList);
-    //     groupItemRect.width = groupRect.width;
-    //     groupItemRect.height = groupRect.height;
-    //   }
-    // });
     return fromJS(obj);
   }
   return null;
@@ -627,24 +586,40 @@ function groupActiveEditKeys(store, action) {
     if (activeEditKey && activeEditKey.length > 1) {
       const uniqueId = createId();
       groupList[uniqueId] = [].concat(activeEditKey);
-      editList[uniqueId] = createGroup(`组${Object.keys(groupList).length}`);
+      // 顶层单节点
+      let belong = null;
+      if (activeEditKey.length > 0) {
+        // eslint-disable-next-line prefer-destructuring
+        belong = editList[activeEditKey[0]].belong;
+      }
+      editList[uniqueId] = createGroup(`组${Object.keys(groupList).length}`, belong);
       const groupItem = editList[uniqueId];
       const itemRectList = activeEditKey.map(it => editList[it].rect);
+      const parentRect = { x: 0, y: 0 };
       Object.assign(groupItem.rect, performGroupRect(itemRectList));
       activeEditKey.forEach((it) => {
         const item = editList[it];
         item.belong = uniqueId;
         Object.assign(item.rect, {
-          left: item.rect.left - groupItem.rect.left,
-          top: item.rect.top - groupItem.rect.top,
+          left: item.rect.left - groupItem.rect.left + parentRect.x,
+          top: item.rect.top - groupItem.rect.top + parentRect.y,
         });
 
-        const page = pages[activePage];
-        const index = page.indexOf(it);
-        page.splice(index, 1);
+        // 成组后，删除其原本位置信息
+        let list = pages[activePage];
+        if (belong) {
+          // 组节点下内容
+          list = groupList[belong];
+        }
+        const index = list.indexOf(it);
+        list.splice(index, 1);
       });
       obj.activeEditKey = [uniqueId];
-      pages[activePage].push(uniqueId);
+      if (belong) {
+        groupList[belong] = [uniqueId].concat(groupList[belong]);
+      } else {
+        pages[activePage].push(uniqueId);
+      }
     }
     return fromJS(obj);
   }
@@ -661,27 +636,57 @@ function splitGroupActiveEditKeys(store, action) {
     if (activeEditKey && activeEditKey.length === 1) {
       const editKey = activeEditKey[0];
       const item = editList[editKey];
-      const groupKey = item.belong || (item.nodeType === ITEM_TYPE_GROUP && editKey);
-      if (groupKey) {
+      const groupKeys = groupList[editKey];
+      // 活动元素为组元素，才允许拆分
+      if (groupKeys) {
         // 该元素移除可见元素
         const page = pages[activePage];
-        const index = page.indexOf(groupKey);
-        page.splice(index, 1);
-
-        const groupItemsList = groupList[groupKey];
-
-        const groupItem = editList[groupKey];
-        groupItemsList.forEach((k) => {
+        const groupParent = groupList[item.belong];
+        if (item.belong) {
+          // 有父节点
+          const index = groupParent.indexOf(editKey);
+          groupParent.splice(index, 1);
+        } else {
+          const index = page.indexOf(editKey);
+          page.splice(index, 1);
+        }
+        groupKeys.forEach((k) => {
           const it = editList[k];
-          delete it.belong;
+          it.belong = item.belong;
           Object.assign(it.rect, {
-            left: it.rect.left + groupItem.rect.left,
-            top: it.rect.top + groupItem.rect.top,
+            left: it.rect.left + item.rect.left,
+            top: it.rect.top + item.rect.top,
           });
-          page.push(k);
+          if (item.belong) {
+            groupParent.push(k);
+          } else {
+            page.push(k);
+          }
         });
+        // 活动元素置空
         obj.activeEditKey = [];
       }
+      // const groupKey = item.belong || (item.nodeType === ITEM_TYPE_GROUP && editKey);
+      // if (groupKey) {
+      //   // 该元素移除可见元素
+      //   const page = pages[activePage];
+      //   const index = page.indexOf(groupKey);
+      //   page.splice(index, 1);
+
+      //   const groupItemsList = groupList[groupKey];
+
+      //   const groupItem = editList[groupKey];
+      //   groupItemsList.forEach((k) => {
+      //     const it = editList[k];
+      //     delete it.belong;
+      //     Object.assign(it.rect, {
+      //       left: it.rect.left + groupItem.rect.left,
+      //       top: it.rect.top + groupItem.rect.top,
+      //     });
+      //     page.push(k);
+      //   });
+      //   obj.activeEditKey = [];
+      // }
     }
     return fromJS(obj);
   }
@@ -704,6 +709,28 @@ function initHistoryStore(store, action) {
   return null;
 }
 
+function copyPageItemsTree(list, editList, groupList, parent) {
+  const result = [];
+  list.forEach((key) => {
+    const item = editList[key];
+    const itemObj = deepCopy(item);
+    itemObj.belong = parent;
+    const uniqueId = createId();
+    // eslint-disable-next-line no-param-reassign
+    editList[uniqueId] = itemObj;
+    result.push(uniqueId);
+    const { nodeType } = item;
+    if (nodeType === ITEM_TYPE_GROUP) {
+      // eslint-disable-next-line no-param-reassign
+      // cloneGroupList[key] = uniqueId;
+      const groupKeys = groupList[key];
+      // eslint-disable-next-line no-param-reassign
+      groupList[uniqueId] = copyPageItemsTree(groupKeys, editList, groupList, uniqueId);
+    }
+  });
+  return result;
+}
+
 function copyPage(store, action) {
   const { type } = action;
   if (type === ACTION_COPY_PAGE) {
@@ -712,30 +739,7 @@ function copyPage(store, action) {
       groupList, editList, pages, activePage,
     } = obj;
     const page = pages[activePage];
-    const result = [];
-    const cloneGroupList = {};
-
-    page.forEach((key) => {
-      const item = editList[key];
-      const itemObj = deepCopy(item);
-      const uniqueId = createId();
-      editList[uniqueId] = itemObj;
-      result.push(uniqueId);
-      const { nodeType } = item;
-      if (nodeType === ITEM_TYPE_GROUP) {
-        cloneGroupList[key] = uniqueId;
-      }
-    });
-
-    Object.keys(cloneGroupList).forEach((key) => {
-      groupList[key].forEach((k) => {
-        const item = editList[k];
-        const itemObj = deepCopy(item);
-        const uniqueId = createId();
-        editList[uniqueId] = itemObj;
-        itemObj.belong = cloneGroupList[key];
-      });
-    });
+    const result = copyPageItemsTree(page, editList, groupList, null);
 
     obj.activePage = pages.length;
     obj.activeEditKey = [];

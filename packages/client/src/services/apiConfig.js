@@ -15,6 +15,10 @@ export default {
     addTemplate: '/tmp/add',
     removeTemplate: '/tmp/remove',
   },
+  user: {
+    register: '/user/register',
+    login: '/user/login',
+  },
 };
 
 export function isDaily() {

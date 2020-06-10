@@ -6,6 +6,8 @@ import Preview from '../pages/preview/Loadable';
 import create from '../pages/create/Loadable';
 import list from '../pages/list/Loadable';
 import Mall from '../pages/mall/Loadable';
+import Register from '../pages/user/register/Loadable';
+import Login from '../pages/user/login/Loadable';
 
 import Layout from '../components/layout';
 import DefaultHeader from '../components/layout/components/Header';
@@ -30,6 +32,8 @@ const RouteConfig = (
       <Route path="/list" component={list} />
       <Route path="/mall" component={Mall} />
       <Route path="/preview/:id" component={Preview} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
     </Router>
   </Layout>
 );

@@ -93,8 +93,8 @@ export function createNode(type, name, belong) {
  * @param {*} type
  * @param {*} name
  */
-export function createGroup(name) {
-  return createEditItem(null, name, ITEM_TYPE_GROUP);
+export function createGroup(name, belong) {
+  return createEditItem(null, name, ITEM_TYPE_GROUP, belong);
 }
 
 /**
@@ -235,6 +235,21 @@ export function deepCopy(obj) {
   return obj;
 }
 
+function collectUseKeys(list, editList, groupList, useItemKeys, useGroupKeys) {
+  list.forEach((it) => {
+    const item = editList[it];
+    const { nodeType } = item;
+    if (nodeType === ITEM_TYPE_GROUP) {
+      // eslint-disable-next-line no-param-reassign
+      useGroupKeys[it] = true;
+      const groupItems = groupList[it];
+      collectUseKeys(groupItems, editList, groupList, useItemKeys, useGroupKeys);
+    }
+    // eslint-disable-next-line no-param-reassign
+    useItemKeys[it] = true;
+  });
+}
+
 /**
  * 移除未被使用的对象
  * @param {String|Object} str
@@ -248,29 +263,30 @@ export function deleteUnUseObject(str) {
     const useItemKeys = {};
     const useGroupKeys = {};
     pages.forEach((page) => {
-      page.forEach((it) => {
-        const item = editList[it];
-        const { nodeType } = item;
-        if (nodeType === ITEM_TYPE_GROUP) {
-          useGroupKeys[it] = true;
-          const groupItems = groupList[it];
-          groupItems.forEach((that) => {
-            useItemKeys[that] = true;
-          });
-        }
-        useItemKeys[it] = true;
-      });
+      collectUseKeys(page, editList, groupList, useItemKeys, useGroupKeys);
+      // page.forEach((it) => {
+      //   const item = editList[it];
+      //   const { nodeType } = item;
+      //   if (nodeType === ITEM_TYPE_GROUP) {
+      //     useGroupKeys[it] = true;
+      //     const groupItems = groupList[it];
+      //     groupItems.forEach((that) => {
+      //       useItemKeys[that] = true;
+      //     });
+      //   }
+      //   useItemKeys[it] = true;
+      // });
     });
 
     allItemKeys.forEach((it) => {
       if (!useItemKeys[it]) {
-        editList[it] = null;
+        delete editList[it];
       }
     });
 
     allGroupKeys.forEach((it) => {
       if (!useGroupKeys[it]) {
-        groupList[it] = null;
+        delete groupList[it];
       }
     });
     // 如果场景中未添加物料，不允许发布

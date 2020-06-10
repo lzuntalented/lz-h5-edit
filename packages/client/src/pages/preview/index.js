@@ -5,7 +5,7 @@ import Phone from '@lzshow/preview';
 
 // 引入样式文件
 import './index.scss';
-import { translateShowDataFromStore } from '../../utils';
+import { translateShowDataFromStore } from '@lzshow/utils';
 import LzLocalStorage from '../../utils/LocalStorage';
 import { getDetail } from '../../services/create';
 import { LOCALSTORAGE_PREVIEW_NAMESPACE, LOCALSTORAGE_PREVIEW_CHACHE } from '../../core/constants';

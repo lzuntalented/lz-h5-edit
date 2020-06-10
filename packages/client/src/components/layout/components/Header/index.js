@@ -43,16 +43,23 @@ class LayoutFrame extends React.Component {
             <img onClick={() => this.onClick({ key: '1' })} src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
           </Col>
           <Col>
-            <Menu
-              selectedKeys={selectKeys}
-              defaultSelectedKeys={['1']}
-              mode="horizontal"
-              onSelect={this.onClick}
-            >
-              <Menu.Item key="1">首页</Menu.Item>
-              <Menu.Item key="3">模板商城</Menu.Item>
-              <Menu.Item key="2">作品集市</Menu.Item>
-            </Menu>
+            <Row type="flex">
+              <Col>
+                <Menu
+                  selectedKeys={selectKeys}
+                  defaultSelectedKeys={['1']}
+                  mode="horizontal"
+                  onSelect={this.onClick}
+                >
+                  <Menu.Item key="1">首页</Menu.Item>
+                  <Menu.Item key="3">模板商城</Menu.Item>
+                  <Menu.Item key="2">作品集市</Menu.Item>
+                </Menu>
+              </Col>
+              <Col>
+                <a href="#/login">登录</a>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Header>

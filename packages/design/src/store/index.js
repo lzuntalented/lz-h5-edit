@@ -41,185 +41,147 @@ const reducer = (store, action) => {
 
 // 默认全局状态树
 const defaultStore = fromJS({
-  // 编辑组件列表
-  editList: {
-    // ftpdy8: {
-    //   name: '文本 1',
-    //   type: 'COMPONENT_TYPE_TEXT',
-    //   nodeType: 'ITEM_TYPE_SINGLE',
-    //   belong: 'p0q24p',
-    //   rect: {
-    //     top: 0,
-    //     left: 0,
-    //     width: 320,
-    //     height: 40,
-    //     rotate: 0,
-    //   },
-    //   animate: {
-    //     name: '',
-    //     duration: 1,
-    //     delay: 0,
-    //     repeat: 1,
-    //   },
-    //   attrs: {
-    //     color: 'red',
-    //     fontSize: 12,
-    //     text: '双击编辑文本',
-    //     bgColor: '',
-    //     lineHeight: 1.5,
-    //   },
-    // },
-    // upivzn: {
-    //   name: '文本 2',
-    //   type: 'COMPONENT_TYPE_TEXT',
-    //   nodeType: 'ITEM_TYPE_SINGLE',
-    //   belong: 'p0q24p',
-    //   rect: {
-    //     top: 72,
-    //     left: 20,
-    //     width: 320,
-    //     height: 40,
-    //     rotate: 0,
-    //   },
-    //   animate: {
-    //     name: '',
-    //     duration: 1,
-    //     delay: 0,
-    //     repeat: 1,
-    //   },
-    //   attrs: {
-    //     color: 'red',
-    //     fontSize: 12,
-    //     text: '双击编辑文本',
-    //     bgColor: '',
-    //     lineHeight: 1.5,
-    //   },
-    // },
-    // p0q24p: {
-    //   name: '组1',
-    //   nodeType: 'ITEM_TYPE_GROUP',
-    //   rect: {
-    //     top: 20,
-    //     left: 30,
-    //     width: 340,
-    //     height: 112,
-    //     rotate: 0,
-    //   },
-    //   animate: {
-    //     name: '',
-    //     duration: 1,
-    //     delay: 0,
-    //     repeat: 1,
-    //   },
-    //   attrs: {
-    //     color: 'red',
-    //     fontSize: 12,
-    //     text: '双击编辑文本',
-    //     bgColor: '',
-    //     lineHeight: 1.5,
-    //   },
-    // },
-    // ftpdy1: {
-    //   name: '文本 21',
-    //   type: 'COMPONENT_TYPE_TEXT',
-    //   nodeType: 'ITEM_TYPE_SINGLE',
-    //   belong: 'p0q241',
-    //   rect: {
-    //     top: 0,
-    //     left: 0,
-    //     width: 320,
-    //     height: 40,
-    //     rotate: 0,
-    //   },
-    //   animate: {
-    //     name: '',
-    //     duration: 1,
-    //     delay: 0,
-    //     repeat: 1,
-    //   },
-    //   attrs: {
-    //     color: 'red',
-    //     fontSize: 12,
-    //     text: '双击编辑文本',
-    //     bgColor: '',
-    //     lineHeight: 1.5,
-    //   },
-    // },
-    // upivz1: {
-    //   name: '文本 22',
-    //   type: 'COMPONENT_TYPE_TEXT',
-    //   nodeType: 'ITEM_TYPE_SINGLE',
-    //   belong: 'p0q241',
-    //   rect: {
-    //     top: 72,
-    //     left: 20,
-    //     width: 320,
-    //     height: 40,
-    //     rotate: 0,
-    //   },
-    //   animate: {
-    //     name: '',
-    //     duration: 1,
-    //     delay: 0,
-    //     repeat: 1,
-    //   },
-    //   attrs: {
-    //     color: 'red',
-    //     fontSize: 12,
-    //     text: '双击编辑文本',
-    //     bgColor: '',
-    //     lineHeight: 1.5,
-    //   },
-    // },
-    // p0q241: {
-    //   name: '组2',
-    //   nodeType: 'ITEM_TYPE_GROUP',
-    //   rect: {
-    //     top: 120,
-    //     left: 70,
-    //     width: 340,
-    //     height: 112,
-    //     rotate: 0,
-    //   },
-    //   animate: {
-    //     name: '',
-    //     duration: 1,
-    //     delay: 0,
-    //     repeat: 1,
-    //   },
-    //   attrs: {
-    //     color: 'red',
-    //     fontSize: 12,
-    //     text: '双击编辑文本',
-    //     bgColor: '',
-    //     lineHeight: 1.5,
-    //   },
-    // },
-  },
-  // 当前正在操作的编辑框key
-  activeEditKey: [],
-  // 组合列表
-  groupList: {
-    // p0q24p: [
-    //   'ftpdy8',
-    //   'upivzn',
-    // ],
-  },
-  // 页面列表
   pages: [
     [
-      // 'p0q24p',
+      'nis2fq',
     ],
   ],
-  // 当前激活的页面
-  activePage: 0,
-  // 当前正在活动的元素尺寸和位置
-  moveBoundRect: {},
-  // 背景图片
+  editList: {
+    '4li7sh': {
+      attrs: {
+        text: '按钮',
+        type: 'primary',
+      },
+      rect: {
+        top: 0,
+        left: 0,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      name: '按钮 1',
+      border: {
+        style: 'solid',
+        color: '#000000',
+        width: 0,
+        radius: 0,
+      },
+      animates: [],
+      previewAnimates: [],
+      type: 'COMPONENT_TYPE_BUTTON',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'uju0v0',
+    },
+    avq806: {
+      attrs: {
+        text: '按钮',
+        type: 'primary',
+      },
+      rect: {
+        top: 218,
+        left: 284,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      name: '按钮 2',
+      border: {
+        style: 'solid',
+        color: '#000000',
+        width: 0,
+        radius: 0,
+      },
+      animates: [],
+      previewAnimates: [],
+      type: 'COMPONENT_TYPE_BUTTON',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'uju0v0',
+    },
+    o8xal3: {
+      attrs: {
+        text: '按钮',
+        type: 'primary',
+      },
+      rect: {
+        top: 111,
+        left: 0,
+        width: 320,
+        height: 40,
+        rotate: 0,
+      },
+      name: '按钮 3',
+      border: {
+        style: 'solid',
+        color: '#000000',
+        width: 0,
+        radius: 0,
+      },
+      animates: [],
+      previewAnimates: [],
+      type: 'COMPONENT_TYPE_BUTTON',
+      nodeType: 'ITEM_TYPE_SINGLE',
+      belong: 'nis2fq',
+    },
+    nis2fq: {
+      name: '组1',
+      nodeType: 'ITEM_TYPE_GROUP',
+      rect: {
+        top: 33,
+        left: -228,
+        width: 667,
+        height: 258,
+        rotate: 0,
+      },
+      animates: [],
+      previewAnimates: [],
+      border: {
+        style: 'solid',
+        color: '#000000',
+        width: 0,
+        radius: 0,
+      },
+      attrs: {},
+    },
+    uju0v0: {
+      name: '组2',
+      nodeType: 'ITEM_TYPE_GROUP',
+      rect: {
+        top: 0,
+        left: 63,
+        width: 604,
+        height: 258,
+        rotate: 0,
+      },
+      animates: [],
+      previewAnimates: [],
+      border: {
+        style: 'solid',
+        color: '#000000',
+        width: 0,
+        radius: 0,
+      },
+      attrs: {},
+      belong: 'nis2fq',
+    },
+  },
+  moveTag: false,
   backGroundImage: '',
-  // 背景音效地址
+  activeEditKey: [
+    'uju0v0',
+  ],
   backMusicUrl: '',
-  // 移动标识
+  moveBoundRect: {},
+  activePage: 0,
+  groupList: {
+    nis2fq: [
+      'uju0v0',
+      'o8xal3',
+    ],
+    uju0v0: [
+      '4li7sh',
+      'avq806',
+    ],
+  },
   moveInfo: null,
 });
 

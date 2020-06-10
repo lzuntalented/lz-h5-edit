@@ -38,6 +38,7 @@ const SortableList = SortableContainer(({
                 onItemClick={onItemClick}
                 onItemCopyClick={onItemCopyClick}
                 onChangeItemName={onChangeItemName}
+                onSortEndCB={onSortEndCB}
               />
             </SortableItem>
           );
@@ -90,9 +91,9 @@ class LevelManage extends React.Component {
     const { dispatch, activeEditKey, editList } = this.props;
     const item = editList[key];
     const obj = activeEditKey.find(
-      it => editList[it].belong || editList[it].nodeType === ITEM_TYPE_GROUP,
+      it => editList[it].nodeType === ITEM_TYPE_GROUP,
     );
-    if (obj || item.belong || item.nodeType === ITEM_TYPE_GROUP) {
+    if (obj || item.nodeType === ITEM_TYPE_GROUP) {
       dispatch(changeActiveEditKey(key));
       return;
     }
@@ -119,6 +120,7 @@ class LevelManage extends React.Component {
     dispatch(groupActiveEditKeys());
   }
 
+  // 拆分
   onGroupSplit = () => {
     const { dispatch } = this.props;
     dispatch(splitGroupActiveEditKeys());
@@ -151,32 +153,34 @@ class LevelManage extends React.Component {
   }
 }
 
-const mapStateToProps = (store) => {
-  const state = store.toJS();
-  const {
-    pages, activePage, editList, activeEditKey, groupList,
-  } = state;
-  const list = [];
-  pages[activePage].forEach((it) => {
+function createTree(list, editList, groupList, activeEditKey) {
+  const result = [];
+  list.forEach((it) => {
     if (groupList[it]) {
-      list.push({
+      result.push({
         name: editList[it].name,
         key: it,
         active: activeEditKey.indexOf(it) > -1,
-        children: groupList[it].map(item => ({
-          name: editList[item].name,
-          key: item,
-          active: activeEditKey.indexOf(item) > -1,
-        })),
+        children: createTree(groupList[it], editList, groupList, activeEditKey),
       });
     } else {
-      list.push({
+      result.push({
         name: editList[it].name,
         key: it,
         active: activeEditKey.indexOf(it) > -1,
       });
     }
   });
+
+  return result;
+}
+
+const mapStateToProps = (store) => {
+  const state = store.toJS();
+  const {
+    pages, activePage, editList, activeEditKey, groupList,
+  } = state;
+  const list = createTree(pages[activePage], editList, groupList, activeEditKey);
   const result = {
     list, activeEditKey, editList, groupList,
   };

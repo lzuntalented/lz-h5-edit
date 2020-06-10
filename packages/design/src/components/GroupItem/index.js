@@ -63,7 +63,10 @@ class GroupItem extends React.Component {
         itemList.forEach((itemKey) => {
           const item = editList[itemKey];
           const { rect } = item;
-          rectMap[itemKey] = Object.assign({}, rect, { top: groupItem.rect.top + rect.top, left: groupItem.rect.left + rect.left });
+          rectMap[itemKey] = Object.assign({}, rect, {
+            top: groupItem.rect.top + rect.top,
+            left: groupItem.rect.left + rect.left,
+          });
         });
       });
 
@@ -74,7 +77,12 @@ class GroupItem extends React.Component {
     setMagicRefs = name => (r) => { this.magicRefs[name] = r; }
 
     render() {
-      const { list, editList, uniqueId } = this.props;
+      const {
+        list, uniqueId, ...otherProps
+      } = this.props;
+      const {
+        editList, dispatch, activeEditKey, activePage, groupList, actions,
+      } = otherProps;
       const { rect } = editList[uniqueId];
       const {
         height, width, left, top, rotate,
@@ -95,9 +103,36 @@ class GroupItem extends React.Component {
         >
           {
             list.map((item) => {
-              const { type, ...others } = editList[item];
+              const { type, nodeType, ...others } = editList[item];
+              if (nodeType === ITEM_TYPE_GROUP) {
+                return (
+                  <GroupItem
+                    editList={editList}
+                    dispatch={dispatch}
+                    activeEditKey={activeEditKey}
+                    activePage={activePage}
+                    groupList={groupList}
+                    actions={actions}
+                    uniqueId={item}
+                    key={item}
+                    list={groupList[item]}
+                  />
+                );
+              }
               const Comp = getComponentEditMap(type);
-              return <Comp uniqueId={item} key={item} data={others} />;
+              return (
+                <Comp
+                  editList={editList}
+                  dispatch={dispatch}
+                  activeEditKey={activeEditKey}
+                  activePage={activePage}
+                  groupList={groupList}
+                  actions={actions}
+                  uniqueId={item}
+                  key={item}
+                  data={others}
+                />
+              );
             })
           }
         </div>
@@ -105,10 +140,4 @@ class GroupItem extends React.Component {
     }
 }
 
-const mapStateToProps = (store) => {
-  const state = store.toJS();
-  const { activeEditKey, groupList } = state;
-  return { activeEditKey, groupList };
-};
-const mapDispatchToProps = dispatch => ({ dispatch });
-export default connect(mapStateToProps, mapDispatchToProps)(GroupItem);
+export default GroupItem;

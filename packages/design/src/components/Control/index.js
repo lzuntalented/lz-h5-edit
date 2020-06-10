@@ -55,7 +55,10 @@ class Phone extends React.Component {
         itemList.forEach((itemKey) => {
           const item = editList[itemKey];
           const { rect } = item;
-          rectMap[itemKey] = Object.assign({}, rect, { top: groupItem.rect.top + rect.top, left: groupItem.rect.left + rect.left });
+          rectMap[itemKey] = Object.assign({}, rect, {
+            top: groupItem.rect.top + rect.top,
+            left: groupItem.rect.left + rect.left,
+          });
         });
       });
 
@@ -71,45 +74,35 @@ class Phone extends React.Component {
       }
     }
 
-    getGroupRect(group) {
+    getLineData(key) {
       const { editList } = this.props;
-      const rect = {};
-      let left = 0;
-      let top = 0;
-      let width = 0;
-      let height = 0;
-      group.forEach((uniqueId, index) => {
-        const item = editList[uniqueId];
-        const itemRect = item.rect;
-        if (index === 0) {
-          /* eslint-disable-next-line prefer-destructuring */
-          left = itemRect.left;
-          /* eslint-disable-next-line prefer-destructuring */
-          top = itemRect.top;
-          /* eslint-disable-next-line prefer-destructuring */
-          width = itemRect.width + left;
-          /* eslint-disable-next-line prefer-destructuring */
-          height = itemRect.height + top;
+      const item = editList[key];
+      const { rect, belong } = item;
+      const parentRect = { x: 0, y: 0 };
+      let parent = editList[belong];
+      while (parent) {
+        parentRect.x += parent.rect.left;
+        parentRect.y += parent.rect.top;
+        if (parent.belong) {
+          parent = editList[parent.belong];
         } else {
-          left = Math.min(left, itemRect.left);
-          top = Math.min(top, itemRect.top);
-          width = Math.max(width + left, itemRect.width + itemRect.left);
-          height = Math.max(height + top, itemRect.height + itemRect.top);
+          break;
         }
-      });
-      rect.left = left;
-      rect.top = top;
-      rect.width = width - left;
-      rect.height = height - top;
-      return rect;
+      }
+      return {
+        rect: {
+          ...rect,
+          left: rect.left + parentRect.x,
+          top: rect.top + parentRect.y,
+        },
+      };
     }
 
     renderLine(it) {
       const {
-        uniqueId, data, group, type,
+        uniqueId, group, rect,
         origin = {},
       } = it;
-      const { rect } = data;
       const {
         top,
         left,
@@ -186,56 +179,27 @@ class Phone extends React.Component {
       const items = [];
       const belongs = {};
       activeEditKey.forEach((it) => {
-        const group = groupList[it];
-        if (group) {
-          items.push({
-            uniqueId: it,
-            data: editList[it],
-          });
-        } else {
-          const { rect, belong } = editList[it];
-          const rectData = Object.assign({}, rect);
-          const obj = {};
-          // 当前为组内元素
-          if (belong) {
-            // const { rect: groupRect } = editList[belong];
-            // rectData.left += groupRect.left;
-            // rectData.top += groupRect.top;
-            // rectData.rotate += groupRect.rotate;
-            if (!belongs[belong]) {
-              belongs[belong] = [];
-              items.push({
-                uniqueId: belong,
-                data: editList[belong],
-                type: 'no-event',
-              });
-            }
-            belongs[belong].push({
-              uniqueId: it,
-              data: editList[it],
-            });
-          } else {
-            items.push({
-              uniqueId: it,
-              data: editList[it],
-            });
-          }
+        const isGroup = groupList[it];
+        const item = editList[it];
+        const { belong } = item;
+        if (!isGroup && belong) {
+          const obj = this.getLineData(belong);
+          belongs[belong] = { ...obj, type: 'no-event' };
         }
+        items.push(this.getLineData(it));
       });
-      items.forEach((it) => {
-        const item = belongs[it.uniqueId];
-        if (item) {
-          it.children = item;
-        }
+
+      Object.keys(belongs).forEach((it) => {
+        items.push(belongs[it]);
       });
+
       return (
         <div className="home-control-container">
           {
             items.map((it) => {
               const {
-                uniqueId, data, group, type, children = [],
+                uniqueId, group, type, children = [], rect,
               } = it;
-              const { rect } = data;
               const {
                 top,
                 left,

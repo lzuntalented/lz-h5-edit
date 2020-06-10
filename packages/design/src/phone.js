@@ -39,6 +39,14 @@ class Phone extends React.Component {
     const list = pages[activePage];
     return list.map((it) => {
       const { nodeType } = editList[it];
+      const actions = {
+        startMove,
+        resetContentHeight,
+        changeActiveEditKey,
+        addAttrs,
+        changeAttrs,
+        emptyAnimate,
+      };
       if (nodeType === ITEM_TYPE_SINGLE) {
         const { type, ...others } = editList[it];
         const Component = getComponentEditMap(type);
@@ -52,18 +60,23 @@ class Phone extends React.Component {
             groupList={groupList}
             key={it}
             data={others}
-            actions={{
-              startMove,
-              resetContentHeight,
-              changeActiveEditKey,
-              addAttrs,
-              changeAttrs,
-              emptyAnimate,
-            }}
+            actions={actions}
           />
         );
       } if (nodeType === ITEM_TYPE_GROUP) {
-        return <GroupItem key={it} uniqueId={it} list={groupList[it]} editList={editList} />;
+        return (
+          <GroupItem
+            dispatch={dispatch}
+            uniqueId={it}
+            activeEditKey={activeEditKey}
+            activePage={activePage}
+            editList={editList}
+            groupList={groupList}
+            key={it}
+            actions={actions}
+            list={groupList[it]}
+          />
+        );
       }
       return null;
     });
