@@ -1,15 +1,25 @@
 import React from 'react';
 import {
-  Form, Input, Icon, Button, Col, Row,
+  Form, Input, Icon, Button, Col, Row, message,
 } from 'antd';
 
 import './index.scss';
+import { login } from '../../../services/user';
 
 function Login(props) {
   const { form } = props;
   const { getFieldDecorator } = form;
   const handleSubmit = () => {
-
+    form.validateFields((err, value) => {
+      if (err) return;
+      // console.log(value); return;
+      login(value).then((res) => {
+        const { id } = res;
+        message.success(`登录成功${id}`);
+      }).catch((res) => {
+        message.error(res && res.errmsg);
+      });
+    });
   };
   return (
     <div className="page-login">

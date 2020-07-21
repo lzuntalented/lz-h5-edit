@@ -26,3 +26,4 @@ build
 dist/bound.js
 lib
 es
+app

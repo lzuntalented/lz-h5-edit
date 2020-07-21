@@ -30,6 +30,10 @@ http://localhost:9901/design.html
 # 调试作品
 http://localhost:9901/opus.html?id=作品编号
 
+# 本地启动服务端
+# 先将server/sql下sql文件导入数据库
+npm run server
+
 // 构建
 npm run webpack
 ```

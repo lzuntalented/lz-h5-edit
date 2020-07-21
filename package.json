@@ -10,7 +10,8 @@
     "webpack": "webpack --config webpack/webpack.build.config.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "publish": "lerna publish --skip-git"
+    "publish": "lerna publish --skip-git",
+    "server": "lerna run server"
   },
   "author": "",
   "license": "ISC",
