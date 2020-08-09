@@ -1,5 +1,6 @@
-import { getPicturePathWithName, createRandom, getPicturePath, getDomain, getBgPicturePath } from '../tools';
+import { getPicturePathWithName, createRandom, getPicturePath, getDomain, getBgPicturePath, getPsdTmpPathWithName } from '../tools';
 import jimp from 'jimp';
+import { parsePsd } from '../tools/min';
 const path = require('path');
 const Base = require('./base.js');
 const fs = require('fs'); ;
@@ -48,6 +49,21 @@ module.exports = class extends Base {
       const saveName = `${Date.parse(new Date())}-${createRandom(12)}-${lastExt}`;
       await data.write(getBgPicturePath(saveName));
       return this.success(`http://${getDomain()}/static/bg/${saveName}`);
+    }
+    this.fail('参数错误');
+  }
+
+  async parsePsdAction() {
+    this.ctx.body = this.ctx.request.body;
+    const { body } = this.ctx;
+    if (body && body.file && body.file.upFile) {
+      const fileObj = body.file.upFile;
+      const { path, name } = fileObj;
+      const psdTmpPath = `${Date.parse(new Date())}-${createRandom(12)}-${name}`;
+      const psdname = getPsdTmpPathWithName(psdTmpPath);
+      fs.renameSync(path, psdname);
+      const result = await parsePsd(psdname);
+      return this.success(result);
     }
     this.fail('参数错误');
   }

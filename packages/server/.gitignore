@@ -35,3 +35,8 @@ app/
 
 config.development.js
 adapter.development.js
+
+
+www
+public
+tmp
