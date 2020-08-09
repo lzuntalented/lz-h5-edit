@@ -136,6 +136,8 @@ export const ACTION_ACTVIE_ALIGN_RIGHT = 'ACTION_ACTVIE_ALIGN_RIGHT';
 export const ACTION_ACTVIE_ALIGN_TOP = 'ACTION_ACTVIE_ALIGN_TOP';
 // 单个激活态元素对齐方式-下对齐
 export const ACTION_ACTVIE_ALIGN_BOTTOM = 'ACTION_ACTVIE_ALIGN_BOTTOM';
+// 添加psd元素
+export const ACTION_ADD_PSD = 'ACTION_ADD_PSD';
 
 // 组件类型
 // 文本

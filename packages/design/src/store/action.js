@@ -10,7 +10,7 @@ import {
   ACTION_CHANGE_ITEM_NAME, ACTION_RESORT_GROUP_ITEM, ACTION_PAGE_MOVE_DOWN, ACTION_PAGE_MOVE_UP,
   ACTION_ANIMATES_ADD, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW,
   ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY,
-  ACTION_ANIMATES_PREVIEW_ONE, ACTION_CHANGE_ACTIVE_ITEM_ATTRS,
+  ACTION_ANIMATES_PREVIEW_ONE, ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ADD_PSD,
 } from '@lzshow/constants';
 
 export function startMove(value) {
@@ -196,4 +196,8 @@ export function changeSingleActiveAlign(action) {
 
 export function changeActiveItemAttrs(value) {
   return { type: ACTION_CHANGE_ACTIVE_ITEM_ATTRS, value };
+}
+
+export function addPsd(value) {
+  return { type: ACTION_ADD_PSD, value };
 }

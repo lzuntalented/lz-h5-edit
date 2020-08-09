@@ -4,6 +4,15 @@ import LzDesign from '../src';
 
 // 库数据
 const libs = {
+  // psd
+  psd: {
+    upLoadProps: {
+      name: 'upFile',
+      accept: 'file',
+      showUploadList: false,
+      action: 'http://localhost:8380/file/parsePsd',
+    },
+  },
   // 图片库
   picture: {
     initData: [

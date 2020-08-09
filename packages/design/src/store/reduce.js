@@ -16,7 +16,7 @@ import {
   ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY,
   ACTION_ANIMATES_PREVIEW_ONE, ACTION_MULTI_ALIGN_LEFT, ACTION_MULTI_ALIGN_RIGHT, ACTION_MULTI_ALIGN_BOTTOM,
   ACTION_MULTI_ALIGN_TOP, ACTION_MULTI_ALIGN_CENTER_HORIZONTAL, ACTION_MULTI_ALIGN_CENTER_VERTICAL,
-  ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ACTVIE_ALIGN_TOP, ACTION_ACTVIE_ALIGN_LEFT, ACTION_ACTVIE_ALIGN_RIGHT, ACTION_ACTVIE_ALIGN_BOTTOM,
+  ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ACTVIE_ALIGN_TOP, ACTION_ACTVIE_ALIGN_LEFT, ACTION_ACTVIE_ALIGN_RIGHT, ACTION_ACTVIE_ALIGN_BOTTOM, ACTION_ADD_PSD,
 } from '@lzshow/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy, winSize,
@@ -1179,6 +1179,28 @@ function changeSingleActiveAlignBottom(store, action) {
   }
   return null;
 }
+
+function addPsd(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_ADD_PSD) {
+    const obj = store.toJS();
+    const { editList, pages, activePage } = obj;
+    const page = pages[activePage];
+    value.forEach((it) => {
+      // { 唯一标识, 组件类型 }
+      const uniqueId = createId();
+      // 给组件命名
+      const name = `${getComponentDefaultName(it.type)} ${page.length + 1}`;
+      editList[uniqueId] = createNode(it.type, name);
+      Object.assign(editList[uniqueId].attrs, getComponentDefaultAttrs(value), it.attrs);
+      Object.assign(editList[uniqueId].rect, getComponentDefaultSize(value), it.rect);
+      page.push(uniqueId);
+    });
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -1232,4 +1254,5 @@ export default [
   changeSingleActiveAlignRight,
   changeSingleActiveAlignTop,
   changeSingleActiveAlignBottom,
+  addPsd,
 ];

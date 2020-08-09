@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import hotkeys from 'hotkeys-js';
 import {
-  Icon, Button, Upload, Modal,
+  Icon, Button, Upload, Modal, Popover,
 } from 'antd';
 
 import './index.scss';
@@ -15,7 +15,7 @@ import {
 } from '@lzshow/constants';
 import {
   addPageItem, addPageItemWithAttrs, changeBackMusicUrl,
-  initHistoryStore, changeBackGround,
+  initHistoryStore, changeBackGround, addPsd,
 } from '../../store/action';
 import LzLocalStorage from '../../utils/LocalStorage';
 import ImageModal from '../ImageModal';
@@ -24,6 +24,7 @@ import MusicModal from '../MusicModal';
 import { getUploadProps } from './config';
 import HistoryStore from '../../utils/HistoryStore';
 import { deleteUnUseObject } from '../../utils';
+import PSD from './psd';
 
 class Header extends React.Component {
   static propTypes = {
@@ -161,6 +162,11 @@ class Header extends React.Component {
     }
   }
 
+  onUploadPsd = (value) => {
+    const { dispatch } = this.props;
+    dispatch(addPsd(value));
+  }
+
   render() {
     const { dispatch } = this.props;
     const {
@@ -199,18 +205,12 @@ class Header extends React.Component {
             <Icon type="customer-service" className="icon" />
             <div className="txt">音效</div>
           </li>
-          {
-            modelImageClipVisible
-            && (
-            <ImageClip
-              src={currentClipImage}
-              visible={modelImageClipVisible}
-              changeVisible={this.onChangeVisible(false)}
-              dispatch={dispatch}
-              onChangeBackground={this.onChangeBackground}
-            />
-            )
-          }
+          <Popover content={<PSD dispatch={this.onUploadPsd} />} trigger="click">
+            <li className="item">
+              <Icon type="dashboard" className="icon" />
+              <div className="txt">PSD</div>
+            </li>
+          </Popover>
         </ul>
         <ul className="publish-container">
           <Button type="danger" onClick={this.onPublish}>发布</Button>
