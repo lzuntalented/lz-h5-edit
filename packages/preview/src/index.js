@@ -7,6 +7,7 @@ import './index.scss';
 import { Music, winSize } from '@lzshow/utils';
 import { getComponentRenderMap } from '@lzshow/core';
 import MusicIcon from './music';
+import Ajax from './services/ajax';
 
 class Preview extends React.PureComponent {
   static propTypes = {
@@ -53,6 +54,8 @@ class Preview extends React.PureComponent {
     this.setState({ activePageIndex: +index });
   }
 
+  getRequestHandler = () => Ajax.post
+
   renderComponent() {
     const { data, marginTop } = this.props;
     const { activePageIndex } = this.state;
@@ -77,6 +80,7 @@ class Preview extends React.PureComponent {
                     animates={[...animates]}
                     {...others}
                     key={idx}
+                    getRequestHandler={this.getRequestHandler}
                   />
                 );
               })
