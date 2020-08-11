@@ -20,6 +20,14 @@ export function getFontPath(name) {
   return path.join(PUBLIC_PATH, 'fonts', name);
 }
 
+export function getPsdTmpPath() {
+  return path.join(think.ROOT_PATH, 'tmp', 'psd');
+}
+
+export function getPsdTmpPathWithName(name) {
+  return path.join(getPsdTmpPath(), name);
+}
+
 /**
  * 创建随机字符
  * @param {*} type 类型

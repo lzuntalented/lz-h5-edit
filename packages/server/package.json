@@ -16,6 +16,7 @@
     "fontmin": "^0.9.8",
     "jimp": "^0.9.3",
     "md5": "^2.2.1",
+    "images": "^3.2.3",
     "think-cache": "^1.0.0",
     "think-cache-file": "^1.0.8",
     "think-logger3": "^1.0.0",
