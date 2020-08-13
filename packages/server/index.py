@@ -19,8 +19,10 @@ def getRate(origin, dest, mode) :
     return rateHeight
   return 1
 
-def converWithRate(val, rate) :
+def converWithRate(val, rate, noChange) :
   result = val * rate
+  if noChange :
+    return result
   if result < 1 :
     return 1
   return result
@@ -45,10 +47,10 @@ for layer in children:
       item = {
         "which" : which,
         "name" : name,
-        "width" : converWithRate(layer.width, rate),
-        "height" : converWithRate(layer.height, rate),
-        "top" : converWithRate(layer.top, rate),
-        "left" : converWithRate(layer.left, rate),
+        "width" : converWithRate(layer.width, rate, False),
+        "height" : converWithRate(layer.height, rate, False),
+        "top" : converWithRate(layer.top, rate, True),
+        "left" : converWithRate(layer.left, rate, True),
         "type": layer.kind,
         "ow": layer.width,
         "oh": layer.height,
@@ -56,6 +58,7 @@ for layer in children:
       }
       if layer.kind == 'type' :
         item["text"] = layer.text
+        item["fontSize"] = converWithRate(layer.engine_dict['StyleRun']['RunArray'][0]["StyleSheet"]["StyleSheetData"]["FontSize"] * layer.transform[3], rate, True)
       else :
         layer_image = layer.composite()
         layer_image.save(which)

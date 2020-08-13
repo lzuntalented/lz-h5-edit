@@ -1,9 +1,10 @@
 
-import {getDomain} from './';
+import { getDomain } from '.';
+
 const images = require('images');
 const execa = require('execa');
 // const fs = require('fs');
-const path = require('path'); ;
+const path = require('path');
 
 export async function parsePsd(origin, width = 320, height = 480) {
   const dest = path.join(think.ROOT_PATH, 'www', 'static', 'imgmin');
@@ -11,14 +12,16 @@ export async function parsePsd(origin, width = 320, height = 480) {
     const result = [];
     const { stdout } = await execa('python', [path.join(think.ROOT_PATH, 'index.py'), origin, dest, width, height]);
     // fs.writeFileSync('a.json', stdout);
-    const {size, list} = JSON.parse(stdout);
+    const { size, list } = JSON.parse(stdout);
     let scale = 1;
     if (+size.width > width * 2) {
       scale *= 2;
     }
     // const minPath = path.join(think.ROOT_PATH, 'www', 'static', 'imgmin');
-    list.forEach(it => {
-      const { name, type, ow, which } = it;
+    list.forEach((it) => {
+      const {
+        name, type, ow, which
+      } = it;
       console.log(name, dest, which);
       // const filename = name.replace(dest, '');
       const savename = `${dest}${name}`;
@@ -47,6 +50,7 @@ export async function parsePsd(origin, width = 320, height = 480) {
       };
       if (type === 'type') {
         obj.attrs.text = it.text;
+        obj.attrs.fontSize = it.fontSize;
       } else {
         obj.attrs.imgSrc = `http://${getDomain()}/static/imgmin/${name}`;
       }
