@@ -8,6 +8,7 @@ psdPath = sys.argv[1]
 destPath = sys.argv[2]
 width = int(sys.argv[3])
 height = int(sys.argv[4])
+convertPng = bool(sys.argv[5])
 
 def getRate(origin, dest, mode) :
   rateWidth = dest.width / origin.width
@@ -57,11 +58,21 @@ for layer in children:
         "text": ""
       }
       if layer.kind == 'type' :
-        item["text"] = layer.text
-        item["fontSize"] = converWithRate(layer.engine_dict['StyleRun']['RunArray'][0]["StyleSheet"]["StyleSheetData"]["FontSize"] * layer.transform[3], rate, True)
+        if convertPng :
+          layer_image = layer.composite()
+          layer_image.save(which)
+        else :
+          item["text"] = layer.text
+          item["fontSize"] = "%s" % layer.engine_dict['StyleRun']['RunArray'][0]["StyleSheet"]["StyleSheetData"]["FontSize"]
+          fillColorValue = layer.engine_dict['StyleRun']['RunArray'][0]["StyleSheet"]["StyleSheetData"]["FillColor"]["Values"]
+          color = []
+          for v in fillColorValue :
+            color.append("%s" % v) 
+          item["fillColor"]  = color
       else :
         layer_image = layer.composite()
         layer_image.save(which)
+        # print('lz')
       info.append(item)
     i = i + 1
 # print(json.dumps(info))

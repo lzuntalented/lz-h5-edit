@@ -9,6 +9,14 @@ import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
 export default function (props) {
   // 库数据
   const libs = {
+    psd: {
+      upLoadProps: {
+        name: 'upFile',
+        accept: 'file',
+        // showUploadList: false,
+        action: `${getUrlPrefix()}${apiConfig.file.parsePsd}`,
+      },
+    },
     // 图片库
     picture: {
       initData: [

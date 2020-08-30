@@ -8,6 +8,7 @@ export default {
     getList: '/file/getList',
     upload: '/file/upload',
     cropImage: '/file/cropImage',
+    parsePsd: '/file/parsePsd',
   },
   // 商城相关
   mall: {

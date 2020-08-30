@@ -6,11 +6,11 @@ const execa = require('execa');
 // const fs = require('fs');
 const path = require('path');
 
-export async function parsePsd(origin, width = 320, height = 480) {
+export async function parsePsd(origin, width = 320, height = 480, convertPng = true) {
   const dest = path.join(think.ROOT_PATH, 'www', 'static', 'imgmin');
   try {
     const result = [];
-    const { stdout } = await execa('python', [path.join(think.ROOT_PATH, 'index.py'), origin, dest, width, height]);
+    const { stdout } = await execa('python', [path.join(think.ROOT_PATH, 'index.py'), origin, dest, width, height, convertPng]);
     // fs.writeFileSync('a.json', stdout);
     const { size, list } = JSON.parse(stdout);
     let scale = 1;
@@ -22,9 +22,9 @@ export async function parsePsd(origin, width = 320, height = 480) {
       const {
         name, type, ow, which
       } = it;
-      console.log(name, dest, which);
+      // console.log(name, dest, which);
       // const filename = name.replace(dest, '');
-      const savename = `${dest}${name}`;
+      const savename = `${dest}/${name}`;
       if (ow === 0) {
         images(which) // Load image from file
           .save(savename, { // Save the image to a file, with the quality of 50
@@ -49,8 +49,21 @@ export async function parsePsd(origin, width = 320, height = 480) {
         attrs: {}
       };
       if (type === 'type') {
-        obj.attrs.text = it.text;
-        obj.attrs.fontSize = it.fontSize;
+        if (convertPng) {
+          obj.attrs.imgSrc = `http://${getDomain()}/static/imgmin/${name}`;
+          obj.type = `COMPONENT_TYPE_PICTURE`;
+        } else {
+          obj.attrs.text = it.text;
+          obj.attrs.fontSize = +it.fontSize;
+          const { fillColor } = it;
+          const color = [];
+          fillColor.forEach((that, index) => {
+            if (index > 0) {
+              color.push(Math.floor(+that * 256));
+            }
+          });
+          obj.attrs.color = `rgb(${color.join()})`;
+        }
       } else {
         obj.attrs.imgSrc = `http://${getDomain()}/static/imgmin/${name}`;
       }

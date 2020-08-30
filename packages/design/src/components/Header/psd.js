@@ -22,6 +22,18 @@ export default ConsumerContainer((props) => {
         }
       }
     },
+    beforeUpload: (file) => {
+      const isJpgOrPng = /(\.psd)$/.test(file.name);
+      // console.log(file.type);
+      if (!isJpgOrPng) {
+        message.error('仅支持PSD文件!');
+      }
+      const isLt2M = file.size / 1024 / 1024 < 100;
+      if (!isLt2M) {
+        message.error('文件大小仅支持100MB以内');
+      }
+      return isJpgOrPng && isLt2M;
+    },
   };
   return (
     <Upload {...upprops}>

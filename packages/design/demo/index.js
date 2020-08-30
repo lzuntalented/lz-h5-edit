@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { message } from 'antd';
 import LzDesign from '../src';
 
 // 库数据
@@ -9,7 +10,7 @@ const libs = {
     upLoadProps: {
       name: 'upFile',
       accept: 'file',
-      showUploadList: false,
+      // showUploadList: false,
       action: 'http://localhost:8380/file/parsePsd',
     },
   },
