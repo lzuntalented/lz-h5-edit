@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Input } from 'antd';
 
 function InputStyle(props) {
+  console.log(props, 'input');
   const {
-    editAble = false, text, bgColor, ...others
+    editAble = false, text, bgColor, onContentChange, ...others
   } = props;
   const inputProps = {};
   if (editAble) {
@@ -22,6 +23,7 @@ function InputStyle(props) {
         ...others,
       }}
       {...inputProps}
+      onChange={e => onContentChange && onContentChange(e.target.value)}
     />
   );
 }

@@ -42,9 +42,7 @@ const reducer = (store, action) => {
 // 默认全局状态树
 const defaultStore = fromJS({
   pages: [
-    [
-      'nis2fq',
-    ],
+    [],
   ],
   editList: {
     '4li7sh': {
@@ -166,9 +164,7 @@ const defaultStore = fromJS({
   },
   moveTag: false,
   backGroundImage: '',
-  activeEditKey: [
-    'uju0v0',
-  ],
+  activeEditKey: [],
   backMusicUrl: '',
   moveBoundRect: {},
   activePage: 0,

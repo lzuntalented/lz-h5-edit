@@ -28,6 +28,7 @@ class Preview extends React.PureComponent {
     this.musicHandler = new Music();
     this.magicRefs = {};
     this.ref = React.createRef();
+    this.formData = [];
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -56,6 +57,16 @@ class Preview extends React.PureComponent {
 
   getRequestHandler = () => Ajax.post
 
+  onContentChange = (obj, deep, index) => (val) => {
+    if (this.formData[deep]) {
+      this.formData[deep][index] = val;
+    } else {
+      this.formData[deep] = {};
+    }
+  }
+
+  getContentFormData = deep => () => this.formData[deep]
+
   renderComponent() {
     const { data, marginTop } = this.props;
     const { activePageIndex } = this.state;
@@ -81,6 +92,7 @@ class Preview extends React.PureComponent {
                     {...others}
                     key={idx}
                     getRequestHandler={this.getRequestHandler}
+                    getContentFormData={this.getContentFormData(index)}
                   />
                 );
               })

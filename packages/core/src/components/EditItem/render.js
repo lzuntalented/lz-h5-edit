@@ -4,10 +4,13 @@ import PreviewAnimation from '../PreviewAnimation';
 
 import './render.scss';
 
+// onContentChange={this.onContentChange(it, index, idx)}
+//                     contentFormData={this.formData[index]}
+
 export default function EditItemRender(Component) {
   function Layout(props) {
     const {
-      rect, attrs, border = {}, animates, show,
+      rect, attrs, border = {}, animates, show, onContentChange, getContentFormData,
     } = props;
     const {
       width, left, top, height, rotate,
@@ -39,7 +42,13 @@ export default function EditItemRender(Component) {
           <div
             className="content-container"
           >
-            <Component showStatus={show} {...attrs} height={height} />
+            <Component
+              onContentChange={onContentChange}
+              getContentFormData={getContentFormData}
+              showStatus={show}
+              {...attrs}
+              height={height}
+            />
           </div>
         </PreviewAnimation>
       </div>

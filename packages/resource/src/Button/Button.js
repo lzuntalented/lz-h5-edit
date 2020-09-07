@@ -4,14 +4,18 @@ import { Button } from 'antd';
 
 function ButtonRender(props) {
   const {
-    text, type,
+    text, type, getContentFormData,
   } = props;
+  const onClick = () => {
+    console.log(getContentFormData());
+  };
   return (
     <Button
       style={{
         width: '100%',
       }}
       type={type}
+      onClick={onClick}
     >{text}
     </Button>
   );
