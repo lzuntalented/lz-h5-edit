@@ -93,6 +93,7 @@ class Preview extends React.PureComponent {
                     key={idx}
                     getRequestHandler={this.getRequestHandler}
                     getContentFormData={this.getContentFormData(index)}
+                    onContentChange={this.onContentChange(it, index, idx)}
                   />
                 );
               })

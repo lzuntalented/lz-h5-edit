@@ -4,10 +4,15 @@ import { Button } from 'antd';
 
 function ButtonRender(props) {
   const {
-    text, type, getContentFormData,
+    text, type, getContentFormData, getRequestHandler,
   } = props;
   const onClick = () => {
-    console.log(getContentFormData());
+    if (getContentFormData) {
+      const data = getContentFormData();
+      getRequestHandler(data).then((res) => {
+        console.log(res);
+      });
+    }
   };
   return (
     <Button
@@ -24,6 +29,7 @@ function ButtonRender(props) {
 ButtonRender.prototype.propTypes = {
   text: PropTypes.string,
   type: PropTypes.string,
+  getContentFormData: PropTypes.func.isRequired,
 };
 
 ButtonRender.prototype.defaultProps = {

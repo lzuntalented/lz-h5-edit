@@ -10,7 +10,7 @@ import './render.scss';
 export default function EditItemRender(Component) {
   function Layout(props) {
     const {
-      rect, attrs, border = {}, animates, show, onContentChange, getContentFormData,
+      rect, attrs, border = {}, animates, show, onContentChange, getContentFormData, getRequestHandler,
     } = props;
     const {
       width, left, top, height, rotate,
@@ -43,6 +43,7 @@ export default function EditItemRender(Component) {
             className="content-container"
           >
             <Component
+              getRequestHandler={getRequestHandler}
               onContentChange={onContentChange}
               getContentFormData={getContentFormData}
               showStatus={show}

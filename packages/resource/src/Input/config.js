@@ -19,6 +19,12 @@ const config = [
     initValue: '按钮',
     renderType: STYLE_RENDER_TYPE_COLOR,
   },
+  {
+    label: '唯一标识',
+    key: 'formkey',
+    initValue: 'name',
+    renderType: STYLE_RENDER_TYPE_INPUT,
+  },
 ];
 
 export default config;
