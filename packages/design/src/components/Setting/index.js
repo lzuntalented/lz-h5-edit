@@ -84,30 +84,33 @@ class Setting extends React.Component {
           <header className="header">组件设置</header>
           <Tabs className="tabs-content" defaultActiveKey="1">
             <TabPane tab="样式" key="1">
-              {
-                  this.renderComponent()
+              <div className="tabs-content-overflow">
+                {
+                    this.renderComponent()
+                }
+                <Collapse>
+                  <Collapse.Panel header="边框" key="1">
+                    {
+                item && <SettingBorder {...item} setBorder={this.setBorder} />
               }
-              <Collapse>
-                <Collapse.Panel header="边框" key="1">
-                  {
-                    item && <SettingBorder {...item} setBorder={this.setBorder} />
-                  }
-                </Collapse.Panel>
-                <Collapse.Panel header="位置与尺寸" key="3">
-                  {
-                    item && (
-                    <SettingPosition
-                      {...item}
-                      dispatchAction={this.dispatchAction}
-                      setBaseStyle={this.setBaseStyle}
-                    />
-                    )
-                  }
-                </Collapse.Panel>
-              </Collapse>
-              <div className="text-center m-t-12 m-b-12">
-                <Button onClick={this.onRemove} type="danger">删除元素</Button>
+                  </Collapse.Panel>
+                  <Collapse.Panel header="位置与尺寸" key="3">
+                    {
+                item && (
+                <SettingPosition
+                  {...item}
+                  dispatchAction={this.dispatchAction}
+                  setBaseStyle={this.setBaseStyle}
+                />
+                )
+              }
+                  </Collapse.Panel>
+                </Collapse>
+                <div className="text-center m-t-12 m-b-12">
+                  <Button onClick={this.onRemove} type="danger">删除元素</Button>
+                </div>
               </div>
+
             </TabPane>
             {
               activeEditKey.length === 1

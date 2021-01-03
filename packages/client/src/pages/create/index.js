@@ -100,6 +100,7 @@ export default function (props) {
 
   const onPublish = (data, title) => {
     save({ content: data, title }).then(() => {
+      window.location.hash = '#/ucenter/info';
       message.success('保存成功');
     });
   };

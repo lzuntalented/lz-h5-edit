@@ -24,11 +24,11 @@ npm run build
 # 开发
 npm start
 # 浏览网站
-http://localhost:9901/client.html
+http://localhost:9999/client.html
 # 调试核心编辑器
-http://localhost:9901/design.html
+http://localhost:9999/design.html
 # 调试作品
-http://localhost:9901/opus.html?id=作品编号
+http://localhost:9999/opus.html?id=作品编号
 
 # 本地启动服务端
 # 先将server/sql下sql文件导入数据库
@@ -66,7 +66,7 @@ npm run webpack
     - [x] 音效
     - [x] 模板
     - [x] 视频
-    - [ ] 艺术字
+    - [x] 艺术字
 
 * 示例
     - [x] 示例-端午节
@@ -75,7 +75,13 @@ npm run webpack
     - [x] 示例-1024
     - [x] 示例-双十一
     - [x] 示例-感恩节
-  
+
+* 用户模块
+    - [x] 登录
+    - [x] 注册
+    - [x] 作品列表
+    - [x] PV数据统计
+    - [x] 表单数据统计
 ### 如何新增物料
 * 1.在src/resource目录下新建组件
 ``` js
@@ -116,8 +122,8 @@ registerComponent(自定义组件唯一标识字符串, 物料组件);
 ### 交流群
 
 
-|  微信交流群   | QQ交流群  |
-|  ----  | ----  |
-| ![微信交流群](http://www.lzuntalented.cn/img/sxx-wx.png?2)  | ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
+| QQ交流群  |
+| ----  |
+| ![QQ交流群](http://www.lzuntalented.cn/img/sxx-qq.png) |
 
 Give a ⭐️ if this project helped you!

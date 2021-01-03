@@ -77,10 +77,10 @@ module.exports = {
               [
                 'import',
                 {
-                  libraryName: 'antd/dist/antd.less',
+                  libraryName: 'antd/dist/antd.css',
                   customName: () => './empty.css',
                 },
-                'antd/dist/antd.less',
+                'antd/dist/antd.css',
               ],
             ],
             presets: ['@babel/preset-env', '@babel/preset-react'],

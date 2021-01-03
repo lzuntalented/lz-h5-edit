@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Menu, Row, Col, Layout,
+  Menu, Row, Col, Layout, Dropdown, Button, Icon,
 } from 'antd';
+import { info, logout } from '../../../../services/user';
 
 const { Header } = Layout;// 引入样式文件
 class LayoutFrame extends React.Component {
@@ -16,14 +17,33 @@ class LayoutFrame extends React.Component {
     };
   }
 
+  componentDidMount() {
+    info().then((res) => {
+      this.setState({
+        info: res,
+      });
+    });
+    // .catch(() => {
+    //   window.location.hash = '/';
+    // });
+  }
+
   onClick = ({ key }) => {
     if (key === '2') {
       window.location.hash = '/list';
     } else if (key === '3') {
       window.location.hash = '/mall';
-    } else {
+    } else if (key === '1') {
       window.location.hash = '/';
     }
+  }
+
+  handleMenuClick = async () => {
+    await logout();
+    this.setState({
+      info: null,
+    });
+    window.location.hash = '/';
   }
 
   render() {
@@ -36,6 +56,7 @@ class LayoutFrame extends React.Component {
     } else {
       selectKeys.push('1');
     }
+    const { info } = this.state;
     return (
       <Header className="layout-header-container">
         <Row className="default-header" type="flex" justify="space-between">
@@ -57,7 +78,27 @@ class LayoutFrame extends React.Component {
                 </Menu>
               </Col>
               <Col>
-                <a href="#/login">登录</a>
+                {
+                  info
+                    ? (
+                      <Dropdown.Button
+                        onClick={() => {
+                          window.location.hash = '#/ucenter/info';
+                        }}
+                        overlay={(
+                          <Menu onClick={this.handleMenuClick}>
+                            <Menu.Item key="1">
+                              退出登录
+                            </Menu.Item>
+                          </Menu>
+                          )}
+                        icon={<Icon type="user" />}
+                      >
+                        {info.name}
+                      </Dropdown.Button>
+                    )
+                    : <a href="#/login">登录</a>
+                }
               </Col>
             </Row>
           </Col>

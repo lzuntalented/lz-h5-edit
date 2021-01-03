@@ -7,16 +7,18 @@ import './index.scss';
 import { Music, winSize } from '@lzshow/utils';
 import { getComponentRenderMap } from '@lzshow/core';
 import MusicIcon from './music';
-import Ajax from './services/ajax';
 
 class Preview extends React.PureComponent {
   static propTypes = {
     data: PropTypes.object.isRequired,
     marginTop: PropTypes.number,
+    onlyShowFirst: PropTypes.bool,
   }
 
   static defaultProps = {
     marginTop: 0,
+    // 预览使用 仅展示第一页
+    onlyShowFirst: false,
   }
 
   constructor(props) {
@@ -55,22 +57,30 @@ class Preview extends React.PureComponent {
     this.setState({ activePageIndex: +index });
   }
 
-  getRequestHandler = () => Ajax.post
-
   onContentChange = (obj, deep, index) => (val) => {
-    if (this.formData[deep]) {
-      this.formData[deep][index] = val;
-    } else {
+    if (!this.formData[deep]) {
       this.formData[deep] = {};
     }
+    this.formData[deep][index] = val;
   }
 
   getContentFormData = deep => () => this.formData[deep]
 
+  getRequestHandler = deep => async (d) => {
+    if (this.props.getRequestHandler) {
+      this.props.getRequestHandler(d, deep + 1);
+    }
+  }
+
   renderComponent() {
-    const { data, marginTop } = this.props;
+    const {
+      data, marginTop, onlyShowFirst, getRequestHandler,
+    } = this.props;
     const { activePageIndex } = this.state;
     return data.list.map((item, index) => {
+      if (onlyShowFirst && index > 0) {
+        return false;
+      }
       const style = {
         position: 'relative',
         height: winSize.height,
@@ -88,12 +98,12 @@ class Preview extends React.PureComponent {
                 return (
                   <Component
                     show={style.display === 'block'}
-                    animates={[...animates]}
+                    animates={onlyShowFirst ? [] : [...animates]}
                     {...others}
                     key={idx}
-                    getRequestHandler={this.getRequestHandler}
+                    getRequestHandler={this.getRequestHandler(index)}
                     getContentFormData={this.getContentFormData(index)}
-                    onContentChange={this.onContentChange(it, index, idx)}
+                    onContentChange={this.onContentChange(it, index, others?.attrs?.formkey || idx)}
                   />
                 );
               })
@@ -104,7 +114,7 @@ class Preview extends React.PureComponent {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, onlyShowFirst } = this.props;
     if (!data) return null;
     const style = {
       backgroundImage: `url(${data.backGroundImage})`,
@@ -120,7 +130,7 @@ class Preview extends React.PureComponent {
           }
         </Carousel>
         {
-          data.backMusicUrl && (<MusicIcon backMusicUrl={data.backMusicUrl} />)
+          !onlyShowFirst && data.backMusicUrl && (<MusicIcon backMusicUrl={data.backMusicUrl} />)
         }
       </div>
     );

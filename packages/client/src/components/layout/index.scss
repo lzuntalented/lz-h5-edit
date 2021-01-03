@@ -9,6 +9,11 @@
     height: 48px;
     border-bottom: 1px solid #e8e8e8;
     overflow: hidden;
+    position: relative;
+
+    &.ant-layout-header {
+      line-height: 48px;
+    }
 
     .default-header {
       max-width: 1080px;

@@ -128,7 +128,9 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0',
-    port: 9901,
+    // 由于爱奇艺客户端使用9901端口，因此更换
+    port: 9999,
+    disableHostCheck: true, //  新增该配置项
   },
   plugins: [
     ...generatorHtmlPlugins(),

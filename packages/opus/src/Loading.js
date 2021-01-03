@@ -4,8 +4,10 @@ import { Spin } from 'antd';
 import Phone from '@lzshow/preview';
 import { COMPONENT_TYPE_PICTURE } from '@lzshow/constants';
 
+import { saveFormData } from './services/create';
+
 export default function LoadingWrap(props) {
-  const { data, marginTop } = props;
+  const { data, marginTop, id } = props;
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -53,7 +55,20 @@ export default function LoadingWrap(props) {
     }
   }, [data]);
 
-  return isLoading ? <div className="loading-wrap-container"><Spin /></div> : <Phone data={data} marginTop={marginTop} />;
+  const request = async (d, idx) => {
+    if (id && +id > 0 && d) {
+      return saveFormData({ data: JSON.stringify(d), idx, id: +id });
+    }
+    return null;
+  };
+
+  return isLoading ? <div className="loading-wrap-container"><Spin /></div> : (
+    <Phone
+      data={data}
+      getRequestHandler={request}
+      marginTop={marginTop}
+    />
+  );
 }
 
 LoadingWrap.propTypes = {

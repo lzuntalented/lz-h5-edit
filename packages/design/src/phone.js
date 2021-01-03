@@ -61,6 +61,7 @@ class Phone extends React.Component {
             key={it}
             data={others}
             actions={actions}
+            onItemClick={() => { console.log('dddd'); }}
           />
         );
       } if (nodeType === ITEM_TYPE_GROUP) {

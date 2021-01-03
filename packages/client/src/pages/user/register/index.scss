@@ -1,9 +1,47 @@
 .page-register {
-  max-width: 300px;
   margin: 0 auto;
   padding: 24px 0;
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  align-items: center;
 
   .login-form-button {
     width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .login-container {
+    background-color: rgba($color: #ecfcff, $alpha: 0.4);
+    border: 1px solid #1593ff;
+    padding: 48px 24px;
+    position: relative;
+    z-index: 1;
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+  }
+  
+  .home-logo {
+    border: 1px solid #1593ff;
+    border-radius: 5px;
+    height: 480px;
+    width: 320px;
+    margin: 0 24px;
+    background-color: rgba($color: #ecfcff, $alpha: 0.4);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bg-container {
+      position: absolute;
+      top: 48px;
+      left: 0;
+      right: 0;
+      bottom: 0;
   }
 }

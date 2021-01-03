@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button } from 'antd';
+import {
+  Button, Col, Row, Input,
+} from 'antd';
 import QRCode from 'qrcode';
 import Phone from '@lzshow/preview';
 
@@ -61,40 +63,55 @@ class Perview extends React.Component {
   render() {
     const { wapPreviewUrl, data } = this.state;
     return (
-      <div className="realperview-container">
-        <div className="phone-container">
-          <div className="header" />
-          {data && <Phone data={data} ref={this.setMagicRefs(refNames.content)} />}
-          <div className="footer" />
-        </div>
-        <div className="toggle-page">
-          <div>
-            <Button onClick={this.prevPage}>上一页</Button>
-            <p />
-            {
-              data && data.list
-              && <div className="text-center">共{data.list.length}页</div>
-            }
-            <p />
-            <Button onClick={this.nextPage}>下一页</Button>
-          </div>
-        </div>
-        {
-          wapPreviewUrl
-          && (
-          <div className="eq">
+      <Row className="realperview-container" type="flex" align="middle">
+        <Col>
+          <Row type="flex" justify="space-between" align="middle">
+            <Col>
+              <div className="phone-container">
+                <div className="header" />
+                {data && <Phone data={data} ref={this.setMagicRefs(refNames.content)} />}
+                <div className="footer" />
+              </div>
+            </Col>
+            <Col>
+              <div className="toggle-page">
+                <div>
+                  <Button onClick={this.prevPage}>上一页</Button>
+                  <p />
+                  {
+                data && data.list
+                && <div className="text-center">共{data.list.length}页</div>
+              }
+                  <p />
+                  <Button onClick={this.nextPage}>下一页</Button>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Col>
+        <Col>
+          <Row type="flex" justify="center" align="middle">
             <div>
-              <img src={wapPreviewUrl} alt="" className="img" />
-              <div className="text-center">手机扫码预览</div>
+
+              {
+            wapPreviewUrl
+            && (
+            <div className="eq">
+              <div>
+                <img src={wapPreviewUrl} alt="" className="img" />
+                <div className="text-center">手机扫码预览</div>
+              </div>
+              <div className="m-b-12">{this.wapUrl}</div>
+              {
+                (this.cacheKey && this.cacheKey > 0) && <a href={`${getUrlPrefix()}/index/download?id=${this.cacheKey}`} target="_blank" rel="noopener noreferrer">离线下载</a>
+              }
             </div>
-            <div className="m-b-12">{this.wapUrl}</div>
-            {
-              (this.cacheKey && this.cacheKey > 0) && <a href={`${getUrlPrefix()}/index/download?id=${this.cacheKey}`} target="_blank" rel="noopener noreferrer">离线下载</a>
-            }
-          </div>
-          )
-        }
-      </div>
+            )
+          }
+            </div>
+          </Row>
+        </Col>
+      </Row>
     );
   }
 }

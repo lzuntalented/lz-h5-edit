@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Input } from 'antd';
 
 function InputStyle(props) {
-  console.log(props, 'input');
   const {
     editAble = false, text, bgColor, onContentChange, ...others
   } = props;
@@ -13,6 +12,13 @@ function InputStyle(props) {
   } else {
     inputProps.defaultValue = text;
   }
+
+  useEffect(() => {
+    if (!editAble) {
+      if (onContentChange) onContentChange(inputProps.defaultValue);
+    }
+  }, []);
+
   return (
     <Input
       style={{

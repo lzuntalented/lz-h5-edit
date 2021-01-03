@@ -34,7 +34,9 @@ module.exports = class extends Base {
         return;
       }
       const store = JSON.parse(content);
-      const id = await model.add({ content, title });
+      const id = await model.add({ content,
+        title,
+        user_id: this.userId });
       await createShortFont(id, store);
       this.success(id);
     } catch (e) {
@@ -44,13 +46,21 @@ module.exports = class extends Base {
 
   async getDetailAction() {
     const id = +this.get('id');
+    const source = this.get('source');
     if (!(id > 0)) {
       this.fail('参数错误');
-      return;
     }
     const model = this.model('opus');
     const result = await model.where({id}).select();
     if (result && result.length > 0) {
+      if (source === 'app') {
+        const logModel = this.model('log');
+        logModel.add({
+          opus_id: id,
+          ip: this.ctx.ip,
+          ua: this.ctx.userAgent
+        });
+      }
       this.success(result[0]);
     } else { this.fail('参数错误') }
   }

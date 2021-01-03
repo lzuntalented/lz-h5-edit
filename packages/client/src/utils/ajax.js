@@ -24,7 +24,7 @@ export default {
         params,
         onDownloadProgress: null,
         onUploadProgress: null,
-        // withCredentials: true,
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           // 'lzcookie': queryString.stringify(cookie)
@@ -52,7 +52,7 @@ export default {
         data: queryString.stringify(params),
         onDownloadProgress: null,
         onUploadProgress: null,
-        // withCredentials: true,
+        withCredentials: true,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
           // 'lzcookie': queryString.stringify(cookie)

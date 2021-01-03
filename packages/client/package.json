@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/client",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
@@ -12,12 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/core": "^0.1.14",
-    "@lzshow/design": "^0.1.14",
-    "@lzshow/preview": "^0.1.14",
-    "@lzshow/utils": "^0.1.14",
+    "@lzshow/core": "^0.1.22",
+    "@lzshow/design": "^0.1.22",
+    "@lzshow/preview": "^0.1.22",
+    "@lzshow/utils": "^0.1.22",
     "antd": "^3.6.6",
     "axios": "^0.19.0",
+    "dayjs": "^1.9.7",
+    "echarts": "^4.8.0",
     "jparticles": "^2.0.1",
     "js-cookie": "^2.1.4",
     "prop-types": "^15.6.2",

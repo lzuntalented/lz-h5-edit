@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'antd';
+import { Button, message } from 'antd';
 
 function ButtonRender(props) {
   const {
@@ -10,7 +10,9 @@ function ButtonRender(props) {
     if (getContentFormData) {
       const data = getContentFormData();
       getRequestHandler(data).then((res) => {
-        console.log(res);
+        message.success(res || '操作成功');
+      }).catch(() => {
+        message.error('操作失败，请重试');
       });
     }
   };

@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/opus",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,9 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/constants": "^0.1.21",
-    "@lzshow/preview": "^0.1.21",
-    "@lzshow/utils": "^0.1.21",
+    "@lzshow/constants": "^0.1.22",
+    "@lzshow/preview": "^0.1.22",
+    "@lzshow/utils": "^0.1.22",
+    "ismobilejs": "^1.1.1",
     "query-string": "^6.12.0"
   },
   "private": true,

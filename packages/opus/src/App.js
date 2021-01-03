@@ -1,5 +1,6 @@
 import React from 'react';
 import qs from 'query-string';
+import isMobile from 'ismobilejs';
 
 // 引入样式文件
 import './index.scss';
@@ -40,7 +41,7 @@ class Perview extends React.Component {
     const { id } = this.state;
     if (+id > 0) {
       addShortFonts(id);
-      getDetail({ id }).then((resp) => {
+      getDetail({ id, source: 'app' }).then((resp) => {
         const { content: res } = resp;
         const data = translateShowDataFromStore(JSON.parse(res));
         this.setState({ data });
@@ -49,8 +50,11 @@ class Perview extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
-    return <LoadingWrap data={data} marginTop={marginTop} />;
+    const { data, id } = this.state;
+    if (!(isMobile(window.navigator.userAgent).phone)) {
+      marginTop = 0;
+    }
+    return <LoadingWrap data={data} marginTop={marginTop} id={id} />;
   }
 }
 

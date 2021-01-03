@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/core",
-  "version": "0.1.14",
+  "version": "0.1.22",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -12,12 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lzshow/constants": "^0.1.14",
-    "@lzshow/resource": "^0.1.14",
-    "@lzshow/utils": "^0.1.14",
-    "@lzshow/resource-artinput": "^0.1.14",
-    "@lzshow/resource-motherday": "^0.1.14",
-    "@lzshow/resource-loveforever": "^0.1.14",
+    "@lzshow/constants": "^0.1.22",
+    "@lzshow/resource": "^0.1.22",
+    "@lzshow/utils": "^0.1.22",
+    "@lzshow/resource-artinput": "^0.1.22",
+    "@lzshow/resource-motherday": "^0.1.22",
+    "@lzshow/resource-loveforever": "^0.1.22",
     "animate.css": "^3.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

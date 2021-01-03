@@ -27,3 +27,15 @@ dist/bound.js
 lib
 es
 app
+
+# Logs
+logs
+*.log
+
+runtime/
+app/
+
+config.development.js
+adapter.development.js
+
+public

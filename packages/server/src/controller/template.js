@@ -23,6 +23,27 @@ module.exports = class extends Base {
     this.success({list: result, total});
   }
 
+  async getMyListAction() {
+    // const pageIndex = +this.get('pageIndex');
+    // const pageSize = 11;
+    // if (!(pageIndex > 0)) {
+    //   this.fail('参数错误');
+    //   return;
+    // }
+    // const offset = pageIndex - 1;
+    const model = this.model('opus');
+    const result = await model.where({ user_id: this.userId }).order('id DESC').select();
+    const total = await model.where({ user_id: this.userId }).count();
+    const logModel = this.model('log');
+    for (let i = 0; i < result.length; i++) {
+      const it = result[i];
+      const logList = await logModel.where({opus_id: it.id}).select();
+      it.pv = logList.length;
+    }
+
+    this.success({list: result, total});
+  }
+
   async addAction() {
     const model = this.model('opus');
     const content = this.post('content');

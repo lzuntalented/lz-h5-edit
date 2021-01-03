@@ -1,6 +1,6 @@
 {
   "name": "@lzshow/resource-fivetwolove",
-  "version": "0.1.14",
+  "version": "0.1.22",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -10,8 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@lzshow/constants": "^0.1.14",
-    "@lzshow/utils": "^0.1.14"
+    "@lzshow/constants": "^0.1.22",
+    "@lzshow/utils": "^0.1.22"
   },
   "author": "",
   "license": "ISC",

@@ -57,3 +57,17 @@ body > li {
   padding: 0 8px;
   line-height: 32px;
 }
+
+//自动移滚动条样式
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 1em;
+  background-color: rgba(50,50,50,.3);
+}
+::-webkit-scrollbar-track{
+  border-radius: 1em;
+  background-color: rgba(50,50,50,.1);
+}
