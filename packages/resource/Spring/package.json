@@ -1,0 +1,20 @@
+{
+  "name": "@lzshow/resource-spring",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "build": "babel src --out-dir lib --copy-files",
+    "build:es": "babel src --out-dir es --copy-files",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@lzshow/constants": "^0.1.22",
+    "@lzshow/utils": "^0.1.22",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "author": "lz",
+  "license": "ISC"
+}

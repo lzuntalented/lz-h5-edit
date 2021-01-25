@@ -22,6 +22,12 @@ function renderComponentPreview(key) {
   return <Comp {...attrs} />;
 }
 
+const list = [
+  /** previewList slot */
+  '36',
+  '35',
+  COMPONENT_TYPE_MOTHER_DAY, COMPONENT_TYPE_LOVE_FOREVER];
+
 export default function Node(props) {
   const { onAddComponent, onAddComponentWithSize, onAddComponentWithAttrs } = props;
   // const fontFamilys = getFontFamilyOptions();
@@ -29,7 +35,6 @@ export default function Node(props) {
   const artSolids = getArtSolidOptions();
   const artBorders = getArtBorderOptions();
 
-  const list = [COMPONENT_TYPE_MOTHER_DAY, COMPONENT_TYPE_LOVE_FOREVER];
   return (
     <Tabs className="node" defaultActiveKey="1">
       <TabPane tab="基础组件" key="1">

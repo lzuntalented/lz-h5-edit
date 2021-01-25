@@ -36,6 +36,9 @@ npm run server
 
 // 构建
 npm run webpack
+
+// 新增物料
+npm run add
 ```
 
 ## 开发文档

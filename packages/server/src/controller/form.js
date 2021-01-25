@@ -1,9 +1,11 @@
-const { todayStart, now, ONE_HOUR, dayStart, dayEnd } = require('../tools/time.js');
+const {
+  todayStart, now, ONE_HOUR, dayStart, dayEnd
+} = require('../tools/time.js');
 const Base = require('./base.js');
 
 module.exports = class extends Base {
   async saveAction() {
-    const model = this.model('log');
+    const model = this.model('opus');
     const id = +this.post('id');
     const dataStr = this.post('data');
     const pageIndex = +this.post('idx');
@@ -50,11 +52,11 @@ module.exports = class extends Base {
       this.fail('参数错误');
       return;
     }
-    const opusList = await opusModel.where({user_id: this.userId, id}).select();
+    const opusList = await opusModel.where({ user_id: this.userId, id }).select();
     if (!opusList || opusList.length <= 0) {
       return this.fail('参数错误');
     }
-    const result = await formModel.where({opus_id: id}).select();
+    const result = await formModel.where({ opus_id: id }).select();
     this.success(result);
   }
 };

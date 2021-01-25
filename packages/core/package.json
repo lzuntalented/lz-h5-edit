@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@lzshow/resource-admissions": "^0.0.1",
+    "@lzshow/resource-spring": "^0.0.1",
     "@lzshow/constants": "^0.1.22",
     "@lzshow/resource": "^0.1.22",
     "@lzshow/utils": "^0.1.22",

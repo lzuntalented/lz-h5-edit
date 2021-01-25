@@ -1,4 +1,6 @@
-import Resource from '@lzshow/resource';
+import Admissions from '@lzshow/resource-admissions';
+  import Spring from '@lzshow/resource-spring';
+  import Resource from '@lzshow/resource';
 
 import {
   COMPONENT_TYPE_TEXT, COMPONENT_TYPE_PICTURE, COMPONENT_TYPE_QQ_VIDEO,
@@ -120,3 +122,10 @@ export function getComponentPreview(key) {
   }
   return null;
 }
+
+/** register slot 37 */
+
+  registerComponent('35', Spring);
+  
+  registerComponent('36', Admissions);
+  

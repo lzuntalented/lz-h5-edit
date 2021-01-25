@@ -7,11 +7,14 @@
     "install": "lerna bootstrap --hoist",
     "start": "webpack-dev-server --config webpack/webpack.config.js",
     "build": "lerna run build && lerna run build:es",
+    "build:es": "lerna run build:es",
+    "link": "lerna link",
     "webpack": "webpack --config webpack/webpack.build.config.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
-    "publish": "lerna publish --skip-git",
-    "server": "lerna run server"
+    "publish": "lerna publish --skip-git", 
+    "server": "lerna run server",
+    "add": "node ./cli/src/index.js"
   },
   "author": "",
   "license": "ISC",
