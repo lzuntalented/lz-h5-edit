@@ -66,9 +66,9 @@ class Preview extends React.PureComponent {
 
   getContentFormData = deep => () => this.formData[deep]
 
-  getRequestHandler = deep => async (d) => {
+  getRequestHandler = (deep, componentType) => async (d, type) => {
     if (this.props.getRequestHandler) {
-      this.props.getRequestHandler(d, deep + 1);
+      return this.props.getRequestHandler(d, deep + 1, componentType, type);
     }
   }
 
@@ -101,7 +101,7 @@ class Preview extends React.PureComponent {
                     animates={onlyShowFirst ? [] : [...animates]}
                     {...others}
                     key={idx}
-                    getRequestHandler={this.getRequestHandler(index)}
+                    getRequestHandler={this.getRequestHandler(index, type)}
                     getContentFormData={this.getContentFormData(index)}
                     onContentChange={this.onContentChange(it, index, others?.attrs?.formkey || idx)}
                   />

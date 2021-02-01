@@ -3,6 +3,7 @@
   "description": "application created by thinkjs",
   "version": "1.0.0",
   "author": "lzuntalented <704540593@qq.com>",
+  "private": true,
   "scripts": {
     "start": "node development.js",
     "server": "node development.js",

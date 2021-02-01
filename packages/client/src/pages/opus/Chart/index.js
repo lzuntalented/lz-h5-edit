@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Tabs } from 'antd';
 import Charts from './components/Charts';
 import Record from './components/Record';
+import Activity from './components/Activity';
 
 import './index.scss';
 
@@ -27,6 +28,9 @@ function Register(props) {
             </Tabs.TabPane>
             <Tabs.TabPane tab="表单数据" key="2">
               <Record id={id} />
+            </Tabs.TabPane>
+            <Tabs.TabPane tab="活动数据" key="3">
+              <Activity id={id} />
             </Tabs.TabPane>
           </Tabs>
         </Tabs.TabPane>

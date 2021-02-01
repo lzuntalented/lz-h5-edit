@@ -24,6 +24,7 @@ function renderComponentPreview(key) {
 
 const list = [
   /** previewList slot */
+  '37',
   '36',
   '35',
   COMPONENT_TYPE_MOTHER_DAY, COMPONENT_TYPE_LOVE_FOREVER];

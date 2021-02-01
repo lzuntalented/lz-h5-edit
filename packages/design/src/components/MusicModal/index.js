@@ -38,7 +38,6 @@ function MusicModal(props) {
     <ModalContainer
       onCancel={hidden}
       maskClosable
-      getContainer={false}
       visible={visible}
       title="音乐库"
       options={[{ title: '音乐列表', comp: <MusicList ref={ref} defaultList={initData} onSelect={onChangeMusic} /> }]}

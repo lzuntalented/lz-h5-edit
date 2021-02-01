@@ -4,7 +4,7 @@ import { Spin } from 'antd';
 import Phone from '@lzshow/preview';
 import { COMPONENT_TYPE_PICTURE } from '@lzshow/constants';
 
-import { saveFormData } from './services/create';
+import { saveFormData, activityTurn } from './services/create';
 
 export default function LoadingWrap(props) {
   const { data, marginTop, id } = props;
@@ -55,8 +55,16 @@ export default function LoadingWrap(props) {
     }
   }, [data]);
 
-  const request = async (d, idx) => {
+  const request = async (d, idx, componentType, type) => {
     if (id && +id > 0 && d) {
+      if (type === 2) {
+        return activityTurn({
+          data: d,
+          idx,
+          id: +id,
+          type: componentType,
+        });
+      }
       return saveFormData({ data: JSON.stringify(d), idx, id: +id });
     }
     return null;

@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-const packagePath = path.join(__dirname, '../../packages');
+const packagePath = path.join(__dirname, '../../../packages');
 const resourcePath = path.join(packagePath, 'resource');
 const templatePath = path.join(__dirname, '../template');
 const registerPath = path.join(packagePath, 'core');

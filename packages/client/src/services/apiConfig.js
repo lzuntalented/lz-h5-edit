@@ -33,6 +33,9 @@ export default {
   form: {
     getList: '/form/getList',
   },
+  activity: {
+    getList: '/activity/getList',
+  },
 };
 
 export function isDaily() {

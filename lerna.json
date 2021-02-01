@@ -1,7 +1,15 @@
 {
   "npmClient": "cnpm",
   "packages": [
-    "packages/**"
+    "packages/client",
+    "packages/constants",
+    "packages/core",
+    "packages/design",
+    "packages/preview",
+    "packages/resource/**",
+    "packages/server",
+    "packages/utils",
+    "packages/cli"
   ],
   "version": "0.1.21"
 }

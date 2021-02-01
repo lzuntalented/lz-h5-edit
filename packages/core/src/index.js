@@ -1,4 +1,5 @@
-import Admissions from '@lzshow/resource-admissions';
+import Trun from '@lzshow/resource-trun';
+  import Admissions from '@lzshow/resource-admissions';
   import Spring from '@lzshow/resource-spring';
   import Resource from '@lzshow/resource';
 
@@ -123,9 +124,11 @@ export function getComponentPreview(key) {
   return null;
 }
 
-/** register slot 37 */
+/** register slot 38 */
 
   registerComponent('35', Spring);
   
   registerComponent('36', Admissions);
+  
+  registerComponent('37', Trun);
   

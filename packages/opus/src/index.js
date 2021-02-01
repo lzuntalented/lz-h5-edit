@@ -4,6 +4,7 @@ import isMobile from 'ismobilejs';
 import { winSize } from '@lzshow/utils';
 import App from './App';
 import './index.scss';
+import 'antd/dist/antd.css';
 
 function setPageScale() {
   const width = window.innerWidth;
@@ -13,7 +14,7 @@ function setPageScale() {
 }
 setPageScale();
 const rootEl = window.document.getElementById('root');
-rootEl.style.height = `${winSize.height}px`;
+// rootEl.style.height = `${winSize.height}px`;
 rootEl.style.display = 'flex';
 
 if (!(isMobile(window.navigator.userAgent).phone)) {

@@ -7,6 +7,9 @@ export default {
   log: {
     saveForm: '/form/save',
   },
+  activity: {
+    trun: '/activity/trun',
+  },
 };
 
 export function isDaily() {
