@@ -117,11 +117,13 @@ class Preview extends React.PureComponent {
     const { data, onlyShowFirst } = this.props;
     if (!data) return null;
     const style = {
-      backgroundImage: `url(${data.backGroundImage})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     };
+    if (data.backGroundImage) {
+      style.backgroundImage = `url(${data.backGroundImage})`;
+    }
     return (
       <div className="content" style={style}>
         <Carousel onTransitionEnd={this.onTransitionEnd} axis="y" ref={this.ref}>

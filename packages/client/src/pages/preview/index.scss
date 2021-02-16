@@ -20,7 +20,7 @@ $phone-footer-height: 30;
       border-top-right-radius: $phone-header-height + px;
       background-color: #e0e0e0;
     }
-    & > .content {
+    & > div > .content {
       height: $phone-height + px;
       position: relative;
       border-left: 5px solid #e0e0e0;

@@ -106,7 +106,7 @@ function EditComp(props) {
           zIndex: 1,
         }}
       >
-        <img width="32" src="http://www.lzuntalented.cn:8380/static/pic/1611678657000-h50mprlrzf2i-70993dc3-593c-4bcd-9618-45c76160d991.png" alt="" />
+        <img width="32" src="http://show.lzuntalented.cn/server/static/pic/1611678657000-h50mprlrzf2i-70993dc3-593c-4bcd-9618-45c76160d991.png" alt="" />
       </div>
       <div style={{ position: 'relative' }}>
         <div
@@ -127,7 +127,7 @@ function EditComp(props) {
               bottom: 0,
             }}
           >
-            <img width="100%" src="http://www.lzuntalented.cn:8380/static/pic/1611676558000-mgwsqzi6i0qc-2ef53ea9-19e1-46c8-b1d3-24e2b3443525.png" alt="" />
+            <img width="100%" src="http://show.lzuntalented.cn/server/static/pic/1611676558000-mgwsqzi6i0qc-2ef53ea9-19e1-46c8-b1d3-24e2b3443525.png" alt="" />
           </div>
           <div
             style={{
@@ -135,7 +135,7 @@ function EditComp(props) {
               zIndex: 1,
             }}
           >
-            <img width="100%" src="http://www.lzuntalented.cn:8380/static/pic/1611676294000-ldx8vj7kmqdh-4d8687b7-c7d7-4f47-b3c6-a68ed18569f9.png" alt="" />
+            <img width="100%" src="http://show.lzuntalented.cn/server/static/pic/1611676294000-ldx8vj7kmqdh-4d8687b7-c7d7-4f47-b3c6-a68ed18569f9.png" alt="" />
             {
             list.map((it, index) => (
               <div
@@ -177,7 +177,7 @@ function EditComp(props) {
           }}
           onClick={onClick}
         >
-          <img width="100%" src="http://www.lzuntalented.cn:8380/static/pic/1611678900000-0tj4fen6ymao-251530e8-d038-40b8-b8da-a889217997a4.png" alt="" />
+          <img width="100%" src="http://show.lzuntalented.cn/server/static/pic/1611678900000-0tj4fen6ymao-251530e8-d038-40b8-b8da-a889217997a4.png" alt="" />
         </div>
         )}
       </div>

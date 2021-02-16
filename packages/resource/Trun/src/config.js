@@ -17,7 +17,7 @@ function createPrize(name, tip, index) {
     {
       label: `奖品${index}-图片`,
       key: `prizePic${index}`,
-      initValue: 'http://www.lzuntalented.cn:8380/static/pic/1601170354000-iqbjspidrzq9-06.png',
+      initValue: 'http://show.lzuntalented.cn/server/static/pic/1601170354000-iqbjspidrzq9-06.png',
       renderType: STYLE_RENDER_TYPE_PICTURE,
     },
     {
