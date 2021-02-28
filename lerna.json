@@ -5,6 +5,7 @@
     "packages/constants",
     "packages/core",
     "packages/design",
+    "packages/opus",
     "packages/preview",
     "packages/resource/**",
     "packages/server",

@@ -39,3 +39,5 @@ config.development.js
 adapter.development.js
 
 public
+www/
+!.gitkeep
