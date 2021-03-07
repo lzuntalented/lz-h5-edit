@@ -32,6 +32,7 @@ function EditComp(props) {
         {
         backs.map((it, index) => (
           <li
+            key={index}
             style={{
               float: 'left',
               width: 34,
@@ -59,6 +60,7 @@ function EditComp(props) {
         {
         befores.map((it, index) => (
           <li
+            key={index}
             style={{
               float: 'left',
               width: 34,

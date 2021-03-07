@@ -90,6 +90,7 @@ class Phone extends React.Component {
         }
       }
       return {
+        uniqueId: key,
         rect: {
           ...rect,
           left: rect.left + parentRect.x,

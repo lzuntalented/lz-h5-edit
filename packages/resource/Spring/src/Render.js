@@ -19,8 +19,9 @@ function EditComp(props) {
   return (
     <div>
       {
-      title.split('\n').map(it => (
+      title.split('\n').map((it, index) => (
         <div
+          key={index}
           style={{
             textAlign,
             fontSize,
