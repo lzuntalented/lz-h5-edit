@@ -8,6 +8,7 @@ import AideLine from './components/AideLine';
 import Resource from './components/Resource';
 import Preview from './components/Preview';
 import Header from './components/Header';
+import CubePanel from './components/CubePanel';
 import event from './core/event';
 
 // 引入样式文件
@@ -47,6 +48,7 @@ class Home extends React.Component {
             <div className="phone-container">
               <div className="header" />
               <div className="content">
+                <CubePanel />
                 <div className="border-left" />
                 <div className="border-right" />
                 <Phone data={data} />

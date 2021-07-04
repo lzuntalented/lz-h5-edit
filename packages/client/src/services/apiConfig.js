@@ -11,6 +11,7 @@ export default {
     upload: '/file/upload',
     cropImage: '/file/cropImage',
     parsePsd: '/file/parsePsd',
+    getMyList: '/file/getMyList',
   },
   // 商城相关
   mall: {

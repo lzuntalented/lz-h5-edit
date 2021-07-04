@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Router, Route, hashHistory } from 'react-router';
-import { Layout as AntDLayout, Menu } from 'antd';
+import { Layout as AntDLayout, Menu, message } from 'antd';
 
 import home from '../pages/home/Loadable';
 import Preview from '../pages/preview/Loadable';

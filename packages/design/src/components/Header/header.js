@@ -73,7 +73,7 @@ class Header extends React.Component {
   }
 
   onAddPicture = () => {
-    this.setState({ showPictureModal: true });
+    this.setState({ showPictureModal: true, withCrop: false });
   }
 
   onAddComponent = key => () => {

@@ -1,6 +1,7 @@
-import {createShortFont} from '../tools/font';
+import { createShortFont } from '../tools/font';
 import { createZip } from '../tools/zip';
-const Base = require('./base.js'); ;
+
+const Base = require('./base.js');
 
 module.exports = class extends Base {
   indexAction() {
@@ -9,7 +10,13 @@ module.exports = class extends Base {
     return this.display();
   }
 
+  async mockAction() {
+    console.log(+new Date());
+    return this.success('ok');
+  }
+
   async getListAction() {
+    console.log(+new Date());
     const pageIndex = +this.get('pageIndex');
     const pageSize = 11;
     if (!(pageIndex > 0)) {
@@ -21,7 +28,7 @@ module.exports = class extends Base {
     // const result = await model.limit(offset * pageSize, pageSize).order('id DESC').select();
     const result = await model.getList(offset, pageSize);
     const total = await model.count();
-    this.success({list: result, total});
+    this.success({ list: result, total });
   }
 
   async addAction() {
@@ -34,9 +41,11 @@ module.exports = class extends Base {
         return;
       }
       const store = JSON.parse(content);
-      const id = await model.add({ content,
+      const id = await model.add({
+        content,
         title,
-        user_id: this.userId });
+        user_id: this.userId
+      });
       await createShortFont(id, store);
       this.success(id);
     } catch (e) {
@@ -51,7 +60,7 @@ module.exports = class extends Base {
       this.fail('参数错误');
     }
     const model = this.model('opus');
-    const result = await model.where({id}).select();
+    const result = await model.where({ id }).select();
     if (result && result.length > 0) {
       if (source === 'app') {
         const logModel = this.model('log');
@@ -72,11 +81,11 @@ module.exports = class extends Base {
       return;
     }
     const model = this.model('opus');
-    const result = await model.where({id}).select();
+    const result = await model.where({ id }).select();
     if (result && result.length > 0) {
       this.success(result[0]);
       const item = result[0];
-      const {content, id} = item;
+      const { content, id } = item;
       try {
         const url = await createZip(content, id);
         this.download(url, `随心秀-${id}.zip`);

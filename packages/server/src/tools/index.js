@@ -1,8 +1,17 @@
 const path = require('path');
+const fs = require('fs');
 
 const isDev = think.env === 'development';
 
 const PUBLIC_PATH = path.join(think.ROOT_PATH, 'www/static');
+
+export function getMyPhotoPathWithName(uid, name = '') {
+  const uPath = path.join(PUBLIC_PATH, 'photo', 'my', uid);
+  if (!fs.existsSync(uPath)) {
+    fs.mkdirSync(uPath);
+  }
+  return path.join(uPath, name);
+}
 
 export function getPicturePathWithName(name) {
   return path.join(PUBLIC_PATH, 'pic', name);
@@ -44,8 +53,7 @@ export function createRandom(len = 6) {
 }
 
 export function getDomain() {
-  return 'localhost:8380';
-  return isDev ? 'localhost:8380' : 'www.lzuntalented.cn:8380';
+  return isDev ? 'h5.lz.com' : 'show.lzuntalented.cn';
 }
 
 export function translateShowDataFromStore(store) {

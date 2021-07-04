@@ -1,9 +1,13 @@
-import { getPicturePathWithName, createRandom, getPicturePath, getDomain, getBgPicturePath, getPsdTmpPathWithName } from '../tools';
 import jimp from 'jimp';
+import {
+  getPicturePathWithName, createRandom, getPicturePath,
+  getDomain, getBgPicturePath, getPsdTmpPathWithName, getMyPhotoPathWithName
+} from '../tools';
 import { parsePsd } from '../tools/min';
-const path = require('path');
+import { CODE_LOGIN } from '../common/constants';
+
+const fs = require('fs');
 const Base = require('./base.js');
-const fs = require('fs'); ;
 
 module.exports = class extends Base {
   indexAction() {
@@ -13,21 +17,36 @@ module.exports = class extends Base {
   }
 
   async uploadAction() {
+    if (!(this.userId > 0)) {
+      return this.fail(CODE_LOGIN, '请先登录');
+    }
     this.ctx.body = this.ctx.request.body;
     const { body } = this.ctx;
     if (body && body.file && body.file.upFile) {
       const fileObj = body.file.upFile;
       const { path, name } = fileObj;
-      fs.renameSync(path, getPicturePathWithName(`${Date.parse(new Date())}-${createRandom(12)}-${name}`));
-      this.success(fileObj);
+      const fileName = `${Date.parse(new Date())}-${createRandom(12)}-${name}`;
+      fs.renameSync(path, getMyPhotoPathWithName(this.userId, fileName));
+      return this.success(fileObj);
     }
+    return this.fail('操作失败');
   }
 
   async getListAction() {
     const picPath = getPicturePath();
     const list = fs.readdirSync(picPath);
-    const result = list.map(it => `http://${getDomain()}/static/pic/${it}`);
-    this.success(result.reverse());
+    const result = list.map(it => (it === '.gitkeep' ? '' : `http://${getDomain()}/server/static/pic/${it}`));
+    this.success(result.filter(it => it).reverse());
+  }
+
+  async getMyListAction() {
+    if (!(this.userId > 0)) {
+      return this.fail(CODE_LOGIN, '请先登录');
+    }
+    const picPath = getMyPhotoPathWithName(this.userId);
+    const list = fs.readdirSync(picPath);
+    const result = list.map(it => (it === '.gitkeep' ? '' : `http://${getDomain()}/server/static/photo/my/${this.userId}/${it}`));
+    return this.success(result.filter(it => it).reverse());
   }
 
   async cropImageAction() {
@@ -39,8 +58,13 @@ module.exports = class extends Base {
 
     const urlPathList = url.split('/');
     const fileName = urlPathList[urlPathList.length - 1];
-    const filePath = getPicturePathWithName(fileName);
-    const exist = fs.existsSync(filePath);
+    let filePath = getPicturePathWithName(fileName);
+    let exist = fs.existsSync(filePath);
+    if (!exist && +this.userId > 0) {
+      filePath = getMyPhotoPathWithName(this.userId, fileName);
+      exist = fs.existsSync(filePath);
+    }
+
     if (exist) {
       const image = await jimp.read(filePath);
       const data = await image.crop(x, y, width, height);
@@ -50,7 +74,7 @@ module.exports = class extends Base {
       await data.write(getBgPicturePath(saveName));
       return this.success(`http://${getDomain()}/static/bg/${saveName}`);
     }
-    this.fail('参数错误');
+    return this.fail('参数错误');
   }
 
   async parsePsdAction() {
@@ -65,6 +89,6 @@ module.exports = class extends Base {
       const result = await parsePsd(psdname);
       return this.success(result);
     }
-    this.fail('参数错误');
+    return this.fail('参数错误');
   }
 };

@@ -5,6 +5,7 @@
 import Axios from 'axios';
 // import fetch from 'node-fetch';
 import queryString from 'query-string';
+import { message } from 'antd';
 // import Cookies from 'js-cookie';
 
 import constants from '../services/constants';
@@ -35,6 +36,9 @@ export default {
           // console.log(res);
           if (res && res.errno === ajaxRetCode.success) {
             resolve(res.data);
+          } else if (res && res.errno === ajaxRetCode.noLogin) {
+            message.error('请先登录');
+            reject(res);
           } else {
             reject(res);
           }
@@ -62,6 +66,9 @@ export default {
           const res = response.data;
           if (res && res.errno === ajaxRetCode.success) {
             resolve(res.data);
+          } else if (res && res.errno === ajaxRetCode.noLogin) {
+            message.error('请先登录');
+            reject(res);
           } else {
             reject(res);
           }

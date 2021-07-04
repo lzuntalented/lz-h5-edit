@@ -92,7 +92,7 @@ function performRect(flag, startRect, value, moveBoundRect) {
     // const moveBoundRect = obj.moveTag.boundRect;
     const { coordStart, coordEnd } = value;
     const {
-      x, y, width, bottom: height,
+      x, y, width, height,
     } = moveBoundRect;
 
     const ox = x + width / 2;

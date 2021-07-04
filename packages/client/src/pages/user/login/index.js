@@ -18,7 +18,7 @@ function Login(props) {
       // console.log(value); return;
       login(value).then((res) => {
         // const { id } = res;
-        window.location.hash = '#/ucenter/info';
+        window.location.href = '/#/ucenter/info';
         message.success('登录成功');
       }).catch((res) => {
         message.error(res && res.errmsg);
@@ -43,6 +43,7 @@ function Login(props) {
           {getFieldDecorator('username', {
             rules: [{ required: true, message: 'Please input your username!' },
             ],
+            initialValue: "user"
           })(
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -53,6 +54,7 @@ function Login(props) {
         <Form.Item>
           {getFieldDecorator('password', {
             rules: [{ required: true, message: 'Please input your Password!' }],
+            initialValue:"password"
           })(
             <Input
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
@@ -64,6 +66,7 @@ function Login(props) {
         <Button type="primary" className="login-form-button" onClick={handleSubmit}>
           登 录
         </Button>
+        <div className="tip">请注意：用户【user】为默认测试账号，仅仅作为体验功能使用</div>
         <Row type="flex" justify="space-between">
           <Col>
             <a className="login-form-forgot" href="">

@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import LzDesign from '@lzshow/design';
 import { message } from 'antd';
 import {
-  getPictureList, cropImage, save, getDetail,
+  getPictureList, cropImage, save, getDetail, getMyPictureList,
 } from '../../services/create';
 import apiConfig, { getUrlPrefix } from '../../services/apiConfig';
+import WithUserAuth from '../../components/WithUserAuth'
+import { connect } from 'react-redux';
 
-export default function (props) {
+function Create(props) {
   // 库数据
   const libs = {
     psd: {
@@ -20,9 +22,10 @@ export default function (props) {
     // 图片库
     picture: {
       initData: [
-        'http://www.lzuntalented.cn:8380/static/pic/1589697724000-oev0vndl370c-1.jpg',
+        'http://show.lzuntalented.cn/server/static/pic/1589697724000-oev0vndl370c-1.jpg',
       ],
       fetchPromise: getPictureList,
+      fetchMyList: getMyPictureList,
       upLoadProps: {
         name: 'upFile',
         accept: 'image/*',
@@ -123,6 +126,23 @@ export default function (props) {
       onPublish={onPublish}
       libs={libs}
       data={data}
+      onItemClick={() => {
+        console.log('onItemClick')
+      }}
     />
   );
 }
+export default WithUserAuth(Create, {
+  cb: () => {
+    message.error('请先登录');
+    window.location.hash = 'login';
+  }
+})
+
+// const mapStateToProps = (store) => {
+//   console.log(store)
+//   return store;
+// };
+
+// const mapDispatchToProps = dispatch => ({ dispatch });
+// export default connect(mapStateToProps, mapDispatchToProps)(Create);

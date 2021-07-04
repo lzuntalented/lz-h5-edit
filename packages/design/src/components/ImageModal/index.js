@@ -24,7 +24,8 @@ const useCrop = () => {
 
 function ImageModal(props) {
   const {
-    dispatch, onVisibleChange, visible, addMode = true, config, withCrop, onChangeBackground, attrKey,
+    dispatch, onVisibleChange, visible, addMode = true,
+    config, withCrop, onChangeBackground, attrKey,
   } = props;
   const imageListRef = useRef();
 
@@ -39,7 +40,7 @@ function ImageModal(props) {
   const { libs } = config || {};
   const { picture } = libs || {};
   const {
-    initData, fetchPromise, upLoadProps, cropImage,
+    initData, fetchPromise, upLoadProps, cropImage, fetchMyList,
   } = picture || {};
 
   const onAddPicture = imgSrc => () => {
@@ -79,11 +80,22 @@ function ImageModal(props) {
             <ImageList
               defaultPicture={initData}
               fetchPicture={fetchPromise}
+              onAddPicture={onAddPicture}
+            />
+          ),
+        },
+        {
+          title: '我的图片',
+          comp: (
+            <ImageList
+              defaultPicture={[]}
+              fetchPicture={fetchMyList}
               ref={imageListRef}
               onAddPicture={onAddPicture}
             />
           ),
-        }]}
+        },
+        ]}
       >
         <Upload
           {...upLoadProps}

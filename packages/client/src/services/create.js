@@ -26,3 +26,7 @@ export async function uploadPicture(params) {
 export async function cropImage(params) {
   return Ajax.post(file.cropImage, params);
 }
+
+export async function getMyPictureList(params) {
+  return Ajax.get(file.getMyList, params);
+}
