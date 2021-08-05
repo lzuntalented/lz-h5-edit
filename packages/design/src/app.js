@@ -13,6 +13,7 @@ import event from './core/event';
 
 // 引入样式文件
 import './index.scss';
+import { PAGE_TYPE_H5, PAGE_TYPE_LONG } from '@lzshow/constants';
 
 class Home extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class Home extends React.Component {
     this.state = {
       showPreview: false,
       height: window.innerHeight,
+      type: props.type
     };
     this.eventHandler = event();
   }
@@ -37,8 +39,9 @@ class Home extends React.Component {
   }
 
   render() {
-    const { showPreview, height } = this.state;
+    const { showPreview, height, type } = this.state;
     const { data } = this.props;
+    const isLongPage = type === PAGE_TYPE_LONG;
 
     return (
       <div className="home-container" style={{ height }}>
@@ -47,8 +50,8 @@ class Home extends React.Component {
           <Col>
             <div className="phone-container">
               <div className="header" />
-              <div className="content">
-                <CubePanel />
+              <div className={isLongPage ? 'content long' : 'content'}>
+                {this.state.type === PAGE_TYPE_H5 && <CubePanel />}
                 <div className="border-left" />
                 <div className="border-right" />
                 <Phone data={data} />

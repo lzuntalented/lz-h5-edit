@@ -5,7 +5,7 @@ import { getComponentEditMap } from '@lzshow/core';
 import GroupItem from './components/GroupItem';
 import {
   startMove, resetContentHeight, changeActiveEditKey, addAttrs, changeAttrs, emptyAnimate,
-  initStore,
+  initStore, changeBaseStyle
 } from './store/action';
 
 // 引入样式文件
@@ -33,7 +33,7 @@ class Phone extends React.Component {
 
   renderComponent() {
     const {
-      pages, activePage, editList, groupList, dispatch, activeEditKey,
+      pages, activePage, editList, groupList, dispatch, activeEditKey, pageType
     } = this.props;
 
     const list = pages[activePage];
@@ -46,6 +46,7 @@ class Phone extends React.Component {
         addAttrs,
         changeAttrs,
         emptyAnimate,
+        changeBaseStyle,
       };
       if (nodeType === ITEM_TYPE_SINGLE) {
         const { type, ...others } = editList[it];
@@ -61,6 +62,7 @@ class Phone extends React.Component {
             key={it}
             data={others}
             actions={actions}
+            pageType={pageType}
             onItemClick={() => { console.log('dddd'); }}
           />
         );
@@ -76,6 +78,7 @@ class Phone extends React.Component {
             key={it}
             actions={actions}
             list={groupList[it]}
+            pageType={pageType}
           />
         );
       }
@@ -105,10 +108,10 @@ class Phone extends React.Component {
 const mapStateToProps = (store) => {
   const state = store.toJS();
   const {
-    pages, activePage, editList, backGroundImage, backMusicUrl, groupList, activeEditKey,
+    pages, activePage, editList, backGroundImage, backMusicUrl, groupList, activeEditKey, pageType
   } = state;
   const result = {
-    pages, activePage, editList, backGroundImage, backMusicUrl, groupList, activeEditKey,
+    pages, activePage, editList, backGroundImage, backMusicUrl, groupList, activeEditKey, pageType
   };
   return result;
 };

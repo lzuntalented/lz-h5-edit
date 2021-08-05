@@ -11,6 +11,7 @@ import {
   STORE_GROUP_ACTIVE_EDIT_KEYS,
   STORE_GROUP_SPLIT,
   CHANGE_ITEM_ATTR,
+  PAGE_TYPE_H5,
 } from '@lzshow/constants';
 import HistoryStore from '../utils/HistoryStore';
 
@@ -41,6 +42,7 @@ const reducer = (store, action) => {
 
 // 默认全局状态树
 const defaultStore = fromJS({
+  pageType: PAGE_TYPE_H5,
   pages: [
     [],
   ],

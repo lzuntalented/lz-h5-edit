@@ -11,6 +11,7 @@ import {
   ACTION_ANIMATES_ADD, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_CHANGE, ACTION_ANIMATES_PREVIEW,
   ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY,
   ACTION_ANIMATES_PREVIEW_ONE, ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ADD_PSD,
+  ACTION_SET_PAGE_TYPE
 } from '@lzshow/constants';
 
 export function startMove(value) {
@@ -200,4 +201,8 @@ export function changeActiveItemAttrs(value) {
 
 export function addPsd(value) {
   return { type: ACTION_ADD_PSD, value };
+}
+
+export function setPageType(value) {
+  return { type: ACTION_SET_PAGE_TYPE, value };
 }

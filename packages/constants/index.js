@@ -23,6 +23,11 @@ export const POINT_LEFT_BOTTOM = 'lb';
 export const POINT_RIGHT_BOTTOM = 'rb';
 export const POINT_ROTATE = 'rotate';
 
+/** h5类型页面 */ 
+export const PAGE_TYPE_H5 = 1;
+/** 长页面 */
+export const PAGE_TYPE_LONG = 2;
+
 // action type
 // 移动整个框
 export const ALL_ITEM = 'ALL_ITEM';
@@ -138,6 +143,8 @@ export const ACTION_ACTVIE_ALIGN_TOP = 'ACTION_ACTVIE_ALIGN_TOP';
 export const ACTION_ACTVIE_ALIGN_BOTTOM = 'ACTION_ACTVIE_ALIGN_BOTTOM';
 // 添加psd元素
 export const ACTION_ADD_PSD = 'ACTION_ADD_PSD';
+// 设置页面类型
+export const ACTION_SET_PAGE_TYPE = 'ACTION_SET_PAGE_TYPE';
 
 // 组件类型
 // 文本

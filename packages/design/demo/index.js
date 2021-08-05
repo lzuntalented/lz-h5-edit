@@ -5,6 +5,7 @@ import LzDesign from '../src';
 
 // 库数据
 const libs = {
+  type: 2,
   // psd
   psd: {
     upLoadProps: {

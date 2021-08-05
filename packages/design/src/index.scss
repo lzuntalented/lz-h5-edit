@@ -51,6 +51,11 @@ $header-height: 48;
         z-index: 10;
         pointer-events: none;
       }
+
+      &.long {
+        max-height: $phone-height + px;
+        overflow-y: auto;
+      }
     }
     
     .home-aideline-container {

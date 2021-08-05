@@ -78,7 +78,7 @@ class GroupItem extends React.Component {
 
     render() {
       const {
-        list, uniqueId, ...otherProps
+        list, uniqueId, pageType, ...otherProps
       } = this.props;
       const {
         editList, dispatch, activeEditKey, activePage, groupList, actions,
@@ -116,6 +116,7 @@ class GroupItem extends React.Component {
                     uniqueId={item}
                     key={item}
                     list={groupList[item]}
+                    pageType={pageType}
                   />
                 );
               }
@@ -131,6 +132,7 @@ class GroupItem extends React.Component {
                   uniqueId={item}
                   key={item}
                   data={others}
+                  pageType={pageType}
                 />
               );
             })

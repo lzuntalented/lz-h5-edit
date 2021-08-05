@@ -16,7 +16,7 @@ import {
   ACTION_ANIMATES_PREVIEW, ACTION_ANIMATES_REMOVE, ACTION_ANIMATES_HOVER, ACTION_ANIMATES_EMPTY,
   ACTION_ANIMATES_PREVIEW_ONE, ACTION_MULTI_ALIGN_LEFT, ACTION_MULTI_ALIGN_RIGHT, ACTION_MULTI_ALIGN_BOTTOM,
   ACTION_MULTI_ALIGN_TOP, ACTION_MULTI_ALIGN_CENTER_HORIZONTAL, ACTION_MULTI_ALIGN_CENTER_VERTICAL,
-  ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ACTVIE_ALIGN_TOP, ACTION_ACTVIE_ALIGN_LEFT, ACTION_ACTVIE_ALIGN_RIGHT, ACTION_ACTVIE_ALIGN_BOTTOM, ACTION_ADD_PSD,
+  ACTION_CHANGE_ACTIVE_ITEM_ATTRS, ACTION_ACTVIE_ALIGN_TOP, ACTION_ACTVIE_ALIGN_LEFT, ACTION_ACTVIE_ALIGN_RIGHT, ACTION_ACTVIE_ALIGN_BOTTOM, ACTION_ADD_PSD, ACTION_SET_PAGE_TYPE,
 } from '@lzshow/constants';
 import {
   createEditItem, createNode, getAroundRect, createGroup, performGroupRect, deepCopy, winSize,
@@ -1201,6 +1201,16 @@ function addPsd(store, action) {
   return null;
 }
 
+export function setPageType(store, action) {
+  const { type, value } = action;
+  if (type === ACTION_SET_PAGE_TYPE) {
+    const obj = store.toJS();
+    obj.pageType = value;
+    return fromJS(obj);
+  }
+  return null;
+}
+
 export default [
   startMove,
   endMove,
@@ -1255,4 +1265,5 @@ export default [
   changeSingleActiveAlignTop,
   changeSingleActiveAlignBottom,
   addPsd,
+  setPageType
 ];

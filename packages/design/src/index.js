@@ -2,24 +2,30 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
 import { addAllFontCssToStyle } from '@lzshow/utils';
-import store from './store';
+import store, { dispatch } from './store';
 import App from './app';
 import ConfigProvide from './context/provider';
 
 import './style';
+import { setPageType } from './store/action';
 
 export default function LzDesign(props) {
   const {
-    onPublish, libs, data, onItemClick,
+    onPublish, libs, data, onItemClick, 
   } = props;
-  const { font } = libs || {};
+  const { font, type } = libs || {};
   useEffect(() => {
     addAllFontCssToStyle(font.initData || []);
   }, [font]);
+  useEffect(() => {
+    if (type) {
+      dispatch(setPageType(type))
+    }
+  }, [type]);
   return (
     <Provider store={store}>
       <ConfigProvide config={{ onPublish, libs, onItemClick }}>
-        <App data={data} />
+        <App data={data} type={type} />
       </ConfigProvide>
     </Provider>
   );
@@ -39,4 +45,5 @@ LzDesign.propTypes = {
     }).isRequired,
   }).isRequired,
   onItemClick: PropTypes.func.isRequired,
+  type: PropTypes.number
 };

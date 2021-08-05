@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import hotkeys from 'hotkeys-js';
 import {
-  ALL_ITEM, ITEM_TYPE_GROUP,
+  ALL_ITEM, ITEM_TYPE_GROUP, PAGE_TYPE_LONG,
 } from '@lzshow/constants';
 import PreviewAnimation from '../PreviewAnimation';
 
@@ -12,6 +12,7 @@ import './index.scss';
 
 const refNames = {
   content: 'content',
+  editItem: 'editItem',
 };
 
 // let shiftDown = false;
@@ -47,6 +48,13 @@ export default function (Component) {
     }
 
     componentDidMount() {
+      const { dispatch, uniqueId } = this.props;
+      const { changeBaseStyle } = this.actions;
+      const current = this.magicRefs[refNames.editItem];
+      if (current) {
+        const { offsetLeft:left, offsetTop: top } = current;
+        dispatch(changeBaseStyle({ left , top}, uniqueId))
+      }
     }
 
     onClikItem = (e) => {
@@ -151,7 +159,7 @@ export default function (Component) {
     }
 
     render() {
-      const { data } = this.props;
+      const { data, pageType } = this.props;
       const {
         rect, attrs, border = {}, previewAnimates = [],
       } = data;
@@ -181,7 +189,9 @@ export default function (Component) {
             top,
             height,
             transform: `rotate(${rotate}deg)`,
+            position: pageType === PAGE_TYPE_LONG ? 'static' : 'absolute'
           }}
+          ref={this.setMagicRefs(refNames.editItem)}
         >
           <PreviewAnimation
             list={previewAnimates}
