@@ -17,7 +17,7 @@
     "@lzshow/preview": "^0.1.22",
     "@lzshow/utils": "^0.1.22",
     "antd": "^3.6.6",
-    "axios": "^0.19.0",
+    "axios": ">=0.21.1",
     "dayjs": "^1.9.7",
     "echarts": "^4.8.0",
     "html2canvas": "^1.0.0-rc.7",
