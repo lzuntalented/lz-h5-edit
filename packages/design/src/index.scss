@@ -53,8 +53,8 @@ $header-height: 48;
       }
 
       &.long {
-        max-height: $phone-height + px;
-        overflow-y: auto;
+        min-height: $phone-height + px;
+        height: auto;
       }
     }
     
