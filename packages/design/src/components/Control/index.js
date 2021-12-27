@@ -99,7 +99,7 @@ class Phone extends React.Component {
       };
     }
 
-    renderLine(it) {
+    renderLine(it, pageType) {
       const {
         uniqueId, group, rect,
         origin = {},
@@ -176,7 +176,7 @@ class Phone extends React.Component {
     }
 
     render() {
-      const { editList, groupList, activeEditKey } = this.props;
+      const { editList, groupList, activeEditKey, pageType } = this.props;
       const items = [];
       const belongs = {};
       activeEditKey.forEach((it) => {
@@ -228,12 +228,12 @@ class Phone extends React.Component {
                     <li className="line l" />
                     <li className="line r" />
                     {
-                      children.map(that => this.renderLine(that))
+                      children.map(that => this.renderLine(that, pageType))
                     }
                   </ul>
                 );
               }
-              return this.renderLine(it);
+              return this.renderLine(it, pageType);
             })
         }
         </div>
@@ -244,10 +244,10 @@ class Phone extends React.Component {
 const mapStateToProps = (store) => {
   const state = store.toJS();
   const {
-    editList, groupList, activeEditKey,
+    editList, groupList, activeEditKey, pageType
   } = state;
   const result = {
-    editList, groupList, activeEditKey,
+    editList, groupList, activeEditKey, pageType
   };
   return result;
 };
