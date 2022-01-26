@@ -4,7 +4,6 @@ import isMobile from 'ismobilejs';
 import { winSize } from '@lzshow/utils';
 import App from './App';
 import './index.scss';
-import 'antd/dist/antd.css';
 
 function setPageScale() {
   const width = window.innerWidth;

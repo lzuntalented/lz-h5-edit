@@ -25,6 +25,11 @@ module.exports = class extends Base {
     if (body && body.file && body.file.upFile) {
       const fileObj = body.file.upFile;
       const { path, name } = fileObj;
+      const nameList = name.split('.');
+      const ext = nameList[nameList.length - 1]
+      if (!['jpg','png','jpeg','gif','svg','webp','apng'].includes(String(ext).toLowerCase())) {
+        return this.fail('请上传图片文件')
+      }
       const fileName = `${Date.parse(new Date())}-${createRandom(12)}-${name}`;
       fs.renameSync(path, getMyPhotoPathWithName(this.userId, fileName));
       return this.success(fileObj);
@@ -83,6 +88,11 @@ module.exports = class extends Base {
     if (body && body.file && body.file.upFile) {
       const fileObj = body.file.upFile;
       const { path, name } = fileObj;
+      const nameList = name.split('.');
+      const ext = nameList[nameList.length - 1]
+      if (!['psd'].includes(String(ext).toLowerCase())) {
+        return this.fail('请上传psd文件')
+      }
       const psdTmpPath = `${Date.parse(new Date())}-${createRandom(12)}-${name}`;
       const psdname = getPsdTmpPathWithName(psdTmpPath);
       fs.renameSync(path, psdname);

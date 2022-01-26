@@ -31,7 +31,7 @@ http://localhost:9999/design.html
 http://localhost:9999/opus.html?id=作品编号
 
 # 本地启动服务端
-# 先将server/sql下sql文件导入数据库
+# 先将packages/server/sql下sql文件导入数据库
 npm run server
 
 // 构建

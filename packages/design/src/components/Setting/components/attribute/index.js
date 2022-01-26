@@ -92,6 +92,8 @@ class Attribute extends React.Component {
       if (isString(key)) {
         data = attrs[key];
       }
+      console.log(Comp, 'Comp---------------', it)
+      if (it.renderType === 'STYLE_RENDER_TYPE_SLIDER_INPUT' ) return null
       return (
         Comp
           ? (

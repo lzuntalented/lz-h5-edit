@@ -6,6 +6,7 @@ import hotkeys from 'hotkeys-js';
 import {
   Icon, Button, Upload, Modal, Popover,
 } from 'antd';
+import { UndoOutlined, RedoOutlined, BorderInnerOutlined, PictureOutlined, QrcodeOutlined, StrikethroughOutlined, DashboardOutlined } from "@ant-design/icons"
 
 import './index.scss';
 import { isFunction } from '@lzshow/utils';
@@ -182,32 +183,32 @@ class Header extends React.Component {
         </div>
         <ul className="ul-comp">
           <li className="item" onClick={this.onUndo}>
-            <Icon type="undo" className="icon" />
+            <UndoOutlined className="icon" />
             <div className="txt">撤销</div>
           </li>
           <li className="item" onClick={this.onRedo}>
-            <Icon type="redo" className="icon" />
+            <RedoOutlined className="icon" />
             <div className="txt">重做</div>
           </li>
           <li className="item" onClick={this.onAddText}>
-            <Icon type="border-inner" className="icon" />
+            <BorderInnerOutlined className="icon" />
             <div className="txt">文本</div>
           </li>
           <li className="item" onClick={this.onAddPicture}>
-            <Icon type="picture" className="icon" />
+            <PictureOutlined className="icon" />
             <div className="txt">图片</div>
           </li>
           <li className="item" onClick={this.onChangeModalBgVisible(true)}>
-            <Icon type="qrcode" className="icon" />
+            <QrcodeOutlined className="icon" />
             <div className="txt">背景</div>
           </li>
           <li className="item" onClick={this.onChangeModalMusicVisible(true)}>
-            <Icon type="customer-service" className="icon" />
+            <StrikethroughOutlined className="icon" />
             <div className="txt">音效</div>
           </li>
           <Popover content={<PSD dispatch={this.onUploadPsd} />} trigger="click">
             <li className="item">
-              <Icon type="dashboard" className="icon" />
+              <DashboardOutlined className="icon" />
               <div className="txt">PSD</div>
             </li>
           </Popover>

@@ -49,9 +49,19 @@ export function isDaily() {
   return false;
 }
 
+export function isBeta() {
+  if (window.location.host === 'show-beta.lzuntalented.cn') {
+    return true;
+  }
+  return false;
+}
+
 export function getDomain() {
   let result = 'http://show.lzuntalented.cn';
   const dailyHost = isDaily();
+  if (isBeta()) {
+    return ''
+  }
   if (isString(dailyHost)) {
     result = 'http://h5.lz.com';
   } else if (dailyHost) {

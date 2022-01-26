@@ -39,10 +39,10 @@ exports.model = {
     database: 'heart-show',
     prefix: 'l_',
     encoding: 'utf8',
-    host: '127.0.0.1',
+    host: '192.168.31.114',
     port: '',
-    user: 'root',
-    password: '',
+    user: 'lz',
+    password: 'kwbacm',
     dateStrings: true
   }
 };

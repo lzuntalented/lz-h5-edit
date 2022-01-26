@@ -9,15 +9,17 @@ import './style';
 
 function App() {
   const [userInfo, setUserInfo] = useState(null);
+  const [fetchFinish, setFetchFinish] = useState(false);
   useEffect(() => {
     info().then((res) => {
       setUserInfo(res);
     }).catch((e) => {
       // e && e.errmsg && message.error(e.errmsg);
       // window.location.hash = 'login';
-    })
+    }).finally(()=>setFetchFinish(true))
   }, []);
   return (
+    fetchFinish &&
     <UserContext.Provider value={{userInfo, setUserInfo}}>
       {router}
     </UserContext.Provider>

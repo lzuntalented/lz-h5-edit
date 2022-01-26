@@ -3,7 +3,7 @@ import {
   Row, Col, Slider, Input,
 } from 'antd';
 
-export default function RenderStyle(props) {
+export default function RenderSlideInputStyle(props) {
   const {
     data, onChange, attrs = {}, label,
   } = props;

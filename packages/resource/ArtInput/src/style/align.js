@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Row, Col, Tooltip, Icon,
 } from 'antd';
+import { PicLeftOutlined, PicRightOutlined } from '@ant-design/icons'
 
 import './style.scss';
 
@@ -20,12 +21,12 @@ export default function StyleAlign(props) {
     <Row align="middle" type="flex" gutter={6} className="quick-btns">
       <Col>
         <Tooltip placement="top" title="靠左">
-          <Icon type="align-left" className={data.textAlign === 'left' && 'active'} onClick={() => onChange({ textAlign: 'left' })} />
+          <PicLeftOutlined className={data.textAlign === 'left' && 'active'} onClick={() => onChange({ textAlign: 'left' })} />
         </Tooltip>
       </Col>
       <Col>
         <Tooltip placement="top" title="靠左">
-          <Icon type="align-center" className={data.textAlign === 'center' && 'active'} onClick={() => onChange({ textAlign: 'center' })} />
+          <PicRightOutlined type="align-center" className={data.textAlign === 'center' && 'active'} onClick={() => onChange({ textAlign: 'center' })} />
         </Tooltip>
       </Col>
       <Col>

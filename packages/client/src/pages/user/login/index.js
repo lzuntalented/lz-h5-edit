@@ -1,20 +1,19 @@
 import React from 'react';
 import {
-  Form, Input, Icon, Button, Col, Row, message,
+  Form, Input, Button, Col, Row, message,
 } from 'antd';
-import JParticles from 'jparticles';
+import {UserOutlined,LockOutlined} from '@ant-design/icons';
 
 import './index.scss';
 import { login } from '../../../services/user';
 
 const bgRef = React.createRef();
 
-function Login(props) {
-  const { form } = props;
-  const { getFieldDecorator } = form;
+function Login() {
+  const [form] = Form.useForm();
   const handleSubmit = () => {
-    form.validateFields((err, value) => {
-      if (err) return;
+    form.validateFields().then((value) => {
+      console.log(value); 
       // console.log(value); return;
       login(value).then((res) => {
         // const { id } = res;
@@ -25,43 +24,28 @@ function Login(props) {
       });
     });
   };
-  React.useEffect(() => {
-    const Ctor = JParticles.particle;
-    const hannder = new Ctor('#bg', {
-      num: 20,
-    });
-    console.log(hannder);
-  }, []);
   return (
     <div className="page-login">
       <div className="home-logo">
         <img src="http://www.lzuntalented.cn/img/home-log.png" alt="" width="100%" />
         <img src="http://www.lzuntalented.cn/img/heart-logo.png" alt="" height="48" />
       </div>
-      <Form className="login-container">
-        <Form.Item>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your username!' },
-            ],
-            initialValue: "user"
-          })(
+      <Form form={form} className="login-container" initialValues={{
+        username: "user",
+        password: "password"
+      }}>
+        <Form.Item name="username" rules={ [{ required: true, message: 'Please input your username!' }]}>
             <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+            prefix={<UserOutlined />}
               placeholder="请输入邮箱/用户名"
-            />,
-          )}
+            />
         </Form.Item>
-        <Form.Item>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-            initialValue:"password"
-          })(
+        <Form.Item name="password" rules={[{ required: true, message: 'Please input your Password!' }]}>
             <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<LockOutlined />}
               type="password"
               placeholder="请输入密码"
-            />,
-          )}
+            />
         </Form.Item>
         <Button type="primary" className="login-form-button" onClick={handleSubmit}>
           登 录
@@ -83,4 +67,4 @@ function Login(props) {
   );
 }
 
-export default Form.create()(Login);
+export default Login;

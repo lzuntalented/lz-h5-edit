@@ -84,7 +84,7 @@ function generatorHtmlPlugins() {
 
 module.exports = {
   entry,
-  devtool: '#source-map',
+  devtool: 'inline-cheap-module-source-map',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
@@ -114,7 +114,15 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        loader: 'style-loader!css-loader!sass-loader',
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+        // use: 'style-loader!css-loader!sass-loader',
       },
       {
         test: /\.(png|jpg)$/,
@@ -122,7 +130,14 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader',
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "less-loader",
+        ],
       },
     ],
   },
@@ -130,7 +145,7 @@ module.exports = {
     host: '0.0.0.0',
     // 由于爱奇艺客户端使用9901端口，因此更换
     port: 9999,
-    disableHostCheck: true, //  新增该配置项
+    // disableHostCheck: true, //  新增该配置项
   },
   plugins: [
     ...generatorHtmlPlugins(),

@@ -1,4 +1,5 @@
 @import url(//at.alicdn.com/t/font_1471801_7z31v9tt5tj.css);
+@import '~antd/dist/antd.css';
 
 @function toREM($n) {
   @return $n * 0.083rem ;

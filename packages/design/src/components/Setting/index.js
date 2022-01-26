@@ -69,60 +69,60 @@ class Setting extends React.Component {
     return (
       activeEditKey && activeEditKey.length > 0
       && (
-      <Draggable
-        axis="both"
-        handle=".component-setting-container > .header"
-        defaultPosition={{ x: 0, y: 0 }}
-        position={null}
-        grid={[25, 25]}
-        scale={1}
-        onStart={this.handleStart}
-        onDrag={this.handleDrag}
-        onStop={this.handleStop}
-      >
-        <section className="component-setting-container">
-          <header className="header">组件设置</header>
-          <Tabs className="tabs-content" defaultActiveKey="1">
-            <TabPane tab="样式" key="1">
-              <div className="tabs-content-overflow">
-                {
+        <Draggable
+          axis="both"
+          handle=".component-setting-container > .header"
+          defaultPosition={{ x: 0, y: 0 }}
+          position={null}
+          grid={[25, 25]}
+          scale={1}
+          onStart={this.handleStart}
+          onDrag={this.handleDrag}
+          onStop={this.handleStop}
+        >
+          <section className="component-setting-container">
+            <header className="header">组件设置</header>
+            <Tabs className="tabs-content" defaultActiveKey="1">
+              <TabPane tab="样式" key="1">
+                <div className="tabs-content-overflow">
+                  {
                     this.renderComponent()
-                }
-                <Collapse>
-                  <Collapse.Panel header="边框" key="1">
-                    {
-                item && <SettingBorder {...item} setBorder={this.setBorder} />
-              }
-                  </Collapse.Panel>
-                  <Collapse.Panel header="位置与尺寸" key="3">
-                    {
-                item && (
-                <SettingPosition
-                  {...item}
-                  dispatchAction={this.dispatchAction}
-                  setBaseStyle={this.setBaseStyle}
-                />
+                  }
+                  <Collapse>
+                    <Collapse.Panel header="边框" key="1">
+                      {
+                        item && <SettingBorder {...item} setBorder={this.setBorder} />
+                      }
+                    </Collapse.Panel>
+                    <Collapse.Panel header="位置与尺寸" key="3">
+                      {
+                        item && (
+                          <SettingPosition
+                            {...item}
+                            dispatchAction={this.dispatchAction}
+                            setBaseStyle={this.setBaseStyle}
+                          />
+                        )
+                      }
+                    </Collapse.Panel>
+                  </Collapse>
+                  <div className="text-center m-t-12 m-b-12">
+                    <Button onClick={this.onRemove} type="danger">删除元素</Button>
+                  </div>
+                </div>
+
+              </TabPane>
+              {
+                activeEditKey.length === 1
+                && (
+                  <TabPane tab="动画" key="2">
+                    <Animate />
+                  </TabPane>
                 )
               }
-                  </Collapse.Panel>
-                </Collapse>
-                <div className="text-center m-t-12 m-b-12">
-                  <Button onClick={this.onRemove} type="danger">删除元素</Button>
-                </div>
-              </div>
-
-            </TabPane>
-            {
-              activeEditKey.length === 1
-              && (
-              <TabPane tab="动画" key="2">
-                <Animate />
-              </TabPane>
-              )
-            }
-          </Tabs>
-        </section>
-      </Draggable>
+            </Tabs>
+          </section>
+        </Draggable>
       )
     );
   }

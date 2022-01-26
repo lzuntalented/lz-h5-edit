@@ -18,7 +18,7 @@
     "@lzshow/preview": "^0.1.22",
     "@lzshow/resource": "^0.1.22",
     "@lzshow/utils": "^0.1.22",
-    "antd": "^3.6.6",
+    "antd": "^4.0.0",
     "array-move": "^2.1.0",
     "classnames": "^2.2.6",
     "cropperjs": "^1.5.1",

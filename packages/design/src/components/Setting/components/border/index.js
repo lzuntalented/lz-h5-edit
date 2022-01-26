@@ -12,7 +12,7 @@ export default function (props) {
     width = 0, style, color, radius = 0,
   } = border;
   return (
-    <div className="animate-container">
+    <div>
       <Row align="middle" type="flex" gutter={8}>
         <Col span={8}>边框样式</Col>
         <Col span={16}>
