@@ -65,6 +65,14 @@ function Create(props) {
           name: '婚礼进行曲',
           url: 'http://www.lzuntalented.cn/assets/music/hljinxingqu.mp3',
         },
+        {
+          name: '少年',
+          url: 'http://www.lzuntalented.cn/assets/music/shaonian.mp3'
+        },
+        {
+          name: '平凡之路',
+          url: 'http://www.lzuntalented.cn/assets/music/pingfanzhilu.mp3'
+        }
       ],
     },
     font: {
