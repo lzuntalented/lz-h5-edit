@@ -15,6 +15,9 @@
 ## 使用
 
 ```bash
+# node 版本16+
+# npm可使用国内镜像
+npm config set registry https://registry.npmmirror.com/
 # 首先安装lerna
 npm i lerna -g
 # 安装依赖
