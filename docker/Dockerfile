@@ -20,7 +20,7 @@ RUN cd /home/ && tar -xvJf node.tar.xz
 RUN echo "export PATH=/home/node-v14.6.0-linux-x64/bin:\$PATH" >> /root/.profile
 ENV PATH="/home/node-v14.6.0-linux-x64/bin:${PATH}"
 
-RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
+RUN npm install -g cnpm --registry=https://registry.npmmirror.com
 RUN cnpm i lerna -g
 RUN cnpm i pm2 -g
 
