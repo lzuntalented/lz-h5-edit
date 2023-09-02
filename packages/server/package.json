@@ -36,7 +36,7 @@
     "ava": "^0.18.0",
     "@babel/cli": "^7.8.4",
     "babel-preset-think-node": "^1.0.0",
-    "eslint": "^4.19.1",
+    "eslint": "^8.39.0",
     "eslint-config-think": "^1.0.0",
     "node-notifier": "^5.0.2",
     "nyc": "^7.0.0",
